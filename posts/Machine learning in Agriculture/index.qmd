@@ -1,0 +1,15 @@
+---
+title: "Machine learning in Agriculture"
+author: "Kunal Khurana"
+date: "2023-04-21"
+categories: [Machine learning, Soil Analysis, Yield prediction]
+image: "ML_in_agri.jpg"
+---
+
+The article ["Machine Learning in Agriculture: A Review"](https://www.researchgate.net/profile/Muhammad-Suleman-Memon/publication/351766285_Machine_Learning_In_Agriculture_A_Review/links/60a83aae45851522bc0a5479/Machine-Learning-In-Agriculture-A-Review.pdf) provides a comprehensive overview of the current state and potential applications of machine learning in agriculture. 
+
+The authors first introduce the concept of machine learning and its various techniques, including supervised, unsupervised, and reinforcement learning. They then provide an overview of the different areas in agriculture where machine learning can be applied, such as crop yield prediction, plant disease diagnosis, soil analysis, and livestock management.
+
+The article further explores the use of different types of sensors and data collection techniques that can be used to gather data for machine learning applications in agriculture. The authors also discuss the challenges associated with implementing machine learning in agriculture, such as data quality, lack of standardization, and limited computational resources.
+
+The authors present several case studies and examples of successful machine learning applications in agriculture, including precision farming, crop monitoring, and yield prediction. The article concludes with a discussion on the future directions and potential impact of machine learning in agriculture, including the development of new tools and technologies to support sustainable agriculture practices and enhance food security.

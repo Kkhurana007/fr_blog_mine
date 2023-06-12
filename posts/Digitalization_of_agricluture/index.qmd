@@ -1,0 +1,12 @@
+---
+title: "Digitaliztion of Agriculture"
+author: "Kunal Khurana"
+date: "2023-04-17"
+categories: [Digitalization, Machine learning, AI]
+image: "Digitaliztion.png"
+---
+
+The article- ["The next wave of agriculture in Saskatchewan is digital and Indigenous-led"](https://paletteskills.org/resources/the-next-wave-of-agriculture-in-saskatchewan-is-digital-and-indigenous-led) discusses how Indigenous communities in Saskatchewan are utilizing digital technologies to revitalize traditional farming practices.
+
+
+While also introducing new techniques to increase crop yields and reduce the impact of climate change and with the use of precision agriculture, remote sensing technologies, and data analysis, these communities are working to improve soil health, increase biodiversity, and foster sustainable practices. The article highlights several Indigenous-led initiatives, such as the One House, Many Nations project and the Whitecap Dakota First Nation's Regenerative Farming Program, which are helping to promote food sovereignty and economic development in the region. Additionally, these initiatives are providing opportunities for Indigenous youth to learn about their cultural heritage and connect with the land.

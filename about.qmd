@@ -1,19 +1,58 @@
 ---
-title: "About"
-image: profile.jpg
+title: "Kunal Khurana"
+comments: false
+image: Kunal_pic.jpeg
 about:
-  template: jolla
+  template: trestles
   links:
+    - icon: envelope
+      text: Email
+      href: mailto:Khuranasoilpau@gmail.com
+    - icon: github
+      text: GitHub
+      href: https://github.com/KKhurana007
     - icon: twitter
       text: Twitter
-      href: https://twitter.com
-    - icon: linkedin
-      text: LinkedIn
-      href: https://linkedin.com
-    - icon: github
-      text: Github
-      href: https://github.com
-
+      href: https://twitter.com/kunalkhurana007     
 ---
 
-About this blog
+<center>
+
+::: {.btn-group role="group" aria-label="About"}
+<a href="about.html"> <button type="button" class="btn btn-primary me-md-2 btn-sm">English</button></a> <a href="about-fr.html"> <button type="button" class="btn btn-primary me-md-2 btn-sm">Français</button></a>
+:::
+
+</center>
+
+::: {#hero-heading}
+---
+
+Hi! I’m Kunal Khurana, a soil physicist with experience in agronomy, soil fertility, and plant nutrition. I’ve more than 10 years of experience in agricultural and soils research, gained by working at different geographic locations of the world on diverse projects with different experts. I am particularly passionate about working with AI and machine learning professionals to fight against climate change by storing more amount of C in the soil and saving precious water.
+
+
+
+## 📝Education
+
+2022| GÉNIE ET SCIENCE APPLIQUÉES| CÉGEP DU VIEUX MONTRÉAL, CA
+
+2021| FRANCISATION ET INÉGRATION AU MILIEU QUÉBÉCOIS| UNIVERSITÉ LAVAL, CA
+
+2016| MASTER’S IN SOIL SCIENCE| PUNJAB AGRICULTURAL UNIVERSITY, IN
+
+2013| BACHELOR’S IN AGRICULTURE| PUNJABI UNIVERSITY PATIALA, IN
+
+
+## 🧑‍💼 Work Experience
+
+September 2022 -- March 2023| RESEARCH ASSISTANT, McGill University
+
+SEPTEMBER 2020 -- NOVEMBER 2020| FREELANCE TRANSLATOR, CERDA
+
+January 2019 -- August 2019| GRADUATE RESEARCH ASSISTANT, Université Laval
+
+October 2016 -- March 2017| RESEARCH ASSISTANT, PUNJAB AGRICULTURAL UNIVERSITY
+
+## Let's Connect!
+One of my greatest motivations for creating online content is to engage with fascinating individuals from all over the world. If you're interested in having a chat, feel free to reach out to me. I would love to hear from you!
+
+:::

@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.340">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nonu Singh">
+<meta name="dcterms.date" content="2023-05-12">
+<meta name="description" content="A sample notebook to analyze any research data.">
+
+<title>Titanic dataset analysis using Pandas and Numpy</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="titanic_files/libs/clipboard/clipboard.min.js"></script>
+<script src="titanic_files/libs/quarto-html/quarto.js"></script>
+<script src="titanic_files/libs/quarto-html/popper.min.js"></script>
+<script src="titanic_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="titanic_files/libs/quarto-html/anchor.min.js"></script>
+<link href="titanic_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="titanic_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="titanic_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="titanic_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="titanic_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Titanic dataset analysis using Pandas and Numpy</h1>
+<p class="subtitle lead">Data Visualization</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Numpy</div>
+    <div class="quarto-category">Pandas</div>
+    <div class="quarto-category">Data Analysis</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    A sample notebook to analyze any research data.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nonu Singh </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 12, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<blockquote class="blockquote">
+<p>This notebook follows the <a href="https://docs.fast.ai/dev/style.html#style-guide">fastai style conventions</a>.</p>
+</blockquote>
+<section id="importnig-packages" class="level2">
+<h2 class="anchored" data-anchor-id="importnig-packages">Importnig packages</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats, integrate</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(color_codes<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>pylab inline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Populating the interactive namespace from numpy and matplotlib</code></pre>
+</div>
+</div>
+</section>
+<section id="problem-statement" class="level2">
+<h2 class="anchored" data-anchor-id="problem-statement">Problem Statement</h2>
+<section id="what-is-the-dependent-variable-and-what-are-the-factors-in-this-data-who-had-more-chances-of-survival-what-are-the-factors" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-dependent-variable-and-what-are-the-factors-in-this-data-who-had-more-chances-of-survival-what-are-the-factors">What is the dependent variable and what are the factors in this data? Who had more chances of survival, what are the factors?</h3>
+<p>Data exploration section will investigate the dependent variable ‘Survived’ and understand the relationship of factors such as being a female, or child, or being in a certain class, or having sibling/spouse, parent/child affect the survival rate. We will also come up with a hypothesis and test it.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'Titanic.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">PassengerId</th>
+<th data-quarto-table-cell-role="th">Survived</th>
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">SibSp</th>
+<th data-quarto-table-cell-role="th">Parch</th>
+<th data-quarto-table-cell-role="th">Ticket</th>
+<th data-quarto-table-cell-role="th">Fare</th>
+<th data-quarto-table-cell-role="th">Cabin</th>
+<th data-quarto-table-cell-role="th">Embarked</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>0</td>
+<td>3</td>
+<td>Braund, Mr. Owen Harris</td>
+<td>male</td>
+<td>22.0</td>
+<td>1</td>
+<td>0</td>
+<td>A/5 21171</td>
+<td>7.2500</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+<td>female</td>
+<td>38.0</td>
+<td>1</td>
+<td>0</td>
+<td>PC 17599</td>
+<td>71.2833</td>
+<td>C85</td>
+<td>C</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>1</td>
+<td>3</td>
+<td>Heikkinen, Miss. Laina</td>
+<td>female</td>
+<td>26.0</td>
+<td>0</td>
+<td>0</td>
+<td>STON/O2. 3101282</td>
+<td>7.9250</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+<td>female</td>
+<td>35.0</td>
+<td>1</td>
+<td>0</td>
+<td>113803</td>
+<td>53.1000</td>
+<td>C123</td>
+<td>S</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>0</td>
+<td>3</td>
+<td>Allen, Mr. William Henry</td>
+<td>male</td>
+<td>35.0</td>
+<td>0</td>
+<td>0</td>
+<td>373450</td>
+<td>8.0500</td>
+<td>NaN</td>
+<td>S</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="data-wrangling" class="level2">
+<h2 class="anchored" data-anchor-id="data-wrangling">Data Wrangling</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 891 entries, 0 to 890
+Data columns (total 12 columns):
+PassengerId    891 non-null int64
+Survived       891 non-null int64
+Pclass         891 non-null int64
+Name           891 non-null object
+Sex            891 non-null object
+Age            714 non-null float64
+SibSp          891 non-null int64
+Parch          891 non-null int64
+Ticket         891 non-null object
+Fare           891 non-null float64
+Cabin          204 non-null object
+Embarked       889 non-null object
+dtypes: float64(2), int64(5), object(5)
+memory usage: 66.2+ KB</code></pre>
+</div>
+</div>
+<p>The titanic data given has 891 rows, most of the columns have 891 rows except Age, Cabin and Embarked.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[<span class="st">'Cabin'</span>].describe())</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[<span class="st">'Embarked'</span>].describe())</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[<span class="st">'Age'</span>].describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>count         204
+unique        147
+top       B96 B98
+freq            4
+Name: Cabin, dtype: object
+count     889
+unique      3
+top         S
+freq      644
+Name: Embarked, dtype: object
+count    714.000000
+mean      29.699118
+std       14.526497
+min        0.420000
+25%       20.125000
+50%       28.000000
+75%       38.000000
+max       80.000000
+Name: Age, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Cabin'</span>].value_counts().plot(kind <span class="op">=</span><span class="st">'bar'</span>, figsize<span class="op">=</span> (<span class="dv">15</span>,<span class="dv">3</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sns.plt.title(<span class="st">'Frequency/Counts by Cabin'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;matplotlib.text.Text&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="titanic_files/figure-html/cell-9-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Cabin has 147 unique values for 204 rows, Max freq is 4. It is difficult to draw conclusion on this data and since it has just 22.8% of rows, I will be dropping this column from any further analysis. Also PassengerId does not give me any useful information, so I will drop that column as well</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> data[<span class="st">'Cabin'</span>]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> data[<span class="st">'PassengerId'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let us also drop the rows with missing values for Age and Embarked now</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data.dropna(subset <span class="op">=</span> [<span class="st">'Embarked'</span>, <span class="st">'Age'</span>], inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Int64Index: 712 entries, 0 to 890
+Data columns (total 10 columns):
+Survived    712 non-null int64
+Pclass      712 non-null int64
+Name        712 non-null object
+Sex         712 non-null object
+Age         712 non-null float64
+SibSp       712 non-null int64
+Parch       712 non-null int64
+Ticket      712 non-null object
+Fare        712 non-null float64
+Embarked    712 non-null object
+dtypes: float64(2), int64(4), object(4)
+memory usage: 50.1+ KB</code></pre>
+</div>
+</div>
+<p>Pclass should not be numeric, so let us update it to upper, middle and lower class. For that, we need to look at its relationship with Fare</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">"Pclass"</span>, y<span class="op">=</span><span class="st">"Fare"</span>, data<span class="op">=</span>data)<span class="op">;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>sns.plt.title(<span class="st">'Pclass by Mean Fare'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;matplotlib.text.Text&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="titanic_files/figure-html/cell-13-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Mean Fare of Pclass 1 was 88 dollars, Pclass 2 was 21.47 dollars and Pclass 3 was 13.22 dollars, so let us update the values of Pclass to ‘Upper’ for Class 1, ‘Middle’ for Class 2 and ‘Lower’ for Class 3</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>data.loc[data[<span class="st">'Pclass'</span>] <span class="op">==</span> <span class="dv">1</span>, <span class="st">'Pclass'</span>] <span class="op">=</span> <span class="st">'Upper'</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>data.loc[data[<span class="st">'Pclass'</span>] <span class="op">==</span> <span class="dv">2</span>, <span class="st">'Pclass'</span>] <span class="op">=</span> <span class="st">'Middle'</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>data.loc[data[<span class="st">'Pclass'</span>] <span class="op">==</span> <span class="dv">3</span>, <span class="st">'Pclass'</span>] <span class="op">=</span> <span class="st">'Lower'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-exploration" class="level2">
+<h2 class="anchored" data-anchor-id="data-exploration">Data Exploration</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribution of numeric variables</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2, ax3, ax4) <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">4</span>, figsize <span class="op">=</span> (<span class="dv">15</span>,<span class="dv">3</span>))</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Age'</span>].plot(kind <span class="op">=</span><span class="st">'hist'</span>, bins <span class="op">=</span> <span class="dv">25</span>, ax<span class="op">=</span>ax1)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Age'</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Fare'</span>].plot(kind <span class="op">=</span> <span class="st">'hist'</span>, bins<span class="op">=</span> <span class="dv">25</span>, ax<span class="op">=</span>ax2)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Fare'</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Parch'</span>].plot(kind <span class="op">=</span> <span class="st">'hist'</span>, ax<span class="op">=</span>ax3)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>ax3.set_title(<span class="st">'Parch'</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'SibSp'</span>].plot(kind <span class="op">=</span> <span class="st">'hist'</span>, ax<span class="op">=</span>ax4)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>ax4.set_title(<span class="st">'SibSp'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;matplotlib.text.Text&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="titanic_files/figure-html/cell-15-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribution of categorical variables</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2, ax3, ax4) <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">4</span>, figsize <span class="op">=</span> (<span class="dv">12</span>,<span class="dv">3</span>))</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Sex'</span>].value_counts().plot(kind <span class="op">=</span><span class="st">'bar'</span>, ax<span class="op">=</span>ax1)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Sex'</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Survived'</span>].value_counts().plot(kind <span class="op">=</span> <span class="st">'bar'</span>, ax<span class="op">=</span>ax2)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Survived'</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>ax2.set_xticklabels([<span class="st">'Perished'</span>, <span class="st">'Survived'</span>])</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Pclass'</span>].value_counts().plot(kind <span class="op">=</span> <span class="st">'bar'</span>, ax<span class="op">=</span>ax3)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>ax3.set_title(<span class="st">'Pclass'</span>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Embarked'</span>].value_counts().plot(kind <span class="op">=</span> <span class="st">'bar'</span>, ax<span class="op">=</span>ax4)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>ax4.set_title(<span class="st">'Embarked'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;matplotlib.text.Text&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="titanic_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>The above plots show the distributions of numerical and categorical columns in our data. Age ranges from 0 to 80 years with mean and mode around 25-30 years, Fare ranges from 0 to over 500 dollars, Parch and SibSp has its mode at 0 meaning most people did not travel with any parent/child or sibling/spouse, There were around 453 males and 289 females onboard, 424 perished and 288 survived. Most of the passengers were in Lower Pclass and embarked at station S.</p>
+<section id="understanding-the-dependencies-of-dependent-and-independent-variables" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-the-dependencies-of-dependent-and-independent-variables">Understanding the dependencies of dependent and independent variables</h3>
+<p>Since for the given data, more than 50% of the passengers perished, We will investigate the factors that survival of the passengers depend on and would like to answer questions like did females have more chance of surviving, how does age or fare affect the survival, does having a parent or child, or sibling or spouse influence survival and how does Pclass affect survival. Dependent variable is ‘Survived’ which gives 0 for rows for passengers who perished and 1 for passengers that survived. Independent variables are Sex, Pclass, Embarked, Age, Fare etc.</p>
+<p>There could be other factors or variables like location of cabins or location/state(sleep or awake) of passengers at the time of the accident etc which we had limited data for and hence ave been omitted from the analysis. We also omitted rows that had missing values for ‘Age’ and ‘Embarked’ so that will also skew the statistical analysis a bit.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Function to create grouped data by factors</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> grouped_by_factors(df,factor):</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    mean_by_factor <span class="op">=</span> df.groupby(factor).describe()</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mean_by_factor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Some understanding of mean/max/std/count would be helpful for our analysis so I created a function to display statistics using groupby function. We will also be creating plots to help visualize the data.</p>
+</section>
+<section id="understanding-dependent-variable-survived-by-numerical-columns" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-dependent-variable-survived-by-numerical-columns">Understanding Dependent variable ‘Survived’ by numerical columns</h3>
+<section id="survived-by-age-and-fare" class="level4">
+<h4 class="anchored" data-anchor-id="survived-by-age-and-fare">‘Survived’ by Age and Fare</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">2</span>, figsize <span class="op">=</span>(<span class="dv">12</span>,<span class="dv">3</span>))</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>fig1 <span class="op">=</span> sns.regplot(x<span class="op">=</span><span class="st">"Age"</span>, y<span class="op">=</span><span class="st">"Survived"</span>, data<span class="op">=</span>data, ax <span class="op">=</span> ax1)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>fig2 <span class="op">=</span> sns.regplot(x<span class="op">=</span><span class="st">"Fare"</span>, y<span class="op">=</span><span class="st">"Survived"</span>, data<span class="op">=</span>data, ax <span class="op">=</span> ax2)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Perished vs. Survived by Age and Fare"</span>, size<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>fig1.<span class="bu">set</span>(ylabel<span class="op">=</span><span class="st">'Survival Rate'</span>), fig2.<span class="bu">set</span>(ylabel<span class="op">=</span><span class="st">'Survival Rate'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>([&lt;matplotlib.text.Text&gt;], [&lt;matplotlib.text.Text&gt;])</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="titanic_files/figure-html/cell-18-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="survived-by-sibsp-and-parch" class="level4">
+<h4 class="anchored" data-anchor-id="survived-by-sibsp-and-parch">‘Survived’ by SibSp and Parch</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.PairGrid(data, y_vars<span class="op">=</span>[<span class="st">"Survived"</span>], x_vars<span class="op">=</span>[<span class="st">"SibSp"</span>, <span class="st">"Parch"</span>], size<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">map</span>(sns.barplot, color<span class="op">=</span><span class="st">".4"</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">set</span>(ylabel<span class="op">=</span><span class="st">'Survival Rate'</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Perished vs. Survived by SibSp and Parch"</span>, size<span class="op">=</span><span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;matplotlib.text.Text&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="titanic_files/figure-html/cell-19-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>grouped_by_factors(data,<span class="st">'Survived'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Fare</th>
+<th data-quarto-table-cell-role="th">Parch</th>
+<th data-quarto-table-cell-role="th">SibSp</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Survived</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td rowspan="8" data-quarto-table-cell-role="th" data-valign="top">0</td>
+<td data-quarto-table-cell-role="th">count</td>
+<td>424.000000</td>
+<td>424.000000</td>
+<td>424.000000</td>
+<td>424.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>30.626179</td>
+<td>22.965456</td>
+<td>0.365566</td>
+<td>0.525943</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>14.172110</td>
+<td>31.448825</td>
+<td>0.878341</td>
+<td>1.044760</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>1.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>21.000000</td>
+<td>7.895800</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>28.000000</td>
+<td>11.887500</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>39.000000</td>
+<td>26.550000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>74.000000</td>
+<td>263.000000</td>
+<td>6.000000</td>
+<td>5.000000</td>
+</tr>
+<tr class="odd">
+<td rowspan="8" data-quarto-table-cell-role="th" data-valign="top">1</td>
+<td data-quarto-table-cell-role="th">count</td>
+<td>288.000000</td>
+<td>288.000000</td>
+<td>288.000000</td>
+<td>288.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>28.193299</td>
+<td>51.647672</td>
+<td>0.531250</td>
+<td>0.496528</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>14.859146</td>
+<td>70.664499</td>
+<td>0.808747</td>
+<td>0.732512</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>0.420000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>19.000000</td>
+<td>13.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>28.000000</td>
+<td>26.250000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>36.000000</td>
+<td>65.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>80.000000</td>
+<td>512.329200</td>
+<td>5.000000</td>
+<td>4.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>The data shows 424 passengers did not survive and 288 did.</p>
+<p>Average age of passengers that survived was 28.2(std=14.8) years as compared to 30.62(14.17) for those who did not survive. On average, passengers who survived paid higher fare(mean=51.6 dollars) as compared to who did not(mean=22.9 dollars).</p>
+<p>From the barchart, the survival rate for those travelling with 1/2 sibling or spouse and 1/2/3 parent or children was higher than the ones that did not. The relationship of survival is not linear with the number of sibsp/parch which could be due to lack of data.</p>
+<p>From the correlation plot, Survival rate is positively correlated to Fare and negatively correlated to Age which means younger people and those who paid more had higher chances of surviving</p>
+</section>
+</section>
+<section id="understanding-dependent-variable-survived-by-categorical-columns" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-dependent-variable-survived-by-categorical-columns">Understanding Dependent variable ‘Survived’ by Categorical columns</h3>
+<section id="survived-by-pclass" class="level4">
+<h4 class="anchored" data-anchor-id="survived-by-pclass">‘Survived’ by Pclass</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>grouped_by_factors(data,<span class="st">'Pclass'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Fare</th>
+<th data-quarto-table-cell-role="th">Parch</th>
+<th data-quarto-table-cell-role="th">SibSp</th>
+<th data-quarto-table-cell-role="th">Survived</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Pclass</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td rowspan="8" data-quarto-table-cell-role="th" data-valign="top">Lower</td>
+<td data-quarto-table-cell-role="th">count</td>
+<td>355.000000</td>
+<td>355.000000</td>
+<td>355.000000</td>
+<td>355.000000</td>
+<td>355.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>25.140620</td>
+<td>13.229435</td>
+<td>0.456338</td>
+<td>0.585915</td>
+<td>0.239437</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>12.495398</td>
+<td>10.043158</td>
+<td>0.971447</td>
+<td>1.157303</td>
+<td>0.427342</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>0.420000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>18.000000</td>
+<td>7.775000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>24.000000</td>
+<td>8.050000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>32.000000</td>
+<td>15.741700</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>74.000000</td>
+<td>56.495800</td>
+<td>6.000000</td>
+<td>5.000000</td>
+<td>1.000000</td>
+</tr>
+<tr class="odd">
+<td rowspan="8" data-quarto-table-cell-role="th" data-valign="top">Middle</td>
+<td data-quarto-table-cell-role="th">count</td>
+<td>173.000000</td>
+<td>173.000000</td>
+<td>173.000000</td>
+<td>173.000000</td>
+<td>173.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>29.877630</td>
+<td>21.471556</td>
+<td>0.404624</td>
+<td>0.427746</td>
+<td>0.479769</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>14.001077</td>
+<td>13.187429</td>
+<td>0.705775</td>
+<td>0.611645</td>
+<td>0.501041</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>0.670000</td>
+<td>10.500000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>23.000000</td>
+<td>13.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>29.000000</td>
+<td>15.045800</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>36.000000</td>
+<td>26.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>70.000000</td>
+<td>73.500000</td>
+<td>3.000000</td>
+<td>3.000000</td>
+<td>1.000000</td>
+</tr>
+<tr class="odd">
+<td rowspan="8" data-quarto-table-cell-role="th" data-valign="top">Upper</td>
+<td data-quarto-table-cell-role="th">count</td>
+<td>184.000000</td>
+<td>184.000000</td>
+<td>184.000000</td>
+<td>184.000000</td>
+<td>184.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>38.105543</td>
+<td>88.048121</td>
+<td>0.413043</td>
+<td>0.456522</td>
+<td>0.652174</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>14.778904</td>
+<td>81.293524</td>
+<td>0.734061</td>
+<td>0.634406</td>
+<td>0.477580</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>0.920000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>27.000000</td>
+<td>33.890600</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>37.000000</td>
+<td>67.950000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>49.000000</td>
+<td>107.043750</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>80.000000</td>
+<td>512.329200</td>
+<td>4.000000</td>
+<td>3.000000</td>
+<td>1.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">2</span>, figsize <span class="op">=</span>(<span class="dv">12</span>,<span class="dv">3</span>))</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>fig1 <span class="op">=</span> sns.countplot(x<span class="op">=</span><span class="st">"Pclass"</span>, data<span class="op">=</span>data, hue<span class="op">=</span><span class="st">'Survived'</span>, palette<span class="op">=</span><span class="st">"Greens_d"</span>, ax<span class="op">=</span>ax1)<span class="op">;</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="st">"Perished"</span>, <span class="st">"Survived"</span>])</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>fig2 <span class="op">=</span> sns.barplot(x<span class="op">=</span><span class="st">"Pclass"</span>, y<span class="op">=</span><span class="st">"Survived"</span>, data<span class="op">=</span>data, ax<span class="op">=</span>ax2)<span class="op">;</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Survival rate by Pclass"</span>, size<span class="op">=</span><span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;matplotlib.text.Text&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="titanic_files/figure-html/cell-22-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Mean Fare of Upper Class was 88 dollars, Middle Class was 21.47 dollars and Lower Class was 13.22 dollars. Most survivors were from upper class(mean survival = 0.65), followed by middle(mean survival = 0.48) and then lower(mean survival = 0.24). Most of the passengers who did not survive belonged to the lower class Pclass shows linear relation to survival probability. There could be several reasons for that. People in upper classes could have boarded lifeboats before the lower classes, it also fits well with the correlation to fare in the prev plot.</p>
+</section>
+<section id="survived-by-embarked" class="level4">
+<h4 class="anchored" data-anchor-id="survived-by-embarked">‘Survived’ by Embarked</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">"Embarked"</span>, data<span class="op">=</span>data, hue<span class="op">=</span><span class="st">'Survived'</span>, palette<span class="op">=</span><span class="st">"Greens_d"</span>)<span class="op">;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">"Embarked"</span>, data<span class="op">=</span>data, hue<span class="op">=</span><span class="st">'Pclass'</span>, palette<span class="op">=</span><span class="st">"Reds_d"</span>)<span class="op">;</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Valuecounts of Survivors by Pclass"</span>, size<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Valuecounts of Female vs Male survivors"</span>, size<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>label <span class="op">=</span> [<span class="st">"Perished"</span>, <span class="st">"Survived"</span>, <span class="st">"Lower"</span>, <span class="st">"Upper"</span>, <span class="st">"Middle"</span>]</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>plt.legend(label, loc<span class="op">=</span><span class="st">'upper center'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;matplotlib.legend.Legend&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="titanic_files/figure-html/cell-23-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Most of the passengers were in lower Pclass and embarked from ‘S’ followed by ‘C’ and ‘Q’. Does not show much relationship to survival rate</p>
+</section>
+<section id="survived-by-sex" class="level4">
+<h4 class="anchored" data-anchor-id="survived-by-sex">‘Survived’ by Sex</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>data.groupby(<span class="st">'Sex'</span>).describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Fare</th>
+<th data-quarto-table-cell-role="th">Parch</th>
+<th data-quarto-table-cell-role="th">SibSp</th>
+<th data-quarto-table-cell-role="th">Survived</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td rowspan="8" data-quarto-table-cell-role="th" data-valign="top">female</td>
+<td data-quarto-table-cell-role="th">count</td>
+<td>259.000000</td>
+<td>259.000000</td>
+<td>259.000000</td>
+<td>259.000000</td>
+<td>259.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>27.745174</td>
+<td>47.332433</td>
+<td>0.714286</td>
+<td>0.644788</td>
+<td>0.752896</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>13.989760</td>
+<td>61.517487</td>
+<td>1.069045</td>
+<td>0.930367</td>
+<td>0.432163</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>0.750000</td>
+<td>6.750000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>18.000000</td>
+<td>13.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>27.000000</td>
+<td>26.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>36.000000</td>
+<td>56.964600</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>63.000000</td>
+<td>512.329200</td>
+<td>6.000000</td>
+<td>5.000000</td>
+<td>1.000000</td>
+</tr>
+<tr class="odd">
+<td rowspan="8" data-quarto-table-cell-role="th" data-valign="top">male</td>
+<td data-quarto-table-cell-role="th">count</td>
+<td>453.000000</td>
+<td>453.000000</td>
+<td>453.000000</td>
+<td>453.000000</td>
+<td>453.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>30.726645</td>
+<td>27.268836</td>
+<td>0.271523</td>
+<td>0.439294</td>
+<td>0.205298</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>14.678201</td>
+<td>45.841889</td>
+<td>0.651076</td>
+<td>0.923609</td>
+<td>0.404366</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>0.420000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>21.000000</td>
+<td>7.895800</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>29.000000</td>
+<td>13.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>39.000000</td>
+<td>28.500000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>80.000000</td>
+<td>512.329200</td>
+<td>5.000000</td>
+<td>5.000000</td>
+<td>1.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">"Sex"</span>, data<span class="op">=</span>data, hue<span class="op">=</span><span class="st">'Survived'</span>, palette<span class="op">=</span><span class="st">"Greens_d"</span>)<span class="op">;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Valuecounts of Female vs Male survivors"</span>, size<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>label <span class="op">=</span> [<span class="st">"Perished"</span>, <span class="st">"Survived"</span>]</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>plt.legend(label, loc<span class="op">=</span><span class="st">'upper center'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;matplotlib.legend.Legend&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="titanic_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Mean age of females who boarded the ship was 27-28 years and males was 30-31 years. There were 259 females and 453 males, more number of females(mean survival = 0.75) survived than males(mean survival = 0.20)</p>
+<p>For the purpose of this analysis, I will pick <strong>Sex, Pclass and Age</strong> as major factors and investigate them further. The reason why I am picking them is because they show correlation with survival rate. Survival showed correlation to Fare as well but since the fare is represented by Pclass, I picked Pclass over Fare. Although other factors also affect survival, but I will focus on these three for this exercise</p>
+</section>
+</section>
+<section id="understanding-pclass-and-sex-as-a-factor" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-pclass-and-sex-as-a-factor">Understanding Pclass and Sex as a factor</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">"Pclass"</span>, y<span class="op">=</span><span class="st">"Survived"</span>, hue<span class="op">=</span><span class="st">"Sex"</span>, data<span class="op">=</span>data)<span class="op">;</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Mean Survival rate of Female vs Male survivors by Pclass"</span>, size<span class="op">=</span><span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;matplotlib.text.Text&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="titanic_files/figure-html/cell-26-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>There were 314 females and 577 males, mean for female survivors(mean=0.74,std= 0.44) is more than males(mean=0.19,std= 0.39) across all Pclasses, Survival has linear relationship with class. Females had high probability of survival in both Upper and Middle class. Only upper class males had high probability of survival, which was lower than low class female passengers however</p>
+</section>
+<section id="understanding-age-as-a-factor" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-age-as-a-factor">Understanding Age as a factor</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(grouped_by_factors(data,<span class="st">'Age'</span>).head())</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(grouped_by_factors(data,<span class="st">'Age'</span>).tail())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Fare  Parch  SibSp  Survived
+Age                                       
+0.42 count  1.0000    1.0    1.0       1.0
+     mean   8.5167    1.0    0.0       1.0
+     std       NaN    NaN    NaN       NaN
+     min    8.5167    1.0    0.0       1.0
+     25%    8.5167    1.0    0.0       1.0
+          Fare  Parch  SibSp  Survived
+Age                                   
+80.0 min  30.0    0.0    0.0       1.0
+     25%  30.0    0.0    0.0       1.0
+     50%  30.0    0.0    0.0       1.0
+     75%  30.0    0.0    0.0       1.0
+     max  30.0    0.0    0.0       1.0</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>surv_age <span class="op">=</span> data[data[<span class="st">'Survived'</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> surv_age[<span class="st">'Age'</span>].plot(kind<span class="op">=</span><span class="st">'hist'</span>, figsize<span class="op">=</span>[<span class="dv">12</span>,<span class="dv">6</span>], alpha<span class="op">=</span><span class="fl">.8</span>)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>notsurv_age <span class="op">=</span> data[data[<span class="st">'Survived'</span>] <span class="op">==</span> <span class="dv">0</span>]</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>notsurv_age[<span class="st">'Age'</span>].plot(kind<span class="op">=</span><span class="st">'hist'</span>, figsize<span class="op">=</span>[<span class="dv">12</span>,<span class="dv">6</span>], alpha<span class="op">=</span><span class="fl">.4</span>)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>plt.legend(label)</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Age'</span>)</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Distribution of Age for Perished and Survived"</span>, size<span class="op">=</span><span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;matplotlib.text.Text&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="titanic_files/figure-html/cell-28-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Age of the passengers ranged from 0 to 80 years. Green bar is for passengers who did not survive and the blue is for those who survived. The distribution is almost normal distribution with similar shape and mode around 20 years. Below is the correlation for Age vs mean survived, it shows slight negative correlation with pearson’r value of -0.082</p>
+<section id="correlation-of-survived-with-age" class="level4">
+<h4 class="anchored" data-anchor-id="correlation-of-survived-with-age">Correlation of ‘Survived’ with Age</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(style<span class="op">=</span><span class="st">"darkgrid"</span>, color_codes<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.jointplot(<span class="st">"Age"</span>, <span class="st">"Survived"</span>, data<span class="op">=</span>data, kind<span class="op">=</span><span class="st">"reg"</span>,color<span class="op">=</span><span class="st">"g"</span>, size<span class="op">=</span><span class="dv">7</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>plt.subplots_adjust(top<span class="op">=</span><span class="fl">0.95</span>)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Distribution of Age for Perished and Survived"</span>, size<span class="op">=</span><span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;matplotlib.text.Text&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="titanic_files/figure-html/cell-29-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="correlation-of-survived-with-age-and-sex" class="level4">
+<h4 class="anchored" data-anchor-id="correlation-of-survived-with-age-and-sex">Correlation of ‘Survived’ with Age and Sex</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.lmplot(x<span class="op">=</span><span class="st">"Age"</span>, y<span class="op">=</span><span class="st">"Survived"</span>, col<span class="op">=</span><span class="st">"Sex"</span>, hue<span class="op">=</span><span class="st">"Sex"</span>, data<span class="op">=</span>data, y_jitter<span class="op">=</span><span class="fl">.02</span>, logistic<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>plt.subplots_adjust(top<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Correlation of Age with Survival Rate"</span>, size<span class="op">=</span><span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;matplotlib.text.Text&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="titanic_files/figure-html/cell-30-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Survival probability was higher for Younger Men and Older Women, Side by side comparison of males and females by age further supports that</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.factorplot(x<span class="op">=</span><span class="st">"Survived"</span>, y<span class="op">=</span><span class="st">"Age"</span>, hue<span class="op">=</span><span class="st">"Sex"</span>, data<span class="op">=</span>data, size<span class="op">=</span><span class="dv">6</span>, kind<span class="op">=</span><span class="st">"bar"</span>, palette<span class="op">=</span><span class="st">"muted"</span>)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>g.despine(left<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>plt.subplots_adjust(top<span class="op">=</span><span class="fl">0.95</span>)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Survived vs Age for males and females"</span>, size<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>g.set_xticklabels([<span class="st">'Perished'</span>, <span class="st">'Survived'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="titanic_files/figure-html/cell-31-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="hypothesis-testing" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-testing">Hypothesis testing</h2>
+<p>I have a hypothesis that passengers that are lower in age(&lt;15 years) had greater chance of survival than females.</p>
+<p>Null Hypothesis would be that the difference in chances of survival of passengers greater or lower than 15 years is not significant and alternate would be that it is significant.</p>
+<pre><code>                        H0: µchild = µfemale at α = 0.05, 
+                        HA: µchild ≠ µfemale at α = 0.05, where α is the t-critical at which the probability is .05 and µchild and µfemale are population means for the two groups.</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Children under 15yrs of age</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>data_children <span class="op">=</span> data[data[<span class="st">'Age'</span>] <span class="op">&lt;=</span> <span class="dv">15</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Females of age greater than 15 years</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>data_female <span class="op">=</span> data[(data[<span class="st">'Sex'</span>] <span class="op">==</span> <span class="st">'female'</span>) <span class="op">&amp;</span> (data[<span class="st">'Age'</span>] <span class="op">&gt;</span> <span class="dv">15</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>scipy.stats.ttest_ind(data_children[<span class="st">'Survived'</span>], data_female[<span class="st">'Survived'</span>], axis<span class="op">=</span><span class="dv">0</span>, equal_var<span class="op">=</span><span class="va">False</span>, nan_policy<span class="op">=</span><span class="st">'propagate'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>Ttest_indResult(statistic=-2.978953154108325, pvalue=0.0034528377861817636)</code></pre>
+</div>
+</div>
+<section id="since-p-value-is-low-the-difference-in-mean-survival-is-significant-for-females-vs.-children.-negative-t-statistic-shows-that-the-mean-survival-of-females-is-more-than-that-of-children" class="level6">
+<h6 class="anchored" data-anchor-id="since-p-value-is-low-the-difference-in-mean-survival-is-significant-for-females-vs.-children.-negative-t-statistic-shows-that-the-mean-survival-of-females-is-more-than-that-of-children">Since p value is low, the difference in mean survival is significant for females vs.&nbsp;children. Negative t-statistic shows that the mean survival of females is more than that of children</h6>
+</section>
+</section>
+<section id="conclusions" class="level2">
+<h2 class="anchored" data-anchor-id="conclusions">Conclusions</h2>
+<p>In Conclusion with the given dataset, Most contributing factors are ‘Sex’ and Pclass. Women had the most probability of survival in general. Survival rate is positively correlated to Fare and negatively correlated to Age which means younger people and those who paid more had higher chances of surviving. Females had positive correlation of survival with age and Males had negative correlation. Most survivors were from Upper Pclass followed by medium and lower class passengers. Most of the passengers in lower class perished. Passengers with any parent/child/sibling or spouse had higher chance at survival than the ones that did not. The analysis has following limitations: Omitted rows with missing values for ‘Age’ and ‘emabarked’ Did not draw conclusions based on ‘Name’ column dropped ‘Cabin’ and ‘PassengerId’ during data wrangling phase The data set is limited, the complete dataset should contain data for 1500 passengers</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,54 @@
+---
+title: "Kunal Khurana"
+comments: false
+image: Kunal_pic.jpeg
+about:
+  template: trestles
+  links:
+    - icon: envelope
+      text: Email
+      href: mailto:Khuranasoilpau@gmail.com
+    - icon: github
+      text: GitHub
+      href: https://github.com/Kkhurana007
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/kunalkhurana007     
+---
+
+<center>
+
+::: {.btn-group role="group" aria-label="About"}
+<a href="about.html"> <button type="button" class="btn btn-primary me-md-2 btn-sm">English</button></a> <a href="about-fr.html"> <button type="button" class="btn btn-primary me-md-2 btn-sm">Français</button></a>
+:::
+
+</center>
+
+::: {#hero-heading}
+Bonjour ! Je m’appelle Kunal Khurana, un chercheur en domaine de la science du sol et de l’agronomie il y a plus de 10 ans. Cette experience, j'ai acquise en travaillant dans différentes régions géographiques du monde sur divers projets avec différents experts. Je suis particulièrement passionné par la collaboration avec des professionnels de l'apprentissage automatique pour lutter contre le changement climatique en stockant davantage de carbone dans le sol et en préservant l'eau précieuse.
+
+## 📝Education
+
+2022| GÉNIE ET SCIENCE APPLIQUÉES| CÉGEP DU VIEUX MONTRÉAL, CA
+
+2021| FRANCISATION ET INÉGRATION AU MILIEU QUÉBÉCOIS| UNIVERSITÉ LAVAL, CA
+
+2016| Maitrise en Science du Sol| PUNJAB AGRICULTURAL UNIVERSITY, IN
+
+2013| Baccelaureat en Agriculture | PUNJABI UNIVERSITY PATIALA, IN
+
+
+## 🧑‍💼 Expérience du travail
+
+September 2022 -- March 2023| Assistant de recherche, McGill University
+
+SEPTEMBER 2020 -- NOVEMBER 2020| Traductor, CERDA
+
+January 2019 -- August 2019| Assistant de recherche, Université Laval
+
+October 2016 -- March 2017| Assistant de recherche, PUNJAB AGRICULTURAL UNIVERSITY
+
+## Contacer!
+L'une de mes plus grandes motivations pour créer du contenu en ligne est de communiquer avec des personnes fascinantes du monde entier. Si vous souhaitez discuter, n'hésitez pas à m'écrire. Je serais content d'avoir de vos nouvelles!
+
+:::

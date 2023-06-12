@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.340">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2023-06-08">
+<meta name="description" content="Necessary tool for data analysts.">
+
+<title>Homepage - Tools - Git</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YSR47ZM5Y0"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta name="twitter:title" content="Homepage - Tools - Git">
+<meta name="twitter:description" content="Necessary tool for data analysts.">
+<meta name="twitter:image" content="https://thinkr.fr/wp-content/uploads/git_notfinal.gif">
+<meta name="twitter:creator" content="@kunalkhurana007">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Homepage</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">Kunal Khurana</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-posts" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Posts</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
+        <li>
+    <a class="dropdown-item" href="../../posts/index.qmd" rel="" target="">
+ <span class="dropdown-text">All posts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../posts/en.html" rel="" target="">
+ <span class="dropdown-text">English</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../posts/fr.html" rel="" target="">
+ <span class="dropdown-text">Français</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-series" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Series</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-series">    
+        <li>
+    <a class="dropdown-item" href="../../series-gha.html" rel="" target="">
+ <span class="dropdown-text">GitHub Actions</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Kkhurana007/fr_blog_mine" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/kunalkhurana007" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Tools - Git</h1>
+            <p class="subtitle lead">Data Analysis</p>
+                  <div>
+        <div class="description">
+          Necessary tool for data analysts.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Git</div>
+                <div class="quarto-category">Data Analysis</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">June 8, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#git-un-élément-essentiel-au-quotidien" id="toc-git-un-élément-essentiel-au-quotidien" class="nav-link active" data-scroll-target="#git-un-élément-essentiel-au-quotidien">Git : un élément essentiel au quotidien</a></li>
+  <li><a href="#pourquoi-faire-du-git" id="toc-pourquoi-faire-du-git" class="nav-link" data-scroll-target="#pourquoi-faire-du-git">Pourquoi faire du <code>Git</code> <i class="fas fa-code-branch"></i> ?</a>
+  <ul class="collapse">
+  <li><a href="#conserver-et-archiver-du-code" id="toc-conserver-et-archiver-du-code" class="nav-link" data-scroll-target="#conserver-et-archiver-du-code">Conserver et archiver du code</a></li>
+  <li><a href="#travailler-efficacement-en-équipe" id="toc-travailler-efficacement-en-équipe" class="nav-link" data-scroll-target="#travailler-efficacement-en-équipe">Travailler efficacement en équipe</a></li>
+  <li><a href="#améliorer-la-qualité-des-codes" id="toc-améliorer-la-qualité-des-codes" class="nav-link" data-scroll-target="#améliorer-la-qualité-des-codes">Améliorer la qualité des codes</a></li>
+  <li><a href="#simplifier-la-communication-autour-dun-projet" id="toc-simplifier-la-communication-autour-dun-projet" class="nav-link" data-scroll-target="#simplifier-la-communication-autour-dun-projet">Simplifier la communication autour d’un projet</a></li>
+  </ul></li>
+  <li><a href="#comment-faire-du-contrôle-de-version" id="toc-comment-faire-du-contrôle-de-version" class="nav-link" data-scroll-target="#comment-faire-du-contrôle-de-version">Comment faire du contrôle de version ?</a></li>
+  <li><a href="#quelques-bases-sur-git" id="toc-quelques-bases-sur-git" class="nav-link" data-scroll-target="#quelques-bases-sur-git">Quelques bases sur <code>Git</code></a>
+  <ul class="collapse">
+  <li><a href="#copies-de-travail-et-dépôt-collectif" id="toc-copies-de-travail-et-dépôt-collectif" class="nav-link" data-scroll-target="#copies-de-travail-et-dépôt-collectif">Copies de travail et dépôt collectif</a></li>
+  <li><a href="#principe" id="toc-principe" class="nav-link" data-scroll-target="#principe">Principe</a></li>
+  <li><a href="#les-branches" id="toc-les-branches" class="nav-link" data-scroll-target="#les-branches">Les branches</a></li>
+  </ul></li>
+  <li><a href="#conseil-de-praticien-ne-pas-négliger-le-.gitignore" id="toc-conseil-de-praticien-ne-pas-négliger-le-.gitignore" class="nav-link" data-scroll-target="#conseil-de-praticien-ne-pas-négliger-le-.gitignore">Conseil de praticien: ne pas négliger le <code>.gitignore</code></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="git-un-élément-essentiel-au-quotidien" class="level1">
+<h1>Git : un élément essentiel au quotidien</h1>
+<p>Cette page reprend des éléments présents dans un <a href="https://formation.pages.lab.sspcloud.fr/git/20220929-formation-git-dese/#/title-slide">cours dédié fait avec Romain Avouac</a></p>
+</section>
+<section id="pourquoi-faire-du-git" class="level1">
+<h1>Pourquoi faire du <code>Git</code> <i class="fas fa-code-branch"></i> ?</h1>
+<p>Dans un projet, il est commun de se demander (ou de demander à quelqu’un) :</p>
+<ul>
+<li>quelle était la bonne version d’un programme</li>
+<li>qui était l’auteur d’un bout de code en particulier</li>
+<li>si un changement était important ou juste un essai</li>
+<li>où retrouver des traces d’un vieil essai abandonné mais potentiellement finalement prometteur</li>
+<li>comment fusionner des programmes écrits par plusieurs personnes</li>
+<li>etc.</li>
+</ul>
+<p><img src="https://thinkr.fr/wp-content/uploads/git_notfinal.gif" class="img-fluid"></p>
+<p>Il existe un outil informatique puissant qui répond à tous ces besoins : la <strong>gestion de version</strong> (<em>version control system</em> (VCS) en anglais). Ses avantages sont incontestables et permettent de facilement :</p>
+<ul>
+<li>enregistrer l’historique des modifications d’un ensemble de fichiers ;</li>
+<li>revenir à des versions précédentes d’un ou plusieurs fichiers ;</li>
+<li>rechercher les modifications qui ont pu créer des erreurs ;</li>
+<li>partager ses modifications et récupérer celles des autres ;</li>
+<li>proposer des modifications, les discuter, sans pour autant modifier d’emblée la dernière version existante ;</li>
+<li>identifier les auteurs et la date des modifications.</li>
+</ul>
+<p>En outre, ces outils fonctionnent avec tous les langages informatiques (texte, <code>R</code>, <code>Python</code>, <code>SAS</code>, `<code>LaTeX</code>, <code>Java</code>, etc.) car reposent sur la comparaison des lignes et des caractères des programmes.</p>
+<p>On peut ainsi résumer les principaux avantages du contrôle de version de la manière suivante :</p>
+<ol type="1">
+<li>Conserver et archiver l’ensemble des versions d’un code ou d’une documentation</li>
+<li>Travailler efficacement en équipe</li>
+<li>Améliorer la qualité des codes</li>
+<li>Simplifier la communication autour d’un projet</li>
+</ol>
+<section id="conserver-et-archiver-du-code" class="level2">
+<h2 class="anchored" data-anchor-id="conserver-et-archiver-du-code">Conserver et archiver du code</h2>
+<p>Une des principales fonctionnalités de la gestion de version est de conserver l’ensemble des fichiers de façon sécurisée et de proposer un archivage structuré des codes. Les fichiers sont stockés dans un <strong>dépôt</strong>, qui constitue le projet.</p>
+<p>Tout repose dans la gestion et la présentation de l’historique des modifications. Chaque modification (ajout, suppression ou changement) sur un ou plusieurs fichiers est identifiée par son auteur, sa date et un bref descriptif<a name="cite_ref-1"></a><a href="#cite_note-1"><sup>[1]</sup></a>. Chaque changement est donc unique et aisément identifiable quand les modifications sont classées par ordre chronologique. Les groupes de modifications transmis au dépôt sont appelées <strong>commit</strong>.</p>
+<a name="cite_note-1"></a>1. [^](#cite_ref-1)
+<p>Plus précisément, chaque modification est identifiée de manière unique par un code <code>SHA</code> auquel est associé l’auteur, l’horodatage et des métadonnées (par exemple le message descriptif associé).</p>
+<p>Avec des outils graphiques, on peut vérifier l’ <a href="https://github.com/linogaliana/python-datascientist/commits/master/README.md">ensemble des évolutions d’un fichier (<code>history</code>)</a>, ou <a href="https://github.com/linogaliana/python-datascientist/commits/master">l’histoire d’un dépôt</a>. On peut aussi <a href="https://github.com/linogaliana/python-datascientist/commit/7e5d30ae0e260f9485453b42f195b0181a53e32e#diff-04c6e90faac2675aa89e2176d2eec7d8">se concentrer sur une modification particulière d’un fichier</a> ou vérifier, pour un fichier, la <a href="https://github.com/linogaliana/python-datascientist/blame/master/README.md">modification qui a entraîné l’apparition de telle ou telle ligne (<code>blame</code>)</a></p>
+<p>Sur son poste de travail, les dizaines (voire centaines) de programmes organisés à la main n’existent plus. Tout est regroupé dans un seul dossier, rassemblant les éléments du dépôt. Au sein du dépôt, tout l’historique est stocké et accessible rapidement. Si on souhaite travailler sur la dernière version des programmes (ou sur une ancienne version spécifique), il n’y a plus besoin de conserver les autres fichiers car ils sont dans l’historique du projet. Il est alors possible de choisir sur quelle version on veut travailler (la dernière commune à tout le monde, la sienne en train d’être développée, celle de l’année dernière, etc.).</p>
+</section>
+<section id="travailler-efficacement-en-équipe" class="level2">
+<h2 class="anchored" data-anchor-id="travailler-efficacement-en-équipe">Travailler efficacement en équipe</h2>
+<p>Le deuxième avantage de la gestion de version représente une amélioration notable du travail en équipe sur des codes en commun.</p>
+<p>La gestion de version permet de collaborer simplement et avec méthode. De façon organisée, elle permet de:</p>
+<ul>
+<li>travailler en parallèle et fusionner facilement du code</li>
+<li>partager une documentation des programmes grâce :
+<ul>
+<li>aux commentaires des modifications</li>
+<li>à la possibilité d’une documentation commune et collaborative</li>
+</ul></li>
+<li>trouver rapidement des erreurs et en diffuser rapidement la correction</li>
+</ul>
+<p>A ces avantages s’ajoutent les fonctionalités collaboratives des <strong>forges</strong> qui sont des plateformes où peuvent être stockés des dépôts. Néanmoins, ces forges proposent aujourd’hui beaucoup de fonctionalités qui vont au-delà de l’archivage de code: intéragir via des <a href="https://github.com/linogaliana/python-datascientist/issues"><em>issues</em></a>, faire des suggestions de modifications, exécuter du code dans des environnements normalisés, etc. Il faut vraiment les voir comme des réseaux sociaux du code. Les principales plateformes dans ce domaine étant <code>Github</code> et <code>Gitlab</code>.</p>
+<p>L’usage individuel, c’est-à-dire seul sur son projet, permet aussi de “travailler en équipe avec soi-même” car il permet de retrouver des mois plus tard le contenu et le contexte des modifications. Cela est notamment précieux lors des changements de poste ou des travaux réguliers mais espacés dans le temps (par exemple, un mois par an chaque année). Même lorsqu’on travaille tout seul, on collabore avec un <em>moi</em> futur qui peut ne plus se souvenir de la modification des fichiers.</p>
+</section>
+<section id="améliorer-la-qualité-des-codes" class="level2">
+<h2 class="anchored" data-anchor-id="améliorer-la-qualité-des-codes">Améliorer la qualité des codes</h2>
+<p>Le fonctionnement de la gestion de version, reposant sur l’archivage structuré des modifications et les commentaires les accompagnant, renforce la qualité des programmes informatiques. Ils sont plus documentés, plus riches et mieux structurés. C’est pour cette raison que le contrôle de version ne doit pas être considéré comme un outil réservé à des développeurs : toute personne travaillant sur des programmes informatiques, gagne à utiliser du contrôle de version.</p>
+<p>Les services d’intégration continue permettent de faire des tests automatiques de programmes informatiques, notamment de packages, qui renforcent la replicabilité des programmes. Mettre en place des méthodes de travail fondées sur l’intégration continue rend les programmes plus robustes en forçant ceux-ci à tourner sur des machines autres que celles du développeur du code.</p>
+</section>
+<section id="simplifier-la-communication-autour-dun-projet" class="level2">
+<h2 class="anchored" data-anchor-id="simplifier-la-communication-autour-dun-projet">Simplifier la communication autour d’un projet</h2>
+<p>Les sites de dépôts <code>Github</code> et <code>Gitlab</code> permettent de faire beaucoup plus que seulement archiver des codes. Les fonctionalités de déploiement en continu permettent ainsi de :</p>
+<ul>
+<li>créer des sites web pour valoriser des projets (par exemple les sites <code>readthedocs</code> en <code>python</code>)</li>
+<li>déployer de la documentation en continu</li>
+<li>rendre visible la qualité d’un projet avec des services de <em>code coverage</em>, de tests automatiques ou d’environnements intégrés de travail (binder, etc.) qu’on rend généralement visible au moyen de badges (exemple ici )</li>
+</ul>
+</section>
+</section>
+<section id="comment-faire-du-contrôle-de-version" class="level1">
+<h1>Comment faire du contrôle de version ?</h1>
+<p>Il existe plusieurs manières d’utiliser le contrôle de version :</p>
+<ul>
+<li>en ligne de commande, via <a href="https://gitforwindows.org/">Git Bash</a>, par exemple ;</li>
+<li>avec une interface graphique spécialisée, par exemple <a href="https://tortoisegit.org/">Tortoise Git</a> ou <a href="https://desktop.github.com/">GitHub Desktop</a> ;</li>
+<li>avec un logiciel de développement : la plupart des logiciels de développement (<a href="https://www.book.utilitr.org/git.html">RStudio</a> pour <code>R</code>, <a href="https://www.jetbrains.com/help/pycharm/using-git-integration.html">PyCharm</a>, <a href="https://annefou.github.io/jupyter_publish/02-git/index.html">jupyter</a> ou encore <a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">Visual Studio (extension GitLens)</a> pour <code>Python</code>, proposent tous des modules graphiques facilitant l’usage de <code>Git</code>.</li>
+</ul>
+<p><code>Git</code> a été conçu, initialement pour la ligne de commande. Il existe néanmoins des interfaces graphiques performantes et pratiques, notamment lorsqu’on désire comparer deux versions d’un même fichier côte à côte. Ces interfaces graphiques couvrent la majorité des besoins quotidiens. Néanmoins, pour certaines tâches, il faut nécessairement passer par la ligne de commande.</p>
+<p>En résumé,</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Avant</th>
+<th style="text-align: right;">Gestion de version</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Archivage</td>
+<td style="text-align: right;">à la main</td>
+<td style="text-align: right;">automatique</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Envoi de modification</td>
+<td style="text-align: right;">mail, dossier partagé</td>
+<td style="text-align: right;">code partagé</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fusion de code</td>
+<td style="text-align: right;">copié-collé</td>
+<td style="text-align: right;">simple, sûr</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Versions du modèle</td>
+<td style="text-align: right;">dossiers archivés</td>
+<td style="text-align: right;">historique riche</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gestion des erreurs</td>
+<td style="text-align: right;">à la main</td>
+<td style="text-align: right;">méthodique</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="quelques-bases-sur-git" class="level1">
+<h1>Quelques bases sur <code>Git</code></h1>
+<section id="copies-de-travail-et-dépôt-collectif" class="level2">
+<h2 class="anchored" data-anchor-id="copies-de-travail-et-dépôt-collectif">Copies de travail et dépôt collectif</h2>
+<p><code>Git</code> est un système décentralisé et asynchrone de gestion de version. Cela signifie que:</p>
+<ul>
+<li>Chaque membre d’un projet travail sur une copie locale du dépôt (système <em>decentralisé</em>). Cette copie de travail s’appelle un <code>clone</code>. Cela signifie qu’on n’a pas une cohérence en continue de notre version de travail avec le dépôt ; on peut très bien ne jamais vouloir les mettre en cohérence (par exemple, si on teste une piste qui s’avère infructueuse) ;</li>
+<li>C’est lorsqu’on propose la publication de modifications sur le dépôt collectif qu’on doit s’assurer de la cohérence avec la version disponible en ligne (système <em>asynchrone</em>).</li>
+</ul>
+<p>Le dépôt distant est généralement stocké sur une <strong>forge logicielle</strong> (<code>Github</code> ou <code>Gitlab</code>) et sert à centraliser la version collective d’un projet. Les copies locales sont des copies de travail qu’on utilise pour faire évoluer un projet:</p>
+<p><img src="https://www.book.utilitr.org/pics/git/gitlab.png" class="img-fluid"></p>
+<p>Il est tout à fait possible de faire du contrôle de version sans mettre en place de dépôt distant. Cependant,</p>
+<ul>
+<li>c’est dangereux puisque le dépôt distant fait office de sauvegarde d’un projet. Sans dépôt distant, on peut tout perdre en cas de problème sur la copie locale de travail ;</li>
+<li>c’est désirer être moins efficace car, comme nous allons le montrer, les fonctionalités des plateformes <code>Github</code> et <code>Gitlab</code> sont également très bénéfiques lorsqu’on travaille tout seul.</li>
+</ul>
+</section>
+<section id="principe" class="level2">
+<h2 class="anchored" data-anchor-id="principe">Principe</h2>
+<p>Les trois manipulations les plus courantes sont les suivantes et représentées sur le diagramme ci-après :</p>
+<ul>
+<li><code>commit</code> : je valide les modifications que j’ai faites en local avec un message qui les expliquent</li>
+<li><code>pull</code> : je récupère la dernière version des codes du dépôt distant</li>
+<li><code>push</code> : je transmets mes modifications validées au dépôt distant</li>
+</ul>
+<p><img src="https://gitlab.com/linogaliana/collaboratif/-/raw/master/pics/03_git/push_pull_Drees.png" class="img-fluid"></p>
+<p>Les deux dernières manipulations correspondent aux interactions (notamment la mise en cohérence) avec le dépôt commun alors que la première manipulation <code>commit</code> correspond à la modification des fichiers faite pour faire évoluer un projet.</p>
+<p>De manière plus précise, il y a trois étapes avant d’envoyer les modifications validées (<code>commit</code>) au dépôt. Elles se définissent en fonction des commandes qui permet de les appliquer quand Git est utilisé en ligne de commandes :</p>
+<ul>
+<li><code>diff</code> : inspection des modifications. Cela permet de comparer les fichiers modifiés et de distinguer les fichiers ajoutés ou supprimés</li>
+<li><code>staging area</code> : sélection des modifications.</li>
+<li><code>commit</code> : validation des modifications sélectionnées (avec commentaire).</li>
+</ul>
+<p><img src="https://gitlab.com/linogaliana/collaboratif/-/raw/master/pics/03_git/trois_%C3%A9tats_fichier.png" class="img-fluid"></p>
+<p>Lors des étapes de <code>push</code> et <code>pull</code>, des <strong>conflits</strong> peuvent apparaître, par exemple lorsque deux personnes ont modifié le même programme simultanément. Le terme conflit peut faire peur mais en fait c’est l’un des apports principaux de <code>Git</code> que de faciliter énormément la gestion de versions différentes. Les exercices du chapitre suivant l’illustreront.</p>
+</section>
+<section id="les-branches" class="level2">
+<h2 class="anchored" data-anchor-id="les-branches">Les branches</h2>
+<p>C’est une des fonctionnalités les plus pratiques de la gestion de version. La création de <code>branches</code> dans un projet (qui devient ainsi un arbre) permet de développer en parallèle des correctifs ou une nouvelle fonctionnalité sans modifier le dépôt commun.</p>
+<p>Cela permet de séparer le nouveau développement et de faire cohabiter plusieurs versions, pouvant évoluer séparément ou pouvant être facilement rassemblées. Git est optimisé pour le travail sur les branches.</p>
+<p>Dans un projet collaboratif, une branche dite <strong>master</strong> joue le rôle du tronc. C’est autour d’elle que vont pousser ou se greffer les branches. L’un des avantages de <code>Git</code> est qu’on peut toujours revenir en arrière. Ce filet de sécurité permet d’oser des expérimentations, y compris au sein d’une branche. Il faut être prêt à aller dans la ligne de commande pour cela mais c’est extrêmement confortable.</p>
+<div class="alert alert-warning" role="alert">
+<p>Comment nommer les branches ? Là encore, il y a énormément de conventions différentes. Une fréquemment observée est :</p>
+<ul>
+<li>pour les nouvelles fonctionnalités : <code>feature/nouvelle-fonctionnalite</code> où <code>nouvelle-fontionnalite</code> est un nom court résumant la fonctionnalité</li>
+<li>pour les corrections de bug : <code>issue-num</code> où <code>num</code> est le numéro de l’issue</li>
+</ul>
+<p>N’hésitez pas à aller encore plus loin dans la normalisation !</p>
+</div>
+</section>
+</section>
+<section id="conseil-de-praticien-ne-pas-négliger-le-.gitignore" class="level1">
+<h1>Conseil de praticien: ne pas négliger le <code>.gitignore</code></h1>
+<p>Un fichier à ne pas négliger est le <code>.gitignore</code>. Il s’agit d’un garde-fou car tous fichiers (notamment des données, potentiellement volumineuses ou confidentielles) n’ont pas vocation à être partagés.</p>
+<p>Le site <a href="https://www.toptal.com/developers/gitignore">gitignore.io</a> est très pratique. Le fichier suivant est par exemple proposé pour les utilisateurs de <code>Python</code>, auquel on peut ajouter quelques lignes adaptées aux utilisateurs de données:</p>
+<pre class="raw"><code>*.html
+*.pdf
+*.csv
+*.tsv
+*.json
+*.xml
+*.shp
+*.xls
+*.xlsx
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/</code></pre>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/www\.ilovesoils\.com\/**");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="Kkhurana007/fr_blog_mine" data-repo-id="" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Blog made with <a href="https://quarto.org/">Quarto</a> by Kunal.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Kkhurana007">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/kunalkhurana007">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:Khuranasoilpau@gmail.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

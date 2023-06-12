@@ -1,19 +1,71 @@
 project:
   type: website
+  output-dir: docs
+  preview:
+    port: 4200
 
 website:
-  title: "fr_blog_mine"
+  page-navigation: true
+  title: "Homepage"
+  site-url: "https://ilovesoils.com"
+  google-analytics: "G-YSR47ZM5Y0"
+  page-footer:
+    left: "Blog made with [Quarto](https://quarto.org/) by Kunal."
+    right:
+      - icon: github
+        href: https://github.com/Kkhurana007
+      - icon: twitter
+        href: https://twitter.com/kunalkhurana007
+      - icon: envelope
+        href: mailto:Khuranasoilpau@gmail.com
+  twitter-card:
+    creator: "@kunalkhurana007"
+    card-style: summary_large_image
   navbar:
     right:
       - about.qmd
+      - text: Posts
+        menu:
+          - text: All posts
+            href: posts/index.qmd
+          - text: English
+            href: posts/en.qmd
+          - text: Français
+            href: posts/fr.qmd
+         
+      - text: Series
+        menu:
+          - text: GitHub Actions
+            href: series-gha.qmd
+
       - icon: github
-        href: https://github.com/
+        href: https://github.com/Kkhurana007/fr_blog_mine
+
       - icon: twitter
-        href: https://twitter.com
+        href: https://twitter.com/kunalkhurana007
+
 format:
   html:
-    theme: cosmo
+    smooth-scroll: true
+    theme: journal
     css: styles.css
+    link-external-icon: false
+    link-external-newwindow: true
+    link-external-filter: '^(?:http:|https:)\/\/www\.ilovesoils\.com\/**'
+    citations-hover: true
+    footnotes-hover: true
+    toc: true
+    code-link: true
+
+editor: visual
+
+comments:
+  giscus:
+    repo: Kkhurana007/fr_blog_mine
+
+execute:
+  freeze: true
+
 
 
 

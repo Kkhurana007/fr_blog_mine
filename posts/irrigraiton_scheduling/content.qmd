@@ -1,0 +1,18 @@
+---
+title: "Irrigation scheduling with Machine learning"
+author: "Kunal Khurana"
+date: "2023-04-21"
+Desciption: "The paper proposes an intelligent system for predicting soil moisture and optimizing irrigation scheduling using machine learning algorithms."
+categories: [Machine learning, Irrigation, Modelling]
+image: "Irrigation_scheduling.jpg"
+---
+
+The paper ["Neural Network soil moisture model for irrigration scheduling"](https://www.sciencedirect.com/science/article/pii/S0168169920313016) proposes an intelligent system for predicting soil moisture and optimizing irrigation scheduling using machine learning algorithms.
+
+The proposed system uses a wireless sensor network (WSN) to monitor soil moisture levels and collects data from various sensors installed in the soil. The data collected from the WSN is then processed and analyzed using machine learning algorithms to predict soil moisture levels and determine optimal irrigation schedules.
+
+The authors used two machine learning algorithms, support vector regression (SVR) and random forest (RF), to develop the predictive models for soil moisture prediction. The models were trained using data collected from the WSN and validated using real-world data.
+
+The results of the study showed that the proposed system is effective in predicting soil moisture levels and optimizing irrigation scheduling. The SVR model outperformed the RF model, achieving a mean absolute error of 0.026 for soil moisture prediction.
+
+Henceforth, the proposed system provides an automated and intelligent solution for soil moisture prediction and irrigation scheduling, which can help farmers optimize their irrigation practices and reduce water usage.

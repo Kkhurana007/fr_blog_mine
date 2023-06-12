@@ -1,0 +1,8 @@
+---
+title: "Can AI decide when to water crops?"
+author: "Kunal Khurana"
+date: "2023-05-09"
+categories: [Machine learning, AI, Irrigation]
+image: "ai-based-irrigation-solutions-banner-new.png"
+---
+In Texas, 2022 was one of the driest years on record. The [article](https://agrilifetoday.tamu.edu/2023/04/25/texas-am-agrilife-research-ibm-streamline-when-to-water-app-and-sensors-for-producers/) in general wishes to tackle the water scarcity problems in agriculture. For that, Texas A&M AgriLife Research and IBM are collaborating to streamline a new low-cost app, similar to [Liquid prep](https://github.com/Liquid-Prep), to help farmers determine the optimal time to water their crops. The app, called "When to Water," combines data from various sources, including soil sensors, crop types, and weather forecasts, to provide customized irrigation recommendations to farmers. The collaboration aims to improve the accuracy and speed of data collection, analysis, and transmission, ultimately helping farmers make more informed decisions about irrigation management.

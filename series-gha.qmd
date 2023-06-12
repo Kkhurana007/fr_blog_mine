@@ -1,0 +1,42 @@
+---
+title: "GitHub Actions Series: Making awesome automations"
+subtitle: "Here is a list of posts about GitHub Actions"
+image: "featured.png"
+draft: false
+listing:
+  - id: posts-en
+    contents: posts/series-gha/*/en/*.qmd
+    type: default
+    fields: [image, date, title, subtitle, categories, author, reading-time]  
+    sort: "date desc"
+    categories: unnumbered
+    sort-ui: true
+    filter-ui: true
+    page-size: 2
+  - id: posts-fr
+    contents: posts/series-gha/*/fr/*.qmd
+    type: default
+    fields: [image, date, title, subtitle, categories, author, reading-time]
+    sort: "date desc"
+    categories: unnumbered
+    sort-ui: true
+    filter-ui: true
+    page-size: 2
+  
+page-layout: full
+title-block-banner: false
+toc: false
+---
+
+
+## Posts in English
+
+::: {#posts-en}
+:::
+
+## Posts en français
+
+::: {#posts-fr}
+:::
+
+
