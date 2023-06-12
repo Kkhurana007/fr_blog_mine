@@ -1,14 +1,64 @@
 ---
-title: "fr_blog_mine"
+title: "Kunal Khurana"
 listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
+  - id: posts
+    contents: "posts/**/en/*.qmd"
+    type: default
+    fields: [image, date, title, subtitle, categories, author]
+    sort: "date desc"
+    categories: cloud
+    sort-ui: false
+    filter-ui: false
+    page-size: 3
+    feed: true
+  - id: posts-en
+    contents: posts/**/*/index.qmd
+    type: grid
+    fields: [image, date, title]
+    sort: "date desc"
+    categories: cloud
+    sort-ui: false
+    filter-ui: true
+    page-size: 3          
+  - id: posts-fr
+    contents: "*/fr/*.qmd"
+    type: default
+    fields: [image, date, title, subtitle, categories, author, reading-time]
+    sort: "date desc"
+    #categories: cloud
+    sort-ui: false
+    filter-ui: false
+    page-size: 3   
+
+   
 page-layout: full
 title-block-banner: true
+comments: false
+toc: true
 ---
 
+## Recent posts / Posts recentes
 
+::: {#posts}
+:::
+
+<a href="../posts/index.html"> <button type="button" class="btn btn-primary float-end btn-sm">See all/Voir tout</button></a>
+
+<br>
+
+
+## Posts in English
+
+::: {#posts-en}
+:::
+
+<a href="../posts/en.html"> <button type="button" class="btn btn-primary float-end btn-sm">See all posts in English</button></a>
+
+## Posts en français
+
+::: {#posts-fr}
+:::
+
+<a href="../posts/pt.html"> <button type="button" class="btn btn-primary float-end btn-sm">Voir posts en français</button></a>
+
+---

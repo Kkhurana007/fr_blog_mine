@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Homepage - fr_blog_mine</title>
+<title>Homepage</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -60,35 +58,6 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YSR47ZM5Y0"></script>
 
 <script type="text/javascript">
@@ -100,12 +69,10 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
-<meta name="twitter:title" content="Homepage - fr_blog_mine">
-<meta name="twitter:image" content="https://miro.medium.com/max/400/0*XaLzNzYkA6PZjbl9.jpg">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@kunalkhurana007">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -150,17 +117,6 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-series" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Series</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-series">    
-        <li>
-    <a class="dropdown-item" href="./series-gha.html" rel="" target="">
- <span class="dropdown-text">GitHub Actions</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/Kkhurana007/fr_blog_mine" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
@@ -179,648 +135,52 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">fr_blog_mine</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(17)</span></div><div class="category" data-category="AI">AI <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Bamboo">Bamboo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="C">C <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Data Analysis">Data Analysis <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Digitalization">Digitalization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Git">Git <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Irrigation">Irrigation <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Machine learning">Machine learning <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Matplotlib">Matplotlib <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Modelling">Modelling <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Numpy">Numpy <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Pandas">Pandas <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Soil Analysis">Soil Analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Yield prediction">Yield prediction <span class="quarto-category-count">(1)</span></div><div class="category" data-category="data">data <span class="quarto-category-count">(2)</span></div><div class="category" data-category="packages">packages <span class="quarto-category-count">(1)</span></div><div class="category" data-category="plot">plot <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#recent-posts-posts-recentes" id="toc-recent-posts-posts-recentes" class="nav-link active" data-scroll-target="#recent-posts-posts-recentes">Recent posts / Posts recentes</a></li>
+  <li><a href="#posts-in-english" id="toc-posts-in-english" class="nav-link" data-scroll-target="#posts-in-english">Posts in English</a></li>
+  <li><a href="#posts-en-français" id="toc-posts-en-français" class="nav-link" data-scroll-target="#posts-en-français">Posts en français</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
 
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1686539069489" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/en.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./posts/en.html">
-<h3 class="no-anchor listing-title">
-Kunal Khurana
-</h3>
-<div class="listing-subtitle">
+<section id="recent-posts-posts-recentes" class="level2">
+<h2 class="anchored" data-anchor-id="recent-posts-posts-recentes">Recent posts / Posts recentes</h2>
+<div id="posts">
 
 </div>
-<div class="listing-description">
+<p><a href="../posts/index.html"> <button type="button" class="btn btn-primary float-end btn-sm">See all/Voir tout</button></a></p>
+<p><br></p>
+</section>
+<section id="posts-in-english" class="level2">
+<h2 class="anchored" data-anchor-id="posts-in-english">Posts in English</h2>
+<div id="posts-en">
 
 </div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/en.html"> </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1686544690536" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/fr.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./posts/fr.html">
-<h3 class="no-anchor listing-title">
-Kunal Khurana
-</h3>
-<div class="listing-subtitle">
+<p><a href="../posts/en.html"> <button type="button" class="btn btn-primary float-end btn-sm">See all posts in English</button></a></p>
+</section>
+<section id="posts-en-français" class="level2">
+<h2 class="anchored" data-anchor-id="posts-en-français">Posts en français</h2>
+<div id="posts-fr">
 
 </div>
-<div class="listing-description">
-
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/fr.html"> </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1686544114359" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/index.html"> <p class="card-img-top"><img src="posts\Ai_watersaving\ai_water_saving.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/index.html">
-<h3 class="no-anchor listing-title">
-Posts
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
+<p><a href="../posts/pt.html"> <button type="button" class="btn btn-primary float-end btn-sm">Voir posts en français</button></a></p>
+<hr>
 
 
+</section>
 
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/index.html"> </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Git,Data Analysis" data-listing-date-sort="1686196800000" data-listing-file-modified-sort="1686257022842" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11">
-<div class="thumbnail">
-<p><a href="./posts/git/introgit.html"> <p class="card-img-top"><img src="https://thinkr.fr/wp-content/uploads/git_notfinal.gif"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/git/introgit.html">
-<h3 class="no-anchor listing-title">
-Tools - Git
-</h3>
-<div class="listing-subtitle">
-Data Analysis
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Git'); return false;">
-Git
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Data Analysis'); return false;">
-Data Analysis
-</div>
-</div>
-<a href="./posts/git/introgit.html">
-<div class="listing-description">
-<p>Necessary tool for data analysts.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/git/introgit.html">
-<div class="listing-date">
-Jun 8, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="Git,Data Analysis" data-listing-date-sort="1686196800000" data-listing-file-modified-sort="1686515544930" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="33">
-<div class="thumbnail">
-<p><a href="./posts/git-2/exogit.html"> <img src="https://miro.medium.com/max/400/0*XaLzNzYkA6PZjbl9.jpg" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/git-2/exogit.html">
-<h3 class="no-anchor listing-title">
-Tools - Git-2
-</h3>
-<div class="listing-subtitle">
-Data Analysis
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Git'); return false;">
-Git
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Data Analysis'); return false;">
-Data Analysis
-</div>
-</div>
-<a href="./posts/git-2/exogit.html">
-<div class="listing-description">
-<p>Necessary tool for data analysts.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/git-2/exogit.html">
-<div class="listing-date">
-Jun 8, 2023
-</div>
-<div class="listing-author">
-Lino Galiana
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="Numpy,Data Analysis" data-listing-date-sort="1685937600000" data-listing-file-modified-sort="1686255871996" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10">
-<div class="thumbnail">
-<p><a href="./posts/numpy/Numpy_tutorial.html"> <p class="card-img-top"><img src="posts\numpy\Numpy_tutorial_files\figure-html\cell-86-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/numpy/Numpy_tutorial.html">
-<h3 class="no-anchor listing-title">
-Tools - Numpy
-</h3>
-<div class="listing-subtitle">
-Data Analysis
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Numpy'); return false;">
-Numpy
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Data Analysis'); return false;">
-Data Analysis
-</div>
-</div>
-<a href="./posts/numpy/Numpy_tutorial.html">
-<div class="listing-description">
-<p>A sample notebook using numpy library to analyze any research data.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/numpy/Numpy_tutorial.html">
-<div class="listing-date">
-Jun 5, 2023
-</div>
-<div class="listing-author">
-Justin Johnson, Volodymr Kuleshov, and Issac Caswell
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="Matplotlib,Data Analysis" data-listing-date-sort="1685851200000" data-listing-file-modified-sort="1686255871915" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/matplotlib/Matplotlib Tutorial.html"> <p class="card-img-top"><img src="posts\matplotlib\Matplotlib Tutorial_files\figure-html\cell-3-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/matplotlib/Matplotlib Tutorial.html">
-<h3 class="no-anchor listing-title">
-Tools - matplotlib
-</h3>
-<div class="listing-subtitle">
-Data Analysis
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Matplotlib'); return false;">
-Matplotlib
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Data Analysis'); return false;">
-Data Analysis
-</div>
-</div>
-<a href="./posts/matplotlib/Matplotlib Tutorial.html">
-<div class="listing-description">
-<p>A sample notebook using matplotlib library to analyze any research data.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/matplotlib/Matplotlib Tutorial.html">
-<div class="listing-date">
-Jun 4, 2023
-</div>
-<div class="listing-author">
-Keith Galli
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="Pandas,Data Analysis" data-listing-date-sort="1685851200000" data-listing-file-modified-sort="1686255872000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21">
-<div class="thumbnail">
-<p><a href="./posts/pandas/tools-pandas.html"> <p class="card-img-top"><img src="posts\pandas\tools-pandas_files\figure-html\cell-24-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/pandas/tools-pandas.html">
-<h3 class="no-anchor listing-title">
-Tools - pandas
-</h3>
-<div class="listing-subtitle">
-Data Analysis
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Pandas'); return false;">
-Pandas
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Data Analysis'); return false;">
-Data Analysis
-</div>
-</div>
-<a href="./posts/pandas/tools-pandas.html">
-<div class="listing-description">
-<p>A sample notebook using pandas library to analyze any research data.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/pandas/tools-pandas.html">
-<div class="listing-date">
-Jun 4, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="packages,data" data-listing-date-sort="1684728000000" data-listing-file-modified-sort="1686255872004" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/qmd_computations/computations.html"> <p class="card-img-top"><img src="posts\qmd_computations\computations_files\figure-html\cell-3-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/qmd_computations/computations.html">
-<h3 class="no-anchor listing-title">
-Quarto Computations
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('packages'); return false;">
-packages
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('data'); return false;">
-data
-</div>
-</div>
-<a href="./posts/qmd_computations/computations.html">
-<div class="listing-description">
-
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/qmd_computations/computations.html">
-<div class="listing-date">
-May 22, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-categories="plot,data" data-listing-date-sort="1684555200000" data-listing-file-modified-sort="1686255872050" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/sample_ipynb/hello.html"> <p class="card-img-top"><img src="posts\sample_ipynb\hello_files\figure-html\fig-polar-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/sample_ipynb/hello.html">
-<h3 class="no-anchor listing-title">
-Quarto Basics
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('plot'); return false;">
-plot
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('data'); return false;">
-data
-</div>
-</div>
-<a href="./posts/sample_ipynb/hello.html">
-<div class="listing-description">
-For a demonstration of a line plot on a polar axis, see Figure&nbsp;1.
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/sample_ipynb/hello.html">
-<div class="listing-date">
-May 20, 2023
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="10" data-categories="Numpy,Pandas,Data Analysis" data-listing-date-sort="1683864000000" data-listing-file-modified-sort="1686255872032" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
-<div class="thumbnail">
-<p><a href="./posts/qmd_titanic/titanic.html"> <p class="card-img-top"><img src="posts\qmd_titanic\titanic_files\figure-html\cell-9-output-2.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/qmd_titanic/titanic.html">
-<h3 class="no-anchor listing-title">
-Titanic dataset analysis using Pandas and Numpy
-</h3>
-<div class="listing-subtitle">
-Data Visualization
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Numpy'); return false;">
-Numpy
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Pandas'); return false;">
-Pandas
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Data Analysis'); return false;">
-Data Analysis
-</div>
-</div>
-<a href="./posts/qmd_titanic/titanic.html">
-<div class="listing-description">
-<p>A sample notebook to analyze any research data.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/qmd_titanic/titanic.html">
-<div class="listing-date">
-May 12, 2023
-</div>
-<div class="listing-author">
-Nonu Singh
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="11" data-categories="AI,Irrigation,Machine learning" data-listing-date-sort="1683604800000" data-listing-file-modified-sort="1686539490746" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/Ai_watersaving/index.html"> <img src="./posts/Ai_watersaving/ai_water_saving.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/Ai_watersaving/index.html">
-<h3 class="no-anchor listing-title">
-How helpful can AI be in solving the water crisis?
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('AI'); return false;">
-AI
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Irrigation'); return false;">
-Irrigation
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Machine learning'); return false;">
-Machine learning
-</div>
-</div>
-<a href="./posts/Ai_watersaving/index.html">
-<div class="listing-description">
-Wasting water, especially in areas in which it is a scarce resource, is a huge headache (and expense) for farmers and food growers worldwide. This article discusses how AI can help improve water irrigation in agriculture. The article notes that agriculture accounts for approximately 70% of global freshwater usage and that…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/Ai_watersaving/index.html">
-<div class="listing-date">
-May 9, 2023
-</div>
-<div class="listing-author">
-Kunal Khurana
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="12" data-categories="C,Bamboo" data-listing-date-sort="1683604800000" data-listing-file-modified-sort="1686539497866" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/bamboo_plantation/index.html"> <img src="./posts/bamboo_plantation/bamboo.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/bamboo_plantation/index.html">
-<h3 class="no-anchor listing-title">
-Can bamboo help to solve climate crisis?
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('C'); return false;">
-C
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Bamboo'); return false;">
-Bamboo
-</div>
-</div>
-<a href="./posts/bamboo_plantation/index.html">
-<div class="listing-description">
-<p>The article discusses how bamboo construction can be a sustainable and affordable solution to housing while also helping mitigate climate change.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/bamboo_plantation/index.html">
-<div class="listing-date">
-May 9, 2023
-</div>
-<div class="listing-author">
-Kunal Khurana
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="13" data-categories="Machine learning,AI,Irrigation" data-listing-date-sort="1683604800000" data-listing-file-modified-sort="1686255872053" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/when_to_water/index.html"> <img src="./posts/when_to_water/ai-based-irrigation-solutions-banner-new.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/when_to_water/index.html">
-<h3 class="no-anchor listing-title">
-Can AI decide when to water crops?
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Machine learning'); return false;">
-Machine learning
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('AI'); return false;">
-AI
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Irrigation'); return false;">
-Irrigation
-</div>
-</div>
-<a href="./posts/when_to_water/index.html">
-<div class="listing-description">
-In Texas, 2022 was one of the driest years on record. The article in general wishes to tackle the water scarcity problems in…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/when_to_water/index.html">
-<div class="listing-date">
-May 9, 2023
-</div>
-<div class="listing-author">
-Kunal Khurana
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="14" data-categories="Machine learning,Irrigation,Modelling" data-listing-date-sort="1682049600000" data-listing-file-modified-sort="1686257800339" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/irrigraiton_scheduling/content.html"> <img src="./posts/irrigraiton_scheduling/Irrigation_scheduling.jpg" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/irrigraiton_scheduling/content.html">
-<h3 class="no-anchor listing-title">
-Irrigation scheduling with Machine learning
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Machine learning'); return false;">
-Machine learning
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Irrigation'); return false;">
-Irrigation
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Modelling'); return false;">
-Modelling
-</div>
-</div>
-<a href="./posts/irrigraiton_scheduling/content.html">
-<div class="listing-description">
-The paper “Neural Network soil moisture model for irrigration scheduling” proposes an intelligent…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/irrigraiton_scheduling/content.html">
-<div class="listing-date">
-Apr 21, 2023
-</div>
-<div class="listing-author">
-Kunal Khurana
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="15" data-categories="Machine learning,Soil Analysis,Yield prediction" data-listing-date-sort="1682049600000" data-listing-file-modified-sort="1686255871902" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/Machine learning in Agriculture/index.html"> <img src="./posts/Machine learning in Agriculture/ML_in_agri.jpg" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/Machine learning in Agriculture/index.html">
-<h3 class="no-anchor listing-title">
-Machine learning in Agriculture
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Machine learning'); return false;">
-Machine learning
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Soil Analysis'); return false;">
-Soil Analysis
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Yield prediction'); return false;">
-Yield prediction
-</div>
-</div>
-<a href="./posts/Machine learning in Agriculture/index.html">
-<div class="listing-description">
-The article “Machine Learning in Agriculture: A Review” provides a comprehensive overview of the current state and potential applications of machine learning in agriculture.
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/Machine learning in Agriculture/index.html">
-<div class="listing-date">
-Apr 21, 2023
-</div>
-<div class="listing-author">
-Kunal Khurana
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="16" data-categories="Digitalization,Machine learning,AI" data-listing-date-sort="1681704000000" data-listing-file-modified-sort="1686255871901" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
-<div class="thumbnail">
-<p><a href="./posts/Digitalization_of_agricluture/index.html"> <img src="./posts/Digitalization_of_agricluture/Digitaliztion.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/Digitalization_of_agricluture/index.html">
-<h3 class="no-anchor listing-title">
-Digitaliztion of Agriculture
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Digitalization'); return false;">
-Digitalization
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Machine learning'); return false;">
-Machine learning
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('AI'); return false;">
-AI
-</div>
-</div>
-<a href="./posts/Digitalization_of_agricluture/index.html">
-<div class="listing-description">
-The article- “The next wave of agriculture in Saskatchewan is digital and Indigenous-led” discusses how Indigenous communities in…
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/Digitalization_of_agricluture/index.html">
-<div class="listing-date">
-Apr 17, 2023
-</div>
-<div class="listing-author">
-Kunal Khurana
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1068,7 +428,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
 });
 </script>
-<script src="https://giscus.app/client.js" data-repo="Kkhurana007/fr_blog_mine" data-repo-id="" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+<script src="https://giscus.app/client.js" data-repo="Kkhurana007/fr_blog_mine" data-repo-id="R_kgDOJuKwyw" data-category="General" data-category-id="DIC_kwDOJuKwy84CXJ4P" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
 <footer class="footer">

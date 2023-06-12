@@ -63,7 +63,7 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-talks .list');
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -76,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-talks'] = new List('listing-talks', options);
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -152,17 +152,6 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-series" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Series</span>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-series">    
-        <li>
-    <a class="dropdown-item" href="../series-gha.html" rel="" target="">
- <span class="dropdown-text">GitHub Actions</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/Kkhurana007/fr_blog_mine" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
@@ -214,11 +203,11 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-talks">
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
      <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-talks-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-talks'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
        <option value="" disabled="" selected="" hidden="">Order By</option>
        <option value="index" data-direction="asc">Default</option>
          <option value="listing-title" data-direction="asc">
@@ -238,7 +227,7 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
     </div>
 </div>
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="AI,Irrigation,Machine learning" data-listing-date-sort="1683604800000" data-listing-file-modified-sort="1686539490746" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="0" data-categories="AI,Irrigation,Machine learning" data-listing-date-sort="1683604800000" data-listing-file-modified-sort="1686547518122" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
 <a href="../posts/Ai_watersaving/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -257,7 +246,7 @@ May 9, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="C,Bamboo" data-listing-date-sort="1683604800000" data-listing-file-modified-sort="1686539497866" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="1" data-categories="C,Bamboo" data-listing-date-sort="1683604800000" data-listing-file-modified-sort="1686547518129" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
 <a href="../posts/bamboo_plantation/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -276,7 +265,7 @@ May 9, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="Machine learning,AI,Irrigation" data-listing-date-sort="1683604800000" data-listing-file-modified-sort="1686255872053" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="2" data-categories="Machine learning,AI,Irrigation" data-listing-date-sort="1683604800000" data-listing-file-modified-sort="1686547518247" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
 <a href="../posts/when_to_water/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -295,7 +284,7 @@ May 9, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="Machine learning,Soil Analysis,Yield prediction" data-listing-date-sort="1682049600000" data-listing-file-modified-sort="1686255871902" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="3" data-categories="Machine learning,Soil Analysis,Yield prediction" data-listing-date-sort="1682049600000" data-listing-file-modified-sort="1686547518126" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
 <a href="../posts/Machine learning in Agriculture/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -314,7 +303,7 @@ Apr 21, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="Digitalization,Machine learning,AI" data-listing-date-sort="1681704000000" data-listing-file-modified-sort="1686255871901" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="4" data-categories="Digitalization,Machine learning,AI" data-listing-date-sort="1681704000000" data-listing-file-modified-sort="1686547518125" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
 <a href="../posts/Digitalization_of_agricluture/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">

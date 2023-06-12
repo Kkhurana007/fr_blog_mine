@@ -25,7 +25,7 @@ about:
 </center>
 
 ::: {#hero-heading}
-Bonjour ! Je m’appelle Kunal Khurana, un chercheur en domaine de la science du sol et de l’agronomie il y a plus de 10 ans. Cette experience, j'ai acquise en travaillant dans différentes régions géographiques du monde sur divers projets avec différents experts. Je suis particulièrement passionné par la collaboration avec des professionnels de l'apprentissage automatique pour lutter contre le changement climatique en stockant davantage de carbone dans le sol et en préservant l'eau précieuse.
+Bonjour ! Je m’appelle Kunal Khurana, un chercheur en domaine de la science du sol et de l’agronomie il y a plus de 10 ans. Cette experience, j'ai acquise en travaillant dans les différentes régions géographiques du monde sur les divers projets avec les différents experts. Je suis particulièrement passionné par la collaboration avec des professionnels de l'apprentissage automatique pour lutter contre le changement climatique en stockant davantage de carbone dans le sol et en préservant l'eau précieuse.
 
 ## 📝Education
 
@@ -49,6 +49,6 @@ January 2019 -- August 2019| Assistant de recherche, Université Laval
 October 2016 -- March 2017| Assistant de recherche, PUNJAB AGRICULTURAL UNIVERSITY
 
 ## Contacer!
-L'une de mes plus grandes motivations pour créer du contenu en ligne est de communiquer avec des personnes fascinantes du monde entier. Si vous souhaitez discuter, n'hésitez pas à m'écrire. Je serais content d'avoir de vos nouvelles!
+L'une de mes plus grandes motivations pour créer du contenu en ligne est de communiquer avec des personnes fascinantes du monde entier. Si vous souhaitez en discuter, n'hésitez pas à m'écrire. Je serais content d'avoir de vos nouvelles!
 
 :::

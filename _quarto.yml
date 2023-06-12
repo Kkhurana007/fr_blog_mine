@@ -33,11 +33,6 @@ website:
           - text: Français
             href: posts/fr.qmd
          
-      - text: Series
-        menu:
-          - text: GitHub Actions
-            href: series-gha.qmd
-
       - icon: github
         href: https://github.com/Kkhurana007/fr_blog_mine
 

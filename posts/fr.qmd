@@ -2,7 +2,7 @@
 title: "Kunal Khurana"
 listing:
   - id: posts-fr
-    contents: "*/fr/*.qmd"
+    contents: "*/.qmd/*"
     type: default
     fields: [image, date, title, subtitle, categories, author, reading-time]  
     sort: "date desc"
@@ -15,7 +15,7 @@ title-block-banner: false
 comments: false
 ---
 
-## Posts en Frnaçais
+## Posts en Français
 
 ::: {#posts-fr}
 :::
