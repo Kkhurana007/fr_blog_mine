@@ -1,9 +1,11 @@
 ---
-title: "Kunal Khurana"
+title: "Posts en français"
 listing:
   - id: posts-fr
-    contents: "*/.qmd/*"
-    type: default
+    contents: 
+    - "introgit.ipynb"
+    - "exogit.ipynb"
+    type: grid
     fields: [image, date, title, subtitle, categories, author, reading-time]  
     sort: "date desc"
     categories: cloud

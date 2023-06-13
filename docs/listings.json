@@ -1,19 +1,57 @@
 [
   {
+    "listing": "/index.html",
+    "items": [
+      "/posts/git-2/exogit.html",
+      "/posts/git/introgit.html",
+      "/posts/numpy/Numpy_tutorial.html",
+      "/posts/matplotlib/Matplotlib Tutorial.html",
+      "/posts/pandas/tools-pandas.html",
+      "/posts/qmd_computations/computations.html",
+      "/posts/sample_ipynb/hello.html",
+      "/posts/qmd_titanic/titanic.html",
+      "/posts/Ai_watersaving/index.html",
+      "/posts/bamboo_plantation/index.html",
+      "/posts/when_to_water/index.html",
+      "/posts/Machine learning in Agriculture/index.html",
+      "/posts/irrigraiton_scheduling/content.html",
+      "/posts/Digitalization_of_agricluture/index.html"
+    ]
+  },
+  {
     "listing": "/posts/en.html",
-    "items": []
-  },
-  {
-    "listing": "/posts/fr.html",
-    "items": []
-  },
-  {
-    "listing": "/posts/index.html",
     "items": [
       "/posts/Ai_watersaving/index.html",
       "/posts/bamboo_plantation/index.html",
       "/posts/when_to_water/index.html",
       "/posts/Machine learning in Agriculture/index.html",
+      "/posts/irrigraiton_scheduling/content.html",
+      "/posts/Digitalization_of_agricluture/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/fr.html",
+    "items": [
+      "/posts/git/introgit.html",
+      "/posts/git-2/exogit.html"
+    ]
+  },
+  {
+    "listing": "/posts/index.html",
+    "items": [
+      "/posts/git-2/exogit.html",
+      "/posts/git/introgit.html",
+      "/posts/numpy/Numpy_tutorial.html",
+      "/posts/matplotlib/Matplotlib Tutorial.html",
+      "/posts/pandas/tools-pandas.html",
+      "/posts/qmd_computations/computations.html",
+      "/posts/sample_ipynb/hello.html",
+      "/posts/qmd_titanic/titanic.html",
+      "/posts/Ai_watersaving/index.html",
+      "/posts/bamboo_plantation/index.html",
+      "/posts/when_to_water/index.html",
+      "/posts/Machine learning in Agriculture/index.html",
+      "/posts/irrigraiton_scheduling/content.html",
       "/posts/Digitalization_of_agricluture/index.html"
     ]
   },

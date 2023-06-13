@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Homepage</title>
+<title>Homepage - Kunal Khurana</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -58,6 +60,64 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-posts-en .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle','listing-categories','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      page: 3,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-posts-en'] = new List('listing-posts-en', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-posts-fr .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle','listing-categories','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-posts-fr'] = new List('listing-posts-fr', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YSR47ZM5Y0"></script>
 
 <script type="text/javascript">
@@ -69,10 +129,13 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
-<meta name="twitter:title" content="">
+<meta name="twitter:title" content="Homepage - Kunal Khurana">
 <meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://miro.medium.com/max/400/0*XaLzNzYkA6PZjbl9.jpg">
 <meta name="twitter:creator" content="@kunalkhurana007">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -135,7 +198,7 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -143,39 +206,612 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#recent-posts-posts-recentes" id="toc-recent-posts-posts-recentes" class="nav-link active" data-scroll-target="#recent-posts-posts-recentes">Recent posts / Posts recentes</a></li>
-  <li><a href="#posts-in-english" id="toc-posts-in-english" class="nav-link" data-scroll-target="#posts-in-english">Posts in English</a></li>
+  <li><a href="#posts-in-english" id="toc-posts-in-english" class="nav-link active" data-scroll-target="#posts-in-english">Posts in English</a></li>
   <li><a href="#posts-en-français" id="toc-posts-en-français" class="nav-link" data-scroll-target="#posts-en-français">Posts en français</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
-
-
-<section id="recent-posts-posts-recentes" class="level2">
-<h2 class="anchored" data-anchor-id="recent-posts-posts-recentes">Recent posts / Posts recentes</h2>
-<div id="posts">
-
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Kunal Khurana</h1>
 </div>
-<p><a href="../posts/index.html"> <button type="button" class="btn btn-primary float-end btn-sm">See all/Voir tout</button></a></p>
-<p><br></p>
-</section>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
 <section id="posts-in-english" class="level2">
 <h2 class="anchored" data-anchor-id="posts-in-english">Posts in English</h2>
-<div id="posts-en">
+<div id="listing-posts-en" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="Git,Data Analysis" data-listing-date-sort="1686196800000" data-listing-file-modified-sort="1686547518132" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="33">
+<a href="./posts/git-2/exogit.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="https://miro.medium.com/max/400/0*XaLzNzYkA6PZjbl9.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Tools - Git-2
+</h5>
+<div class="card-subtitle listing-subtitle">
+Data Analysis
+</div>
+<div class="listing-reading-time card-text text-muted">
+33 min
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Git'); return false;">
+Git
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Analysis'); return false;">
+Data Analysis
+</div>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Lino Galiana
+</div>
+<div class="listing-date">
+Jun 8, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="Git,Data Analysis" data-listing-date-sort="1686196800000" data-listing-file-modified-sort="1686547518132" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11">
+<a href="./posts/git/introgit.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="https://thinkr.fr/wp-content/uploads/git_notfinal.gif" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Tools - Git
+</h5>
+<div class="card-subtitle listing-subtitle">
+Data Analysis
+</div>
+<div class="listing-reading-time card-text text-muted">
+11 min
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Git'); return false;">
+Git
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Analysis'); return false;">
+Data Analysis
+</div>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
 
 </div>
+<div class="listing-date">
+Jun 8, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="Numpy,Data Analysis" data-listing-date-sort="1685937600000" data-listing-file-modified-sort="1686547518207" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10">
+<a href="./posts/numpy/Numpy_tutorial.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="posts\numpy\Numpy_tutorial_files\figure-html\cell-86-output-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Tools - Numpy
+</h5>
+<div class="card-subtitle listing-subtitle">
+Data Analysis
+</div>
+<div class="listing-reading-time card-text text-muted">
+10 min
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Numpy'); return false;">
+Numpy
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Analysis'); return false;">
+Data Analysis
+</div>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Justin Johnson, Volodymr Kuleshov, and Issac Caswell
+</div>
+<div class="listing-date">
+Jun 5, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="Matplotlib,Data Analysis" data-listing-date-sort="1685851200000" data-listing-file-modified-sort="1686547518137" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<a href="./posts/matplotlib/Matplotlib Tutorial.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img data-src="posts\matplotlib\Matplotlib Tutorial_files\figure-html\cell-3-output-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Tools - matplotlib
+</h5>
+<div class="card-subtitle listing-subtitle">
+Data Analysis
+</div>
+<div class="listing-reading-time card-text text-muted">
+1 min
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Matplotlib'); return false;">
+Matplotlib
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Analysis'); return false;">
+Data Analysis
+</div>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Keith Galli
+</div>
+<div class="listing-date">
+Jun 4, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="Pandas,Data Analysis" data-listing-date-sort="1685851200000" data-listing-file-modified-sort="1686547518212" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21">
+<a href="./posts/pandas/tools-pandas.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img data-src="posts\pandas\tools-pandas_files\figure-html\cell-24-output-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Tools - pandas
+</h5>
+<div class="card-subtitle listing-subtitle">
+Data Analysis
+</div>
+<div class="listing-reading-time card-text text-muted">
+21 min
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Pandas'); return false;">
+Pandas
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Analysis'); return false;">
+Data Analysis
+</div>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+Jun 4, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="5" data-categories="packages,data" data-listing-date-sort="1684728000000" data-listing-file-modified-sort="1686547518215" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<a href="./posts/qmd_computations/computations.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img data-src="posts\qmd_computations\computations_files\figure-html\cell-3-output-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Quarto Computations
+</h5>
+<div class="listing-reading-time card-text text-muted">
+1 min
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('packages'); return false;">
+packages
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('data'); return false;">
+data
+</div>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+May 22, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="6" data-categories="plot,data" data-listing-date-sort="1684555200000" data-listing-file-modified-sort="1686547518245" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<a href="./posts/sample_ipynb/hello.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img data-src="posts\sample_ipynb\hello_files\figure-html\fig-polar-output-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Quarto Basics
+</h5>
+<div class="listing-reading-time card-text text-muted">
+1 min
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('plot'); return false;">
+plot
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('data'); return false;">
+data
+</div>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+
+</div>
+<div class="listing-date">
+May 20, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="7" data-categories="Numpy,Pandas,Data Analysis" data-listing-date-sort="1683864000000" data-listing-file-modified-sort="1686547518234" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
+<a href="./posts/qmd_titanic/titanic.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img data-src="posts\qmd_titanic\titanic_files\figure-html\cell-9-output-2.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Titanic dataset analysis using Pandas and Numpy
+</h5>
+<div class="card-subtitle listing-subtitle">
+Data Visualization
+</div>
+<div class="listing-reading-time card-text text-muted">
+7 min
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Numpy'); return false;">
+Numpy
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Pandas'); return false;">
+Pandas
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Analysis'); return false;">
+Data Analysis
+</div>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Nonu Singh
+</div>
+<div class="listing-date">
+May 12, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="8" data-categories="AI,Irrigation,Machine learning" data-listing-date-sort="1683604800000" data-listing-file-modified-sort="1686547518122" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<a href="./posts/Ai_watersaving/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img data-src="./posts/Ai_watersaving/ai_water_saving.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+How helpful can AI be in solving the water crisis?
+</h5>
+<div class="listing-reading-time card-text text-muted">
+1 min
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('AI'); return false;">
+AI
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Irrigation'); return false;">
+Irrigation
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Machine learning'); return false;">
+Machine learning
+</div>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Kunal Khurana
+</div>
+<div class="listing-date">
+May 9, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="9" data-categories="C,Bamboo" data-listing-date-sort="1683604800000" data-listing-file-modified-sort="1686547518129" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<a href="./posts/bamboo_plantation/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img data-src="./posts/bamboo_plantation/bamboo.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Can bamboo help to solve climate crisis?
+</h5>
+<div class="listing-reading-time card-text text-muted">
+1 min
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('C'); return false;">
+C
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Bamboo'); return false;">
+Bamboo
+</div>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Kunal Khurana
+</div>
+<div class="listing-date">
+May 9, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="10" data-categories="Machine learning,AI,Irrigation" data-listing-date-sort="1683604800000" data-listing-file-modified-sort="1686547518247" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<a href="./posts/when_to_water/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img data-src="./posts/when_to_water/ai-based-irrigation-solutions-banner-new.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Can AI decide when to water crops?
+</h5>
+<div class="listing-reading-time card-text text-muted">
+1 min
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Machine learning'); return false;">
+Machine learning
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('AI'); return false;">
+AI
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Irrigation'); return false;">
+Irrigation
+</div>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Kunal Khurana
+</div>
+<div class="listing-date">
+May 9, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="11" data-categories="Machine learning,Soil Analysis,Yield prediction" data-listing-date-sort="1682049600000" data-listing-file-modified-sort="1686547518126" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<a href="./posts/Machine learning in Agriculture/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img data-src="./posts/Machine learning in Agriculture/ML_in_agri.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Machine learning in Agriculture
+</h5>
+<div class="listing-reading-time card-text text-muted">
+1 min
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Machine learning'); return false;">
+Machine learning
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Soil Analysis'); return false;">
+Soil Analysis
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Yield prediction'); return false;">
+Yield prediction
+</div>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Kunal Khurana
+</div>
+<div class="listing-date">
+Apr 21, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="12" data-categories="Machine learning,Irrigation,Modelling" data-listing-date-sort="1682049600000" data-listing-file-modified-sort="1686547518134" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<a href="./posts/irrigraiton_scheduling/content.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img data-src="./posts/irrigraiton_scheduling/Irrigation_scheduling.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Irrigation scheduling with Machine learning
+</h5>
+<div class="listing-reading-time card-text text-muted">
+1 min
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Machine learning'); return false;">
+Machine learning
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Irrigation'); return false;">
+Irrigation
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Modelling'); return false;">
+Modelling
+</div>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Kunal Khurana
+</div>
+<div class="listing-date">
+Apr 21, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="13" data-categories="Digitalization,Machine learning,AI" data-listing-date-sort="1681704000000" data-listing-file-modified-sort="1686547518125" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<a href="./posts/Digitalization_of_agricluture/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img data-src="./posts/Digitalization_of_agricluture/Digitaliztion.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Digitaliztion of Agriculture
+</h5>
+<div class="listing-reading-time card-text text-muted">
+1 min
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Digitalization'); return false;">
+Digitalization
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Machine learning'); return false;">
+Machine learning
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('AI'); return false;">
+AI
+</div>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Kunal Khurana
+</div>
+<div class="listing-date">
+Apr 17, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<nav id="posts-en-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
+</div>
 <p><a href="../posts/en.html"> <button type="button" class="btn btn-primary float-end btn-sm">See all posts in English</button></a></p>
+<p><br></p>
 </section>
 <section id="posts-en-français" class="level2">
 <h2 class="anchored" data-anchor-id="posts-en-français">Posts en français</h2>
-<div id="posts-fr">
+<div id="listing-posts-fr" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="Git,Data Analysis" data-listing-date-sort="1686196800000" data-listing-file-modified-sort="1686547518132" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11">
+<a href="./posts/git/introgit.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="https://thinkr.fr/wp-content/uploads/git_notfinal.gif" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Tools - Git
+</h5>
+<div class="card-subtitle listing-subtitle">
+Data Analysis
+</div>
+<div class="listing-reading-time card-text text-muted">
+11 min
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Git'); return false;">
+Git
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Analysis'); return false;">
+Data Analysis
+</div>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
 
 </div>
-<p><a href="../posts/pt.html"> <button type="button" class="btn btn-primary float-end btn-sm">Voir posts en français</button></a></p>
-<hr>
+<div class="listing-date">
+Jun 8, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="Git,Data Analysis" data-listing-date-sort="1686196800000" data-listing-file-modified-sort="1686547518132" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="33">
+<a href="./posts/git-2/exogit.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="https://miro.medium.com/max/400/0*XaLzNzYkA6PZjbl9.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Tools - Git-2
+</h5>
+<div class="card-subtitle listing-subtitle">
+Data Analysis
+</div>
+<div class="listing-reading-time card-text text-muted">
+33 min
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Git'); return false;">
+Git
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Data Analysis'); return false;">
+Data Analysis
+</div>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Lino Galiana
+</div>
+<div class="listing-date">
+Jun 8, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+<p><a href="../posts/fr.html"> <button type="button" class="btn btn-primary float-end btn-sm">Voir les posts en français</button></a></p>
+<p><br></p>
+
 
 
 </section>
@@ -427,8 +1063,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
 });
-</script>
-<script src="https://giscus.app/client.js" data-repo="Kkhurana007/fr_blog_mine" data-repo-id="R_kgDOJuKwyw" data-category="General" data-category-id="DIC_kwDOJuKwy84CXJ4P" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
 <footer class="footer">

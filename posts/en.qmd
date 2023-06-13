@@ -1,9 +1,10 @@
 ---
-title: "Posts"
+title: "Posts in English"
 listing:
   - id: posts-en
-    contents: posts
-    type: default
+    contents: 
+    - "**/*/**.qmd"
+    type: grid
     fields: [image, date, title, subtitle, categories, author, reading-time]  
     sort: "date desc"
     # categories: cloud
