@@ -13,7 +13,13 @@ about:
       href: https://github.com/Kkhurana007
     - icon: twitter
       text: Twitter
-      href: https://twitter.com/kunalkhurana007     
+      href: https://twitter.com/kunalkhurana007   
+    - icon: medium
+      text: Medium
+      href: https://medium.com/@khuranasoils
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/khuranasoils   
 ---
 
 <center>
