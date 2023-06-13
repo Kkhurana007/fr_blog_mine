@@ -59,7 +59,7 @@ comments:
     repo: Kkhurana007/fr_blog_mine
 
 execute:
-  freeze: true
+  freeze: auto
 
 
 
