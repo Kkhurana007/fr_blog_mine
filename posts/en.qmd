@@ -1,5 +1,5 @@
 ---
-title: "Posts in English"
+title: "All posts"
 listing:
   - id: posts-en
     contents: 
@@ -17,7 +17,7 @@ title-block-banner: false
 comments: false
 ---
 
-## Posts in English
+## All posts
 
 ::: {#posts-en}
 :::
