@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/fertility_map_africa/afsis-soil-chem-EDA.html",
       "/posts/git-2/exogit.html",
       "/posts/git/introgit.html",
       "/posts/numpy/Numpy_tutorial.html",
@@ -21,6 +22,7 @@
   {
     "listing": "/posts/en.html",
     "items": [
+      "/posts/fertility_map_africa/afsis-soil-chem-EDA.html",
       "/posts/git-2/exogit.html",
       "/posts/git/introgit.html",
       "/posts/numpy/Numpy_tutorial.html",
@@ -47,6 +49,7 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/fertility_map_africa/afsis-soil-chem-EDA.html",
       "/posts/git-2/exogit.html",
       "/posts/git/introgit.html",
       "/posts/numpy/Numpy_tutorial.html",
