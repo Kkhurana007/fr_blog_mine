@@ -34,7 +34,7 @@ about:
 ::: {#hero-heading}
 ---
 
-Hi! I’m Kunal Khurana, a soil physicist with working experience in agronomy, soil fertility, and plant nutrition, it has been more than 10 years. I gained this experience by working at different geographic locations of the world on diverse projects with different experts. I am particularly passionate about working with AI and machine learning professionals to fight against climate change by storing more amount of C in the soil and saving precious water.
+Hi! I’m Kunal Khurana, a soil physicist with more than 10 years of working experience in agronomy, soil fertility, and plant nutrition. I gained this experience by working at different geographic locations of the world on diverse projects with different experts. I am particularly passionate about working with AI and machine learning professionals to fight against climate change by storing more amount of C in the soil and saving precious water.
 
 
 
