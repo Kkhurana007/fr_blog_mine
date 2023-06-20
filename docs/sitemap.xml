@@ -2,98 +2,106 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ilovesoils.com/about-fr.html</loc>
-    <lastmod>2023-06-16T03:00:39.009Z</lastmod>
+    <lastmod>2023-06-20T17:02:42.317Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/about.html</loc>
-    <lastmod>2023-06-16T03:00:39.583Z</lastmod>
+    <lastmod>2023-06-20T17:19:58.745Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/index.html</loc>
-    <lastmod>2023-06-17T03:59:53.744Z</lastmod>
+    <lastmod>2023-06-20T19:20:52.064Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/Ai_watersaving/index.html</loc>
-    <lastmod>2023-06-16T03:00:43.772Z</lastmod>
+    <lastmod>2023-06-20T17:02:49.132Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/bamboo_plantation/index.html</loc>
-    <lastmod>2023-06-16T03:00:44.896Z</lastmod>
+    <lastmod>2023-06-20T17:02:50.256Z</lastmod>
   </url>
   <url>
-    <loc>https://ilovesoils.com/posts/Digitalization_of_agricluture/index.html</loc>
-    <lastmod>2023-06-16T03:00:45.991Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ilovesoils.com/posts/en.html</loc>
-    <lastmod>2023-06-17T03:59:56.684Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ilovesoils.com/posts/fertility_map_africa/afsis-soil-chem-EDA.html</loc>
-    <lastmod>2023-06-17T03:59:24.690Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ilovesoils.com/posts/fr.html</loc>
-    <lastmod>2023-06-17T03:56:45.895Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ilovesoils.com/posts/git/introgit.html</loc>
-    <lastmod>2023-06-16T03:00:58.220Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ilovesoils.com/posts/git-2/exogit.html</loc>
-    <lastmod>2023-06-16T03:01:01.774Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ilovesoils.com/posts/index.html</loc>
-    <lastmod>2023-06-17T03:59:58.501Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ilovesoils.com/posts/irrigraiton_scheduling/content.html</loc>
-    <lastmod>2023-06-16T03:01:04.846Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ilovesoils.com/posts/Machine learning in Agriculture/index.html</loc>
-    <lastmod>2023-06-16T03:01:05.886Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ilovesoils.com/posts/matplotlib/Matplotlib Tutorial.html</loc>
-    <lastmod>2023-06-16T03:01:07.497Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ilovesoils.com/posts/numpy/Numpy_tutorial.html</loc>
-    <lastmod>2023-06-16T03:01:10.758Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ilovesoils.com/posts/pandas/tools-pandas.html</loc>
-    <lastmod>2023-06-16T03:01:21.035Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ilovesoils.com/posts/qmd_computations/computations.html</loc>
-    <lastmod>2023-06-16T03:01:22.121Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ilovesoils.com/posts/qmd_titanic/titanic.html</loc>
-    <lastmod>2023-06-16T03:01:24.736Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ilovesoils.com/posts/sample_ipynb/hello.html</loc>
-    <lastmod>2023-06-16T03:01:25.707Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ilovesoils.com/posts/when_to_water/index.html</loc>
-    <lastmod>2023-06-16T03:01:26.911Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ilovesoils.com/series-gha.html</loc>
-    <lastmod>2023-06-16T03:01:29.457Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ilovesoils.com/test.html</loc>
-    <lastmod>2023-06-16T03:01:30.854Z</lastmod>
+    <loc>https://ilovesoils.com/posts/charting/charting.html</loc>
+    <lastmod>2023-06-20T19:21:13.192Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/continents classifier/continents_classifier.html</loc>
-    <lastmod>2023-06-17T04:00:02.287Z</lastmod>
+    <lastmod>2023-06-20T17:16:14.251Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/Digitalization_of_agricluture/index.html</loc>
+    <lastmod>2023-06-20T17:02:56.241Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/en.html</loc>
+    <lastmod>2023-06-20T17:19:42.054Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/fertility_map_africa/afsis-soil-chem-EDA.html</loc>
+    <lastmod>2023-06-20T17:03:07.791Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/fr.html</loc>
+    <lastmod>2023-06-20T17:03:09.038Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/git/introgit.html</loc>
+    <lastmod>2023-06-20T17:03:11.397Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/git-2/exogit.html</loc>
+    <lastmod>2023-06-20T17:03:15.756Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/index.html</loc>
+    <lastmod>2023-06-20T17:16:10.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/irrigraiton_scheduling/content.html</loc>
+    <lastmod>2023-06-20T17:03:19.231Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/Machine learning in Agriculture/index.html</loc>
+    <lastmod>2023-06-20T17:03:20.376Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/matplotlib/Matplotlib Tutorial.html</loc>
+    <lastmod>2023-06-20T17:03:22.008Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/ML/ML_project.html</loc>
+    <lastmod>2023-06-20T19:21:09.410Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/numpy/Numpy_tutorial.html</loc>
+    <lastmod>2023-06-20T17:03:30.553Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/pandas/tools-pandas.html</loc>
+    <lastmod>2023-06-20T17:03:41.731Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/qmd_computations/computations.html</loc>
+    <lastmod>2023-06-20T17:03:42.773Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/qmd_titanic/titanic.html</loc>
+    <lastmod>2023-06-20T17:03:45.330Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/sample_ipynb/hello.html</loc>
+    <lastmod>2023-06-20T17:03:46.327Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/when_to_water/index.html</loc>
+    <lastmod>2023-06-20T17:03:47.402Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/series-gha.html</loc>
+    <lastmod>2023-06-20T17:03:48.627Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/test.html</loc>
+    <lastmod>2023-06-20T17:03:49.663Z</lastmod>
   </url>
 </urlset>

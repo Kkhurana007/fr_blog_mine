@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/ML/ML_project.html",
+      "/posts/charting/charting.html",
       "/posts/fertility_map_africa/afsis-soil-chem-EDA.html",
       "/posts/git-2/exogit.html",
       "/posts/git/introgit.html",
@@ -23,6 +25,8 @@
   {
     "listing": "/posts/en.html",
     "items": [
+      "/posts/ML/ML_project.html",
+      "/posts/charting/charting.html",
       "/posts/fertility_map_africa/afsis-soil-chem-EDA.html",
       "/posts/git-2/exogit.html",
       "/posts/git/introgit.html",
@@ -51,6 +55,8 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/ML/ML_project.html",
+      "/posts/charting/charting.html",
       "/posts/fertility_map_africa/afsis-soil-chem-EDA.html",
       "/posts/git-2/exogit.html",
       "/posts/git/introgit.html",
