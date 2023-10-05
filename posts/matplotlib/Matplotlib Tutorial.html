@@ -248,14 +248,19 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 <section id="load-necessary-libraries" class="level3">
 <h3 class="anchored" data-anchor-id="load-necessary-libraries">Load Necessary Libraries</h3>
 <div class="cell" data-execution_count="2">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="basic-graph" class="level3">
 <h3 class="anchored" data-anchor-id="basic-graph">Basic Graph</h3>
 <div class="cell" data-execution_count="6">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -301,6 +306,7 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 <span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Show plot</span></span>
 <span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <p><img src="Matplotlib Tutorial_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
 </div>
@@ -309,6 +315,8 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 <section id="bar-chart" class="level3">
 <h3 class="anchored" data-anchor-id="bar-chart">Bar Chart</h3>
 <div class="cell" data-execution_count="10">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>]</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -323,6 +331,7 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'barchart.png'</span>, dpi<span class="op">=</span><span class="dv">300</span>)</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <p><img src="Matplotlib Tutorial_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
 </div>
@@ -334,6 +343,8 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 <section id="line-graph" class="level3">
 <h3 class="anchored" data-anchor-id="line-graph">Line Graph</h3>
 <div class="cell" data-execution_count="4">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gas <span class="op">=</span> pd.read_csv(<span class="st">'gas_prices.csv'</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">5</span>))</span>
@@ -361,6 +372,7 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'Gas_price_figure.png'</span>, dpi<span class="op">=</span><span class="dv">300</span>)</span>
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <p><img src="Matplotlib Tutorial_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
 </div>
@@ -369,9 +381,12 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 <section id="load-fifa-data" class="level3">
 <h3 class="anchored" data-anchor-id="load-fifa-data">Load Fifa Data</h3>
 <div class="cell" data-execution_count="8">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fifa <span class="op">=</span> pd.read_csv(<span class="st">'fifa_data.csv'</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>fifa.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
@@ -535,6 +550,8 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 <section id="histogram" class="level3">
 <h3 class="anchored" data-anchor-id="histogram">Histogram</h3>
 <div class="cell" data-execution_count="9">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> [<span class="dv">40</span>,<span class="dv">50</span>,<span class="dv">60</span>,<span class="dv">70</span>,<span class="dv">80</span>,<span class="dv">90</span>,<span class="dv">100</span>]</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">5</span>))</span>
@@ -550,6 +567,7 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'histogram.png'</span>, dpi<span class="op">=</span><span class="dv">300</span>)</span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <p><img src="Matplotlib Tutorial_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
 </div>
@@ -558,6 +576,8 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 <section id="pie-chart" class="level3">
 <h3 class="anchored" data-anchor-id="pie-chart">Pie Chart</h3>
 <div class="cell" data-execution_count="10">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>left <span class="op">=</span> fifa.loc[fifa[<span class="st">'Preferred Foot'</span>] <span class="op">==</span> <span class="st">'Left'</span>].count()[<span class="dv">0</span>]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>right <span class="op">=</span> fifa.loc[fifa[<span class="st">'Preferred Foot'</span>] <span class="op">==</span> <span class="st">'Right'</span>].count()[<span class="dv">0</span>]</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -571,6 +591,7 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Foot Preference of FIFA Players'</span>)</span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <p><img src="Matplotlib Tutorial_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
 </div>
@@ -579,6 +600,8 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 <section id="pie-chart-2" class="level3">
 <h3 class="anchored" data-anchor-id="pie-chart-2">Pie Chart #2</h3>
 <div class="cell" data-execution_count="11">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">5</span>), dpi<span class="op">=</span><span class="dv">100</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'ggplot'</span>)</span>
@@ -599,6 +622,7 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>plt.pie(weights, labels<span class="op">=</span>label, explode<span class="op">=</span>explode, pctdistance<span class="op">=</span><span class="fl">0.8</span>,autopct<span class="op">=</span><span class="st">'</span><span class="sc">%.2f</span><span class="st"> </span><span class="sc">%%</span><span class="st">'</span>)</span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <p><img src="Matplotlib Tutorial_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
 </div>
@@ -607,6 +631,8 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 <section id="box-and-whiskers-chart" class="level3">
 <h3 class="anchored" data-anchor-id="box-and-whiskers-chart">Box and Whiskers Chart</h3>
 <div class="cell" data-execution_count="12">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">8</span>), dpi<span class="op">=</span><span class="dv">100</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'default'</span>)</span>
@@ -630,6 +656,7 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 <span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="co">#box.set(hatch = '/')</span></span>
 <span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <p><img src="Matplotlib Tutorial_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
 </div>
