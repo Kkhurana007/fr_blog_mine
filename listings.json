@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/python/p11.html",
+      "/posts/python/p_10.html",
       "/posts/python/p_9.html",
       "/posts/python/p_1.html",
       "/posts/python/p_2.html",
@@ -33,6 +35,8 @@
   {
     "listing": "/posts/en.html",
     "items": [
+      "/posts/python/p11.html",
+      "/posts/python/p_10.html",
       "/posts/python/p_9.html",
       "/posts/python/p_1.html",
       "/posts/python/p_2.html",
@@ -71,6 +75,8 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/python/p11.html",
+      "/posts/python/p_10.html",
       "/posts/python/p_9.html",
       "/posts/python/p_1.html",
       "/posts/python/p_2.html",

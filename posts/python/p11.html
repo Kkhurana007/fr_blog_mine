@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.340">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kunal Khurana">
+<meta name="dcterms.date" content="2023-10-13">
+
+<title>Homepage - Working with APIs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YSR47ZM5Y0"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta name="twitter:title" content="Homepage - Working with APIs">
+<meta name="twitter:description" content="Python basics">
+<meta name="twitter:image" content="https://ilovesoils.com/posts/python/API.png">
+<meta name="twitter:creator" content="@kunalkhurana007">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="281">
+<meta name="twitter:image-width" content="552">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Homepage</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">Kunal Khurana</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-posts" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Posts</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
+        <li>
+    <a class="dropdown-item" href="../../posts/index.html" rel="" target="">
+ <span class="dropdown-text">All posts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../posts/en.html" rel="" target="">
+ <span class="dropdown-text">English</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../posts/fr.html" rel="" target="">
+ <span class="dropdown-text">Français</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Kkhurana007/fr_blog_mine" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/kunalkhurana007" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Working with APIs</h1>
+            <p class="subtitle lead">Python basics</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Python</div>
+                <div class="quarto-category">Basics</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Kunal Khurana </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 13, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link active" data-scroll-target="#learning-outcomes">Learning outcomes</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a>
+  <ul class="collapse">
+  <li><a href="#pull-out-values-from-keys-in-repo_dict" id="toc-pull-out-values-from-keys-in-repo_dict" class="nav-link" data-scroll-target="#pull-out-values-from-keys-in-repo_dict">Pull out values from keys in repo_dict</a></li>
+  <li><a href="#summarizing-top-repositories" id="toc-summarizing-top-repositories" class="nav-link" data-scroll-target="#summarizing-top-repositories">Summarizing top repositories</a></li>
+  <li><a href="#visualizing-repositories-using-plotly" id="toc-visualizing-repositories-using-plotly" class="nav-link" data-scroll-target="#visualizing-repositories-using-plotly">Visualizing repositories using Plotly</a></li>
+  <li><a href="#the-hacker-news-api" id="toc-the-hacker-news-api" class="nav-link" data-scroll-target="#the-hacker-news-api">The Hacker News API</a></li>
+  <li><a href="#analysing-all-the-top-articles-from-hackernews" id="toc-analysing-all-the-top-articles-from-hackernews" class="nav-link" data-scroll-target="#analysing-all-the-top-articles-from-hackernews">Analysing all the top articles from Hackernews</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="learning-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes</h3>
+<ul>
+<li>with web applicaiton programming interphase request specific information from a website to generate a visualization</li>
+<li>write programs that gather data they need and create a visualiztion</li>
+<li>use Github’s API to explore the most starred projects on GitHub</li>
+<li>Use Requests package to issue and process results.</li>
+<li>Use plotly to generate and customize the appearance of charts</li>
+</ul>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<ul>
+<li><a href="https://plotly.com/python/creating-and-updating-figures/">Plotly guide</a></li>
+<li><a href="https://plotly.com/python/reference/">Configure plotly visualizations</a></li>
+<li><a href="https://docs.github.com/en/rest?apiVersion=2022-11-28">API documentation</a></li>
+<li><a href="https://github.com/HackerNews/API/">Hacker news API</a></li>
+</ul>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># make an API and store the response</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://api.github.com/search/repositories?q=language:python&amp;sort=stars'</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>headers <span class="op">=</span> {<span class="st">'Accept'</span>: <span class="st">'application/vnd.github.v3+json'</span>}  <span class="co">#uses specific version</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> requests.get(url, headers <span class="op">=</span> headers)  <span class="co">#using requests to make a call to API</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Status code: </span><span class="sc">{</span>r<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#store API response in a variable</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>response_dict <span class="op">=</span> r.json()  <span class="co">#using json method to convert it into a pyton dictionary</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># process results</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response_dict.keys())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Status code: 200
+dict_keys(['total_count', 'incomplete_results', 'items'])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>response_dict <span class="op">=</span> r.json()  </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="ss">f"Total repositories: </span><span class="sc">{</span>response_dict[<span class="st">'total_count'</span>]<span class="sc">}</span><span class="ss">"</span>)  <span class="co">#prints total count</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># explore information about repos</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>repo_dicts <span class="op">=</span> response_dict [<span class="st">'items'</span>]  <span class="co">#storing the list in repo_dicts</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Repositories returned: </span><span class="sc">{</span><span class="bu">len</span>(repo_dicts)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># examine the first repository</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>repo_dict <span class="op">=</span> repo_dicts[<span class="dv">0</span>]</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Keys: </span><span class="sc">{</span><span class="bu">len</span>(repo_dict)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> <span class="bu">sorted</span>(repo_dict.keys()):</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Total repositories: 9344484
+Repositories returned: 30
+
+Keys: 80
+allow_forking
+archive_url
+archived
+assignees_url
+blobs_url
+branches_url
+clone_url
+collaborators_url
+comments_url
+commits_url
+compare_url
+contents_url
+contributors_url
+created_at
+default_branch
+deployments_url
+description
+disabled
+downloads_url
+events_url
+fork
+forks
+forks_count
+forks_url
+full_name
+git_commits_url
+git_refs_url
+git_tags_url
+git_url
+has_discussions
+has_downloads
+has_issues
+has_pages
+has_projects
+has_wiki
+homepage
+hooks_url
+html_url
+id
+is_template
+issue_comment_url
+issue_events_url
+issues_url
+keys_url
+labels_url
+language
+languages_url
+license
+merges_url
+milestones_url
+mirror_url
+name
+node_id
+notifications_url
+open_issues
+open_issues_count
+owner
+private
+pulls_url
+pushed_at
+releases_url
+score
+size
+ssh_url
+stargazers_count
+stargazers_url
+statuses_url
+subscribers_url
+subscription_url
+svn_url
+tags_url
+teams_url
+topics
+trees_url
+updated_at
+url
+visibility
+watchers
+watchers_count
+web_commit_signoff_required</code></pre>
+</div>
+</div>
+<section id="pull-out-values-from-keys-in-repo_dict" class="level3">
+<h3 class="anchored" data-anchor-id="pull-out-values-from-keys-in-repo_dict">Pull out values from keys in repo_dict</h3>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># explore information about repos</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>repo_dicts <span class="op">=</span> response_dict [<span class="st">'items'</span>]  </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># examine first</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>repo_dict <span class="op">=</span> repo_dicts[<span class="dv">0</span>]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">"</span><span class="ch">\n</span><span class="st"> Selected information about first repository:"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Name: </span><span class="sc">{</span>repo_dict[<span class="st">'name'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Owner: </span><span class="sc">{</span>repo_dict[<span class="st">'owner'</span>][<span class="st">'login'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Stars: </span><span class="sc">{</span>repo_dict[<span class="st">'stargazers_count'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="ss">f"Repository: </span><span class="sc">{</span>repo_dict[<span class="st">'html_url'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Created: </span><span class="sc">{</span>repo_dict[<span class="st">'created_at'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Updated: </span><span class="sc">{</span>repo_dict[<span class="st">'updated_at'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Description: </span><span class="sc">{</span>repo_dict[<span class="st">'description'</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Selected information about first repository:
+Name: Python-100-Days
+Owner: jackfrued
+Stars: 142124
+Repository: https://github.com/jackfrued/Python-100-Days
+Created: 2018-03-01T16:05:52Z
+Updated: 2023-11-13T16:14:16Z
+Description: Python - 100天从新手到大师</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># examine second</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>repo_dict <span class="op">=</span> repo_dicts[<span class="dv">1</span>]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">"</span><span class="ch">\n</span><span class="st"> Selected information about second repository:"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Name: </span><span class="sc">{</span>repo_dict[<span class="st">'name'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Owner: </span><span class="sc">{</span>repo_dict[<span class="st">'owner'</span>][<span class="st">'login'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Stars: </span><span class="sc">{</span>repo_dict[<span class="st">'stargazers_count'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="ss">f"Repository: </span><span class="sc">{</span>repo_dict[<span class="st">'html_url'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Created: </span><span class="sc">{</span>repo_dict[<span class="st">'created_at'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Updated: </span><span class="sc">{</span>repo_dict[<span class="st">'updated_at'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Description: </span><span class="sc">{</span>repo_dict[<span class="st">'description'</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Selected information about second repository:
+Name: ColossalAI
+Owner: hpcaitech
+Stars: 35236
+Repository: https://github.com/hpcaitech/ColossalAI
+Created: 2021-10-28T16:19:44Z
+Updated: 2023-11-13T20:52:01Z
+Description: Making large AI models cheaper, faster and more accessible</code></pre>
+</div>
+</div>
+</section>
+<section id="summarizing-top-repositories" class="level3">
+<h3 class="anchored" data-anchor-id="summarizing-top-repositories">Summarizing top repositories</h3>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#prints total count first</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>response_dict <span class="op">=</span> r.json()  </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="ss">f"Total repositories: </span><span class="sc">{</span>response_dict[<span class="st">'total_count'</span>]<span class="sc">}</span><span class="ss">"</span>)  </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># explore information first</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>repo_dicts <span class="op">=</span> response_dict[<span class="st">'items'</span>]</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Repositories returned: </span><span class="sc">{</span><span class="bu">len</span>(repo_dicts)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Selected information about each repository:"</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> repo_dict <span class="kw">in</span> repo_dicts:</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Name: </span><span class="sc">{</span>repo_dict[<span class="st">'name'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Owner: </span><span class="sc">{</span>repo_dict[<span class="st">'owner'</span>][<span class="st">'login'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Stars: </span><span class="sc">{</span>repo_dict[<span class="st">'stargazers_count'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span> (<span class="ss">f"Repository: </span><span class="sc">{</span>repo_dict[<span class="st">'html_url'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Description: </span><span class="sc">{</span>repo_dict[<span class="st">'description'</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Total repositories: 9344484
+
+Repositories returned: 30
+
+Selected information about each repository:
+Name: Python-100-Days
+Owner: jackfrued
+Stars: 142124
+Repository: https://github.com/jackfrued/Python-100-Days
+Description: Python - 100天从新手到大师
+Name: ColossalAI
+Owner: hpcaitech
+Stars: 35236
+Repository: https://github.com/hpcaitech/ColossalAI
+Description: Making large AI models cheaper, faster and more accessible
+Name: DragGAN
+Owner: XingangPan
+Stars: 33710
+Repository: https://github.com/XingangPan/DragGAN
+Description: Official Code for DragGAN (SIGGRAPH 2023)
+Name: open-interpreter
+Owner: KillianLucas
+Stars: 33035
+Repository: https://github.com/KillianLucas/open-interpreter
+Description: OpenAI's Code Interpreter in your terminal, running locally
+Name: XX-Net
+Owner: XX-net
+Stars: 32300
+Repository: https://github.com/XX-net/XX-Net
+Description: A proxy tool to bypass GFW.
+Name: MockingBird
+Owner: babysor
+Stars: 31783
+Repository: https://github.com/babysor/MockingBird
+Description: 🚀AI拟声: 5秒内克隆您的声音并生成任意语音内容 Clone a voice in 5 seconds to generate arbitrary speech in real-time
+Name: HanLP
+Owner: hankcs
+Stars: 30751
+Repository: https://github.com/hankcs/HanLP
+Description: Natural Language Processing for the next decade. Tokenization, Part-of-Speech Tagging, Named Entity Recognition, Syntactic &amp; Semantic Dependency Parsing, Document Classification
+Name: ray
+Owner: ray-project
+Stars: 28605
+Repository: https://github.com/ray-project/ray
+Description: Ray is a unified framework for scaling AI and Python applications. Ray consists of a core distributed runtime and a set of AI Libraries for accelerating ML workloads.
+Name: ItChat
+Owner: littlecodersh
+Stars: 24369
+Repository: https://github.com/littlecodersh/ItChat
+Description: A complete and graceful API for Wechat. 微信个人号接口、微信机器人及命令行微信，三十行即可自定义个人号机器人。
+Name: hosts
+Owner: StevenBlack
+Stars: 24161
+Repository: https://github.com/StevenBlack/hosts
+Description: 🔒 Consolidating and extending hosts files from several well-curated sources. Optionally pick extensions for porn, social media, and other categories.
+Name: dash
+Owner: plotly
+Stars: 19624
+Repository: https://github.com/plotly/dash
+Description: Data Apps &amp; Dashboards for Python. No JavaScript Required.
+Name: chatgpt-on-wechat
+Owner: zhayujie
+Stars: 17214
+Repository: https://github.com/zhayujie/chatgpt-on-wechat
+Description: Wechat robot based on ChatGPT,  which using OpenAI api and itchat library. 使用大模型搭建微信聊天机器人，基于 GPT3.5/GPT4.0/Claude/文心一言/讯飞星火/LinkAI，支持个人微信、公众号、企业微信部署，能处理文本、语音和图片，访问操作系统和互联网，支持基于知识库定制专属机器人。
+Name: Hitomi-Downloader
+Owner: KurtBestor
+Stars: 17151
+Repository: https://github.com/KurtBestor/Hitomi-Downloader
+Description: :cake: Desktop utility to download images/videos/music/text from various websites, and more.
+Name: recommenders
+Owner: recommenders-team
+Stars: 16663
+Repository: https://github.com/recommenders-team/recommenders
+Description: Best Practices on Recommendation Systems
+Name: loguru
+Owner: Delgan
+Stars: 16585
+Repository: https://github.com/Delgan/loguru
+Description: Python logging made (stupidly) simple
+Name: awesome-oss-alternatives
+Owner: RunaCapital
+Stars: 14225
+Repository: https://github.com/RunaCapital/awesome-oss-alternatives
+Description: Awesome list of open-source startup alternatives to well-known SaaS products 🚀
+Name: learn_python3_spider
+Owner: wistbean
+Stars: 13936
+Repository: https://github.com/wistbean/learn_python3_spider
+Description: python爬虫教程系列、从0到1学习python爬虫，包括浏览器抓包，手机APP抓包，如 fiddler、mitmproxy，各种爬虫涉及的模块的使用，如：requests、beautifulSoup、selenium、appium、scrapy等，以及IP代理，验证码识别，Mysql，MongoDB数据库的python使用，多线程多进程爬虫的使用，css 爬虫加密逆向破解，JS爬虫逆向，分布式爬虫，爬虫项目实战实例等
+Name: mlc-llm
+Owner: mlc-ai
+Stars: 13821
+Repository: https://github.com/mlc-ai/mlc-llm
+Description: Enable everyone to develop, optimize and deploy AI models natively on everyone's devices.
+Name: mackup
+Owner: lra
+Stars: 13780
+Repository: https://github.com/lra/mackup
+Description: Keep your application settings in sync (OS X/Linux)
+Name: ChuanhuChatGPT
+Owner: GaiZhenbiao
+Stars: 13206
+Repository: https://github.com/GaiZhenbiao/ChuanhuChatGPT
+Description: GUI for ChatGPT API and many LLMs. Supports agents, file-based QA, GPT finetuning and query with web search. All with a neat UI.
+Name: searx
+Owner: searx
+Stars: 13193
+Repository: https://github.com/searx/searx
+Description: Privacy-respecting metasearch engine
+Name: PySimpleGUI
+Owner: PySimpleGUI
+Stars: 12208
+Repository: https://github.com/PySimpleGUI/PySimpleGUI
+Description: Launched in 2018. It's 2023 and PySimpleGUI is actively developed &amp; supported. Create complex windows simply. Supports tkinter, Qt, WxPython, Remi (in browser). Create GUI applications trivially with a full set of widgets. Multi-Window applications are also simple. 3.4 to 3.11 supported. 325+ Demo programs &amp; Cookbook for rapid start. Extensive docs
+Name: redis-py
+Owner: redis
+Stars: 11878
+Repository: https://github.com/redis/redis-py
+Description: Redis Python Client
+Name: pelican
+Owner: getpelican
+Stars: 11872
+Repository: https://github.com/getpelican/pelican
+Description: Static site generator that supports Markdown and reST syntax. Powered by Python.
+Name: awesome-aws
+Owner: donnemartin
+Stars: 11799
+Repository: https://github.com/donnemartin/awesome-aws
+Description: A curated list of awesome Amazon Web Services (AWS) libraries, open source repos, guides, blogs, and other resources.  Featuring the Fiery Meter of AWSome.
+Name: numba
+Owner: numba
+Stars: 9026
+Repository: https://github.com/numba/numba
+Description: NumPy aware dynamic Python compiler using LLVM
+Name: kedro
+Owner: kedro-org
+Stars: 8981
+Repository: https://github.com/kedro-org/kedro
+Description: Kedro is a toolbox for production-ready data science. It uses software engineering best practices to help you create data engineering and data science pipelines that are reproducible, maintainable, and modular.
+Name: OpenChatKit
+Owner: togethercomputer
+Stars: 8928
+Repository: https://github.com/togethercomputer/OpenChatKit
+Description: None
+Name: Python
+Owner: injetlee
+Stars: 8825
+Repository: https://github.com/injetlee/Python
+Description: Python脚本。模拟登录知乎， 爬虫，操作excel，微信公众号，远程开机
+Name: Reinforcement-learning-with-tensorflow
+Owner: MorvanZhou
+Stars: 8362
+Repository: https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow
+Description: Simple Reinforcement learning tutorials, 莫烦Python 中文AI教学</code></pre>
+</div>
+</div>
+</section>
+<section id="visualizing-repositories-using-plotly" class="level3">
+<h3 class="anchored" data-anchor-id="visualizing-repositories-using-plotly">Visualizing repositories using Plotly</h3>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotly.graph_objs <span class="im">import</span> Bar</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotly <span class="im">import</span> offline</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># make an API call and store the response</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://api.github.com/search/repositories?q=language:python&amp;sort=stars'</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>headers <span class="op">=</span> {<span class="st">'Accept'</span>: <span class="st">'application/vnd.github.v3+json'</span>}  <span class="co">#uses specific version</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> requests.get(url, headers <span class="op">=</span> headers)  <span class="co">#using requests to make a call to API</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Status code: </span><span class="sc">{</span>r<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co"># process results</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>response_dict <span class="op">=</span> r.json()</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>repo_dicts <span class="op">=</span> response_dict[<span class="st">'items'</span>]</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>repo_names, stars <span class="op">=</span> [], []  <span class="co">#empty lists</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> repo_dict <span class="kw">in</span> repo_dicts:</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    repo_names.append(repo_dict[<span class="st">'name'</span>])</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    stars.append(repo_dict[<span class="st">'stargazers_count'</span>])</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co"># make visualization</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [{</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">'type'</span>: <span class="st">'bar'</span>,</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">'x'</span>: repo_names,</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">'y'</span>: stars, </span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>}]</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>my_layout <span class="op">=</span> {</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">'title'</span>: <span class="st">'Most-starred python projects in Github'</span>,</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">'xaxis'</span>: {<span class="st">'title'</span>: <span class="st">'Repository'</span>},</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">'yaxis'</span>: {<span class="st">'title'</span> : <span class="st">'Stars'</span>},</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> {<span class="st">'data'</span>: data, <span class="st">'layout'</span>: my_layout}</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>offline.plot(fig, filename<span class="op">=</span> <span class="st">'python_repos.html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Status code: 200</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>'python_repos.html'</code></pre>
+</div>
+</div>
+<section id="refining-plotly-charts" class="level4">
+<h4 class="anchored" data-anchor-id="refining-plotly-charts">Refining plotly charts</h4>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make visualization</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">## modifying data</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>data_1 <span class="op">=</span> [{</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'type'</span>: <span class="st">'bar'</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'x'</span>: repo_names,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'y'</span>: stars,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'marker'</span>: {</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">'color'</span> : <span class="st">'rgb(255,0,0)'</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">'line'</span> : {<span class="st">'width'</span> : <span class="fl">1.5</span>, <span class="st">'color'</span> : <span class="st">'rgb(255,0,1)'</span>}</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'opacity'</span> : <span class="fl">0.6</span>,</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>}]</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>my_layout <span class="op">=</span> {</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'title'</span>: <span class="st">'Most-starred python projects in Github'</span>,</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'xaxis'</span>: {<span class="st">'title'</span>: <span class="st">'Repository'</span>},</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'yaxis'</span>: {<span class="st">'title'</span> : <span class="st">'Stars'</span>},</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> {<span class="st">'data'</span>: data_1, <span class="st">'layout'</span>: my_layout}</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>offline.plot(fig, filename<span class="op">=</span> <span class="st">'python_repos_1.html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>'python_repos_1.html'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make visualization</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>data_1 <span class="op">=</span> [{</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'type'</span>: <span class="st">'bar'</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'x'</span>: repo_names,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'y'</span>: stars,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'marker'</span>: {</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">'color'</span> : <span class="st">'rgb(255,0,0)'</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">'line'</span> : {<span class="st">'width'</span> : <span class="fl">1.5</span>, <span class="st">'color'</span> : <span class="st">'rgb(255,0,1)'</span>}</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'opacity'</span> : <span class="fl">0.6</span>,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>}]</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co">## modifying layout</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>my_layout_1 <span class="op">=</span> {</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'title'</span>: <span class="st">'Most-starred python projects in Github'</span>,</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'titlefont'</span>: {<span class="st">'size'</span>: <span class="dv">28</span>},</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'xaxis'</span>: {</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">'title'</span>: <span class="st">'Repository'</span>,</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">'titlefont'</span> : {<span class="st">'size'</span>: <span class="dv">24</span>},</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">'tickfont'</span> : {<span class="st">'size'</span>: <span class="dv">14</span>},</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'yaxis'</span>: {</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">'title'</span> : <span class="st">'Stars'</span>,</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">'titlefont'</span> : {<span class="st">'size'</span> : <span class="dv">24</span>},</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">'tickfont'</span> : {<span class="st">'size'</span> : <span class="dv">14</span>},</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>     },</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> {<span class="st">'data'</span>: data_1, <span class="st">'layout'</span>: my_layout_1}</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>offline.plot(fig, filename<span class="op">=</span> <span class="st">'python_repos_2.html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>'python_repos_2.html'</code></pre>
+</div>
+</div>
+</section>
+<section id="adding-custom-tooltips" class="level4">
+<h4 class="anchored" data-anchor-id="adding-custom-tooltips">Adding Custom Tooltips</h4>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># process results</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>response_dict <span class="op">=</span> r.json()</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>repo_dicts <span class="op">=</span> response_dict[<span class="st">'items'</span>]</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>repo_names, stars, labels <span class="op">=</span> [], [], []  <span class="co">#empty lists</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> repo_dict <span class="kw">in</span> repo_dicts:</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    repo_names.append(repo_dict[<span class="st">'name'</span>])</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    stars.append(repo_dict[<span class="st">'stargazers_count'</span>])</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    owner <span class="op">=</span> repo_dict[<span class="st">'owner'</span>][<span class="st">'login'</span>]</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    description <span class="op">=</span> repo_dict[<span class="st">'description'</span>]</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>owner<span class="sc">}</span><span class="ss">&lt;br /&gt;</span><span class="sc">{</span>description<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    labels.append(label)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co"># make visualization</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [{</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'type'</span>: <span class="st">'bar'</span>,</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'x'</span>: repo_names,</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'y'</span>: stars, </span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">'hovertext'</span>: labels,</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'marker'</span>: {</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">'color'</span> : <span class="st">'rgb(250,0,0)'</span>,</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">'line'</span> : {<span class="st">'width'</span> : <span class="fl">1.5</span>, <span class="st">'color'</span> : <span class="st">'rgb(255,0,1)'</span>}</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">'opacity'</span> : <span class="fl">0.6</span>,</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>}]</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>my_layout <span class="op">=</span> {</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">'title'</span>: <span class="st">'Most-starred python projects in Github'</span>,</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">'xaxis'</span>: {<span class="st">'title'</span>: <span class="st">'Repository'</span>},</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">'yaxis'</span>: {<span class="st">'title'</span> : <span class="st">'Stars'</span>},</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> {<span class="st">'data'</span>: data, <span class="st">'layout'</span>: my_layout}</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>offline.plot(fig, filename<span class="op">=</span> <span class="st">'python_repos.html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>'python_repos.html'</code></pre>
+</div>
+</div>
+</section>
+<section id="adding-clickable-links" class="level4">
+<h4 class="anchored" data-anchor-id="adding-clickable-links">Adding clickable links</h4>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># process results</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>response_dict <span class="op">=</span> r.json()</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>repo_dicts <span class="op">=</span> response_dict[<span class="st">'items'</span>]</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>repo_links, stars, labels <span class="op">=</span> [], [], []  <span class="co">#empty lists</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> repo_dict <span class="kw">in</span> repo_dicts:</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    repo_name <span class="op">=</span> repo_dict[<span class="st">'name'</span>]</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    repo_names.append(repo_dict[<span class="st">'name'</span>])</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    repo_url <span class="op">=</span> repo_dict[<span class="st">'html_url'</span>]</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    repo_link <span class="op">=</span> <span class="ss">f"&lt;a href='</span><span class="sc">{</span>repo_url<span class="sc">}</span><span class="ss">'&gt;</span><span class="sc">{</span>repo_name<span class="sc">}</span><span class="ss">&lt;/a&gt;"</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    repo_links.append(repo_link)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    stars.append(repo_dict[<span class="st">'stargazers_count'</span>])</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    owner <span class="op">=</span> repo_dict[<span class="st">'owner'</span>][<span class="st">'login'</span>]</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    description <span class="op">=</span> repo_dict[<span class="st">'description'</span>]</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>owner<span class="sc">}</span><span class="ss">&lt;br /&gt;</span><span class="sc">{</span>description<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    labels.append(label)</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="co"># make visualization</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [{</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'type'</span>: <span class="st">'bar'</span>,</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'x'</span>: repo_names,</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">'y'</span>: stars, </span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">'hovertext'</span>: labels,</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">'marker'</span>: {</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">'color'</span> : <span class="st">'rgb(250,0,0)'</span>,</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">'line'</span> : {<span class="st">'width'</span> : <span class="fl">1.5</span>, <span class="st">'color'</span> : <span class="st">'rgb(255,0,1)'</span>}</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">'opacity'</span> : <span class="fl">0.6</span>,</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>}]</span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>my_layout <span class="op">=</span> {</span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">'title'</span>: <span class="st">'Most-starred python projects in Github'</span>,</span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">'xaxis'</span>: {<span class="st">'title'</span>: <span class="st">'Repository'</span>},</span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">'yaxis'</span>: {<span class="st">'title'</span> : <span class="st">'Stars'</span>},</span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> {<span class="st">'data'</span>: data, <span class="st">'layout'</span>: my_layout}</span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>offline.plot(fig, filename<span class="op">=</span> <span class="st">'python_repos.html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>'python_repos.html'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># improved version</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objs <span class="im">as</span> go</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotly.offline <span class="im">import</span> plot <span class="im">as</span> offline_plot</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract data from the JSON response</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>response_dict <span class="op">=</span> r.json()</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>repo_dicts <span class="op">=</span> response_dict[<span class="st">'items'</span>]</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize empty lists</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>repo_names, repo_links, stars, labels <span class="op">=</span> [], [], [], []</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Process each repository in the response</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> repo_dict <span class="kw">in</span> repo_dicts:</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    repo_name <span class="op">=</span> repo_dict[<span class="st">'name'</span>]</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    repo_url <span class="op">=</span> repo_dict[<span class="st">'html_url'</span>]</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    repo_link <span class="op">=</span> <span class="ss">f"&lt;a href='</span><span class="sc">{</span>repo_url<span class="sc">}</span><span class="ss">' target='_blank'&gt;</span><span class="sc">{</span>repo_name<span class="sc">}</span><span class="ss">&lt;/a&gt;"</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Append data to lists</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    repo_names.append(repo_name)</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    repo_links.append(repo_link)</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    stars.append(repo_dict[<span class="st">'stargazers_count'</span>])</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>    owner <span class="op">=</span> repo_dict[<span class="st">'owner'</span>][<span class="st">'login'</span>]</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>    description <span class="op">=</span> repo_dict[<span class="st">'description'</span>]</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>    label <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>owner<span class="sc">}</span><span class="ss">&lt;br /&gt;</span><span class="sc">{</span>description<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>    labels.append(label)</span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Create visualization data</span></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [{</span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">'type'</span>: <span class="st">'bar'</span>,</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">'x'</span>: repo_links,  <span class="co"># Use repo_links for clickable links in the chart</span></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">'y'</span>: stars,</span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">'hovertext'</span>: labels,</span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">'marker'</span>: {</span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>        <span class="st">'color'</span>: <span class="st">'rgb(250, 0, 0)'</span>,</span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>        <span class="st">'line'</span>: {<span class="st">'width'</span>: <span class="fl">1.5</span>, <span class="st">'color'</span>: <span class="st">'rgb(255, 0, 1)'</span>}</span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">'opacity'</span>: <span class="fl">0.6</span>,</span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>}]</span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Configure layout</span></span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>my_layout <span class="op">=</span> {</span>
+<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>    <span class="st">'title'</span>: <span class="st">'Most-starred Python projects on GitHub'</span>,</span>
+<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>    <span class="st">'xaxis'</span>: {<span class="st">'title'</span>: <span class="st">'Repository'</span>},</span>
+<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>    <span class="st">'yaxis'</span>: {<span class="st">'title'</span>: <span class="st">'Stars'</span>},</span>
+<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Create figure</span></span>
+<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure(data<span class="op">=</span>data, layout<span class="op">=</span>my_layout)</span>
+<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the interactive chart to an HTML file</span></span>
+<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a>offline_plot(fig, filename<span class="op">=</span><span class="st">'python_repos.html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>'python_repos.html'</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="the-hacker-news-api" class="level3">
+<h3 class="anchored" data-anchor-id="the-hacker-news-api">The Hacker News API</h3>
+<ul>
+<li>contains articles about programming and technology (http://news.ycombinator.com/)</li>
+</ul>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># make an API call, and store the response</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://hacker-news.firebaseio.com/v0/item/19155826.json'</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> requests.get(url)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="ss">f"Status code: </span><span class="sc">{</span>r<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Explore data structure</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="co">#filename = "E:\\machine learning projects\\readable_hn_data.json"</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="co">#with open(filename, encoding = 'utf-8') as f:</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="co">#    all_eq_data = json.load(f)</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="co"># opening the readable file that we just created</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>readable_file <span class="op">=</span> <span class="st">'E:</span><span class="ch">\\</span><span class="st">machine learning projects</span><span class="ch">\\</span><span class="st">readable_hn_data.json'</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(readable_file, <span class="st">'r'</span>, encoding <span class="op">=</span> <span class="st">'utf-8'</span>) <span class="im">as</span> f:</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>    content <span class="op">=</span> f.read()</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Status code: 200
+{
+    "by": "jimktrains2",
+    "descendants": 221,
+    "id": 19155826,
+    "kids": [
+        19156572,
+        19158857,
+        19156773,
+        19157251,
+        19156415,
+        19159820,
+        19157154,
+        19156385,
+        19156489,
+        19158522,
+        19156755,
+        19156974,
+        19158319,
+        19157034,
+        19156935,
+        19158935,
+        19157531,
+        19158638,
+        19156466,
+        19156758,
+        19156565,
+        19156498,
+        19156335,
+        19156041,
+        19156704,
+        19159047,
+        19159127,
+        19156217,
+        19156375,
+        19157945
+    ],
+    "score": 728,
+    "time": 1550085414,
+    "title": "Nasa\u2019s Mars Rover Opportunity Concludes a 15-Year Mission",
+    "type": "story",
+    "url": "https://www.nytimes.com/2019/02/13/science/mars-opportunity-rover-dead.html"
+}</code></pre>
+</div>
+</div>
+</section>
+<section id="analysing-all-the-top-articles-from-hackernews" class="level3">
+<h3 class="anchored" data-anchor-id="analysing-all-the-top-articles-from-hackernews">Analysing all the top articles from Hackernews</h3>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> operator <span class="im">import</span> itemgetter</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># make an API and store the response</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://hacker-news.firebaseio.com/v0/topstories.json'</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> requests.get(url)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Status code: </span><span class="sc">{</span>r<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co">#process information about each submission</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>submission_ids <span class="op">=</span> r.json()</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>submission_dicts <span class="op">=</span> []</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> submission_id <span class="kw">in</span> submission_ids[:<span class="dv">30</span>]:</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">#make a seperate API call for each submission</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="ss">f"https://hacker-news.firebaseio.com/v0/item/</span><span class="sc">{</span>submission_id<span class="sc">}</span><span class="ss">.json"</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> requests.get(url)</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"id: </span><span class="sc">{</span>submission_id<span class="sc">}</span><span class="ss">/tstatus: </span><span class="sc">{</span>r<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>    response_dict <span class="op">=</span> r.json()</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>    <span class="co">#build a dictionary for each article</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>    submission_dict <span class="op">=</span> {</span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">'title'</span> : response_dict[<span class="st">'title'</span>],</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">'hn_link'</span> : <span class="ss">f"http://news.ycombinator.com/item?id=</span><span class="sc">{</span>submission_id<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">'comments'</span>: response_dict[<span class="st">'descendants'</span>],</span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>    submission_dicts.append(submission_dict)</span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>    submission_dicts <span class="op">=</span> <span class="bu">sorted</span>(submission_dicts, key<span class="op">=</span>itemgetter(<span class="st">'comments'</span>), reverse<span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> sumbission_dict <span class="kw">in</span> submission_dicts:</span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Title: </span><span class="sc">{</span>submission_dict[<span class="st">'title'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Discussion link: </span><span class="sc">{</span>submission_dict[<span class="st">'hn_link'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Comments: </span><span class="sc">{</span>submission_dict[<span class="st">'comments'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Status code: 200
+id: 38290145/tstatus: 200
+
+Title: The real realtime preemption end game
+Discussion link: http://news.ycombinator.com/item?id=38290145
+Comments: 163
+id: 38292553/tstatus: 200
+
+Title: Migrating to OpenTelemetry
+Discussion link: http://news.ycombinator.com/item?id=38292553
+Comments: 27
+
+Title: Migrating to OpenTelemetry
+Discussion link: http://news.ycombinator.com/item?id=38292553
+Comments: 27
+id: 38295179/tstatus: 200
+
+Title: Show HN: Tiny LLMs – Browser-based private AI models for a wide array of tasks
+Discussion link: http://news.ycombinator.com/item?id=38295179
+Comments: 0
+
+Title: Show HN: Tiny LLMs – Browser-based private AI models for a wide array of tasks
+Discussion link: http://news.ycombinator.com/item?id=38295179
+Comments: 0
+
+Title: Show HN: Tiny LLMs – Browser-based private AI models for a wide array of tasks
+Discussion link: http://news.ycombinator.com/item?id=38295179
+Comments: 0
+id: 38290613/tstatus: 200
+
+Title: From email to phone number, a new OSINT approach (2019)
+Discussion link: http://news.ycombinator.com/item?id=38290613
+Comments: 76
+
+Title: From email to phone number, a new OSINT approach (2019)
+Discussion link: http://news.ycombinator.com/item?id=38290613
+Comments: 76
+
+Title: From email to phone number, a new OSINT approach (2019)
+Discussion link: http://news.ycombinator.com/item?id=38290613
+Comments: 76
+
+Title: From email to phone number, a new OSINT approach (2019)
+Discussion link: http://news.ycombinator.com/item?id=38290613
+Comments: 76
+id: 38291139/tstatus: 200
+
+Title: Emu Video and Emu Edit, our latest generative AI research milestones
+Discussion link: http://news.ycombinator.com/item?id=38291139
+Comments: 15
+
+Title: Emu Video and Emu Edit, our latest generative AI research milestones
+Discussion link: http://news.ycombinator.com/item?id=38291139
+Comments: 15
+
+Title: Emu Video and Emu Edit, our latest generative AI research milestones
+Discussion link: http://news.ycombinator.com/item?id=38291139
+Comments: 15
+
+Title: Emu Video and Emu Edit, our latest generative AI research milestones
+Discussion link: http://news.ycombinator.com/item?id=38291139
+Comments: 15
+
+Title: Emu Video and Emu Edit, our latest generative AI research milestones
+Discussion link: http://news.ycombinator.com/item?id=38291139
+Comments: 15
+id: 38291199/tstatus: 200
+
+Title: Zimbra 0-day used to steal email data from government organizations
+Discussion link: http://news.ycombinator.com/item?id=38291199
+Comments: 13
+
+Title: Zimbra 0-day used to steal email data from government organizations
+Discussion link: http://news.ycombinator.com/item?id=38291199
+Comments: 13
+
+Title: Zimbra 0-day used to steal email data from government organizations
+Discussion link: http://news.ycombinator.com/item?id=38291199
+Comments: 13
+
+Title: Zimbra 0-day used to steal email data from government organizations
+Discussion link: http://news.ycombinator.com/item?id=38291199
+Comments: 13
+
+Title: Zimbra 0-day used to steal email data from government organizations
+Discussion link: http://news.ycombinator.com/item?id=38291199
+Comments: 13
+
+Title: Zimbra 0-day used to steal email data from government organizations
+Discussion link: http://news.ycombinator.com/item?id=38291199
+Comments: 13
+id: 38295638/tstatus: 200</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>KeyError: 'descendants'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">## improved code</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> operator <span class="im">import</span> itemgetter</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Make an API call to get the top story IDs</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>url_top_stories <span class="op">=</span> <span class="st">'https://hacker-news.firebaseio.com/v0/topstories.json'</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>response_top_stories <span class="op">=</span> requests.get(url_top_stories)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Status code: </span><span class="sc">{</span>response_top_stories<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Process information about each submission</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>submission_ids <span class="op">=</span> response_top_stories.json()</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>submission_dicts <span class="op">=</span> []</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a separate API call for each submission and store relevant information</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> submission_id <span class="kw">in</span> submission_ids[:<span class="dv">30</span>]:</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    url_submission <span class="op">=</span> <span class="ss">f"https://hacker-news.firebaseio.com/v0/item/</span><span class="sc">{</span>submission_id<span class="sc">}</span><span class="ss">.json"</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>    response_submission <span class="op">=</span> requests.get(url_submission)</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"id: </span><span class="sc">{</span>submission_id<span class="sc">}</span><span class="ch">\t</span><span class="ss">status: </span><span class="sc">{</span>response_submission<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if the API call was successful</span></span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> response_submission.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>        submission_dict <span class="op">=</span> {</span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>            <span class="st">'title'</span>: response_submission.json().get(<span class="st">'title'</span>, <span class="st">'N/A'</span>),</span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">'hn_link'</span>: <span class="ss">f"http://news.ycombinator.com/item?id=</span><span class="sc">{</span>submission_id<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">'comments'</span>: response_submission.json().get(<span class="st">'descendants'</span>, <span class="dv">0</span>),</span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>        submission_dicts.append(submission_dict)</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort the submission dictionaries based on the number of comments in descending order</span></span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>submission_dicts <span class="op">=</span> <span class="bu">sorted</span>(submission_dicts, key<span class="op">=</span>itemgetter(<span class="st">'comments'</span>), reverse<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Print information about each submission</span></span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> submission_dict <span class="kw">in</span> submission_dicts:</span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Title: </span><span class="sc">{</span>submission_dict[<span class="st">'title'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Discussion link: </span><span class="sc">{</span>submission_dict[<span class="st">'hn_link'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Comments: </span><span class="sc">{</span>submission_dict[<span class="st">'comments'</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Status code: 200
+id: 38290145    status: 200
+id: 38295179    status: 200
+id: 38292553    status: 200
+id: 38290613    status: 200
+id: 38291139    status: 200
+id: 38291199    status: 200
+id: 38295638    status: 200
+id: 38291015    status: 200
+id: 38276418    status: 200
+id: 38294723    status: 200
+id: 38295524    status: 200
+id: 38294569    status: 200
+id: 38292102    status: 200
+id: 38294203    status: 200
+id: 38289327    status: 200
+id: 38291735    status: 200
+id: 38291880    status: 200
+id: 38291427    status: 200
+id: 38294623    status: 200
+id: 38293817    status: 200
+id: 38276727    status: 200
+id: 38287257    status: 200
+id: 38275698    status: 200
+id: 38269866    status: 200
+id: 38295819    status: 200
+id: 38288980    status: 200
+id: 38288130    status: 200
+id: 38287299    status: 200
+id: 38291399    status: 200
+id: 38288743    status: 200
+
+Title: Privacy is priceless, but Signal is expensive
+Discussion link: http://news.ycombinator.com/item?id=38291427
+Comments: 557
+
+Title: I think I need to go lie down
+Discussion link: http://news.ycombinator.com/item?id=38288130
+Comments: 391
+
+Title: A failed AI girlfriend product, and my lessons
+Discussion link: http://news.ycombinator.com/item?id=38287299
+Comments: 198
+
+Title: Smart drugs reduce quality of effort, and slow decision-making
+Discussion link: http://news.ycombinator.com/item?id=38287257
+Comments: 173
+
+Title: The real realtime preemption end game
+Discussion link: http://news.ycombinator.com/item?id=38290145
+Comments: 163
+
+Title: Operating on a minimal two-core Postgres instance: Query optimization insights
+Discussion link: http://news.ycombinator.com/item?id=38276727
+Comments: 128
+
+Title: Sweden Gov Announces 'Massive Expansion' of Nuclear Energy
+Discussion link: http://news.ycombinator.com/item?id=38291015
+Comments: 122
+
+Title: Moving from AWS to Bare-Metal saved us 230k$ /yr
+Discussion link: http://news.ycombinator.com/item?id=38294569
+Comments: 80
+
+Title: From email to phone number, a new OSINT approach (2019)
+Discussion link: http://news.ycombinator.com/item?id=38290613
+Comments: 76
+
+Title: Why thinking hard makes us feel tired
+Discussion link: http://news.ycombinator.com/item?id=38294723
+Comments: 59
+
+Title: Ransomware Group Files SEC Complaint over Victim's Failure Disclose Data Breach
+Discussion link: http://news.ycombinator.com/item?id=38291399
+Comments: 45
+
+Title: Hackers know everything is securities fraud
+Discussion link: http://news.ycombinator.com/item?id=38293817
+Comments: 40
+
+Title: Frutiger Aero
+Discussion link: http://news.ycombinator.com/item?id=38276418
+Comments: 38
+
+Title: Printed robots with bones, ligaments, and tendons
+Discussion link: http://news.ycombinator.com/item?id=38288980
+Comments: 38
+
+Title: You don't need a CRDT to build a collaborative experience
+Discussion link: http://news.ycombinator.com/item?id=38289327
+Comments: 35
+
+Title: std::source_location Is Broken
+Discussion link: http://news.ycombinator.com/item?id=38292102
+Comments: 28
+
+Title: Migrating to OpenTelemetry
+Discussion link: http://news.ycombinator.com/item?id=38292553
+Comments: 27
+
+Title: Hello World on the GPU (2019)
+Discussion link: http://news.ycombinator.com/item?id=38275698
+Comments: 22
+
+Title: Emu Video and Emu Edit, our latest generative AI research milestones
+Discussion link: http://news.ycombinator.com/item?id=38291139
+Comments: 15
+
+Title: Federated finetuning of Whisper on Raspberry Pi 5
+Discussion link: http://news.ycombinator.com/item?id=38294203
+Comments: 15
+
+Title: Zimbra 0-day used to steal email data from government organizations
+Discussion link: http://news.ycombinator.com/item?id=38291199
+Comments: 13
+
+Title: AI-Exploits: Repo of multiple unauthenticated RCEs in AI tools
+Discussion link: http://news.ycombinator.com/item?id=38291880
+Comments: 10
+
+Title: Serverless development experience for embedded computer vision
+Discussion link: http://news.ycombinator.com/item?id=38288743
+Comments: 8
+
+Title: The CWEB System of Structured Documentation
+Discussion link: http://news.ycombinator.com/item?id=38291735
+Comments: 2
+
+Title: OCapN, Interoperable Capabilities over the Network
+Discussion link: http://news.ycombinator.com/item?id=38295524
+Comments: 1
+
+Title: A floating solar-powered device produces clean water and clean fuel
+Discussion link: http://news.ycombinator.com/item?id=38269866
+Comments: 1
+
+Title: Microsoft support 'cracks' Windows for customer after activation fails
+Discussion link: http://news.ycombinator.com/item?id=38295819
+Comments: 1
+
+Title: Show HN: Tiny LLMs – Browser-based private AI models for a wide array of tasks
+Discussion link: http://news.ycombinator.com/item?id=38295179
+Comments: 0
+
+Title: In-person YC Startup Tech Talk and hiring mixer on 12/4 in SF
+Discussion link: http://news.ycombinator.com/item?id=38295638
+Comments: 0
+
+Title: Planning for Unplanned Work in Linear
+Discussion link: http://news.ycombinator.com/item?id=38294623
+Comments: 0</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/www\.ilovesoils\.com\/**");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="Kkhurana007/fr_blog_mine" data-repo-id="R_kgDOJuKwyw" data-category="General" data-category-id="DIC_kwDOJuKwy84CXJ4P" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Blog made with <a href="https://quarto.org/">Quarto</a> by Kunal.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Kkhurana007">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/kunalkhurana007">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:Khuranasoilpau@gmail.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
