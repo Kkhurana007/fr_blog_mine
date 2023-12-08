@@ -1,0 +1,1273 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+]{report}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Python Coding Rules},
+  pdfauthor={Kunal Khurana},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Python Coding Rules}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Python basics}
+\author{Kunal Khurana}
+\date{2023-12-06}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, interior hidden, sharp corners, boxrule=0pt, frame hidden, breakable, borderline west={3pt}{0pt}{shadecolor}]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{general}{%
+\section{General}\label{general}}
+
+\hypertarget{c-style-formatting-strings-in-python-4-errors}{%
+\subsubsection{C-style formatting strings in Python (4
+errors)}\label{c-style-formatting-strings-in-python-4-errors}}
+
+\begin{itemize}
+\tightlist
+\item
+  reversing order gives traceback
+\item
+  difficult to read the code
+\item
+  using same value multiple times in tuple (repeat it in the right side)
+\item
+  dictionary formats
+\end{itemize}
+
+\hypertarget{write-helper-functions-instead-of-complex-expressions}{%
+\subsubsection{Write helper functions instead of complex
+expressions}\label{write-helper-functions-instead-of-complex-expressions}}
+
+\begin{itemize}
+\tightlist
+\item
+  Use if/else conditional to reduce visual noise
+\item
+  Moreover, if/else expression provides a more readable alternative over
+  the boolean or/and in expressions.
+\end{itemize}
+
+\hypertarget{prefer-unpacking-over-indexing}{%
+\subsection{Prefer Unpacking Over
+Indexing}\label{prefer-unpacking-over-indexing}}
+
+\begin{itemize}
+\tightlist
+\item
+  use special syntax to unpack multiple values and keys in a single
+  statement.
+\end{itemize}
+
+\hypertarget{prefer-enumerate-over-range}{%
+\subsection{Prefer enumerate Over
+range}\label{prefer-enumerate-over-range}}
+
+\begin{itemize}
+\tightlist
+\item
+  range (built-in funciton) is useful for loops
+\item
+  prefer enumerate instead of looping over a range
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# example of enumeration with list{-} }
+\NormalTok{flavor\_list }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}vanilla\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}chocolate\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}pecan\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}strawberry\textquotesingle{}}\NormalTok{]}
+\ControlFlowTok{for}\NormalTok{ flavor }\KeywordTok{in}\NormalTok{ flavor\_list:}
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f\textquotesingle{}}\SpecialCharTok{\{}\NormalTok{flavor}\SpecialCharTok{\}}\SpecialStringTok{ is delicious\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+vanilla is delicious
+chocolate is delicious
+pecan is delicious
+strawberry is delicious
+\end{verbatim}
+
+\hypertarget{use-zip-to-process-iterators-in-parallel}{%
+\subsection{Use zip to process Iterators in
+parallel}\label{use-zip-to-process-iterators-in-parallel}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{names }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}Kunal\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Xives\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}pricila\textquotesingle{}}\NormalTok{]}
+\NormalTok{counts }\OperatorTok{=}\NormalTok{ [}\BuiltInTok{len}\NormalTok{(n) }\ControlFlowTok{for}\NormalTok{ n }\KeywordTok{in}\NormalTok{ names]}
+\BuiltInTok{print}\NormalTok{(counts)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[5, 5, 7]
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# iterating over lenght of lists}
+\NormalTok{longest\_name }\OperatorTok{=} \VariableTok{None}
+\NormalTok{max\_count }\OperatorTok{=} \DecValTok{0}
+
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\BuiltInTok{len}\NormalTok{(names)):}
+\NormalTok{    count }\OperatorTok{=}\NormalTok{ counts[i]}
+    \ControlFlowTok{if}\NormalTok{ count }\OperatorTok{\textgreater{}}\NormalTok{ max\_count:}
+\NormalTok{        longest\_name }\OperatorTok{=}\NormalTok{ names[i]}
+\NormalTok{        max\_count }\OperatorTok{=}\NormalTok{ count}
+        
+\BuiltInTok{print}\NormalTok{(longest\_name)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+pricila
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# we see that the above code is a bit noisy. }
+\CommentTok{\# to imporve it, we\textquotesingle{}ll use the enumerate method}
+
+\ControlFlowTok{for}\NormalTok{ i, name }\KeywordTok{in} \BuiltInTok{enumerate}\NormalTok{(names):}
+\NormalTok{    count }\OperatorTok{=}\NormalTok{ counts[i]}
+    \ControlFlowTok{if}\NormalTok{ count }\OperatorTok{\textgreater{}}\NormalTok{ max\_count:}
+\NormalTok{        longest\_name }\OperatorTok{=}\NormalTok{ name}
+\NormalTok{        max\_count }\OperatorTok{=}\NormalTok{ count}
+\BuiltInTok{print}\NormalTok{(longest\_name)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+pricila
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# to improve it further, we\textquotesingle{}ll use the inbuilt zip function}
+
+\ControlFlowTok{for}\NormalTok{ name, count }\KeywordTok{in} \BuiltInTok{zip}\NormalTok{(names, counts):}
+    \ControlFlowTok{if}\NormalTok{ count }\OperatorTok{\textgreater{}}\NormalTok{ max\_count:}
+\NormalTok{        longest\_name }\OperatorTok{=}\NormalTok{ name}
+\NormalTok{        max\_count }\OperatorTok{=}\NormalTok{ count}
+
+\BuiltInTok{print}\NormalTok{(longest\_name)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+pricila
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# zip\textquotesingle{}s behavior is different if counts are not updated}
+
+\NormalTok{names.append(}\StringTok{\textquotesingle{}Rosy\textquotesingle{}}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ name, count }\KeywordTok{in} \BuiltInTok{zip}\NormalTok{(names, counts):}
+    \BuiltInTok{print}\NormalTok{(name)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Kunal
+Xives
+pricila
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# so, be careful when using iterators of different lenght. }
+
+\CommentTok{\# consider using zip\_longest function from itertools instead}
+
+\ImportTok{import}\NormalTok{ itertools}
+\ControlFlowTok{for}\NormalTok{ name, count }\KeywordTok{in}\NormalTok{ itertools.zip\_longest (names, counts):}
+    \BuiltInTok{print}\NormalTok{ (}\SpecialStringTok{f\textquotesingle{}}\SpecialCharTok{\{}\NormalTok{name}\SpecialCharTok{\}}\SpecialStringTok{: }\SpecialCharTok{\{}\NormalTok{count}\SpecialCharTok{\}}\SpecialStringTok{\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Kunal: 5
+Xives: 5
+pricila: 7
+Rosy: None
+\end{verbatim}
+
+\hypertarget{avoid-else-blocks-after-for-and-while-loops}{%
+\subsection{Avoid `else' Blocks After `for' and `while'
+Loops}\label{avoid-else-blocks-after-for-and-while-loops}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# for loops first}
+
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{3}\NormalTok{):}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Loop\textquotesingle{}}\NormalTok{, i)}
+\ControlFlowTok{else}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Else block!\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Loop 0
+Loop 1
+Loop 2
+Else block!
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# using break in the code}
+
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{3}\NormalTok{):}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Loop\textquotesingle{}}\NormalTok{, i)}
+    \ControlFlowTok{if}\NormalTok{ i }\OperatorTok{==} \DecValTok{1}\NormalTok{:}
+        \ControlFlowTok{break}
+        
+\ControlFlowTok{else}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Else block!\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Loop 0
+Loop 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# else runs immediately if looped over an empty sequence}
+
+\ControlFlowTok{for}\NormalTok{ x }\KeywordTok{in}\NormalTok{ []:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Never runs\textquotesingle{}}\NormalTok{)}
+\ControlFlowTok{else}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}For else block!\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+For else block!
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# else also runs when while loops are initially false}
+\ControlFlowTok{while} \VariableTok{False}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Never runs\textquotesingle{}}\NormalTok{)}
+\ControlFlowTok{else}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}While else block!\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+While else block!
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#\# finding coprimes (having common divisor i.e. 1)}
+
+\NormalTok{a }\OperatorTok{=} \DecValTok{11}
+\NormalTok{b }\OperatorTok{=} \DecValTok{9}
+
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{2}\NormalTok{, }\BuiltInTok{min}\NormalTok{(a, b) }\OperatorTok{+} \DecValTok{1}\NormalTok{):}
+    \BuiltInTok{print}\NormalTok{ (}\StringTok{\textquotesingle{}Testing\textquotesingle{}}\NormalTok{, i)}
+    \ControlFlowTok{if}\NormalTok{ a}\OperatorTok{\%}\NormalTok{ i }\OperatorTok{==} \DecValTok{0} \KeywordTok{and}\NormalTok{ b}\OperatorTok{\%}\NormalTok{i }\OperatorTok{==} \DecValTok{0}\NormalTok{:}
+        \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Not coprime\textquotesingle{}}\NormalTok{)}
+        \ControlFlowTok{break}
+\ControlFlowTok{else}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}coprime\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Testing 2
+Testing 3
+Testing 4
+Testing 5
+Testing 6
+Testing 7
+Testing 8
+Testing 9
+coprime
+\end{verbatim}
+
+\hypertarget{prevent-repetition-with-assignment-expressions-such-as-warlus-operator}{%
+\subsection{Prevent repetition with assignment Expressions such as
+`warlus
+operator'}\label{prevent-repetition-with-assignment-expressions-such-as-warlus-operator}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Without the walrus operator}
+\NormalTok{even\_numbers\_without\_walrus }\OperatorTok{=}\NormalTok{ []}
+\NormalTok{count }\OperatorTok{=} \DecValTok{0}
+\ControlFlowTok{while}\NormalTok{ count }\OperatorTok{\textless{}} \DecValTok{5}\NormalTok{:}
+\NormalTok{    number }\OperatorTok{=}\NormalTok{ count }\OperatorTok{*} \DecValTok{2}
+    \ControlFlowTok{if}\NormalTok{ number }\OperatorTok{\%} \DecValTok{2} \OperatorTok{==} \DecValTok{0}\NormalTok{:}
+\NormalTok{        even\_numbers\_without\_walrus.append(number)}
+\NormalTok{        count }\OperatorTok{+=} \DecValTok{1}
+
+\BuiltInTok{print}\NormalTok{(even\_numbers\_without\_walrus)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[0, 2, 4, 6, 8]
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# With the walrus operator}
+\NormalTok{even\_numbers\_with\_walrus }\OperatorTok{=}\NormalTok{ []}
+\NormalTok{count }\OperatorTok{=} \DecValTok{0}
+\ControlFlowTok{while}\NormalTok{ count }\OperatorTok{\textless{}} \DecValTok{5}\NormalTok{:}
+    \ControlFlowTok{if}\NormalTok{ (number }\OperatorTok{:=}\NormalTok{ count }\OperatorTok{*} \DecValTok{2}\NormalTok{) }\OperatorTok{\%} \DecValTok{2} \OperatorTok{==} \DecValTok{0}\NormalTok{:}
+\NormalTok{        even\_numbers\_with\_walrus.append(number)}
+\NormalTok{        count }\OperatorTok{+=} \DecValTok{1}
+
+\BuiltInTok{print}\NormalTok{(even\_numbers\_with\_walrus)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[0, 2, 4, 6, 8]
+\end{verbatim}
+
+\hypertarget{lists-and-dictionaries}{%
+\section{Lists and dictionaries}\label{lists-and-dictionaries}}
+
+\hypertarget{know-how-to-slice-sequneces}{%
+\subsection{Know how to slice
+sequneces}\label{know-how-to-slice-sequneces}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#somelist [start:end]}
+\NormalTok{a }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}c\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}d\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}e\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}f\textquotesingle{}}\NormalTok{]}
+\BuiltInTok{print}\NormalTok{ (}\StringTok{\textquotesingle{}Middle two: \textquotesingle{}}\NormalTok{, a[}\DecValTok{2}\NormalTok{:}\DecValTok{4}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Middle two:  ['c', 'd']
+\end{verbatim}
+
+\hypertarget{avoid-striding-and-slicing-in-a-single-expression}{%
+\subsection{Avoid striding and slicing in a single
+expression}\label{avoid-striding-and-slicing-in-a-single-expression}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{b }\OperatorTok{=}\NormalTok{ [}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{]}
+\NormalTok{odds }\OperatorTok{=}\NormalTok{ b[::}\DecValTok{2}\NormalTok{]}
+\NormalTok{evens }\OperatorTok{=}\NormalTok{ b[}\DecValTok{1}\NormalTok{::}\DecValTok{2}\NormalTok{]}
+\BuiltInTok{print}\NormalTok{(odds)}
+\BuiltInTok{print}\NormalTok{(evens)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1, 3, 5]
+[2, 4, 6]
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# stride syntax that can introduce bugs ; Avoid}
+\NormalTok{c }\OperatorTok{=} \StringTok{b\textquotesingle{}rouge\textquotesingle{}}
+\NormalTok{d }\OperatorTok{=}\NormalTok{ c[::}\OperatorTok{{-}}\DecValTok{1}\NormalTok{]}
+
+\BuiltInTok{print}\NormalTok{(d)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+b'eguor'
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}a\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}c\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}d\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}e\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}f\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}g\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}h\textquotesingle{}}\NormalTok{]}
+\BuiltInTok{print}\NormalTok{(x[}\DecValTok{2}\NormalTok{::}\DecValTok{2}\NormalTok{])     }\CommentTok{\# [\textquotesingle{}c\textquotesingle{}, \textquotesingle{}e\textquotesingle{}, \textquotesingle{}g\textquotesingle{}]}
+\BuiltInTok{print}\NormalTok{(x[}\OperatorTok{{-}}\DecValTok{2}\NormalTok{::}\OperatorTok{{-}}\DecValTok{2}\NormalTok{])   }\CommentTok{\# [\textquotesingle{}g\textquotesingle{}, \textquotesingle{}e\textquotesingle{}, \textquotesingle{}c\textquotesingle{}, \textquotesingle{}a\textquotesingle{}]}
+\BuiltInTok{print}\NormalTok{(x[}\OperatorTok{{-}}\DecValTok{2}\NormalTok{:}\DecValTok{2}\NormalTok{:}\OperatorTok{{-}}\DecValTok{2}\NormalTok{])  }\CommentTok{\# [\textquotesingle{}g\textquotesingle{}, \textquotesingle{}e\textquotesingle{}]  \#[start: stop : step]}
+\BuiltInTok{print}\NormalTok{(x[}\DecValTok{2}\NormalTok{:}\DecValTok{2}\NormalTok{:}\OperatorTok{{-}}\DecValTok{2}\NormalTok{])   }\CommentTok{\# []}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+['c', 'e', 'g']
+['g', 'e', 'c', 'a']
+['g', 'e']
+[]
+\end{verbatim}
+
+\hypertarget{perfect-catch-all-unpacking-over-slicing}{%
+\subsection{Perfect Catch-`All Unpacking Over
+Slicing'}\label{perfect-catch-all-unpacking-over-slicing}}
+
+\begin{itemize}
+\tightlist
+\item
+  Unpacking - extracting individual elements from a sequence (like a
+  list or tuple) and assigning them to variables.
+\item
+  Slicing - selecting a subset of elements from a sequence.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Example sequence}
+\NormalTok{numbers }\OperatorTok{=}\NormalTok{ [}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{10}\NormalTok{]}
+
+\CommentTok{\# Using slicing to get a portion of the sequence}
+\NormalTok{subset }\OperatorTok{=}\NormalTok{ numbers[}\DecValTok{2}\NormalTok{:}\DecValTok{8}\NormalTok{]}
+
+\CommentTok{\# Using unpacking to assign values to variables}
+\NormalTok{first, }\OperatorTok{*}\NormalTok{middle, last }\OperatorTok{=}\NormalTok{ subset   }\CommentTok{\# *used for extended unpacking}
+
+\CommentTok{\# Print the results}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Subset:"}\NormalTok{, subset)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"First element:"}\NormalTok{, first)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Middle elements:"}\NormalTok{, middle)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Last element:"}\NormalTok{, last)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Subset: [3, 4, 5, 6, 7, 8]
+First element: 3
+Middle elements: [4, 5, 6, 7]
+Last element: 8
+\end{verbatim}
+
+\hypertarget{sort-by-complex-criteria-using-the-key-parameter}{%
+\subsection{Sort by Complex Criteria using the `key'
+parameter}\label{sort-by-complex-criteria-using-the-key-parameter}}
+
+\begin{itemize}
+\tightlist
+\item
+  sort method works for all built-in types (strings, floats, etc.), but
+  it doesn't work for the classes, including a \textbf{repr} method for
+  instance.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{ Tool:}
+    \KeywordTok{def} \FunctionTok{\_\_init\_\_}\NormalTok{(}\VariableTok{self}\NormalTok{, name, weight):}
+        \VariableTok{self}\NormalTok{.name }\OperatorTok{=}\NormalTok{ name}
+        \VariableTok{self}\NormalTok{.weight }\OperatorTok{=}\NormalTok{ weight}
+
+    \KeywordTok{def} \FunctionTok{\_\_repr\_\_}\NormalTok{(}\VariableTok{self}\NormalTok{):}
+        \ControlFlowTok{return} \SpecialStringTok{f\textquotesingle{}Tool(}\SpecialCharTok{\{}\VariableTok{self}\SpecialCharTok{.}\NormalTok{name}\SpecialCharTok{\}}\SpecialStringTok{, }\SpecialCharTok{\{}\VariableTok{self}\SpecialCharTok{.}\NormalTok{weight}\SpecialCharTok{\}}\SpecialStringTok{)\textquotesingle{}}
+
+\CommentTok{\# Example usage of the Tool class}
+\NormalTok{tools }\OperatorTok{=}\NormalTok{ [}
+\NormalTok{    Tool(}\StringTok{\textquotesingle{}level\textquotesingle{}}\NormalTok{, }\FloatTok{3.5}\NormalTok{),}
+\NormalTok{    Tool(}\StringTok{\textquotesingle{}hammer\textquotesingle{}}\NormalTok{, }\FloatTok{1.25}\NormalTok{),}
+\NormalTok{    Tool(}\StringTok{\textquotesingle{}screwdriver\textquotesingle{}}\NormalTok{, }\FloatTok{0.5}\NormalTok{),}
+\NormalTok{    Tool(}\StringTok{\textquotesingle{}chisel\textquotesingle{}}\NormalTok{, }\FloatTok{0.25}\NormalTok{),}
+\NormalTok{]}
+
+\CommentTok{\# tools.sort()   \#this will give us a traceback}
+ 
+\CommentTok{\# Display the unsorted list of tools}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Unsorted:\textquotesingle{}}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ tool }\KeywordTok{in}\NormalTok{ tools:}
+    \BuiltInTok{print}\NormalTok{(}\BuiltInTok{repr}\NormalTok{(tool))}
+
+\CommentTok{\# Sort the tools based on their names}
+\NormalTok{tools.sort(key}\OperatorTok{=}\KeywordTok{lambda}\NormalTok{ x: x.name)}
+
+\CommentTok{\# Display the sorted list of tools}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{Sorted:\textquotesingle{}}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ tool }\KeywordTok{in}\NormalTok{ tools:}
+    \BuiltInTok{print}\NormalTok{(tool)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Unsorted:
+Tool(level, 3.5)
+Tool(hammer, 1.25)
+Tool(screwdriver, 0.5)
+Tool(chisel, 0.25)
+
+Sorted:
+Tool(chisel, 0.25)
+Tool(hammer, 1.25)
+Tool(level, 3.5)
+Tool(screwdriver, 0.5)
+\end{verbatim}
+
+\hypertarget{dictionaries-insertion-ordering-dict-types-dict-values}{%
+\subsection{Dictionaries : insertion ordering, dict types, dict
+values}\label{dictionaries-insertion-ordering-dict-types-dict-values}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# cutest baby animal}
+
+\NormalTok{votes }\OperatorTok{=}\NormalTok{ \{}
+    \StringTok{\textquotesingle{}otter\textquotesingle{}}\NormalTok{: }\DecValTok{1281}\NormalTok{,}
+    \StringTok{\textquotesingle{}polar bear\textquotesingle{}}\NormalTok{: }\DecValTok{587}\NormalTok{,}
+    \StringTok{\textquotesingle{}fox\textquotesingle{}}\NormalTok{: }\DecValTok{863}\NormalTok{,}
+\NormalTok{\}}
+
+\CommentTok{\# save the rank to an empty dictionary}
+\KeywordTok{def}\NormalTok{ populate\_ranks(votes, ranks):  }\CommentTok{\#takes votes and ranks dictionary}
+\NormalTok{    names }\OperatorTok{=} \BuiltInTok{list}\NormalTok{(votes.keys())}
+\NormalTok{    names.sort(key}\OperatorTok{=}\NormalTok{votes.get, reverse}\OperatorTok{=}\VariableTok{True}\NormalTok{)}
+    \ControlFlowTok{for}\NormalTok{ i, name }\KeywordTok{in} \BuiltInTok{enumerate}\NormalTok{(names, }\DecValTok{1}\NormalTok{):}
+\NormalTok{        ranks[name] }\OperatorTok{=}\NormalTok{ i}
+    
+\CommentTok{\# function that returs the animal with hightest rank}
+\KeywordTok{def}\NormalTok{ get\_winner(ranks):}
+    \ControlFlowTok{return} \BuiltInTok{next}\NormalTok{(}\BuiltInTok{iter}\NormalTok{(ranks))}
+
+\CommentTok{\# results}
+\NormalTok{ranks }\OperatorTok{=}\NormalTok{ \{\}}
+\NormalTok{populate\_ranks(votes, ranks)}
+\BuiltInTok{print}\NormalTok{(ranks)}
+\NormalTok{winner }\OperatorTok{=}\NormalTok{ get\_winner(ranks)}
+\BuiltInTok{print}\NormalTok{(winner)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+{'otter': 1, 'fox': 2, 'polar bear': 3}
+otter
+\end{verbatim}
+
+\hypertarget{prefer-get-over-in-and-keyerror-to-handle-missing-dictionary-keys}{%
+\subsection{Prefer `get' Over `in' and `KeyError' to handle missing
+dictionary
+keys}\label{prefer-get-over-in-and-keyerror-to-handle-missing-dictionary-keys}}
+
+\begin{itemize}
+\tightlist
+\item
+  accessing and assigning
+\item
+  for maintaining dictionaries, consider Counter class from the
+  collections built-in module
+\item
+  setdefault is another shortened method other than get method, but
+  readability is not clear. so, avoid it
+\end{itemize}
+
+\hypertarget{example-1}{%
+\subsubsection{example 1}\label{example-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bread }\OperatorTok{=}\NormalTok{ \{}
+    \StringTok{\textquotesingle{}14grain\textquotesingle{}}\NormalTok{: }\DecValTok{4}\NormalTok{,}
+    \StringTok{\textquotesingle{}multigrain\textquotesingle{}}\NormalTok{ : }\DecValTok{2}
+\NormalTok{\}}
+
+\CommentTok{\#1) \textquotesingle{}in\textquotesingle{} method}
+\NormalTok{key }\OperatorTok{=} \StringTok{\textquotesingle{}wheat\textquotesingle{}}
+
+\ControlFlowTok{if}\NormalTok{ key }\KeywordTok{in}\NormalTok{ bread:}
+\NormalTok{    count }\OperatorTok{=}\NormalTok{ bread[key]}
+\ControlFlowTok{else}\NormalTok{:}
+\NormalTok{    count }\OperatorTok{=} \DecValTok{0}
+
+\NormalTok{bread[key] }\OperatorTok{=}\NormalTok{ count }\OperatorTok{+} \DecValTok{1}  \CommentTok{\#incrementing the count by 1 for \textquotesingle{}wheat\textquotesingle{} key}
+\end{Highlighting}
+\end{Shaded}
+
+\#2) `KeyError' method key = `wheat'
+
+try: count = bread{[}key{]} except KeyError: count = 0
+
+bread{[}key{]} = count + 1
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#3) \textquotesingle{}get\textquotesingle{} method {-} best one (shortest and clearest)}
+
+\NormalTok{key }\OperatorTok{=} \StringTok{\textquotesingle{}oats\textquotesingle{}}
+
+\NormalTok{count }\OperatorTok{=}\NormalTok{ bread.get(key,}\DecValTok{0}\NormalTok{)}
+\NormalTok{bread[key] }\OperatorTok{=}\NormalTok{ count }\OperatorTok{+} \DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bread}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+{'14grain': 4, 'multigrain': 2, 'wheat': 2, 'oats': 1}
+\end{verbatim}
+
+\hypertarget{example-2}{%
+\subsubsection{example 2}\label{example-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# more complex dictionary, to know who voted for which type of bread}
+
+\NormalTok{votes }\OperatorTok{=}\NormalTok{ \{}
+    \StringTok{\textquotesingle{}14grain\textquotesingle{}}\NormalTok{ : [}\StringTok{\textquotesingle{}Bob\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Ashley\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Suzan\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Susan\textquotesingle{}}\NormalTok{],}
+    \StringTok{\textquotesingle{}multigrain\textquotesingle{}}\NormalTok{ : [}\StringTok{\textquotesingle{}Dikshita\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Kavya\textquotesingle{}}\NormalTok{],}
+    \StringTok{\textquotesingle{}wheat\textquotesingle{}}\NormalTok{ : [}\StringTok{\textquotesingle{}Bhavna\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Shristi\textquotesingle{}}\NormalTok{],}
+    \StringTok{\textquotesingle{}oats\textquotesingle{}}\NormalTok{ : [}\StringTok{\textquotesingle{}Nikumbh\textquotesingle{}}\NormalTok{]}
+\NormalTok{\}}
+
+\NormalTok{key }\OperatorTok{=} \StringTok{\textquotesingle{}kinoa\textquotesingle{}} 
+\NormalTok{who }\OperatorTok{=} \StringTok{\textquotesingle{}Raph\textquotesingle{}}
+
+\ControlFlowTok{if}\NormalTok{ key }\KeywordTok{in}\NormalTok{ votes: }
+\NormalTok{    names }\OperatorTok{=}\NormalTok{ votes[key]}
+\ControlFlowTok{else}\NormalTok{:}
+\NormalTok{    votes[key] }\OperatorTok{=}\NormalTok{ names }\OperatorTok{=}\NormalTok{ []}
+    
+\NormalTok{names.append(who)}
+\BuiltInTok{print}\NormalTok{ (votes)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+{'14grain': ['Bob', 'Ashley', 'Suzan', 'Susan'], 'multigrain': ['Dikshita', 'Kavya'], 'wheat': ['Bhavna', 'Shristi'], 'oats': ['Nikumbh'], 'kinoa': ['Raph']}
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# try except}
+
+\ControlFlowTok{try}\NormalTok{:}
+\NormalTok{    names }\OperatorTok{=}\NormalTok{ votes[key]}
+\ControlFlowTok{except} \PreprocessorTok{KeyError}\NormalTok{:}
+\NormalTok{    votes[key] }\OperatorTok{=}\NormalTok{ names }\OperatorTok{=}\NormalTok{[]}
+
+\NormalTok{names.append(who)}
+\BuiltInTok{print}\NormalTok{(votes)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+{'14grain': ['Bob', 'Ashley', 'Suzan', 'Susan'], 'multigrain': ['Dikshita', 'Kavya'], 'wheat': ['Bhavna', 'Shristi'], 'oats': ['Nikumbh'], 'kinoa': ['Raph', 'Raph', 'Raph']}
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# get method}
+\NormalTok{names }\OperatorTok{=}\NormalTok{ votes.get(key)}
+\ControlFlowTok{if}\NormalTok{ names }\KeywordTok{is} \VariableTok{None}\NormalTok{:}
+\NormalTok{    votes[key] }\OperatorTok{=}\NormalTok{ names }\OperatorTok{=}\NormalTok{ []}
+    
+\NormalTok{names.append(who)}
+
+\BuiltInTok{print}\NormalTok{(votes)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+{'14grain': ['Bob', 'Ashley', 'Suzan', 'Susan'], 'multigrain': ['Dikshita', 'Kavya'], 'wheat': ['Bhavna', 'Shristi'], 'oats': ['Nikumbh', 'Raph', 'Raph', 'Raph', 'Raph'], 'kinoa': ['Raph', 'Raph', 'Raph']}
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# prevent repetition}
+\ControlFlowTok{if}\NormalTok{ (names }\OperatorTok{:=}\NormalTok{ votes.get(key)) }\KeywordTok{is} \VariableTok{None}\NormalTok{:}
+\NormalTok{    votes[key] }\OperatorTok{=}\NormalTok{ names }\OperatorTok{=}\NormalTok{ []}
+\NormalTok{names.append(who)}
+
+\BuiltInTok{print}\NormalTok{(votes)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+{'14grain': ['Bob', 'Ashley', 'Suzan', 'Susan'], 'multigrain': ['Dikshita', 'Kavya'], 'wheat': ['Bhavna', 'Shristi'], 'oats': ['Nikumbh', 'Raph', 'Raph', 'Raph', 'Raph', 'Raph', 'Raph'], 'kinoa': ['Raph', 'Raph', 'Raph']}
+\end{verbatim}
+
+\hypertarget{prefer-defaultdict-over-setdefault-to-handle-missing-items}{%
+\subsection{Prefer `defaultdict' Over `Setdefault' to handle missing
+items}\label{prefer-defaultdict-over-setdefault-to-handle-missing-items}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# list of countires and cities visited}
+\NormalTok{visits }\OperatorTok{=}\NormalTok{ \{}
+    \StringTok{\textquotesingle{}India\textquotesingle{}}\NormalTok{ : \{}\StringTok{\textquotesingle{}Punjab\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Rajastan\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Goa\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Himachal Pardesh\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Haryana\textquotesingle{}}\NormalTok{\},}
+    \StringTok{\textquotesingle{}UAE\textquotesingle{}}\NormalTok{ : \{}\StringTok{\textquotesingle{}Dubai\textquotesingle{}}\NormalTok{\},}
+    \StringTok{\textquotesingle{}Nepal\textquotesingle{}}\NormalTok{ : \{}\StringTok{\textquotesingle{}Kathmandu\textquotesingle{}}\NormalTok{\},}
+    \StringTok{\textquotesingle{}Canada\textquotesingle{}}\NormalTok{ : \{}\StringTok{\textquotesingle{}Québec\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Ontario\textquotesingle{}}\NormalTok{\},}
+\NormalTok{\}}
+
+
+\CommentTok{\# using setdefalut method to add to the list (method 1)}
+
+\NormalTok{visits.setdefault(}\StringTok{\textquotesingle{}France\textquotesingle{}}\NormalTok{, }\BuiltInTok{set}\NormalTok{()).add(}\StringTok{\textquotesingle{}Remi\textquotesingle{}}\NormalTok{)  }\CommentTok{\#short}
+
+\ControlFlowTok{if}\NormalTok{ (japan }\OperatorTok{:=}\NormalTok{ visits.get(}\StringTok{\textquotesingle{}Japan\textquotesingle{}}\NormalTok{)) }\KeywordTok{is} \VariableTok{None}\NormalTok{:      }\CommentTok{\#long}
+\NormalTok{    visits[}\StringTok{\textquotesingle{}Japan\textquotesingle{}}\NormalTok{] }\OperatorTok{=}\NormalTok{ japan }\OperatorTok{=} \BuiltInTok{set}\NormalTok{()}
+\NormalTok{japan.add(}\StringTok{\textquotesingle{}Kyoto\textquotesingle{}}\NormalTok{)}
+
+\BuiltInTok{print}\NormalTok{(visits)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+{'India': {'Rajastan', 'Haryana', 'Punjab', 'Himachal Pardesh', 'Goa'}, 'UAE': {'Dubai'}, 'Nepal': {'Kathmandu'}, 'Canada': {'Ontario', 'Québec'}, 'France': {'Remi'}, 'Japan': {'Kyoto'}}
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# how about i create a class then add places}
+
+\ImportTok{from}\NormalTok{ collections }\ImportTok{import}\NormalTok{ defaultdict}
+
+\KeywordTok{class}\NormalTok{ Visits:}
+    \KeywordTok{def} \FunctionTok{\_\_init\_\_}\NormalTok{(}\VariableTok{self}\NormalTok{):}
+       \VariableTok{self}\NormalTok{.data }\OperatorTok{=}\NormalTok{ defaultdict(}\BuiltInTok{set}\NormalTok{)}
+
+    \KeywordTok{def}\NormalTok{ add(}\VariableTok{self}\NormalTok{, country, city):}
+       \VariableTok{self}\NormalTok{.data[country].add(city)}
+
+\NormalTok{visits }\OperatorTok{=}\NormalTok{ Visits()}
+\NormalTok{visits.add(}\StringTok{\textquotesingle{}England\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Bath\textquotesingle{}}\NormalTok{)}
+\NormalTok{visits.add(}\StringTok{\textquotesingle{}England\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}London\textquotesingle{}}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(visits.data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+defaultdict(<class 'set'>, {'England': {'Bath', 'London'}})
+\end{verbatim}
+
+\hypertarget{functions}{%
+\section{Functions}\label{functions}}
+
+\hypertarget{never-unpack-more-than-3-variables-when-fucntions-return-multiple-vaues}{%
+\subsection{Never Unpack more than 3 variables when fucntions return
+multiple
+vaues}\label{never-unpack-more-than-3-variables-when-fucntions-return-multiple-vaues}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Function returning multiple values}
+\KeywordTok{def}\NormalTok{ get\_person\_details():}
+\NormalTok{    name }\OperatorTok{=} \StringTok{"John"}
+\NormalTok{    age }\OperatorTok{=} \DecValTok{30}
+\NormalTok{    city }\OperatorTok{=} \StringTok{"Montréal"}
+\NormalTok{    gender }\OperatorTok{=} \StringTok{"Male"}
+    \ControlFlowTok{return}\NormalTok{ name, age, city, gender}
+
+\CommentTok{\# Unpacking with three variables}
+\NormalTok{name, age, city }\OperatorTok{=}\NormalTok{ get\_person\_details() }\CommentTok{\#return 3 }
+\NormalTok{variables}
+
+\CommentTok{\# Displaying the results}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Name:"}\NormalTok{, name)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Age:"}\NormalTok{, age)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"City:"}\NormalTok{, city)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ValueError: too many values to unpack (expected 3)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Function returning multiple values}
+\KeywordTok{def}\NormalTok{ get\_person\_details():}
+\NormalTok{    name }\OperatorTok{=} \StringTok{"John"}
+\NormalTok{    age }\OperatorTok{=} \DecValTok{30}
+\NormalTok{    city }\OperatorTok{=} \StringTok{"Montréal"}
+    \CommentTok{\#gender = "Male"}
+    \ControlFlowTok{return}\NormalTok{ name, age, city}
+
+\CommentTok{\# Unpacking with three variables}
+\NormalTok{name, age, city }\OperatorTok{=}\NormalTok{ get\_person\_details() }\CommentTok{\#3 return variables}
+
+\CommentTok{\# Displaying the results}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Name:"}\NormalTok{, name)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Age:"}\NormalTok{, age)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"City:"}\NormalTok{, city)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Name: John
+Age: 30
+City: Montréal
+\end{verbatim}
+
+\hypertarget{prefer-raising-exceptions-to-returning-none}{%
+\subsection{Prefer raising exceptions to returning
+None}\label{prefer-raising-exceptions-to-returning-none}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Function that returns None on failure}
+\KeywordTok{def}\NormalTok{ divide\_numbers(a, b):}
+    \ControlFlowTok{if}\NormalTok{ b }\OperatorTok{==} \DecValTok{0}\NormalTok{:}
+        \ControlFlowTok{return} \VariableTok{None}  \CommentTok{\# Indicating failure by returning None}
+    \ControlFlowTok{else}\NormalTok{:}
+        \ControlFlowTok{return}\NormalTok{ a }\OperatorTok{/}\NormalTok{ b}
+
+\CommentTok{\# Using the function and checking for failure with None}
+\NormalTok{result }\OperatorTok{=}\NormalTok{ divide\_numbers(}\DecValTok{10}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+
+\ControlFlowTok{if}\NormalTok{ result }\KeywordTok{is} \KeywordTok{not} \VariableTok{None}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Result:"}\NormalTok{, result)}
+\ControlFlowTok{else}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Error: Cannot divide by zero."}\NormalTok{)}
+
+\CommentTok{\# Using the function and checking for failure with None}
+\NormalTok{result }\OperatorTok{=}\NormalTok{ divide\_numbers(}\DecValTok{10}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+
+\ControlFlowTok{if}\NormalTok{ result }\KeywordTok{is} \KeywordTok{not} \VariableTok{None}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Result:"}\NormalTok{, result)}
+\ControlFlowTok{else}\NormalTok{:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Error: Cannot divide by zero."}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Result: 5.0
+Error: Cannot divide by zero.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Function that raises an exception on failure}
+\KeywordTok{def}\NormalTok{ divide\_numbers(a, b):}
+    \ControlFlowTok{if}\NormalTok{ b }\OperatorTok{==} \DecValTok{0}\NormalTok{:}
+        \ControlFlowTok{raise} \PreprocessorTok{ValueError}\NormalTok{(}\StringTok{"Cannot divide by zero"}\NormalTok{)}
+    \ControlFlowTok{else}\NormalTok{:}
+        \ControlFlowTok{return}\NormalTok{ a }\OperatorTok{/}\NormalTok{ b}
+
+\CommentTok{\# Using the function and handling the exception}
+\ControlFlowTok{try}\NormalTok{:}
+\NormalTok{    result }\OperatorTok{=}\NormalTok{ divide\_numbers(}\DecValTok{10}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Result:"}\NormalTok{, result)}
+\ControlFlowTok{except} \PreprocessorTok{ValueError} \ImportTok{as}\NormalTok{ e:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Error:"}\NormalTok{, e)}
+
+\CommentTok{\# Using the function and handling the exception}
+\ControlFlowTok{try}\NormalTok{:}
+\NormalTok{    result }\OperatorTok{=}\NormalTok{ divide\_numbers(}\DecValTok{10}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Result:"}\NormalTok{, result)}
+\ControlFlowTok{except} \PreprocessorTok{ValueError} \ImportTok{as}\NormalTok{ e:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{"Error:"}\NormalTok{, e)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Result: 5.0
+Error: Cannot divide by zero
+\end{verbatim}
+
+\hypertarget{know-how-closures-interact-with-variable-scope}{%
+\subsection{Know how Closures Interact with Variable
+Scope}\label{know-how-closures-interact-with-variable-scope}}
+
+\begin{itemize}
+\tightlist
+\item
+  It is better to write a helper class compared to non-local or helper
+  function.
+\item
+  used specifically when we want to priortise certain groups in a
+  function.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class}\NormalTok{ Sorter:}
+    \KeywordTok{def} \FunctionTok{\_\_init\_\_}\NormalTok{(}\VariableTok{self}\NormalTok{, group):}
+        \VariableTok{self}\NormalTok{.group }\OperatorTok{=}\NormalTok{ group}
+        \VariableTok{self}\NormalTok{.found }\OperatorTok{=} \VariableTok{False}
+
+    \KeywordTok{def} \FunctionTok{\_\_call\_\_}\NormalTok{(}\VariableTok{self}\NormalTok{, x):}
+        \ControlFlowTok{if}\NormalTok{ x }\KeywordTok{in} \VariableTok{self}\NormalTok{.group:}
+            \VariableTok{self}\NormalTok{.found }\OperatorTok{=} \VariableTok{True}
+            \ControlFlowTok{return}\NormalTok{ (}\DecValTok{0}\NormalTok{, x)}
+        \ControlFlowTok{else}\NormalTok{:}
+            \ControlFlowTok{return}\NormalTok{ (}\DecValTok{1}\NormalTok{, x)}
+
+\CommentTok{\# Example usage}
+\NormalTok{group }\OperatorTok{=}\NormalTok{ \{}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{\}}
+\NormalTok{numbers }\OperatorTok{=}\NormalTok{ [}\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{]}
+
+\NormalTok{sorter }\OperatorTok{=}\NormalTok{ Sorter(group)}
+\NormalTok{numbers.sort(key}\OperatorTok{=}\NormalTok{sorter)}
+
+\CommentTok{\# Display the sorted list}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Sorted List:"}\NormalTok{, numbers)}
+
+\CommentTok{\# Check if any item from the group is found during sorting}
+\ControlFlowTok{assert}\NormalTok{ sorter.found }\KeywordTok{is} \VariableTok{True}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Sorted List: [2, 4, 1, 3, 5]
+\end{verbatim}
+
+\hypertarget{reduce-visual-noise-with-variable-positional-arguments}{%
+\subsection{Reduce Visual Noise with Variable Positional
+Arguments}\label{reduce-visual-noise-with-variable-positional-arguments}}
+
+*args is not suggested for two reasons-
+
+\begin{verbatim}
+1) Optional positional arguments are always turned into a tuple before they are passed to a function. Uses a lot of memory and could crash a function.
+
+2) Doesn't provide value inclusive of the new argument. Hence, no use of adding an additional argument. 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Original function with *args}
+\KeywordTok{def}\NormalTok{ example\_function(}\OperatorTok{*}\NormalTok{args):}
+    \CommentTok{\# Existing functionality using args}
+\NormalTok{    total }\OperatorTok{=} \BuiltInTok{sum}\NormalTok{(args)}
+    \ControlFlowTok{return}\NormalTok{ total}
+
+\CommentTok{\# Example usage}
+\NormalTok{result }\OperatorTok{=}\NormalTok{ example\_function(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Result:"}\NormalTok{, result)}
+
+\CommentTok{\# Attempt to add a new positional argument}
+\CommentTok{\# This would break existing callers}
+\KeywordTok{def}\NormalTok{ updated\_function(new\_arg, }\OperatorTok{*}\NormalTok{args):}
+\NormalTok{     total }\OperatorTok{=} \BuiltInTok{sum}\NormalTok{(args) }\OperatorTok{+}\NormalTok{ new\_arg}
+     \ControlFlowTok{return}\NormalTok{ total}
+
+\NormalTok{result2 }\OperatorTok{=}\NormalTok{ updated\_function(}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Result2:\textquotesingle{}}\NormalTok{, result2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Result: 6
+Result2: 9
+\end{verbatim}
+
+\hypertarget{provide-optional-behavior-with-keyword-arguments}{%
+\subsection{Provide Optional Behavior with Keyword
+Arguments}\label{provide-optional-behavior-with-keyword-arguments}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ calculate\_rectangle\_area(length, width):}
+    \ControlFlowTok{return}\NormalTok{ length }\OperatorTok{*}\NormalTok{ width}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ calculate\_rectangle\_area(length, width}\OperatorTok{=}\VariableTok{None}\NormalTok{):}
+    \ControlFlowTok{if}\NormalTok{ width }\KeywordTok{is} \KeywordTok{not} \VariableTok{None}\NormalTok{:}
+        \ControlFlowTok{return}\NormalTok{ length }\OperatorTok{*}\NormalTok{ width}
+    \ControlFlowTok{else}\NormalTok{:}
+        \CommentTok{\# If width is not provided, assume it\textquotesingle{}s a square (width = length)}
+        \ControlFlowTok{return}\NormalTok{ length }\OperatorTok{*}\NormalTok{ length}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{area1 }\OperatorTok{=}\NormalTok{ calculate\_rectangle\_area(}\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{)  }\CommentTok{\# Calculates area of a rectangle}
+\NormalTok{area2 }\OperatorTok{=}\NormalTok{ calculate\_rectangle\_area(}\DecValTok{4}\NormalTok{)     }\CommentTok{\# Assumes it\textquotesingle{}s a square with side length 4}
+
+\BuiltInTok{print}\NormalTok{(area1)}
+\BuiltInTok{print}\NormalTok{(area2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+15
+16
+\end{verbatim}
+
+\hypertarget{use-none-and-docstrings-to-specify-dynamic-default-arguments}{%
+\subsection{Use None and Docstrings to Specify Dynamic Default
+Arguments}\label{use-none-and-docstrings-to-specify-dynamic-default-arguments}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ datetime }\ImportTok{import}\NormalTok{ datetime}
+
+\KeywordTok{def}\NormalTok{ log\_message(message, timestamp}\OperatorTok{=}\VariableTok{None}\NormalTok{):}
+    \CommentTok{"""}
+\CommentTok{    Log a message with an optional timestamp.}
+
+\CommentTok{    Parameters:}
+\CommentTok{    {-} message (str): The message to be logged.}
+\CommentTok{    {-} timestamp (datetime, optional): The timestamp for the log message.}
+\CommentTok{      Defaults to the current time if not provided.}
+\CommentTok{    """}
+    \ControlFlowTok{if}\NormalTok{ timestamp }\KeywordTok{is} \VariableTok{None}\NormalTok{:}
+\NormalTok{        timestamp }\OperatorTok{=}\NormalTok{ datetime.now()}
+
+    \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\SpecialCharTok{\{}\NormalTok{timestamp}\SpecialCharTok{\}}\SpecialStringTok{: }\SpecialCharTok{\{}\NormalTok{message}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+
+\CommentTok{\# Example usage}
+\NormalTok{log\_message(}\StringTok{"Error occurred"}\NormalTok{)  }\CommentTok{\# Logs the message with the current timestamp}
+\NormalTok{log\_message(}\StringTok{"Warning"}\NormalTok{, timestamp}\OperatorTok{=}\NormalTok{datetime(}\DecValTok{2023}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{))  }\CommentTok{\# Logs the message with a specific timestamp}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+2023-12-05 18:49:25.657917: Error occurred
+2023-01-01 00:00:00: Warning
+\end{verbatim}
+
+\hypertarget{define-function-decorators-with-funtools.wraps}{%
+\subsection{Define Function Decorators with
+funtools.wraps}\label{define-function-decorators-with-funtools.wraps}}
+
+\begin{itemize}
+\tightlist
+\item
+  Decorator in Python is a function that takes another function as input
+  and extends or modifies the behavior of the latter function.
+\item
+  In this case, the trace decorator is designed to print information
+  about the function calls.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ trace(func):}
+    \KeywordTok{def}\NormalTok{ wrapper(}\OperatorTok{*}\NormalTok{args, }\OperatorTok{**}\NormalTok{kwargs):}
+\NormalTok{        result }\OperatorTok{=}\NormalTok{ func(}\OperatorTok{*}\NormalTok{args, }\OperatorTok{**}\NormalTok{kwargs)}
+        \BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f\textquotesingle{}}\SpecialCharTok{\{}\NormalTok{func}\SpecialCharTok{.}\VariableTok{\_\_name\_\_}\SpecialCharTok{\}}\SpecialStringTok{(}\SpecialCharTok{\{}\NormalTok{args}\SpecialCharTok{!r\}}\SpecialStringTok{, }\SpecialCharTok{\{}\NormalTok{kwargs}\SpecialCharTok{!r\}}\SpecialStringTok{) \textquotesingle{}}
+              \SpecialStringTok{f\textquotesingle{}{-}\textgreater{} }\SpecialCharTok{\{}\NormalTok{result}\SpecialCharTok{!r\}}\SpecialStringTok{\textquotesingle{}}\NormalTok{)}
+        \ControlFlowTok{return}\NormalTok{ result}
+    \ControlFlowTok{return}\NormalTok{ wrapper}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\AttributeTok{@trace}
+\KeywordTok{def}\NormalTok{ example\_function(x, y):}
+    \ControlFlowTok{return}\NormalTok{ x }\OperatorTok{*}\NormalTok{ y}
+
+\NormalTok{result }\OperatorTok{=}\NormalTok{ example\_function(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+example_function((3, 4), {}) -> 12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{help}\NormalTok{(example\_function)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Help on function wrapper in module __main__:
+
+wrapper(*args, **kwargs)
+\end{verbatim}
+
+
+
+\end{document}

@@ -51,6 +51,9 @@ format:
     footnotes-hover: true
     toc: true
     code-link: true
+  pdf:
+    documentclass: report
+    keep-tex: true
 
 editor: visual
 
