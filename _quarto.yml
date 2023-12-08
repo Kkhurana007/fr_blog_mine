@@ -44,6 +44,7 @@ format:
     smooth-scroll: true
     theme: journal
     css: styles.css
+    pdf-engine: wkhtmltopdf
     link-external-icon: false
     link-external-newwindow: true
     link-external-filter: '^(?:http:|https:)\/\/www\.ilovesoils\.com\/**'
@@ -52,8 +53,7 @@ format:
     toc: true
     code-link: true
   pdf:
-    documentclass: report
-    keep-tex: true
+    documentclass: scrreprt
 
 editor: visual
 
