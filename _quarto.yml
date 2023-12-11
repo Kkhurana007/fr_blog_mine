@@ -53,7 +53,7 @@ format:
     code-link: true
   pdf:
     documentclass: scrreprt
-    engine: wkhtmltopdf
+    engine: pdflatex
 
 editor: visual
 
