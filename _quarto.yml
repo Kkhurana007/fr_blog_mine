@@ -53,7 +53,7 @@ format:
     code-link: true
   pdf:
     documentclass: scrreprt
-    engine: pdflatex
+    engine: xelatex
 
 editor: visual
 
