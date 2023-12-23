@@ -11,7 +11,7 @@ listing:
     categories: cloud
     sort-ui: false
     filter-ui: false
-    page-size: 3          
+    page-size: 9         
   - id: posts-fr
     contents: 
     - "introgit.ipynb"
@@ -34,14 +34,5 @@ toc: true
 :::
 
 <a href="../posts/en.html"> <button type="button" class="btn btn-primary float-end btn-sm">See all posts in English</button></a>
-
-<br>
-
-## Posts en français
-
-::: {#posts-fr}
-:::
-
-<a href="../posts/fr.html"> <button type="button" class="btn btn-primary float-end btn-sm">Voir les posts en français</button></a>
 
 <br>
