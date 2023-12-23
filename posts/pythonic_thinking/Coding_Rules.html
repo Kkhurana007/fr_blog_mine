@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.340">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -91,7 +91,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YSR47ZM5Y0"></script>
@@ -215,11 +216,14 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#prefer-unpacking-over-indexing" id="toc-prefer-unpacking-over-indexing" class="nav-link active" data-scroll-target="#prefer-unpacking-over-indexing">Prefer Unpacking Over Indexing</a></li>
+  <li><a href="#general" id="toc-general" class="nav-link active" data-scroll-target="#general">General</a>
+  <ul class="collapse">
+  <li><a href="#prefer-unpacking-over-indexing" id="toc-prefer-unpacking-over-indexing" class="nav-link" data-scroll-target="#prefer-unpacking-over-indexing">Prefer Unpacking Over Indexing</a></li>
   <li><a href="#prefer-enumerate-over-range" id="toc-prefer-enumerate-over-range" class="nav-link" data-scroll-target="#prefer-enumerate-over-range">Prefer enumerate Over range</a></li>
   <li><a href="#use-zip-to-process-iterators-in-parallel" id="toc-use-zip-to-process-iterators-in-parallel" class="nav-link" data-scroll-target="#use-zip-to-process-iterators-in-parallel">Use zip to process Iterators in parallel</a></li>
   <li><a href="#avoid-else-blocks-after-for-and-while-loops" id="toc-avoid-else-blocks-after-for-and-while-loops" class="nav-link" data-scroll-target="#avoid-else-blocks-after-for-and-while-loops">Avoid ‘else’ Blocks After ‘for’ and ‘while’ Loops</a></li>
   <li><a href="#prevent-repetition-with-assignment-expressions-such-as-warlus-operator" id="toc-prevent-repetition-with-assignment-expressions-such-as-warlus-operator" class="nav-link" data-scroll-target="#prevent-repetition-with-assignment-expressions-such-as-warlus-operator">Prevent repetition with assignment Expressions such as ‘warlus operator’</a></li>
+  </ul></li>
   <li><a href="#lists-and-dictionaries" id="toc-lists-and-dictionaries" class="nav-link" data-scroll-target="#lists-and-dictionaries">Lists and dictionaries</a>
   <ul class="collapse">
   <li><a href="#know-how-to-slice-sequneces" id="toc-know-how-to-slice-sequneces" class="nav-link" data-scroll-target="#know-how-to-slice-sequneces">Know how to slice sequneces</a></li>
@@ -241,7 +245,7 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
   <li><a href="#define-function-decorators-with-funtools.wraps" id="toc-define-function-decorators-with-funtools.wraps" class="nav-link" data-scroll-target="#define-function-decorators-with-funtools.wraps">Define Function Decorators with funtools.wraps</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Coding_Rules.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -249,10 +253,12 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 
 
 
+<section id="general" class="level2">
+<h2 class="anchored" data-anchor-id="general">General</h2>
 <section id="c-style-formatting-strings-in-python-4-errors" class="level4">
 <h4 class="anchored" data-anchor-id="c-style-formatting-strings-in-python-4-errors">C-style formatting strings in Python (4 errors)</h4>
 <ul>
-<li>4 errors (reversing order gives traceback)</li>
+<li>reversing order gives traceback</li>
 <li>difficult to read the code</li>
 <li>using same value multiple times in tuple (repeat it in the right side)</li>
 <li>dictionary formats</li>
@@ -480,6 +486,7 @@ coprime</code></pre>
 <pre><code>[0, 2, 4, 6, 8]</code></pre>
 </div>
 </div>
+</section>
 </section>
 <section id="lists-and-dictionaries" class="level2">
 <h2 class="anchored" data-anchor-id="lists-and-dictionaries">Lists and dictionaries</h2>

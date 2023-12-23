@@ -1,8 +1,9 @@
 [
   {
-    "listing": "/index.html",
+    "listing": "/posts/index.html",
     "items": [
-      "/posts/pythonic_thinking/Pyhton Coding Rules.html",
+      "/posts/python/basics_python_kaggle.html",
+      "/posts/pythonic_thinking/Coding_Rules.html",
       "/posts/python/p11.html",
       "/posts/python/p_10.html",
       "/posts/python/p_9.html",
@@ -16,8 +17,6 @@
       "/posts/ML/ML_project.html",
       "/posts/charting/charting.html",
       "/posts/fertility_map_africa/afsis-soil-chem-EDA.html",
-      "/posts/git-2/exogit.html",
-      "/posts/git/introgit.html",
       "/posts/numpy/Numpy_tutorial.html",
       "/posts/matplotlib/Matplotlib Tutorial.html",
       "/posts/pandas/tools-pandas.html",
@@ -29,14 +28,46 @@
       "/posts/when_to_water/index.html",
       "/posts/Machine learning in Agriculture/index.html",
       "/posts/irrigraiton_scheduling/content.html",
-      "/posts/Digitalization_of_agricluture/index.html",
-      "/posts/continents classifier/continents_classifier.html"
+      "/posts/Digitalization_of_agricluture/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/python/basics_python_kaggle.html",
+      "/posts/pythonic_thinking/Coding_Rules.html",
+      "/posts/python/p11.html",
+      "/posts/python/p_10.html",
+      "/posts/python/p_9.html",
+      "/posts/python/p_1.html",
+      "/posts/python/p_2.html",
+      "/posts/python/p_3.html",
+      "/posts/python/p_4.html",
+      "/posts/python/p_5.html",
+      "/posts/python/p_6.html",
+      "/posts/python/p_7.html",
+      "/posts/ML/ML_project.html",
+      "/posts/charting/charting.html",
+      "/posts/fertility_map_africa/afsis-soil-chem-EDA.html",
+      "/posts/numpy/Numpy_tutorial.html",
+      "/posts/matplotlib/Matplotlib Tutorial.html",
+      "/posts/pandas/tools-pandas.html",
+      "/posts/qmd_computations/computations.html",
+      "/posts/sample_ipynb/hello.html",
+      "/posts/qmd_titanic/titanic.html",
+      "/posts/Ai_watersaving/index.html",
+      "/posts/bamboo_plantation/index.html",
+      "/posts/when_to_water/index.html",
+      "/posts/Machine learning in Agriculture/index.html",
+      "/posts/irrigraiton_scheduling/content.html",
+      "/posts/Digitalization_of_agricluture/index.html"
     ]
   },
   {
     "listing": "/posts/en.html",
     "items": [
-      "/posts/pythonic_thinking/Pyhton Coding Rules.html",
+      "/posts/python/basics_python_kaggle.html",
+      "/posts/pythonic_thinking/Coding_Rules.html",
       "/posts/python/p11.html",
       "/posts/python/p_10.html",
       "/posts/python/p_9.html",
@@ -50,8 +81,6 @@
       "/posts/ML/ML_project.html",
       "/posts/charting/charting.html",
       "/posts/fertility_map_africa/afsis-soil-chem-EDA.html",
-      "/posts/git-2/exogit.html",
-      "/posts/git/introgit.html",
       "/posts/numpy/Numpy_tutorial.html",
       "/posts/matplotlib/Matplotlib Tutorial.html",
       "/posts/pandas/tools-pandas.html",
@@ -63,50 +92,12 @@
       "/posts/when_to_water/index.html",
       "/posts/Machine learning in Agriculture/index.html",
       "/posts/irrigraiton_scheduling/content.html",
-      "/posts/Digitalization_of_agricluture/index.html",
-      "/posts/continents classifier/continents_classifier.html"
+      "/posts/Digitalization_of_agricluture/index.html"
     ]
   },
   {
     "listing": "/posts/fr.html",
-    "items": [
-      "/posts/git/introgit.html",
-      "/posts/git-2/exogit.html"
-    ]
-  },
-  {
-    "listing": "/posts/index.html",
-    "items": [
-      "/posts/pythonic_thinking/Pyhton Coding Rules.html",
-      "/posts/python/p11.html",
-      "/posts/python/p_10.html",
-      "/posts/python/p_9.html",
-      "/posts/python/p_1.html",
-      "/posts/python/p_2.html",
-      "/posts/python/p_3.html",
-      "/posts/python/p_4.html",
-      "/posts/python/p_5.html",
-      "/posts/python/p_6.html",
-      "/posts/python/p_7.html",
-      "/posts/ML/ML_project.html",
-      "/posts/charting/charting.html",
-      "/posts/fertility_map_africa/afsis-soil-chem-EDA.html",
-      "/posts/git-2/exogit.html",
-      "/posts/git/introgit.html",
-      "/posts/numpy/Numpy_tutorial.html",
-      "/posts/matplotlib/Matplotlib Tutorial.html",
-      "/posts/pandas/tools-pandas.html",
-      "/posts/qmd_computations/computations.html",
-      "/posts/sample_ipynb/hello.html",
-      "/posts/qmd_titanic/titanic.html",
-      "/posts/Ai_watersaving/index.html",
-      "/posts/bamboo_plantation/index.html",
-      "/posts/when_to_water/index.html",
-      "/posts/Machine learning in Agriculture/index.html",
-      "/posts/irrigraiton_scheduling/content.html",
-      "/posts/Digitalization_of_agricluture/index.html",
-      "/posts/continents classifier/continents_classifier.html"
-    ]
+    "items": []
   },
   {
     "listing": "/series-gha.html",
