@@ -1,11 +1,8 @@
 [
   {
-    "listing": "/posts/fr.html",
-    "items": []
-  },
-  {
-    "listing": "/posts/en.html",
+    "listing": "/posts/index.html",
     "items": [
+      "/posts/pandas/Pandas.html",
       "/posts/ML/machine_learning.html",
       "/posts/python/basics_python_kaggle.html",
       "/posts/pythonic_thinking/Coding_Rules.html",
@@ -39,6 +36,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/pandas/Pandas.html",
       "/posts/ML/machine_learning.html",
       "/posts/python/basics_python_kaggle.html",
       "/posts/pythonic_thinking/Coding_Rules.html",
@@ -70,8 +68,9 @@
     ]
   },
   {
-    "listing": "/posts/index.html",
+    "listing": "/posts/en.html",
     "items": [
+      "/posts/pandas/Pandas.html",
       "/posts/ML/machine_learning.html",
       "/posts/python/basics_python_kaggle.html",
       "/posts/pythonic_thinking/Coding_Rules.html",
@@ -101,6 +100,10 @@
       "/posts/irrigraiton_scheduling/content.html",
       "/posts/Digitalization_of_agricluture/index.html"
     ]
+  },
+  {
+    "listing": "/posts/fr.html",
+    "items": []
   },
   {
     "listing": "/series-gha.html",

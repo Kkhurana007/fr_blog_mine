@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kunal Khurana">
+<meta name="dcterms.date" content="2023-12-25">
+
+<title>Homepage - Data Analysis with Pandas</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YSR47ZM5Y0"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta name="twitter:title" content="Homepage - Data Analysis with Pandas">
+<meta name="twitter:description" content="Data Analysis">
+<meta name="twitter:image" content="https://ilovesoils.com/posts/pandas/pandas.png">
+<meta name="twitter:creator" content="@kunalkhurana007">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image-height" content="224">
+<meta name="twitter:image-width" content="788">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Homepage</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">Kunal Khurana</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-posts" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Posts</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
+        <li>
+    <a class="dropdown-item" href="../../posts/index.html" rel="" target="">
+ <span class="dropdown-text">All posts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../posts/en.html" rel="" target="">
+ <span class="dropdown-text">English</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../posts/fr.html" rel="" target="">
+ <span class="dropdown-text">Français</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Kkhurana007/fr_blog_mine" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/kunalkhurana007" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Data Analysis with Pandas</h1>
+            <p class="subtitle lead">Data Analysis</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Pandas</div>
+                <div class="quarto-category">Data Analysis</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Kunal Khurana </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 25, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#creating-reading-and-writing" id="toc-creating-reading-and-writing" class="nav-link active" data-scroll-target="#creating-reading-and-writing">Creating, Reading and Writing</a>
+  <ul class="collapse">
+  <li><a href="#dataframe-and-series" id="toc-dataframe-and-series" class="nav-link" data-scroll-target="#dataframe-and-series">DataFrame and Series</a></li>
+  <li><a href="#writing-data-files" id="toc-writing-data-files" class="nav-link" data-scroll-target="#writing-data-files">Writing data files</a></li>
+  <li><a href="#reading-data-files" id="toc-reading-data-files" class="nav-link" data-scroll-target="#reading-data-files">Reading data files</a></li>
+  </ul></li>
+  <li><a href="#indexing-selecting-and-assigning" id="toc-indexing-selecting-and-assigning" class="nav-link" data-scroll-target="#indexing-selecting-and-assigning">Indexing, Selecting and Assigning</a>
+  <ul class="collapse">
+  <li><a href="#indexing" id="toc-indexing" class="nav-link" data-scroll-target="#indexing">Indexing</a></li>
+  <li><a href="#manipulating-the-index" id="toc-manipulating-the-index" class="nav-link" data-scroll-target="#manipulating-the-index">Manipulating the index</a></li>
+  </ul></li>
+  <li><a href="#assigning-data" id="toc-assigning-data" class="nav-link" data-scroll-target="#assigning-data">Assigning data</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Pandas.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="creating-reading-and-writing" class="level2">
+<h2 class="anchored" data-anchor-id="creating-reading-and-writing">Creating, Reading and Writing</h2>
+<section id="dataframe-and-series" class="level3">
+<h3 class="anchored" data-anchor-id="dataframe-and-series">DataFrame and Series</h3>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>2 core objects- - DataFrame - array of inidividual entries (contains row and column) &gt;keys = ‘column names’, values = list of entries</p>
+<pre><code>&gt;rows = **Index**</code></pre>
+<ul>
+<li><p>Series- sequence of data values &gt; don’t have any column name</p>
+<blockquote class="blockquote">
+<p><strong>row names</strong> defined by <strong>index</strong> parameter aswell</p>
+</blockquote></li>
+</ul>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#DataFrame_integer</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pd.DataFrame({<span class="st">'Yes'</span> : [<span class="dv">390</span>, <span class="dv">233</span>], <span class="st">'No'</span> : [<span class="dv">1</span>,<span class="dv">23</span>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Yes</th>
+<th data-quarto-table-cell-role="th">No</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>390</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>233</td>
+<td>23</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DataFrame_Strings</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>pd.DataFrame({<span class="st">'Suzaine'</span>: [<span class="st">'I liked chocolate'</span>, <span class="st">'Lets have some fun'</span>], </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">'Marie'</span>: [<span class="st">'butterscotch worked fine'</span>, <span class="st">'wow, its raining'</span>]},</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>            index <span class="op">=</span> [<span class="st">'topic_1'</span>, <span class="st">'topic_2'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Suzaine</th>
+<th data-quarto-table-cell-role="th">Marie</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">topic_1</td>
+<td>I liked chocolate</td>
+<td>butterscotch worked fine</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">topic_2</td>
+<td>Lets have some fun</td>
+<td>wow, its raining</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># series</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>index<span class="op">=</span> [<span class="st">'2014_sales'</span>, <span class="st">'2015_sales'</span>, <span class="st">'2016_sales'</span>], </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Product A'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>2014_sales    1
+2015_sales    2
+2016_sales    3
+Name: Product A, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Dinner <span class="op">=</span> pd.Series([<span class="st">'4 cups'</span>, <span class="st">'1 cup'</span>, <span class="st">'2 large'</span>, <span class="st">'1 can'</span>], </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>         index <span class="op">=</span> [<span class="st">'Flour'</span>, <span class="st">'Milk'</span>, <span class="st">'Eggs'</span>, <span class="st">'Spam'</span>], </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>         name <span class="op">=</span> <span class="st">'Dinner'</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Dinner)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Flour     4 cups
+Milk       1 cup
+Eggs     2 large
+Spam       1 can
+Name: Dinner, dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="writing-data-files" class="level3">
+<h3 class="anchored" data-anchor-id="writing-data-files">Writing data files</h3>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Dinner.to_csv(<span class="st">"Dinner.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="reading-data-files" class="level3">
+<h3 class="anchored" data-anchor-id="reading-data-files">Reading data files</h3>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>reactions <span class="op">=</span> pd.read_csv(<span class="st">'Reactions.csv'</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(reactions.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(25553, 5)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(reactions.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Unnamed: 0                            Content ID  \
+0           0  97522e57-d9ab-4bd6-97bf-c24d952602d2   
+1           1  97522e57-d9ab-4bd6-97bf-c24d952602d2   
+2           2  97522e57-d9ab-4bd6-97bf-c24d952602d2   
+3           3  97522e57-d9ab-4bd6-97bf-c24d952602d2   
+4           4  97522e57-d9ab-4bd6-97bf-c24d952602d2   
+
+                                User ID     Type             Datetime  
+0                                   NaN      NaN  2021-04-22 15:17:15  
+1  5d454588-283d-459d-915d-c48a2cb4c27f  disgust  2020-11-07 09:43:50  
+2  92b87fa5-f271-43e0-af66-84fac21052e6  dislike  2021-06-17 12:22:51  
+3  163daa38-8b77-48c9-9af6-37a6c1447ac2   scared  2021-04-18 05:13:58  
+4  34e8add9-0206-47fd-a501-037b994650a2  disgust  2021-01-06 19:13:01  </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="indexing-selecting-and-assigning" class="level2">
+<h2 class="anchored" data-anchor-id="indexing-selecting-and-assigning">Indexing, Selecting and Assigning</h2>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"winemag-data-130k-v2.csv"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_rows'</span>, <span class="dv">5</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Unnamed: 0   country                                        description  \
+0           0     Italy  Aromas include tropical fruit, broom, brimston...   
+1           1  Portugal  This is ripe and fruity, a wine that is smooth...   
+2           2        US  Tart and snappy, the flavors of lime flesh and...   
+3           3        US  Pineapple rind, lemon pith and orange blossom ...   
+4           4        US  Much like the regular bottling from 2012, this...   
+
+                          designation  points  price           province  \
+0                        Vulkà Bianco      87    NaN  Sicily &amp; Sardinia   
+1                            Avidagos      87   15.0              Douro   
+2                                 NaN      87   14.0             Oregon   
+3                Reserve Late Harvest      87   13.0           Michigan   
+4  Vintner's Reserve Wild Child Block      87   65.0             Oregon   
+
+              region_1           region_2         taster_name  \
+0                 Etna                NaN       Kerin O’Keefe   
+1                  NaN                NaN          Roger Voss   
+2    Willamette Valley  Willamette Valley        Paul Gregutt   
+3  Lake Michigan Shore                NaN  Alexander Peartree   
+4    Willamette Valley  Willamette Valley        Paul Gregutt   
+
+  taster_twitter_handle                                              title  \
+0          @kerinokeefe                  Nicosia 2013 Vulkà Bianco  (Etna)   
+1            @vossroger      Quinta dos Avidagos 2011 Avidagos Red (Douro)   
+2           @paulgwine&nbsp;      Rainstorm 2013 Pinot Gris (Willamette Valley)   
+3                   NaN  St. Julian 2013 Reserve Late Harvest Riesling ...   
+4           @paulgwine&nbsp;  Sweet Cheeks 2012 Vintner's Reserve Wild Child...   
+
+          variety               winery  
+0     White Blend              Nicosia  
+1  Portuguese Red  Quinta dos Avidagos  
+2      Pinot Gris            Rainstorm  
+3        Riesling           St. Julian  
+4      Pinot Noir         Sweet Cheeks  </code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['Unnamed: 0', 'country', 'description', 'designation', 'points',
+       'price', 'province', 'region_1', 'region_2', 'taster_name',
+       'taster_twitter_handle', 'title', 'variety', 'winery'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0            Italy
+1         Portugal
+            ...   
+129969      France
+129970      France
+Name: country, Length: 129971, dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[<span class="st">'country'</span>])  <span class="co">#handles reserved characters</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0            Italy
+1         Portugal
+            ...   
+129969      France
+129970      France
+Name: country, Length: 129971, dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[<span class="st">'country'</span>][<span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>US</code></pre>
+</div>
+</div>
+<section id="indexing" class="level3">
+<h3 class="anchored" data-anchor-id="indexing">Indexing</h3>
+<blockquote class="blockquote">
+<p>index based or numerical position based (.iloc operator used)</p>
+</blockquote>
+<pre><code>   - python's std. library appraoch (0:10 selects 0, 1, ...9)</code></pre>
+<blockquote class="blockquote">
+<p>label based or value based (.loc operator used)</p>
+</blockquote>
+<pre><code>    -indexes inclusively. So 0:10 will select entries 0,...,10</code></pre>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting first row</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>data.iloc[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>Unnamed: 0              0
+country             Italy
+                 ...     
+variety       White Blend
+winery            Nicosia
+Name: 0, Length: 14, dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>data.iloc[:<span class="dv">3</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>0       Italy
+1    Portugal
+2          US
+Name: country, dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>data.iloc[<span class="op">-</span><span class="dv">5</span>:] <span class="co">#selecting last 5 rows, plus all columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">designation</th>
+<th data-quarto-table-cell-role="th">points</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th">region_1</th>
+<th data-quarto-table-cell-role="th">region_2</th>
+<th data-quarto-table-cell-role="th">taster_name</th>
+<th data-quarto-table-cell-role="th">taster_twitter_handle</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">variety</th>
+<th data-quarto-table-cell-role="th">winery</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">129966</td>
+<td>129966</td>
+<td>Germany</td>
+<td>Notes of honeysuckle and cantaloupe sweeten th...</td>
+<td>Brauneberger Juffer-Sonnenuhr Spätlese</td>
+<td>90</td>
+<td>28.0</td>
+<td>Mosel</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Anna Lee C. Iijima</td>
+<td>NaN</td>
+<td>Dr. H. Thanisch (Erben Müller-Burggraef) 2013 ...</td>
+<td>Riesling</td>
+<td>Dr. H. Thanisch (Erben Müller-Burggraef)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">129967</td>
+<td>129967</td>
+<td>US</td>
+<td>Citation is given as much as a decade of bottl...</td>
+<td>NaN</td>
+<td>90</td>
+<td>75.0</td>
+<td>Oregon</td>
+<td>Oregon</td>
+<td>Oregon Other</td>
+<td>Paul Gregutt</td>
+<td>@paulgwine</td>
+<td>Citation 2004 Pinot Noir (Oregon)</td>
+<td>Pinot Noir</td>
+<td>Citation</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">129968</td>
+<td>129968</td>
+<td>France</td>
+<td>Well-drained gravel soil gives this wine its c...</td>
+<td>Kritt</td>
+<td>90</td>
+<td>30.0</td>
+<td>Alsace</td>
+<td>Alsace</td>
+<td>NaN</td>
+<td>Roger Voss</td>
+<td>@vossroger</td>
+<td>Domaine Gresser 2013 Kritt Gewurztraminer (Als...</td>
+<td>Gewürztraminer</td>
+<td>Domaine Gresser</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">129969</td>
+<td>129969</td>
+<td>France</td>
+<td>A dry style of Pinot Gris, this is crisp with ...</td>
+<td>NaN</td>
+<td>90</td>
+<td>32.0</td>
+<td>Alsace</td>
+<td>Alsace</td>
+<td>NaN</td>
+<td>Roger Voss</td>
+<td>@vossroger</td>
+<td>Domaine Marcel Deiss 2012 Pinot Gris (Alsace)</td>
+<td>Pinot Gris</td>
+<td>Domaine Marcel Deiss</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">129970</td>
+<td>129970</td>
+<td>France</td>
+<td>Big, rich and off-dry, this is powered by inte...</td>
+<td>Lieu-dit Harth Cuvée Caroline</td>
+<td>90</td>
+<td>21.0</td>
+<td>Alsace</td>
+<td>Alsace</td>
+<td>NaN</td>
+<td>Roger Voss</td>
+<td>@vossroger</td>
+<td>Domaine Schoffit 2012 Lieu-dit Harth Cuvée Car...</td>
+<td>Gewürztraminer</td>
+<td>Domaine Schoffit</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>data.loc[:, [<span class="st">'taster_name'</span>, <span class="st">'variety'</span>, <span class="st">'winery'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">taster_name</th>
+<th data-quarto-table-cell-role="th">variety</th>
+<th data-quarto-table-cell-role="th">winery</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Kerin O’Keefe</td>
+<td>White Blend</td>
+<td>Nicosia</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Roger Voss</td>
+<td>Portuguese Red</td>
+<td>Quinta dos Avidagos</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">129969</td>
+<td>Roger Voss</td>
+<td>Pinot Gris</td>
+<td>Domaine Marcel Deiss</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">129970</td>
+<td>Roger Voss</td>
+<td>Gewürztraminer</td>
+<td>Domaine Schoffit</td>
+</tr>
+</tbody>
+</table>
+
+<p>129971 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="manipulating-the-index" class="level3">
+<h3 class="anchored" data-anchor-id="manipulating-the-index">Manipulating the index</h3>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>data.set_index(<span class="st">'title'</span>) <span class="co">#now first column is title</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">designation</th>
+<th data-quarto-table-cell-role="th">points</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th">region_1</th>
+<th data-quarto-table-cell-role="th">region_2</th>
+<th data-quarto-table-cell-role="th">taster_name</th>
+<th data-quarto-table-cell-role="th">taster_twitter_handle</th>
+<th data-quarto-table-cell-role="th">variety</th>
+<th data-quarto-table-cell-role="th">winery</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Nicosia 2013 Vulkà Bianco (Etna)</td>
+<td>0</td>
+<td>Italy</td>
+<td>Aromas include tropical fruit, broom, brimston...</td>
+<td>Vulkà Bianco</td>
+<td>87</td>
+<td>NaN</td>
+<td>Sicily &amp; Sardinia</td>
+<td>Etna</td>
+<td>NaN</td>
+<td>Kerin O’Keefe</td>
+<td>@kerinokeefe</td>
+<td>White Blend</td>
+<td>Nicosia</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Quinta dos Avidagos 2011 Avidagos Red (Douro)</td>
+<td>1</td>
+<td>Portugal</td>
+<td>This is ripe and fruity, a wine that is smooth...</td>
+<td>Avidagos</td>
+<td>87</td>
+<td>15.0</td>
+<td>Douro</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Roger Voss</td>
+<td>@vossroger</td>
+<td>Portuguese Red</td>
+<td>Quinta dos Avidagos</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Domaine Marcel Deiss 2012 Pinot Gris (Alsace)</td>
+<td>129969</td>
+<td>France</td>
+<td>A dry style of Pinot Gris, this is crisp with ...</td>
+<td>NaN</td>
+<td>90</td>
+<td>32.0</td>
+<td>Alsace</td>
+<td>Alsace</td>
+<td>NaN</td>
+<td>Roger Voss</td>
+<td>@vossroger</td>
+<td>Pinot Gris</td>
+<td>Domaine Marcel Deiss</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Domaine Schoffit 2012 Lieu-dit Harth Cuvée Caroline Gewurztraminer (Alsace)</td>
+<td>129970</td>
+<td>France</td>
+<td>Big, rich and off-dry, this is powered by inte...</td>
+<td>Lieu-dit Harth Cuvée Caroline</td>
+<td>90</td>
+<td>21.0</td>
+<td>Alsace</td>
+<td>Alsace</td>
+<td>NaN</td>
+<td>Roger Voss</td>
+<td>@vossroger</td>
+<td>Gewürztraminer</td>
+<td>Domaine Schoffit</td>
+</tr>
+</tbody>
+</table>
+
+<p>129971 rows × 13 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># conditional selection</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># selects data with US in columns names for countries</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>data.loc[data.country <span class="op">==</span> <span class="st">'US'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">designation</th>
+<th data-quarto-table-cell-role="th">points</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th">region_1</th>
+<th data-quarto-table-cell-role="th">region_2</th>
+<th data-quarto-table-cell-role="th">taster_name</th>
+<th data-quarto-table-cell-role="th">taster_twitter_handle</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">variety</th>
+<th data-quarto-table-cell-role="th">winery</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2</td>
+<td>US</td>
+<td>Tart and snappy, the flavors of lime flesh and...</td>
+<td>NaN</td>
+<td>87</td>
+<td>14.0</td>
+<td>Oregon</td>
+<td>Willamette Valley</td>
+<td>Willamette Valley</td>
+<td>Paul Gregutt</td>
+<td>@paulgwine</td>
+<td>Rainstorm 2013 Pinot Gris (Willamette Valley)</td>
+<td>Pinot Gris</td>
+<td>Rainstorm</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>3</td>
+<td>US</td>
+<td>Pineapple rind, lemon pith and orange blossom ...</td>
+<td>Reserve Late Harvest</td>
+<td>87</td>
+<td>13.0</td>
+<td>Michigan</td>
+<td>Lake Michigan Shore</td>
+<td>NaN</td>
+<td>Alexander Peartree</td>
+<td>NaN</td>
+<td>St. Julian 2013 Reserve Late Harvest Riesling ...</td>
+<td>Riesling</td>
+<td>St. Julian</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">129952</td>
+<td>129952</td>
+<td>US</td>
+<td>This Zinfandel from the eastern section of Nap...</td>
+<td>NaN</td>
+<td>90</td>
+<td>22.0</td>
+<td>California</td>
+<td>Chiles Valley</td>
+<td>Napa</td>
+<td>Virginie Boone</td>
+<td>@vboone</td>
+<td>Houdini 2011 Zinfandel (Chiles Valley)</td>
+<td>Zinfandel</td>
+<td>Houdini</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">129967</td>
+<td>129967</td>
+<td>US</td>
+<td>Citation is given as much as a decade of bottl...</td>
+<td>NaN</td>
+<td>90</td>
+<td>75.0</td>
+<td>Oregon</td>
+<td>Oregon</td>
+<td>Oregon Other</td>
+<td>Paul Gregutt</td>
+<td>@paulgwine</td>
+<td>Citation 2004 Pinot Noir (Oregon)</td>
+<td>Pinot Noir</td>
+<td>Citation</td>
+</tr>
+</tbody>
+</table>
+
+<p>54504 rows × 14 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting particular rows</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>indices <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>]</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>sample_rows <span class="op">=</span> data.loc[indices]</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sample_rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Unnamed: 0   country                                        description  \
+1           1  Portugal  This is ripe and fruity, a wine that is smooth...   
+2           2        US  Tart and snappy, the flavors of lime flesh and...   
+3           3        US  Pineapple rind, lemon pith and orange blossom ...   
+5           5     Spain  Blackberry and raspberry aromas show a typical...   
+8           8   Germany  Savory dried thyme notes accent sunnier flavor...   
+
+            designation  points  price        province             region_1  \
+1              Avidagos      50   15.0           Douro                  NaN   
+2                   NaN      50   14.0          Oregon    Willamette Valley   
+3  Reserve Late Harvest      50   13.0        Michigan  Lake Michigan Shore   
+5          Ars In Vitro      50   15.0  Northern Spain              Navarra   
+8                 Shine      50   12.0     Rheinhessen                  NaN   
+
+            region_2         taster_name taster_twitter_handle  \
+1                NaN          Roger Voss            @vossroger   
+2  Willamette Valley        Paul Gregutt           @paulgwine&nbsp;   
+3                NaN  Alexander Peartree                   NaN   
+5                NaN   Michael Schachner           @wineschach   
+8                NaN  Anna Lee C. Iijima                   NaN   
+
+                                               title             variety  \
+1      Quinta dos Avidagos 2011 Avidagos Red (Douro)      Portuguese Red   
+2      Rainstorm 2013 Pinot Gris (Willamette Valley)          Pinot Gris   
+3  St. Julian 2013 Reserve Late Harvest Riesling ...            Riesling   
+5  Tandem 2011 Ars In Vitro Tempranillo-Merlot (N...  Tempranillo-Merlot   
+8  Heinz Eifel 2013 Shine Gewürztraminer (Rheinhe...      Gewürztraminer   
+
+                winery  
+1  Quinta dos Avidagos  
+2            Rainstorm  
+3           St. Julian  
+5               Tandem  
+8          Heinz Eifel  </code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting costly wines from US</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>data.loc[(data.country <span class="op">==</span> <span class="st">'US'</span>) <span class="op">&amp;</span> (data.price <span class="op">&gt;=</span> <span class="dv">75</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">designation</th>
+<th data-quarto-table-cell-role="th">points</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th">region_1</th>
+<th data-quarto-table-cell-role="th">region_2</th>
+<th data-quarto-table-cell-role="th">taster_name</th>
+<th data-quarto-table-cell-role="th">taster_twitter_handle</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">variety</th>
+<th data-quarto-table-cell-role="th">winery</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">60</td>
+<td>60</td>
+<td>US</td>
+<td>Syrupy and dense, this wine is jammy in plum a...</td>
+<td>Estate</td>
+<td>86</td>
+<td>100.0</td>
+<td>California</td>
+<td>Napa Valley</td>
+<td>Napa</td>
+<td>Virginie Boone</td>
+<td>@vboone</td>
+<td>Okapi 2013 Estate Cabernet Sauvignon (Napa Val...</td>
+<td>Cabernet Sauvignon</td>
+<td>Okapi</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">73</td>
+<td>73</td>
+<td>US</td>
+<td>Juicy plum, raspberry and pencil lead lead the...</td>
+<td>Bella Vetta Vineyard</td>
+<td>86</td>
+<td>75.0</td>
+<td>California</td>
+<td>Howell Mountain</td>
+<td>Napa</td>
+<td>Virginie Boone</td>
+<td>@vboone</td>
+<td>Hindsight 2013 Bella Vetta Vineyard Cabernet S...</td>
+<td>Cabernet Sauvignon</td>
+<td>Hindsight</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">129919</td>
+<td>129919</td>
+<td>US</td>
+<td>This ripe, rich, almost decadently thick wine ...</td>
+<td>Reserve</td>
+<td>91</td>
+<td>105.0</td>
+<td>Washington</td>
+<td>Walla Walla Valley (WA)</td>
+<td>Columbia Valley</td>
+<td>Paul Gregutt</td>
+<td>@paulgwine</td>
+<td>Nicholas Cole Cellars 2004 Reserve Red (Walla ...</td>
+<td>Red Blend</td>
+<td>Nicholas Cole Cellars</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">129967</td>
+<td>129967</td>
+<td>US</td>
+<td>Citation is given as much as a decade of bottl...</td>
+<td>NaN</td>
+<td>90</td>
+<td>75.0</td>
+<td>Oregon</td>
+<td>Oregon</td>
+<td>Oregon Other</td>
+<td>Paul Gregutt</td>
+<td>@paulgwine</td>
+<td>Citation 2004 Pinot Noir (Oregon)</td>
+<td>Pinot Noir</td>
+<td>Citation</td>
+</tr>
+</tbody>
+</table>
+
+<p>3629 rows × 14 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># wines from Australia and New Zealand </span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>data.loc[</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    (data.country.isin([<span class="st">'Australia'</span>, <span class="st">'New Zealand'</span>]))</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="53">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">designation</th>
+<th data-quarto-table-cell-role="th">points</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th">region_1</th>
+<th data-quarto-table-cell-role="th">region_2</th>
+<th data-quarto-table-cell-role="th">taster_name</th>
+<th data-quarto-table-cell-role="th">taster_twitter_handle</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">variety</th>
+<th data-quarto-table-cell-role="th">winery</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">77</td>
+<td>77</td>
+<td>Australia</td>
+<td>This medium-bodied Chardonnay features aromas ...</td>
+<td>Made With Organic Grapes</td>
+<td>50</td>
+<td>18.0</td>
+<td>South Australia</td>
+<td>South Australia</td>
+<td>NaN</td>
+<td>Joe Czerwinski</td>
+<td>@JoeCz</td>
+<td>Yalumba 2016 Made With Organic Grapes Chardonn...</td>
+<td>Chardonnay</td>
+<td>Yalumba</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">83</td>
+<td>83</td>
+<td>Australia</td>
+<td>Pale copper in hue, this wine exudes passion f...</td>
+<td>Jester Sangiovese</td>
+<td>50</td>
+<td>20.0</td>
+<td>South Australia</td>
+<td>McLaren Vale</td>
+<td>NaN</td>
+<td>Joe Czerwinski</td>
+<td>@JoeCz</td>
+<td>Mitolo 2016 Jester Sangiovese Rosé (McLaren Vale)</td>
+<td>Rosé</td>
+<td>Mitolo</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">129956</td>
+<td>129956</td>
+<td>New Zealand</td>
+<td>The blend is 44% Merlot, 33% Cabernet Sauvigno...</td>
+<td>Gimblett Gravels Merlot-Cabernet Sauvignon-Malbec</td>
+<td>50</td>
+<td>19.0</td>
+<td>Hawke's Bay</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Joe Czerwinski</td>
+<td>@JoeCz</td>
+<td>Esk Valley 2011 Gimblett Gravels Merlot-Cabern...</td>
+<td>Bordeaux-style Red Blend</td>
+<td>Esk Valley</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">129958</td>
+<td>129958</td>
+<td>New Zealand</td>
+<td>This blend of Cabernet Sauvignon-Merlot and Ca...</td>
+<td>Irongate</td>
+<td>50</td>
+<td>35.0</td>
+<td>Hawke's Bay</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Joe Czerwinski</td>
+<td>@JoeCz</td>
+<td>Babich 2010 Irongate Red (Hawke's Bay)</td>
+<td>Bordeaux-style Red Blend</td>
+<td>Babich</td>
+</tr>
+</tbody>
+</table>
+
+<p>3748 rows × 14 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting rows and columns</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>columns <span class="op">=</span> [<span class="st">'price'</span>, <span class="st">'region_1'</span>, <span class="st">'region_2'</span>]</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>]</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> data.loc[rows, columns]</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     price      region_1      region_2
+1     15.0           NaN           NaN
+10    19.0   Napa Valley          Napa
+100   18.0  Finger Lakes  Finger Lakes</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting notnull values</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>data.loc[data.price.notnull()]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">designation</th>
+<th data-quarto-table-cell-role="th">points</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th">region_1</th>
+<th data-quarto-table-cell-role="th">region_2</th>
+<th data-quarto-table-cell-role="th">taster_name</th>
+<th data-quarto-table-cell-role="th">taster_twitter_handle</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">variety</th>
+<th data-quarto-table-cell-role="th">winery</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>Portugal</td>
+<td>This is ripe and fruity, a wine that is smooth...</td>
+<td>Avidagos</td>
+<td>87</td>
+<td>15.0</td>
+<td>Douro</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Roger Voss</td>
+<td>@vossroger</td>
+<td>Quinta dos Avidagos 2011 Avidagos Red (Douro)</td>
+<td>Portuguese Red</td>
+<td>Quinta dos Avidagos</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2</td>
+<td>US</td>
+<td>Tart and snappy, the flavors of lime flesh and...</td>
+<td>NaN</td>
+<td>87</td>
+<td>14.0</td>
+<td>Oregon</td>
+<td>Willamette Valley</td>
+<td>Willamette Valley</td>
+<td>Paul Gregutt</td>
+<td>@paulgwine</td>
+<td>Rainstorm 2013 Pinot Gris (Willamette Valley)</td>
+<td>Pinot Gris</td>
+<td>Rainstorm</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">129969</td>
+<td>129969</td>
+<td>France</td>
+<td>A dry style of Pinot Gris, this is crisp with ...</td>
+<td>NaN</td>
+<td>90</td>
+<td>32.0</td>
+<td>Alsace</td>
+<td>Alsace</td>
+<td>NaN</td>
+<td>Roger Voss</td>
+<td>@vossroger</td>
+<td>Domaine Marcel Deiss 2012 Pinot Gris (Alsace)</td>
+<td>Pinot Gris</td>
+<td>Domaine Marcel Deiss</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">129970</td>
+<td>129970</td>
+<td>France</td>
+<td>Big, rich and off-dry, this is powered by inte...</td>
+<td>Lieu-dit Harth Cuvée Caroline</td>
+<td>90</td>
+<td>21.0</td>
+<td>Alsace</td>
+<td>Alsace</td>
+<td>NaN</td>
+<td>Roger Voss</td>
+<td>@vossroger</td>
+<td>Domaine Schoffit 2012 Lieu-dit Harth Cuvée Car...</td>
+<td>Gewürztraminer</td>
+<td>Domaine Schoffit</td>
+</tr>
+</tbody>
+</table>
+
+<p>120975 rows × 14 columns</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="assigning-data" class="level2">
+<h2 class="anchored" data-anchor-id="assigning-data">Assigning data</h2>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'points'</span>] <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[<span class="st">'points'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0         50
+1         50
+          ..
+129969    50
+129970    50
+Name: points, Length: 129971, dtype: int64</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/www\.ilovesoils\.com\/**");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="Kkhurana007/fr_blog_mine" data-repo-id="R_kgDOJuKwyw" data-category="General" data-category-id="DIC_kwDOJuKwy84CXJ4P" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Blog made with <a href="https://quarto.org/">Quarto</a> by Kunal.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Kkhurana007">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/kunalkhurana007">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:Khuranasoilpau@gmail.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
