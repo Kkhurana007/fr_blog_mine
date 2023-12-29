@@ -31,30 +31,32 @@ about:
 </center>
 
 ::: {#hero-heading}
-Bonjour ! Je m’appelle Kunal Khurana, un chercheur en domaine de la science du sol et de l’agronomie il y a plus de 10 ans. Cette experience, j'ai acquise en travaillant dans les différentes régions géographiques du monde sur les divers projets avec les différents experts. Je suis particulièrement passionné par la collaboration avec des professionnels de l'apprentissage automatique pour lutter contre le changement climatique en stockant davantage de carbone dans le sol et en préservant l'eau précieuse.
+---
+Bonjour ! Je m’appelle Kunal Khurana, un chercheur dans le domaine des sciences du sol et de l’agronomie depuis plus de 10 ans. J'ai acquis cette expérience en travaillant dans différentes régions géographiques du monde sur divers projets avec différents experts. Je suis particulièrement passionné par la collaboration avec des professionnels de l'apprentissage automatique pour lutter contre le changement climatique en stockant davantage de carbone dans le sol et en préservant l'eau précieuse.
 
 ## 📝Education
 
-2022| GÉNIE ET SCIENCE APPLIQUÉES| CÉGEP DU VIEUX MONTRÉAL, CA
+2022| Génie et Science Appliquées| Cégep du Vieux Montréal, CA
 
-2021| FRANCISATION ET INÉGRATION AU MILIEU QUÉBÉCOIS| UNIVERSITÉ LAVAL, CA
+2021| Francisation et Intégration au Milieu Québécois| Université Laval, CA
 
-2016| Maitrise en Science du Sol| PUNJAB AGRICULTURAL UNIVERSITY, IN
+2016| Maitrise en Science du Sol| Punjab Agricultural University, IN
 
-2013| Baccelaureat en Agriculture | PUNJABI UNIVERSITY PATIALA, IN
+2013| Baccalauréat en Agriculture | Punjabi University Patiala, IN
 
 
 ## 🧑‍💼 Expérience du travail
 
-September 2022 -- March 2023| Assistant de recherche, McGill University
+September 2022 -- March 2023| Assistant de recherche, Mcgill University
 
-SEPTEMBER 2020 -- NOVEMBER 2020| Traductor, CERDA
+September 2020 -- November 2020| Traductor, CERDA
 
 January 2019 -- August 2019| Assistant de recherche, Université Laval
 
-October 2016 -- March 2017| Assistant de recherche, PUNJAB AGRICULTURAL UNIVERSITY
+October 2016 -- March 2017| Assistant de recherche, Punjab Agricultural University
 
 ## Contacer!
-L'une de mes plus grandes motivations pour créer du contenu en ligne est de communiquer avec des personnes fascinantes du monde entier. Si vous souhaitez en discuter, n'hésitez pas à m'écrire. Je serais content d'avoir de vos nouvelles!
+L'une de mes plus grandes motivations pour créer du contenu en ligne est de communiquer avec des personnes fascinantes du monde entier. Si vous souhaitez en discuter, n'hésitez pas à m'écrire. Je serais content d'avoir de vos nouvelles !
 
 :::
+

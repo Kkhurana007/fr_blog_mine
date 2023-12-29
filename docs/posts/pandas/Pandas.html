@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Kunal Khurana">
-<meta name="dcterms.date" content="2023-12-25">
+<meta name="dcterms.date" content="2023-12-29">
 
-<title>Homepage - Data Analysis with Pandas</title>
+<title>Homepage - Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,8 +111,8 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta name="twitter:title" content="Homepage - Data Analysis with Pandas">
-<meta name="twitter:description" content="Data Analysis">
+<meta name="twitter:title" content="Homepage - Python">
+<meta name="twitter:description" content="Data analysis with Pandas">
 <meta name="twitter:image" content="https://ilovesoils.com/posts/pandas/pandas.png">
 <meta name="twitter:creator" content="@kunalkhurana007">
 <meta name="twitter:card" content="summary_large_image">
@@ -181,8 +181,8 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Data Analysis with Pandas</h1>
-            <p class="subtitle lead">Data Analysis</p>
+      <h1 class="title">Python</h1>
+            <p class="subtitle lead">Data analysis with Pandas</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Pandas</div>
                 <div class="quarto-category">Data Analysis</div>
@@ -203,7 +203,7 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 25, 2023</p>
+        <p class="date">December 29, 2023</p>
       </div>
     </div>
     
@@ -231,6 +231,17 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
   <li><a href="#manipulating-the-index" id="toc-manipulating-the-index" class="nav-link" data-scroll-target="#manipulating-the-index">Manipulating the index</a></li>
   </ul></li>
   <li><a href="#assigning-data" id="toc-assigning-data" class="nav-link" data-scroll-target="#assigning-data">Assigning data</a></li>
+  <li><a href="#renaming-and-combining" id="toc-renaming-and-combining" class="nav-link" data-scroll-target="#renaming-and-combining">Renaming and Combining</a></li>
+  <li><a href="#summary-functions-and-maps" id="toc-summary-functions-and-maps" class="nav-link" data-scroll-target="#summary-functions-and-maps">Summary Functions and Maps</a>
+  <ul class="collapse">
+  <li><a href="#maps" id="toc-maps" class="nav-link" data-scroll-target="#maps">Maps</a></li>
+  </ul></li>
+  <li><a href="#grouping-and-sorting" id="toc-grouping-and-sorting" class="nav-link" data-scroll-target="#grouping-and-sorting">Grouping and Sorting</a>
+  <ul class="collapse">
+  <li><a href="#multi-indexes" id="toc-multi-indexes" class="nav-link" data-scroll-target="#multi-indexes">Multi-indexes</a></li>
+  <li><a href="#sorting" id="toc-sorting" class="nav-link" data-scroll-target="#sorting">Sorting</a></li>
+  </ul></li>
+  <li><a href="#data-types-and-missing-data" id="toc-data-types-and-missing-data" class="nav-link" data-scroll-target="#data-types-and-missing-data">Data Types and Missing Data</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Pandas.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -244,20 +255,28 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="creating-reading-and-writing">Creating, Reading and Writing</h2>
 <section id="dataframe-and-series" class="level3">
 <h3 class="anchored" data-anchor-id="dataframe-and-series">DataFrame and Series</h3>
-<div class="cell" data-execution_count="1">
+<div class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>2 core objects- - DataFrame - array of inidividual entries (contains row and column) &gt;keys = ‘column names’, values = list of entries</p>
-<pre><code>&gt;rows = **Index**</code></pre>
+<p>2 core objects- - DataFrame - array of inidividual entries (contains row and column)</p>
+<blockquote class="blockquote">
+<p>keys = ‘column names’, values = list of entries</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>rows = <strong>Index</strong></p>
+</blockquote>
 <ul>
-<li><p>Series- sequence of data values &gt; don’t have any column name</p>
+<li>Series- sequence of data values</li>
+</ul>
+<blockquote class="blockquote">
+<p>don’t have any column name</p>
+</blockquote>
 <blockquote class="blockquote">
 <p><strong>row names</strong> defined by <strong>index</strong> parameter aswell</p>
-</blockquote></li>
-</ul>
+</blockquote>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#DataFrame_integer</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pd.DataFrame({<span class="st">'Yes'</span> : [<span class="dv">390</span>, <span class="dv">233</span>], <span class="st">'No'</span> : [<span class="dv">1</span>,<span class="dv">23</span>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#DataFrame_integer</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pd.DataFrame({<span class="st">'Yes'</span> : [<span class="dv">390</span>, <span class="dv">233</span>], <span class="st">'No'</span> : [<span class="dv">1</span>,<span class="dv">23</span>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
@@ -288,10 +307,10 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DataFrame_Strings</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>pd.DataFrame({<span class="st">'Suzaine'</span>: [<span class="st">'I liked chocolate'</span>, <span class="st">'Lets have some fun'</span>], </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">'Marie'</span>: [<span class="st">'butterscotch worked fine'</span>, <span class="st">'wow, its raining'</span>]},</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>            index <span class="op">=</span> [<span class="st">'topic_1'</span>, <span class="st">'topic_2'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DataFrame_Strings</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pd.DataFrame({<span class="st">'Suzaine'</span>: [<span class="st">'I liked chocolate'</span>, <span class="st">'Lets have some fun'</span>], </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>              <span class="st">'Marie'</span>: [<span class="st">'butterscotch worked fine'</span>, <span class="st">'wow, its raining'</span>]},</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            index <span class="op">=</span> [<span class="st">'topic_1'</span>, <span class="st">'topic_2'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
@@ -322,10 +341,10 @@ gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
 </div>
 </div>
 <div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># series</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>index<span class="op">=</span> [<span class="st">'2014_sales'</span>, <span class="st">'2015_sales'</span>, <span class="st">'2016_sales'</span>], </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Product A'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># series</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>index<span class="op">=</span> [<span class="st">'2014_sales'</span>, <span class="st">'2015_sales'</span>, <span class="st">'2016_sales'</span>], </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Product A'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>2014_sales    1
 2015_sales    2
@@ -334,11 +353,11 @@ Name: Product A, dtype: int64</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Dinner <span class="op">=</span> pd.Series([<span class="st">'4 cups'</span>, <span class="st">'1 cup'</span>, <span class="st">'2 large'</span>, <span class="st">'1 can'</span>], </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>         index <span class="op">=</span> [<span class="st">'Flour'</span>, <span class="st">'Milk'</span>, <span class="st">'Eggs'</span>, <span class="st">'Spam'</span>], </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>         name <span class="op">=</span> <span class="st">'Dinner'</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Dinner)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>Dinner <span class="op">=</span> pd.Series([<span class="st">'4 cups'</span>, <span class="st">'1 cup'</span>, <span class="st">'2 large'</span>, <span class="st">'1 can'</span>], </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>         index <span class="op">=</span> [<span class="st">'Flour'</span>, <span class="st">'Milk'</span>, <span class="st">'Eggs'</span>, <span class="st">'Spam'</span>], </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>         name <span class="op">=</span> <span class="st">'Dinner'</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Dinner)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Flour     4 cups
 Milk       1 cup
@@ -351,20 +370,20 @@ Name: Dinner, dtype: object</code></pre>
 <section id="writing-data-files" class="level3">
 <h3 class="anchored" data-anchor-id="writing-data-files">Writing data files</h3>
 <div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Dinner.to_csv(<span class="st">"Dinner.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Dinner.to_csv(<span class="st">"Dinner.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="reading-data-files" class="level3">
 <h3 class="anchored" data-anchor-id="reading-data-files">Reading data files</h3>
 <div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>reactions <span class="op">=</span> pd.read_csv(<span class="st">'Reactions.csv'</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(reactions.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>reactions <span class="op">=</span> pd.read_csv(<span class="st">'Reactions.csv'</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(reactions.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(25553, 5)</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(reactions.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(reactions.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Unnamed: 0                            Content ID  \
 0           0  97522e57-d9ab-4bd6-97bf-c24d952602d2   
@@ -385,10 +404,10 @@ Name: Dinner, dtype: object</code></pre>
 </section>
 <section id="indexing-selecting-and-assigning" class="level2">
 <h2 class="anchored" data-anchor-id="indexing-selecting-and-assigning">Indexing, Selecting and Assigning</h2>
-<div class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"winemag-data-130k-v2.csv"</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_rows'</span>, <span class="dv">5</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"winemag-data-130k-v2.csv"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_rows'</span>, <span class="dv">5</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Unnamed: 0   country                                        description  \
 0           0     Italy  Aromas include tropical fruit, broom, brimston...   
@@ -427,7 +446,7 @@ Name: Dinner, dtype: object</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Index(['Unnamed: 0', 'country', 'description', 'designation', 'points',
        'price', 'province', 'region_1', 'region_2', 'taster_name',
@@ -436,7 +455,7 @@ Name: Dinner, dtype: object</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0            Italy
 1         Portugal
@@ -447,7 +466,7 @@ Name: country, Length: 129971, dtype: object</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[<span class="st">'country'</span>])  <span class="co">#handles reserved characters</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[<span class="st">'country'</span>])  <span class="co">#handles reserved characters</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0            Italy
 1         Portugal
@@ -458,7 +477,7 @@ Name: country, Length: 129971, dtype: object</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[<span class="st">'country'</span>][<span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[<span class="st">'country'</span>][<span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>US</code></pre>
 </div>
@@ -474,8 +493,8 @@ Name: country, Length: 129971, dtype: object</code></pre>
 </blockquote>
 <pre><code>    -indexes inclusively. So 0:10 will select entries 0,...,10</code></pre>
 <div class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting first row</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>data.iloc[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting first row</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>data.iloc[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>Unnamed: 0              0
 country             Italy
@@ -486,7 +505,7 @@ Name: 0, Length: 14, dtype: object</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>data.iloc[:<span class="dv">3</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>data.iloc[:<span class="dv">3</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>0       Italy
 1    Portugal
@@ -495,7 +514,7 @@ Name: country, dtype: object</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>data.iloc[<span class="op">-</span><span class="dv">5</span>:] <span class="co">#selecting last 5 rows, plus all columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>data.iloc[<span class="op">-</span><span class="dv">5</span>:] <span class="co">#selecting last 5 rows, plus all columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <div>
 
@@ -613,7 +632,7 @@ Name: country, dtype: object</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>data.loc[:, [<span class="st">'taster_name'</span>, <span class="st">'variety'</span>, <span class="st">'winery'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>data.loc[:, [<span class="st">'taster_name'</span>, <span class="st">'variety'</span>, <span class="st">'winery'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <div>
 
@@ -669,7 +688,7 @@ Name: country, dtype: object</code></pre>
 <section id="manipulating-the-index" class="level3">
 <h3 class="anchored" data-anchor-id="manipulating-the-index">Manipulating the index</h3>
 <div class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>data.set_index(<span class="st">'title'</span>) <span class="co">#now first column is title</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>data.set_index(<span class="st">'title'</span>) <span class="co">#now first column is title</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <div>
 
@@ -798,9 +817,9 @@ Name: country, dtype: object</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># conditional selection</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># selects data with US in columns names for countries</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>data.loc[data.country <span class="op">==</span> <span class="st">'US'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># conditional selection</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># selects data with US in columns names for countries</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>data.loc[data.country <span class="op">==</span> <span class="st">'US'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
 <div>
 
@@ -919,10 +938,10 @@ Name: country, dtype: object</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="44">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting particular rows</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>indices <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>]</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>sample_rows <span class="op">=</span> data.loc[indices]</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sample_rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting particular rows</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>indices <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>]</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>sample_rows <span class="op">=</span> data.loc[indices]</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sample_rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Unnamed: 0   country                                        description  \
 1           1  Portugal  This is ripe and fruity, a wine that is smooth...   
@@ -961,8 +980,8 @@ Name: country, dtype: object</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting costly wines from US</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>data.loc[(data.country <span class="op">==</span> <span class="st">'US'</span>) <span class="op">&amp;</span> (data.price <span class="op">&gt;=</span> <span class="dv">75</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting costly wines from US</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>data.loc[(data.country <span class="op">==</span> <span class="st">'US'</span>) <span class="op">&amp;</span> (data.price <span class="op">&gt;=</span> <span class="dv">75</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="38">
 <div>
 
@@ -1081,10 +1100,10 @@ Name: country, dtype: object</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="53">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># wines from Australia and New Zealand </span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>data.loc[</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    (data.country.isin([<span class="st">'Australia'</span>, <span class="st">'New Zealand'</span>]))</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># wines from Australia and New Zealand </span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>data.loc[</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    (data.country.isin([<span class="st">'Australia'</span>, <span class="st">'New Zealand'</span>]))</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="53">
 <div>
 
@@ -1203,11 +1222,11 @@ Name: country, dtype: object</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="50">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting rows and columns</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>columns <span class="op">=</span> [<span class="st">'price'</span>, <span class="st">'region_1'</span>, <span class="st">'region_2'</span>]</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>]</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> data.loc[rows, columns]</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting rows and columns</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>columns <span class="op">=</span> [<span class="st">'price'</span>, <span class="st">'region_1'</span>, <span class="st">'region_2'</span>]</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>]</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> data.loc[rows, columns]</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     price      region_1      region_2
 1     15.0           NaN           NaN
@@ -1216,8 +1235,8 @@ Name: country, dtype: object</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting notnull values</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>data.loc[data.price.notnull()]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># selecting notnull values</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>data.loc[data.price.notnull()]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="39">
 <div>
 
@@ -1340,8 +1359,8 @@ Name: country, dtype: object</code></pre>
 <section id="assigning-data" class="level2">
 <h2 class="anchored" data-anchor-id="assigning-data">Assigning data</h2>
 <div class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'points'</span>] <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[<span class="st">'points'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'points'</span>] <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data[<span class="st">'points'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0         50
 1         50
@@ -1349,6 +1368,1918 @@ Name: country, dtype: object</code></pre>
 129969    50
 129970    50
 Name: points, Length: 129971, dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="renaming-and-combining" class="level2">
+<h2 class="anchored" data-anchor-id="renaming-and-combining">Renaming and Combining</h2>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># renaming columns</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.rename(columns<span class="op">=</span>{<span class="st">'points'</span> : <span class="st">'score'</span>}))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Unnamed: 0   country  \
+0                0     Italy   
+1                1  Portugal   
+...            ...       ...   
+129969      129969    France   
+129970      129970    France   
+
+                                              description  \
+0       Aromas include tropical fruit, broom, brimston...   
+1       This is ripe and fruity, a wine that is smooth...   
+...                                                   ...   
+129969  A dry style of Pinot Gris, this is crisp with ...   
+129970  Big, rich and off-dry, this is powered by inte...   
+
+                          designation  score  price           province  \
+0                        Vulkà Bianco     87    NaN  Sicily &amp; Sardinia   
+1                            Avidagos     87   15.0              Douro   
+...                               ...    ...    ...                ...   
+129969                            NaN     90   32.0             Alsace   
+129970  Lieu-dit Harth Cuvée Caroline     90   21.0             Alsace   
+
+       region_1 region_2    taster_name taster_twitter_handle  \
+0          Etna      NaN  Kerin O’Keefe          @kerinokeefe   
+1           NaN      NaN     Roger Voss            @vossroger   
+...         ...      ...            ...                   ...   
+129969   Alsace      NaN     Roger Voss            @vossroger   
+129970   Alsace      NaN     Roger Voss            @vossroger   
+
+                                                    title         variety  \
+0                       Nicosia 2013 Vulkà Bianco  (Etna)     White Blend   
+1           Quinta dos Avidagos 2011 Avidagos Red (Douro)  Portuguese Red   
+...                                                   ...             ...   
+129969      Domaine Marcel Deiss 2012 Pinot Gris (Alsace)      Pinot Gris   
+129970  Domaine Schoffit 2012 Lieu-dit Harth Cuvée Car...  Gewürztraminer   
+
+                      winery  
+0                    Nicosia  
+1        Quinta dos Avidagos  
+...                      ...  
+129969  Domaine Marcel Deiss  
+129970      Domaine Schoffit  
+
+[129971 rows x 14 columns]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># renaming indexes</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.rename(index<span class="op">=</span>{<span class="dv">0</span>:<span class="st">'first_entry'</span>, <span class="dv">1</span>: <span class="st">'second_entry'</span>}))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Unnamed: 0   country  \
+first_entry            0     Italy   
+second_entry           1  Portugal   
+...                  ...       ...   
+129969            129969    France   
+129970            129970    France   
+
+                                                    description  \
+first_entry   Aromas include tropical fruit, broom, brimston...   
+second_entry  This is ripe and fruity, a wine that is smooth...   
+...                                                         ...   
+129969        A dry style of Pinot Gris, this is crisp with ...   
+129970        Big, rich and off-dry, this is powered by inte...   
+
+                                designation  points  price           province  \
+first_entry                    Vulkà Bianco      87    NaN  Sicily &amp; Sardinia   
+second_entry                       Avidagos      87   15.0              Douro   
+...                                     ...     ...    ...                ...   
+129969                                  NaN      90   32.0             Alsace   
+129970        Lieu-dit Harth Cuvée Caroline      90   21.0             Alsace   
+
+             region_1 region_2    taster_name taster_twitter_handle  \
+first_entry      Etna      NaN  Kerin O’Keefe          @kerinokeefe   
+second_entry      NaN      NaN     Roger Voss            @vossroger   
+...               ...      ...            ...                   ...   
+129969         Alsace      NaN     Roger Voss            @vossroger   
+129970         Alsace      NaN     Roger Voss            @vossroger   
+
+                                                          title  \
+first_entry                   Nicosia 2013 Vulkà Bianco  (Etna)   
+second_entry      Quinta dos Avidagos 2011 Avidagos Red (Douro)   
+...                                                         ...   
+129969            Domaine Marcel Deiss 2012 Pinot Gris (Alsace)   
+129970        Domaine Schoffit 2012 Lieu-dit Harth Cuvée Car...   
+
+                     variety                winery  
+first_entry      White Blend               Nicosia  
+second_entry  Portuguese Red   Quinta dos Avidagos  
+...                      ...                   ...  
+129969            Pinot Gris  Domaine Marcel Deiss  
+129970        Gewürztraminer      Domaine Schoffit  
+
+[129971 rows x 14 columns]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># renaming axis</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>data.rename_axis (<span class="st">"wines"</span>, axis <span class="op">=</span> <span class="st">'rows'</span>).rename_axis(<span class="st">'fields'</span>, axis <span class="op">=</span> <span class="st">'columns'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">fields</th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">designation</th>
+<th data-quarto-table-cell-role="th">points</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th">region_1</th>
+<th data-quarto-table-cell-role="th">region_2</th>
+<th data-quarto-table-cell-role="th">taster_name</th>
+<th data-quarto-table-cell-role="th">taster_twitter_handle</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">variety</th>
+<th data-quarto-table-cell-role="th">winery</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">wines</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>Italy</td>
+<td>Aromas include tropical fruit, broom, brimston...</td>
+<td>Vulkà Bianco</td>
+<td>87</td>
+<td>NaN</td>
+<td>Sicily &amp; Sardinia</td>
+<td>Etna</td>
+<td>NaN</td>
+<td>Kerin O’Keefe</td>
+<td>@kerinokeefe</td>
+<td>Nicosia 2013 Vulkà Bianco (Etna)</td>
+<td>White Blend</td>
+<td>Nicosia</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>Portugal</td>
+<td>This is ripe and fruity, a wine that is smooth...</td>
+<td>Avidagos</td>
+<td>87</td>
+<td>15.0</td>
+<td>Douro</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Roger Voss</td>
+<td>@vossroger</td>
+<td>Quinta dos Avidagos 2011 Avidagos Red (Douro)</td>
+<td>Portuguese Red</td>
+<td>Quinta dos Avidagos</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">129969</td>
+<td>129969</td>
+<td>France</td>
+<td>A dry style of Pinot Gris, this is crisp with ...</td>
+<td>NaN</td>
+<td>90</td>
+<td>32.0</td>
+<td>Alsace</td>
+<td>Alsace</td>
+<td>NaN</td>
+<td>Roger Voss</td>
+<td>@vossroger</td>
+<td>Domaine Marcel Deiss 2012 Pinot Gris (Alsace)</td>
+<td>Pinot Gris</td>
+<td>Domaine Marcel Deiss</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">129970</td>
+<td>129970</td>
+<td>France</td>
+<td>Big, rich and off-dry, this is powered by inte...</td>
+<td>Lieu-dit Harth Cuvée Caroline</td>
+<td>90</td>
+<td>21.0</td>
+<td>Alsace</td>
+<td>Alsace</td>
+<td>NaN</td>
+<td>Roger Voss</td>
+<td>@vossroger</td>
+<td>Domaine Schoffit 2012 Lieu-dit Harth Cuvée Car...</td>
+<td>Gewürztraminer</td>
+<td>Domaine Schoffit</td>
+</tr>
+</tbody>
+</table>
+
+<p>129971 rows × 14 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># combining with concat(), join(), and merge()</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>file1 <span class="op">=</span> <span class="st">'CAvideos.csv'</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>CAdata <span class="op">=</span> pd.read_csv(file1)</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>CAdata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">video_id</th>
+<th data-quarto-table-cell-role="th">trending_date</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">channel_title</th>
+<th data-quarto-table-cell-role="th">category_id</th>
+<th data-quarto-table-cell-role="th">publish_time</th>
+<th data-quarto-table-cell-role="th">tags</th>
+<th data-quarto-table-cell-role="th">views</th>
+<th data-quarto-table-cell-role="th">likes</th>
+<th data-quarto-table-cell-role="th">dislikes</th>
+<th data-quarto-table-cell-role="th">comment_count</th>
+<th data-quarto-table-cell-role="th">thumbnail_link</th>
+<th data-quarto-table-cell-role="th">comments_disabled</th>
+<th data-quarto-table-cell-role="th">ratings_disabled</th>
+<th data-quarto-table-cell-role="th">video_error_or_removed</th>
+<th data-quarto-table-cell-role="th">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>n1WpP7iowLc</td>
+<td>17.14.11</td>
+<td>Eminem - Walk On Water (Audio) ft. Beyoncé</td>
+<td>EminemVEVO</td>
+<td>10</td>
+<td>2017-11-10T17:00:03.000Z</td>
+<td>Eminem|"Walk"|"On"|"Water"|"Aftermath/Shady/In...</td>
+<td>17158579</td>
+<td>787425</td>
+<td>43420</td>
+<td>125882</td>
+<td>https://i.ytimg.com/vi/n1WpP7iowLc/default.jpg</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>Eminem's new track Walk on Water ft. Beyoncé i...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0dBIkQ4Mz1M</td>
+<td>17.14.11</td>
+<td>PLUSH - Bad Unboxing Fan Mail</td>
+<td>iDubbbzTV</td>
+<td>23</td>
+<td>2017-11-13T17:00:00.000Z</td>
+<td>plush|"bad unboxing"|"unboxing"|"fan mail"|"id...</td>
+<td>1014651</td>
+<td>127794</td>
+<td>1688</td>
+<td>13030</td>
+<td>https://i.ytimg.com/vi/0dBIkQ4Mz1M/default.jpg</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>STill got a lot of packages. Probably will las...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">40879</td>
+<td>lbMKLzQ4cNQ</td>
+<td>18.14.06</td>
+<td>Trump Advisor Grovels To Trudeau</td>
+<td>The Young Turks</td>
+<td>25</td>
+<td>2018-06-13T04:00:05.000Z</td>
+<td>180612__TB02SorryExcuse|"News"|"Politics"|"The...</td>
+<td>115225</td>
+<td>2115</td>
+<td>182</td>
+<td>1672</td>
+<td>https://i.ytimg.com/vi/lbMKLzQ4cNQ/default.jpg</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>Peter Navarro isn’t talking so tough now. Ana ...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">40880</td>
+<td>POTgw38-m58</td>
+<td>18.14.06</td>
+<td>【完整版】遇到恐怖情人該怎麼辦？2018.06.13小明星大跟班</td>
+<td>我愛小明星大跟班</td>
+<td>24</td>
+<td>2018-06-13T16:00:03.000Z</td>
+<td>吳宗憲|"吳姍儒"|"小明星大跟班"|"Sandy"|"Jacky wu"|"憲哥"|"中天...</td>
+<td>107392</td>
+<td>300</td>
+<td>62</td>
+<td>251</td>
+<td>https://i.ytimg.com/vi/POTgw38-m58/default.jpg</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>藝人：李妍瑾、玉兔、班傑、LaLa、小優、少少專家：陳筱屏(律師)、Wendy(心理師)、羅...</td>
+</tr>
+</tbody>
+</table>
+
+<p>40881 rows × 16 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>file2 <span class="op">=</span> <span class="st">'FRvideos.csv'</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>FRdata <span class="op">=</span> pd.read_csv(file2)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>FRdata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">video_id</th>
+<th data-quarto-table-cell-role="th">trending_date</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">channel_title</th>
+<th data-quarto-table-cell-role="th">category_id</th>
+<th data-quarto-table-cell-role="th">publish_time</th>
+<th data-quarto-table-cell-role="th">tags</th>
+<th data-quarto-table-cell-role="th">views</th>
+<th data-quarto-table-cell-role="th">likes</th>
+<th data-quarto-table-cell-role="th">dislikes</th>
+<th data-quarto-table-cell-role="th">comment_count</th>
+<th data-quarto-table-cell-role="th">thumbnail_link</th>
+<th data-quarto-table-cell-role="th">comments_disabled</th>
+<th data-quarto-table-cell-role="th">ratings_disabled</th>
+<th data-quarto-table-cell-role="th">video_error_or_removed</th>
+<th data-quarto-table-cell-role="th">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Ro6eob0LrCY</td>
+<td>17.14.11</td>
+<td>Malika LePen : Femme de Gauche - Trailer</td>
+<td>Le Raptor Dissident</td>
+<td>24</td>
+<td>2017-11-13T17:32:55.000Z</td>
+<td>Raptor"|"Dissident"|"Expliquez"|"moi"|"cette"|...</td>
+<td>212702</td>
+<td>29282</td>
+<td>1108</td>
+<td>3817</td>
+<td>https://i.ytimg.com/vi/Ro6eob0LrCY/default.jpg</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>Dimanche.\n18h30.\nSoyez présents pour la vidé...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Yo84eqYwP98</td>
+<td>17.14.11</td>
+<td>LA PIRE PARTIE ft Le Rire Jaune, Pierre Croce,...</td>
+<td>Le Labo</td>
+<td>24</td>
+<td>2017-11-12T15:00:02.000Z</td>
+<td>[none]</td>
+<td>432721</td>
+<td>14053</td>
+<td>576</td>
+<td>1161</td>
+<td>https://i.ytimg.com/vi/Yo84eqYwP98/default.jpg</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>Le jeu de société: https://goo.gl/hhG1Ta\n\nGa...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">40722</td>
+<td>NlxE_QQMRzg</td>
+<td>18.14.06</td>
+<td>Նռան հատիկ, Սերիա 192 / Pomegranate seed / Nra...</td>
+<td>PanArmenian TV</td>
+<td>1</td>
+<td>2018-06-13T18:30:00.000Z</td>
+<td>Նռան հատիկ|"Սերիա 192"|"Pomegranate seed"|"Nra...</td>
+<td>78117</td>
+<td>244</td>
+<td>74</td>
+<td>46</td>
+<td>https://i.ytimg.com/vi/NlxE_QQMRzg/default.jpg</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>Follow Armenia TV on social platforms:Instagra...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">40723</td>
+<td>_LgKglfnqlc</td>
+<td>18.14.06</td>
+<td>Mandoumbé ak Koor Gui 2018 Episode 28</td>
+<td>Yesdakar</td>
+<td>24</td>
+<td>2018-06-13T19:45:14.000Z</td>
+<td>ramadan2018|"koorgui"|"Mandoumbé"</td>
+<td>46604</td>
+<td>947</td>
+<td>37</td>
+<td>127</td>
+<td>https://i.ytimg.com/vi/_LgKglfnqlc/default.jpg</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+<p>40724 rows × 16 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># joining</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>left <span class="op">=</span> CAdata.set_index([<span class="st">'title'</span>, <span class="st">'trending_date'</span>])</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>right <span class="op">=</span> FRdata.set_index([<span class="st">'title'</span>, <span class="st">'trending_date'</span>])</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>left.join(right, lsuffix<span class="op">=</span> <span class="st">'_CAN'</span>, rsuffix <span class="op">=</span> <span class="st">'_FR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">video_id_CAN</th>
+<th data-quarto-table-cell-role="th">channel_title_CAN</th>
+<th data-quarto-table-cell-role="th">category_id_CAN</th>
+<th data-quarto-table-cell-role="th">publish_time_CAN</th>
+<th data-quarto-table-cell-role="th">tags_CAN</th>
+<th data-quarto-table-cell-role="th">views_CAN</th>
+<th data-quarto-table-cell-role="th">likes_CAN</th>
+<th data-quarto-table-cell-role="th">dislikes_CAN</th>
+<th data-quarto-table-cell-role="th">comment_count_CAN</th>
+<th data-quarto-table-cell-role="th">thumbnail_link_CAN</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">tags_FR</th>
+<th data-quarto-table-cell-role="th">views_FR</th>
+<th data-quarto-table-cell-role="th">likes_FR</th>
+<th data-quarto-table-cell-role="th">dislikes_FR</th>
+<th data-quarto-table-cell-role="th">comment_count_FR</th>
+<th data-quarto-table-cell-role="th">thumbnail_link_FR</th>
+<th data-quarto-table-cell-role="th">comments_disabled_FR</th>
+<th data-quarto-table-cell-role="th">ratings_disabled_FR</th>
+<th data-quarto-table-cell-role="th">video_error_or_removed_FR</th>
+<th data-quarto-table-cell-role="th">description_FR</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">trending_date</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">!! THIS VIDEO IS NOTHING BUT PAIN !! | Getting Over It - Part 7</td>
+<td data-quarto-table-cell-role="th">18.04.01</td>
+<td>PNn8sECd7io</td>
+<td>Markiplier</td>
+<td>20</td>
+<td>2018-01-03T19:33:53.000Z</td>
+<td>getting over it|"markiplier"|"funny moments"|"...</td>
+<td>835930</td>
+<td>47058</td>
+<td>1023</td>
+<td>8250</td>
+<td>https://i.ytimg.com/vi/PNn8sECd7io/default.jpg</td>
+<td>...</td>
+<td>getting over it"|"markiplier"|"funny moments"|...</td>
+<td>835930.0</td>
+<td>47058.0</td>
+<td>1023.0</td>
+<td>8250.0</td>
+<td>https://i.ytimg.com/vi/PNn8sECd7io/default.jpg</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>Getting Over It continues with RAGE BEYOND ALL...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">#1 Fortnite World Rank - 2,323 Solo Wins!</td>
+<td data-quarto-table-cell-role="th">18.09.03</td>
+<td>DvPW66IFhMI</td>
+<td>AlexRamiGaming</td>
+<td>20</td>
+<td>2018-03-09T07:15:52.000Z</td>
+<td>PS4 Battle Royale|"PS4 Pro Battle Royale"|"Bat...</td>
+<td>212838</td>
+<td>5199</td>
+<td>542</td>
+<td>11</td>
+<td>https://i.ytimg.com/vi/DvPW66IFhMI/default.jpg</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">🚨 BREAKING NEWS 🔴 Raja Live all Slot Channels Welcome 🎰</td>
+<td data-quarto-table-cell-role="th">18.07.05</td>
+<td>Wt9Gkpmbt44</td>
+<td>TheBigJackpot</td>
+<td>24</td>
+<td>2018-05-07T06:58:59.000Z</td>
+<td>Slot Machine|"win"|"Gambling"|"Big Win"|"raja"...</td>
+<td>28973</td>
+<td>2167</td>
+<td>175</td>
+<td>10</td>
+<td>https://i.ytimg.com/vi/Wt9Gkpmbt44/default.jpg</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">🚨Active Shooter at YouTube Headquarters - LIVE BREAKING NEWS COVERAGE</td>
+<td data-quarto-table-cell-role="th">18.04.04</td>
+<td>Az72jrKbANA</td>
+<td>Right Side Broadcasting Network</td>
+<td>25</td>
+<td>2018-04-03T23:12:37.000Z</td>
+<td>YouTube shooter|"YouTube active shooter"|"acti...</td>
+<td>103513</td>
+<td>1722</td>
+<td>181</td>
+<td>76</td>
+<td>https://i.ytimg.com/vi/Az72jrKbANA/default.jpg</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+<p>40881 rows × 28 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-functions-and-maps" class="level2">
+<h2 class="anchored" data-anchor-id="summary-functions-and-maps">Summary Functions and Maps</h2>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># some of the summary functions include- describe, mean, unique, value_counts</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['Unnamed: 0', 'country', 'description', 'designation', 'points',
+       'price', 'province', 'region_1', 'region_2', 'taster_name',
+       'taster_twitter_handle', 'title', 'variety', 'winery'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.points.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>count    129971.000000
+mean         88.447138
+             ...      
+75%          91.000000
+max         100.000000
+Name: points, Length: 8, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to see the list of unique values</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.taster_name.unique)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;bound method Series.unique of 0         Kerin O’Keefe
+1            Roger Voss
+              ...      
+129969       Roger Voss
+129970       Roger Voss
+Name: taster_name, Length: 129971, dtype: object&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.taster_name.value_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;bound method IndexOpsMixin.value_counts of 0         Kerin O’Keefe
+1            Roger Voss
+              ...      
+129969       Roger Voss
+129970       Roger Voss
+Name: taster_name, Length: 129971, dtype: object&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># best_bargain_wine- wine with the highest points-to-price ratio</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>bargain_idx <span class="op">=</span> (data.points <span class="op">/</span> data.price).idxmax()</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>bargain_wine <span class="op">=</span> data.loc[bargain_idx, <span class="st">'title'</span>]</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bargain_wine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Bandit NV Merlot (California)</code></pre>
+</div>
+</div>
+<section id="maps" class="level3">
+<h3 class="anchored" data-anchor-id="maps">Maps</h3>
+<ul>
+<li><p>takes one set of values and ‘maps’ them to another set of values</p></li>
+<li><p>example usage - <strong>remean</strong> the scores of wines received to 0</p></li>
+<li><p>use <strong>apply</strong> if you wish to call custom method on each row</p></li>
+</ul>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>review_points_mean <span class="op">=</span> data.points.mean()</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>data.points.<span class="bu">map</span>(<span class="kw">lambda</span> p:p <span class="op">-</span> review_points_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>0        -1.447138
+1        -1.447138
+            ...   
+129969    1.552862
+129970    1.552862
+Name: points, Length: 129971, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>data_points_mean <span class="op">=</span> data.points.mean()</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>data.points.<span class="bu">map</span>(<span class="kw">lambda</span> p:p <span class="op">-</span> data_points_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>0        -1.447138
+1        -1.447138
+            ...   
+129969    1.552862
+129970    1.552862
+Name: points, Length: 129971, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create descriptor_counts from description for 'tropical' and 'fruity'</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>n_tropical <span class="op">=</span> data.description.<span class="bu">map</span>(<span class="kw">lambda</span> desc:<span class="st">'tropical'</span> <span class="kw">in</span> desc).<span class="bu">sum</span>() </span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co"># desc signifies description</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>n_fruity <span class="op">=</span> data.description.<span class="bu">map</span>(<span class="kw">lambda</span> desc:<span class="st">'fruity'</span> <span class="kw">in</span> desc).<span class="bu">sum</span>()</span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>descriptor_counts <span class="op">=</span> pd.Series([n_tropical, n_fruity], index<span class="op">=</span> [<span class="st">'tropical'</span>, <span class="st">'fruity'</span>])</span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(descriptor_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tropical    3607
+fruity      9090
+dtype: int64</code></pre>
+</div>
+</div>
+<section id="simplify-with-star-ratings" class="level5">
+<h5 class="anchored" data-anchor-id="simplify-with-star-ratings">simplify with star ratings</h5>
+<ul>
+<li><p>95 and above = 3 stars</p></li>
+<li><p>between 85 and 95 = 2 stars</p></li>
+<li><p>less than 85 = 1 star</p></li>
+<li><p>plus, any wines from Canada should get 3 stars</p></li>
+</ul>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['Unnamed: 0', 'country', 'description', 'designation', 'points',
+       'price', 'province', 'region_1', 'region_2', 'taster_name',
+       'taster_twitter_handle', 'title', 'variety', 'winery'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># categorizing using map for points</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>cat <span class="op">=</span> data.points.<span class="bu">map</span>(<span class="kw">lambda</span> </span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>                      p:<span class="st">'three_stars'</span> <span class="cf">if</span>  p<span class="op">&gt;=</span><span class="dv">95</span></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>                      <span class="cf">else</span> <span class="st">'two stars'</span> <span class="cf">if</span> p <span class="op">&gt;=</span> <span class="dv">85</span> </span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>                      <span class="cf">else</span> <span class="st">'one star'</span>)</span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="co">#count</span></span>
+<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>star_rating <span class="op">=</span> cat.value_counts()</span>
+<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(star_rating)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>points
+two stars      115125
+one star        12430
+three_stars      2416
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># categorizing using apply for points and Country</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>cat2 <span class="op">=</span> data.<span class="bu">apply</span>(<span class="kw">lambda</span> row: </span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'three stars'</span> <span class="cf">if</span> (row[<span class="st">'points'</span>] <span class="op">&gt;=</span> <span class="dv">95</span> <span class="kw">or</span> row[<span class="st">'country'</span>] <span class="op">==</span> <span class="st">'Canada'</span>)</span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>                   <span class="cf">else</span> <span class="st">'two stars'</span> <span class="cf">if</span> (row[<span class="st">'points'</span>] <span class="op">&gt;=</span> <span class="dv">85</span>)</span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>                   <span class="cf">else</span> <span class="st">'one star'</span>, axis <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>star_rating2 <span class="op">=</span> cat2.value_counts()</span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(star_rating2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>two stars      114877
+one star        12421
+three stars      2673
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># simple way without mapping</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> stars(row):</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> row.country <span class="op">==</span> <span class="st">'Canada'</span>:</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">3</span></span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> row.points <span class="op">&gt;=</span> <span class="dv">95</span>:</span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">3</span></span>
+<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> row.points <span class="op">&gt;=</span> <span class="dv">85</span>:</span>
+<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">2</span></span>
+<span id="cb72-9"><a href="#cb72-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb72-10"><a href="#cb72-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb72-11"><a href="#cb72-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb72-12"><a href="#cb72-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb72-13"><a href="#cb72-13" aria-hidden="true" tabindex="-1"></a>star_ratings <span class="op">=</span> data.<span class="bu">apply</span>(stars, axis <span class="op">=</span> <span class="st">'columns'</span>)</span>
+<span id="cb72-14"><a href="#cb72-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(star_ratings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0         2
+1         2
+         ..
+129969    2
+129970    2
+Length: 129971, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> data_points(row):</span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>    row.points <span class="op">=</span> row.points <span class="op">-</span> data_points_mean</span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> row</span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a>data.<span class="bu">apply</span>(data_points, axis <span class="op">=</span> <span class="st">'columns'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">designation</th>
+<th data-quarto-table-cell-role="th">points</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th">region_1</th>
+<th data-quarto-table-cell-role="th">region_2</th>
+<th data-quarto-table-cell-role="th">taster_name</th>
+<th data-quarto-table-cell-role="th">taster_twitter_handle</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">variety</th>
+<th data-quarto-table-cell-role="th">winery</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>Italy</td>
+<td>Aromas include tropical fruit, broom, brimston...</td>
+<td>Vulkà Bianco</td>
+<td>-1.447138</td>
+<td>NaN</td>
+<td>Sicily &amp; Sardinia</td>
+<td>Etna</td>
+<td>NaN</td>
+<td>Kerin O’Keefe</td>
+<td>@kerinokeefe</td>
+<td>Nicosia 2013 Vulkà Bianco (Etna)</td>
+<td>White Blend</td>
+<td>Nicosia</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>Portugal</td>
+<td>This is ripe and fruity, a wine that is smooth...</td>
+<td>Avidagos</td>
+<td>-1.447138</td>
+<td>15.0</td>
+<td>Douro</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Roger Voss</td>
+<td>@vossroger</td>
+<td>Quinta dos Avidagos 2011 Avidagos Red (Douro)</td>
+<td>Portuguese Red</td>
+<td>Quinta dos Avidagos</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">129969</td>
+<td>129969</td>
+<td>France</td>
+<td>A dry style of Pinot Gris, this is crisp with ...</td>
+<td>NaN</td>
+<td>1.552862</td>
+<td>32.0</td>
+<td>Alsace</td>
+<td>Alsace</td>
+<td>NaN</td>
+<td>Roger Voss</td>
+<td>@vossroger</td>
+<td>Domaine Marcel Deiss 2012 Pinot Gris (Alsace)</td>
+<td>Pinot Gris</td>
+<td>Domaine Marcel Deiss</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">129970</td>
+<td>129970</td>
+<td>France</td>
+<td>Big, rich and off-dry, this is powered by inte...</td>
+<td>Lieu-dit Harth Cuvée Caroline</td>
+<td>1.552862</td>
+<td>21.0</td>
+<td>Alsace</td>
+<td>Alsace</td>
+<td>NaN</td>
+<td>Roger Voss</td>
+<td>@vossroger</td>
+<td>Domaine Schoffit 2012 Lieu-dit Harth Cuvée Car...</td>
+<td>Gewürztraminer</td>
+<td>Domaine Schoffit</td>
+</tr>
+</tbody>
+</table>
+
+<p>129971 rows × 14 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>data.head(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">designation</th>
+<th data-quarto-table-cell-role="th">points</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th">region_1</th>
+<th data-quarto-table-cell-role="th">region_2</th>
+<th data-quarto-table-cell-role="th">taster_name</th>
+<th data-quarto-table-cell-role="th">taster_twitter_handle</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">variety</th>
+<th data-quarto-table-cell-role="th">winery</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>Italy</td>
+<td>Aromas include tropical fruit, broom, brimston...</td>
+<td>Vulkà Bianco</td>
+<td>87</td>
+<td>NaN</td>
+<td>Sicily &amp; Sardinia</td>
+<td>Etna</td>
+<td>NaN</td>
+<td>Kerin O’Keefe</td>
+<td>@kerinokeefe</td>
+<td>Nicosia 2013 Vulkà Bianco (Etna)</td>
+<td>White Blend</td>
+<td>Nicosia</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ul>
+<li>operation (below) between a lot of values on the <strong>left-hand</strong> side &gt; and a single value on the <strong>right-hand</strong> side (the mean value).</li>
+</ul>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>data_points_mean <span class="op">=</span> data.points.mean()</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>data.points <span class="op">-</span> data_points_mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>0        -1.447138
+1        -1.447138
+            ...   
+129969    1.552862
+129970    1.552862
+Name: points, Length: 129971, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>data.country <span class="op">+</span> <span class="st">"-"</span> <span class="op">+</span> data.region_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>0            Italy-Etna
+1                   NaN
+              ...      
+129969    France-Alsace
+129970    France-Alsace
+Length: 129971, dtype: object</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="grouping-and-sorting" class="level2">
+<h2 class="anchored" data-anchor-id="grouping-and-sorting">Grouping and Sorting</h2>
+<blockquote class="blockquote">
+<p>use groupby to group data</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>apply() method can fetch us the data that matches the group</p>
+</blockquote>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># groupwise analysis</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>data.groupby(<span class="st">'points'</span>).points.count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>points
+80     397
+81     692
+      ... 
+99      33
+100     19
+Name: points, Length: 21, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ascending or descending order </span></span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>data.groupby(<span class="st">'points'</span>).price.<span class="bu">min</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>points
+80      5.0
+81      5.0
+       ... 
+99     44.0
+100    80.0
+Name: price, Length: 21, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co">#grouping in countries and sorting </span></span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>data.groupby([<span class="st">'country'</span>, <span class="st">'province'</span>]).<span class="bu">apply</span>(<span class="kw">lambda</span> df:df.loc[df.points.idxmax()])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">designation</th>
+<th data-quarto-table-cell-role="th">points</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th">region_1</th>
+<th data-quarto-table-cell-role="th">region_2</th>
+<th data-quarto-table-cell-role="th">taster_name</th>
+<th data-quarto-table-cell-role="th">taster_twitter_handle</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">variety</th>
+<th data-quarto-table-cell-role="th">winery</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td rowspan="2" data-quarto-table-cell-role="th" data-valign="top">Argentina</td>
+<td data-quarto-table-cell-role="th">Mendoza Province</td>
+<td>82754</td>
+<td>Argentina</td>
+<td>If the color doesn't tell the full story, the ...</td>
+<td>Nicasia Vineyard</td>
+<td>97</td>
+<td>120.0</td>
+<td>Mendoza Province</td>
+<td>Mendoza</td>
+<td>NaN</td>
+<td>Michael Schachner</td>
+<td>@wineschach</td>
+<td>Bodega Catena Zapata 2006 Nicasia Vineyard Mal...</td>
+<td>Malbec</td>
+<td>Bodega Catena Zapata</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Other</td>
+<td>78303</td>
+<td>Argentina</td>
+<td>Take note, this could be the best wine Colomé ...</td>
+<td>Reserva</td>
+<td>95</td>
+<td>90.0</td>
+<td>Other</td>
+<td>Salta</td>
+<td>NaN</td>
+<td>Michael Schachner</td>
+<td>@wineschach</td>
+<td>Colomé 2010 Reserva Malbec (Salta)</td>
+<td>Malbec</td>
+<td>Colomé</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td rowspan="2" data-quarto-table-cell-role="th" data-valign="top">Uruguay</td>
+<td data-quarto-table-cell-role="th">San Jose</td>
+<td>39898</td>
+<td>Uruguay</td>
+<td>Baked, sweet, heavy aromas turn earthy with ti...</td>
+<td>El Preciado Gran Reserva</td>
+<td>87</td>
+<td>50.0</td>
+<td>San Jose</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Michael Schachner</td>
+<td>@wineschach</td>
+<td>Castillo Viejo 2005 El Preciado Gran Reserva R...</td>
+<td>Red Blend</td>
+<td>Castillo Viejo</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Uruguay</td>
+<td>39361</td>
+<td>Uruguay</td>
+<td>Cherry and berry aromas are ripe, healthy and ...</td>
+<td>Blend 002 Limited Edition</td>
+<td>91</td>
+<td>22.0</td>
+<td>Uruguay</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Michael Schachner</td>
+<td>@wineschach</td>
+<td>Narbona NV Blend 002 Limited Edition Tannat-Ca...</td>
+<td>Tannat-Cabernet Franc</td>
+<td>Narbona</td>
+</tr>
+</tbody>
+</table>
+
+<p>425 rows × 14 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(pd.Series.idxmax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Help on function idxmax in module pandas.core.series:
+
+idxmax(self, axis: 'Axis' = 0, skipna: 'bool' = True, *args, **kwargs) -&gt; 'Hashable'
+    Return the row label of the maximum value.
+    
+    If multiple values equal the maximum, the first row label with that
+    value is returned.
+    
+    Parameters
+    ----------
+    axis : {0 or 'index'}
+        Unused. Parameter needed for compatibility with DataFrame.
+    skipna : bool, default True
+        Exclude NA/null values. If the entire Series is NA, the result
+        will be NA.
+    *args, **kwargs
+        Additional arguments and keywords have no effect but might be
+        accepted for compatibility with NumPy.
+    
+    Returns
+    -------
+    Index
+        Label of the maximum value.
+    
+    Raises
+    ------
+    ValueError
+        If the Series is empty.
+    
+    See Also
+    --------
+    numpy.argmax : Return indices of the maximum values
+        along the given axis.
+    DataFrame.idxmax : Return index of first occurrence of maximum
+        over requested axis.
+    Series.idxmin : Return index *label* of the first occurrence
+        of minimum of values.
+    
+    Notes
+    -----
+    This method is the Series version of ``ndarray.argmax``. This method
+    returns the label of the maximum, while ``ndarray.argmax`` returns
+    the position. To get the position, use ``series.values.argmax()``.
+    
+    Examples
+    --------
+    &gt;&gt;&gt; s = pd.Series(data=[1, None, 4, 3, 4],
+    ...               index=['A', 'B', 'C', 'D', 'E'])
+    &gt;&gt;&gt; s
+    A    1.0
+    B    NaN
+    C    4.0
+    D    3.0
+    E    4.0
+    dtype: float64
+    
+    &gt;&gt;&gt; s.idxmax()
+    'C'
+    
+    If `skipna` is False and there is an NA value in the data,
+    the function returns ``nan``.
+    
+    &gt;&gt;&gt; s.idxmax(skipna=False)
+    nan
+</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>data.groupby([<span class="st">'country'</span>]).price.agg([<span class="bu">len</span>, <span class="st">'min'</span>, <span class="st">'max'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="55">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">len</th>
+<th data-quarto-table-cell-role="th">min</th>
+<th data-quarto-table-cell-role="th">max</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Argentina</td>
+<td>3800</td>
+<td>4.0</td>
+<td>230.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Armenia</td>
+<td>2</td>
+<td>14.0</td>
+<td>15.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Ukraine</td>
+<td>14</td>
+<td>6.0</td>
+<td>13.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Uruguay</td>
+<td>109</td>
+<td>10.0</td>
+<td>130.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>43 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<section id="multi-indexes" class="level3">
+<h3 class="anchored" data-anchor-id="multi-indexes">Multi-indexes</h3>
+<blockquote class="blockquote">
+<p>can help to convert to regular index</p>
+</blockquote>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>countries_reviewed <span class="op">=</span> data.groupby([<span class="st">'country'</span>, <span class="st">'province'</span>]).description.agg([<span class="bu">len</span>])</span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(countries_reviewed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                             len
+country   province              
+Argentina Mendoza Province  3264
+          Other              536
+...                          ...
+Uruguay   San Jose             3
+          Uruguay             24
+
+[425 rows x 1 columns]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>mi <span class="op">=</span> countries_reviewed.index</span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(mi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>pandas.core.indexes.multi.MultiIndex</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>countries_reviewed.reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th">len</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Argentina</td>
+<td>Mendoza Province</td>
+<td>3264</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Argentina</td>
+<td>Other</td>
+<td>536</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">423</td>
+<td>Uruguay</td>
+<td>San Jose</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">424</td>
+<td>Uruguay</td>
+<td>Uruguay</td>
+<td>24</td>
+</tr>
+</tbody>
+</table>
+
+<p>425 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a series of price and points. sort values by price (ascending)</span></span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>rating <span class="op">=</span> data.groupby(<span class="st">'price'</span>)[<span class="st">'points'</span>].<span class="bu">max</span>().sort_index()</span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rating)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>price
+4.0       86
+5.0       87
+          ..
+2500.0    96
+3300.0    88
+Name: points, Length: 390, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> data.groupby(<span class="st">'variety'</span>).price.agg(<span class="st">'max'</span>, <span class="st">'min'</span>)</span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>variety
+Abouriou       75.0
+Agiorgitiko    66.0
+               ... 
+Çalkarası      19.0
+Žilavka        15.0
+Name: price, Length: 707, dtype: float64</code></pre>
+</div>
+</div>
+</section>
+<section id="sorting" class="level3">
+<h3 class="anchored" data-anchor-id="sorting">Sorting</h3>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ascending by defalt</span></span>
+<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>countries_reviewed <span class="op">=</span> countries_reviewed.reset_index()</span>
+<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>countries_reviewed.sort_values(by<span class="op">=</span> <span class="st">'len'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th">len</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">179</td>
+<td>Greece</td>
+<td>Muscat of Kefallonian</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">192</td>
+<td>Greece</td>
+<td>Sterea Ellada</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">415</td>
+<td>US</td>
+<td>Washington</td>
+<td>8639</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">392</td>
+<td>US</td>
+<td>California</td>
+<td>36247</td>
+</tr>
+</tbody>
+</table>
+
+<p>425 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># descending </span></span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>countries_reviewed.sort_values(by<span class="op">=</span> <span class="st">'len'</span>, ascending<span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th">len</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">392</td>
+<td>US</td>
+<td>California</td>
+<td>36247</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">415</td>
+<td>US</td>
+<td>Washington</td>
+<td>8639</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">63</td>
+<td>Chile</td>
+<td>Coelemu</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">149</td>
+<td>Greece</td>
+<td>Beotia</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+<p>425 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sorting index_values</span></span>
+<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>countries_reviewed.sort_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th">len</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Argentina</td>
+<td>Mendoza Province</td>
+<td>3264</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Argentina</td>
+<td>Other</td>
+<td>536</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">423</td>
+<td>Uruguay</td>
+<td>San Jose</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">424</td>
+<td>Uruguay</td>
+<td>Uruguay</td>
+<td>24</td>
+</tr>
+</tbody>
+</table>
+
+<p>425 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sorting more than one column</span></span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>countries_reviewed.sort_values(by<span class="op">=</span>[<span class="st">'country'</span>, <span class="st">'len'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th">len</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Argentina</td>
+<td>Other</td>
+<td>536</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Argentina</td>
+<td>Mendoza Province</td>
+<td>3264</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">424</td>
+<td>Uruguay</td>
+<td>Uruguay</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">419</td>
+<td>Uruguay</td>
+<td>Canelones</td>
+<td>43</td>
+</tr>
+</tbody>
+</table>
+
+<p>425 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="data-types-and-missing-data" class="level2">
+<h2 class="anchored" data-anchor-id="data-types-and-missing-data">Data Types and Missing Data</h2>
+<blockquote class="blockquote">
+<p>missing values are given the value NaN - ‘Not a Number’- float64 dtype</p>
+</blockquote>
+<div class="cell" data-execution_count="61">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># find the data type</span></span>
+<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>data.price.dtype</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="61">
+<pre><code>dtype('float64')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for every column</span></span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Unnamed: 0     int64
+country       object
+               ...  
+variety       object
+winery        object
+Length: 14, dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="co"># transform data type</span></span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>data.points.astype(<span class="st">'float64'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="67">
+<pre><code>0         87.0
+1         87.0
+          ... 
+129969    90.0
+129970    90.0
+Name: points, Length: 129971, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># finding values in country by NaN</span></span>
+<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a>data[pd.isnull(data.country)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="69">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">description</th>
+<th data-quarto-table-cell-role="th">designation</th>
+<th data-quarto-table-cell-role="th">points</th>
+<th data-quarto-table-cell-role="th">price</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th">region_1</th>
+<th data-quarto-table-cell-role="th">region_2</th>
+<th data-quarto-table-cell-role="th">taster_name</th>
+<th data-quarto-table-cell-role="th">taster_twitter_handle</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">variety</th>
+<th data-quarto-table-cell-role="th">winery</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">913</td>
+<td>913</td>
+<td>NaN</td>
+<td>Amber in color, this wine has aromas of peach ...</td>
+<td>Asureti Valley</td>
+<td>87</td>
+<td>30.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Mike DeSimone</td>
+<td>@worldwineguys</td>
+<td>Gotsa Family Wines 2014 Asureti Valley Chinuri</td>
+<td>Chinuri</td>
+<td>Gotsa Family Wines</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3131</td>
+<td>3131</td>
+<td>NaN</td>
+<td>Soft, fruity and juicy, this is a pleasant, si...</td>
+<td>Partager</td>
+<td>83</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Roger Voss</td>
+<td>@vossroger</td>
+<td>Barton &amp; Guestier NV Partager Red</td>
+<td>Red Blend</td>
+<td>Barton &amp; Guestier</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">129590</td>
+<td>129590</td>
+<td>NaN</td>
+<td>A blend of 60% Syrah, 30% Cabernet Sauvignon a...</td>
+<td>Shah</td>
+<td>90</td>
+<td>30.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Mike DeSimone</td>
+<td>@worldwineguys</td>
+<td>Büyülübağ 2012 Shah Red</td>
+<td>Red Blend</td>
+<td>Büyülübağ</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">129900</td>
+<td>129900</td>
+<td>NaN</td>
+<td>This wine offers a delightful bouquet of black...</td>
+<td>NaN</td>
+<td>91</td>
+<td>32.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Mike DeSimone</td>
+<td>@worldwineguys</td>
+<td>Psagot 2014 Merlot</td>
+<td>Merlot</td>
+<td>Psagot</td>
+</tr>
+</tbody>
+</table>
+
+<p>63 rows × 14 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="74">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co"># replacing missing values</span></span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>data.country.fillna(<span class="st">'Unknown'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="74">
+<pre><code>0            Italy
+1         Portugal
+            ...   
+129969      France
+129970      France
+Name: country, Length: 129971, dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="82">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co"># replacing ('what?','bywhat?')</span></span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a>data.price.replace(<span class="st">'NaN'</span>, <span class="st">'@Unknown'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="82">
+<pre><code>0          NaN
+1         15.0
+          ... 
+129969    32.0
+129970    21.0
+Name: price, Length: 129971, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># missing price values and count them</span></span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>data.price.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="81">
+<pre><code>8996</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co"># arrange region_1 in ascending order of values</span></span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a>data.region_1.fillna(<span class="st">'Unkown'</span>).value_counts().sort_values(ascending<span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="86">
+<pre><code>region_1
+Unkown         21247
+Napa Valley     4480
+               ...  
+Geelong            1
+Paestum            1
+Name: count, Length: 1230, dtype: int64</code></pre>
 </div>
 </div>
 
@@ -1603,7 +3534,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
 });
 </script>
-<script src="https://giscus.app/client.js" data-repo="Kkhurana007/fr_blog_mine" data-repo-id="R_kgDOJuKwyw" data-category="General" data-category-id="DIC_kwDOJuKwy84CXJ4P" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+<script src="https://giscus.app/client.js" data-repo="Kkhurana007/fr_blog_mine" data-repo-id="R_kgDOJuKwyw" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
 <footer class="footer">
