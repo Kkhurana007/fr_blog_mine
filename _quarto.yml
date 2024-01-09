@@ -61,8 +61,8 @@ comments:
     repo: Kkhurana007/fr_blog_mine
 
 execute:
-  freeze: auto
-  increment: true
+  freeze: true
+  #increment: true
 
 
 
