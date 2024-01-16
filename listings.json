@@ -6,6 +6,8 @@
   {
     "listing": "/posts/en.html",
     "items": [
+      "/posts/ML/EDA_Classification.html",
+      "/posts/ML/Partial_plots.html",
       "/posts/python/Geopandas.html",
       "/posts/pandas/Pandas.html",
       "/posts/ML/machine_learning.html",
@@ -35,12 +37,16 @@
       "/posts/when_to_water/index.html",
       "/posts/Machine learning in Agriculture/index.html",
       "/posts/irrigraiton_scheduling/content.html",
-      "/posts/Digitalization_of_agricluture/index.html"
+      "/posts/Digitalization_of_agricluture/index.html",
+      "/posts/python/Geopandas2.html",
+      "/posts/python/Proximityanalysis.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
+      "/posts/ML/EDA_Classification.html",
+      "/posts/ML/Partial_plots.html",
       "/posts/python/Geopandas.html",
       "/posts/pandas/Pandas.html",
       "/posts/ML/machine_learning.html",
@@ -70,12 +76,16 @@
       "/posts/when_to_water/index.html",
       "/posts/Machine learning in Agriculture/index.html",
       "/posts/irrigraiton_scheduling/content.html",
-      "/posts/Digitalization_of_agricluture/index.html"
+      "/posts/Digitalization_of_agricluture/index.html",
+      "/posts/python/Geopandas2.html",
+      "/posts/python/Proximityanalysis.html"
     ]
   },
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/ML/EDA_Classification.html",
+      "/posts/ML/Partial_plots.html",
       "/posts/python/Geopandas.html",
       "/posts/pandas/Pandas.html",
       "/posts/ML/machine_learning.html",
@@ -105,7 +115,9 @@
       "/posts/when_to_water/index.html",
       "/posts/Machine learning in Agriculture/index.html",
       "/posts/irrigraiton_scheduling/content.html",
-      "/posts/Digitalization_of_agricluture/index.html"
+      "/posts/Digitalization_of_agricluture/index.html",
+      "/posts/python/Geopandas2.html",
+      "/posts/python/Proximityanalysis.html"
     ]
   },
   {
