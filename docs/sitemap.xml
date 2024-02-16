@@ -70,7 +70,7 @@
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/en.html</loc>
-    <lastmod>2024-02-12T22:35:34.093Z</lastmod>
+    <lastmod>2024-02-16T21:10:47.393Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/charting/charting.html</loc>
@@ -82,15 +82,15 @@
   </url>
   <url>
     <loc>https://ilovesoils.com/about.html</loc>
-    <lastmod>2024-02-12T22:34:18.665Z</lastmod>
+    <lastmod>2024-02-16T18:35:25.671Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/about-fr.html</loc>
-    <lastmod>2024-02-12T22:34:09.361Z</lastmod>
+    <lastmod>2024-02-16T18:35:24.875Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/index.html</loc>
-    <lastmod>2024-02-12T22:34:35.445Z</lastmod>
+    <lastmod>2024-02-16T21:11:50.861Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/bamboo_plantation/index.html</loc>
@@ -106,7 +106,7 @@
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/index.html</loc>
-    <lastmod>2024-02-12T22:36:30.540Z</lastmod>
+    <lastmod>2024-02-16T21:10:51.009Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/Machine learning in Agriculture/index.html</loc>
@@ -122,7 +122,7 @@
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/numpy/Numpy_tutorial.html</loc>
-    <lastmod>2024-02-12T22:38:40.023Z</lastmod>
+    <lastmod>2024-02-16T20:33:01.734Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/pandas/tools-pandas.html</loc>
@@ -167,5 +167,29 @@
   <url>
     <loc>https://ilovesoils.com/series-gha.html</loc>
     <lastmod>2024-02-12T22:44:33.073Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/pandas/pandas2.html</loc>
+    <lastmod>2024-02-16T20:38:20.314Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/numpy/NumPy.html</loc>
+    <lastmod>2024-02-16T20:36:24.930Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/python/Files.html</loc>
+    <lastmod>2024-02-16T20:51:45.388Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/python/data_structures.html</loc>
+    <lastmod>2024-02-16T20:59:48.333Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/python/datastructures.html</loc>
+    <lastmod>2024-02-16T21:02:59.632Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/python/Functions.html</loc>
+    <lastmod>2024-02-16T21:12:46.314Z</lastmod>
   </url>
 </urlset>
