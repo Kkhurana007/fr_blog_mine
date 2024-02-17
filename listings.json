@@ -1,11 +1,12 @@
 [
   {
-    "listing": "/posts/fr.html",
-    "items": []
-  },
-  {
-    "listing": "/posts/en.html",
+    "listing": "/posts/index.html",
     "items": [
+      "/posts/numpy/NumPy.html",
+      "/posts/pandas/pandas2.html",
+      "/posts/python/Files.html",
+      "/posts/python/Functions.html",
+      "/posts/python/datastructures.html",
       "/posts/ML/EDA_Classification.html",
       "/posts/ML/Partial_plots.html",
       "/posts/python/Geopandas.html",
@@ -45,6 +46,11 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/numpy/NumPy.html",
+      "/posts/pandas/pandas2.html",
+      "/posts/python/Files.html",
+      "/posts/python/Functions.html",
+      "/posts/python/datastructures.html",
       "/posts/ML/EDA_Classification.html",
       "/posts/ML/Partial_plots.html",
       "/posts/python/Geopandas.html",
@@ -82,8 +88,13 @@
     ]
   },
   {
-    "listing": "/posts/index.html",
+    "listing": "/posts/en.html",
     "items": [
+      "/posts/numpy/NumPy.html",
+      "/posts/pandas/pandas2.html",
+      "/posts/python/Files.html",
+      "/posts/python/Functions.html",
+      "/posts/python/datastructures.html",
       "/posts/ML/EDA_Classification.html",
       "/posts/ML/Partial_plots.html",
       "/posts/python/Geopandas.html",
@@ -119,6 +130,10 @@
       "/posts/python/Geopandas2.html",
       "/posts/python/Proximityanalysis.html"
     ]
+  },
+  {
+    "listing": "/posts/fr.html",
+    "items": []
   },
   {
     "listing": "/series-gha.html",
