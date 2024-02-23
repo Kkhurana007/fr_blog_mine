@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/index.html</loc>
-    <lastmod>2024-02-17T21:42:51.050Z</lastmod>
+    <lastmod>2024-02-23T22:29:06.148Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/fertility_map_africa/afsis-soil-chem-EDA.html</loc>
@@ -90,7 +90,7 @@
   </url>
   <url>
     <loc>https://ilovesoils.com/index.html</loc>
-    <lastmod>2024-02-17T21:40:37.856Z</lastmod>
+    <lastmod>2024-02-23T22:29:25.736Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/about-fr.html</loc>
@@ -110,7 +110,7 @@
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/en.html</loc>
-    <lastmod>2024-02-17T21:41:42.411Z</lastmod>
+    <lastmod>2024-02-23T22:29:01.701Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/fr.html</loc>
@@ -138,7 +138,7 @@
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/pandas/pandas2.html</loc>
-    <lastmod>2024-02-17T21:47:02.434Z</lastmod>
+    <lastmod>2024-02-23T22:28:41.393Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/python/basics_python_kaggle.html</loc>
@@ -187,5 +187,21 @@
   <url>
     <loc>https://ilovesoils.com/series-gha.html</loc>
     <lastmod>2024-02-17T21:53:31.439Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/python/Dataloading_fileformats.html</loc>
+    <lastmod>2024-02-23T22:28:43.515Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/python/data_cleaning+prepration.html</loc>
+    <lastmod>2024-02-23T22:21:14.899Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/python/datawrangling_join_combine_reshape.html</loc>
+    <lastmod>2024-02-23T22:21:08.781Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/python/pandas2.html</loc>
+    <lastmod>2024-02-23T22:30:25.803Z</lastmod>
   </url>
 </urlset>
