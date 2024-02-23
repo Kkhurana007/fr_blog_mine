@@ -1,10 +1,6 @@
 [
   {
-    "listing": "/posts/fr.html",
-    "items": []
-  },
-  {
-    "listing": "/posts/en.html",
+    "listing": "/posts/index.html",
     "items": [
       "/posts/numpy/NumPy.html",
       "/posts/pandas/pandas2.html",
@@ -92,7 +88,7 @@
     ]
   },
   {
-    "listing": "/posts/index.html",
+    "listing": "/posts/en.html",
     "items": [
       "/posts/numpy/NumPy.html",
       "/posts/pandas/pandas2.html",
@@ -134,6 +130,10 @@
       "/posts/python/Geopandas2.html",
       "/posts/python/Proximityanalysis.html"
     ]
+  },
+  {
+    "listing": "/posts/fr.html",
+    "items": []
   },
   {
     "listing": "/series-gha.html",
