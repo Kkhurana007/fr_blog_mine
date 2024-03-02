@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/python/Dataloading_fileformats.html</loc>
-    <lastmod>2024-02-23T22:39:21.950Z</lastmod>
+    <lastmod>2024-03-02T03:29:21.533Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/pandas/tools-pandas.html</loc>
@@ -82,7 +82,7 @@
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/index.html</loc>
-    <lastmod>2024-02-23T22:34:28.332Z</lastmod>
+    <lastmod>2024-03-02T04:02:52.428Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/fertility_map_africa/afsis-soil-chem-EDA.html</loc>
@@ -98,7 +98,7 @@
   </url>
   <url>
     <loc>https://ilovesoils.com/index.html</loc>
-    <lastmod>2024-02-23T22:32:41.606Z</lastmod>
+    <lastmod>2024-03-02T04:02:35.884Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/about-fr.html</loc>
@@ -106,7 +106,7 @@
   </url>
   <url>
     <loc>https://ilovesoils.com/about.html</loc>
-    <lastmod>2024-02-23T22:32:24.088Z</lastmod>
+    <lastmod>2024-03-02T03:55:23.248Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/Ai_watersaving/index.html</loc>
@@ -118,7 +118,7 @@
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/en.html</loc>
-    <lastmod>2024-02-23T22:33:36.660Z</lastmod>
+    <lastmod>2024-03-02T04:02:47.387Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/fr.html</loc>
@@ -203,5 +203,21 @@
   <url>
     <loc>https://ilovesoils.com/series-gha.html</loc>
     <lastmod>2024-02-23T22:46:31.233Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/python/modeling_libraries_python-checkpoint.html</loc>
+    <lastmod>2024-03-02T03:32:54.221Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/python/Plotting_and_visualization-checkpoint.html</loc>
+    <lastmod>2024-03-02T03:40:44.182Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/python/Data_agg+group_operations-checkpoint.html</loc>
+    <lastmod>2024-03-02T04:03:43.887Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/python/Time_series-checkpoint.html</loc>
+    <lastmod>2024-03-02T03:43:08.236Z</lastmod>
   </url>
 </urlset>
