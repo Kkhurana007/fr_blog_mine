@@ -1,7 +1,15 @@
 [
   {
-    "listing": "/posts/index.html",
+    "listing": "/posts/fr.html",
+    "items": []
+  },
+  {
+    "listing": "/posts/en.html",
     "items": [
+      "/posts/python/Data_agg+group_operations-checkpoint.html",
+      "/posts/python/Plotting_and_visualization-checkpoint.html",
+      "/posts/python/Time_series-checkpoint.html",
+      "/posts/python/modeling_libraries_python-checkpoint.html",
       "/posts/pandas/pandas2.html",
       "/posts/python/Dataloading_fileformats.html",
       "/posts/python/data_cleaning+prepration.html",
@@ -10,7 +18,6 @@
       "/posts/python/Files.html",
       "/posts/python/Functions.html",
       "/posts/python/datastructures.html",
-      "/posts/python/pandas2.html",
       "/posts/ML/EDA_Classification.html",
       "/posts/ML/Partial_plots.html",
       "/posts/python/Geopandas.html",
@@ -50,6 +57,10 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/python/Data_agg+group_operations-checkpoint.html",
+      "/posts/python/Plotting_and_visualization-checkpoint.html",
+      "/posts/python/Time_series-checkpoint.html",
+      "/posts/python/modeling_libraries_python-checkpoint.html",
       "/posts/pandas/pandas2.html",
       "/posts/python/Dataloading_fileformats.html",
       "/posts/python/data_cleaning+prepration.html",
@@ -58,7 +69,6 @@
       "/posts/python/Files.html",
       "/posts/python/Functions.html",
       "/posts/python/datastructures.html",
-      "/posts/python/pandas2.html",
       "/posts/ML/EDA_Classification.html",
       "/posts/ML/Partial_plots.html",
       "/posts/python/Geopandas.html",
@@ -96,8 +106,12 @@
     ]
   },
   {
-    "listing": "/posts/en.html",
+    "listing": "/posts/index.html",
     "items": [
+      "/posts/python/Data_agg+group_operations-checkpoint.html",
+      "/posts/python/Plotting_and_visualization-checkpoint.html",
+      "/posts/python/Time_series-checkpoint.html",
+      "/posts/python/modeling_libraries_python-checkpoint.html",
       "/posts/pandas/pandas2.html",
       "/posts/python/Dataloading_fileformats.html",
       "/posts/python/data_cleaning+prepration.html",
@@ -106,7 +120,6 @@
       "/posts/python/Files.html",
       "/posts/python/Functions.html",
       "/posts/python/datastructures.html",
-      "/posts/python/pandas2.html",
       "/posts/ML/EDA_Classification.html",
       "/posts/ML/Partial_plots.html",
       "/posts/python/Geopandas.html",
@@ -142,10 +155,6 @@
       "/posts/python/Geopandas2.html",
       "/posts/python/Proximityanalysis.html"
     ]
-  },
-  {
-    "listing": "/posts/fr.html",
-    "items": []
   },
   {
     "listing": "/series-gha.html",
