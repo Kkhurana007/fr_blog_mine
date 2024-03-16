@@ -1,7 +1,14 @@
 [
   {
-    "listing": "/posts/index.html",
+    "listing": "/posts/fr.html",
+    "items": []
+  },
+  {
+    "listing": "/posts/en.html",
     "items": [
+      "/posts/Big_data/Pyspark.html",
+      "/posts/data_analysis/advance-data-analysis-for-reporting.html",
+      "/posts/data_analysis/eda-univariate-bivariate-corelation.html",
       "/posts/python/Data_agg+group_operations-checkpoint.html",
       "/posts/python/Plotting_and_visualization-checkpoint.html",
       "/posts/python/Time_series-checkpoint.html",
@@ -35,7 +42,7 @@
       "/posts/charting/charting.html",
       "/posts/fertility_map_africa/afsis-soil-chem-EDA.html",
       "/posts/numpy/Numpy_tutorial.html",
-      "/posts/matplotlib/Matplotlib Tutorial.html",
+      "/posts/matplotlib/Matplotlib_Tutorial.html",
       "/posts/pandas/tools-pandas.html",
       "/posts/qmd_computations/computations.html",
       "/posts/sample_ipynb/hello.html",
@@ -53,6 +60,9 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Big_data/Pyspark.html",
+      "/posts/data_analysis/advance-data-analysis-for-reporting.html",
+      "/posts/data_analysis/eda-univariate-bivariate-corelation.html",
       "/posts/python/Data_agg+group_operations-checkpoint.html",
       "/posts/python/Plotting_and_visualization-checkpoint.html",
       "/posts/python/Time_series-checkpoint.html",
@@ -86,7 +96,7 @@
       "/posts/charting/charting.html",
       "/posts/fertility_map_africa/afsis-soil-chem-EDA.html",
       "/posts/numpy/Numpy_tutorial.html",
-      "/posts/matplotlib/Matplotlib Tutorial.html",
+      "/posts/matplotlib/Matplotlib_Tutorial.html",
       "/posts/pandas/tools-pandas.html",
       "/posts/qmd_computations/computations.html",
       "/posts/sample_ipynb/hello.html",
@@ -102,8 +112,11 @@
     ]
   },
   {
-    "listing": "/posts/en.html",
+    "listing": "/posts/index.html",
     "items": [
+      "/posts/Big_data/Pyspark.html",
+      "/posts/data_analysis/advance-data-analysis-for-reporting.html",
+      "/posts/data_analysis/eda-univariate-bivariate-corelation.html",
       "/posts/python/Data_agg+group_operations-checkpoint.html",
       "/posts/python/Plotting_and_visualization-checkpoint.html",
       "/posts/python/Time_series-checkpoint.html",
@@ -137,7 +150,7 @@
       "/posts/charting/charting.html",
       "/posts/fertility_map_africa/afsis-soil-chem-EDA.html",
       "/posts/numpy/Numpy_tutorial.html",
-      "/posts/matplotlib/Matplotlib Tutorial.html",
+      "/posts/matplotlib/Matplotlib_Tutorial.html",
       "/posts/pandas/tools-pandas.html",
       "/posts/qmd_computations/computations.html",
       "/posts/sample_ipynb/hello.html",
@@ -151,10 +164,6 @@
       "/posts/python/Geopandas2.html",
       "/posts/python/Proximityanalysis.html"
     ]
-  },
-  {
-    "listing": "/posts/fr.html",
-    "items": []
   },
   {
     "listing": "/series-gha.html",
