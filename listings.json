@@ -6,6 +6,8 @@
   {
     "listing": "/posts/en.html",
     "items": [
+      "/posts/semainedu20mai2024/knn-algorithm.html",
+      "/posts/semainedu20mai2024/logisticregression.html",
       "/posts/Big_data/Pyspark.html",
       "/posts/data_analysis/advance-data-analysis-for-reporting.html",
       "/posts/data_analysis/eda-univariate-bivariate-corelation.html",
@@ -60,6 +62,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/semainedu20mai2024/knn-algorithm.html",
+      "/posts/semainedu20mai2024/logisticregression.html",
       "/posts/Big_data/Pyspark.html",
       "/posts/data_analysis/advance-data-analysis-for-reporting.html",
       "/posts/data_analysis/eda-univariate-bivariate-corelation.html",
@@ -114,6 +118,8 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/semainedu20mai2024/knn-algorithm.html",
+      "/posts/semainedu20mai2024/logisticregression.html",
       "/posts/Big_data/Pyspark.html",
       "/posts/data_analysis/advance-data-analysis-for-reporting.html",
       "/posts/data_analysis/eda-univariate-bivariate-corelation.html",
