@@ -32,7 +32,13 @@ about:
 
 ::: {#hero-heading}
 ---
-Bonjour ! Je m’appelle Kunal Khurana, un chercheur dans le domaine des sciences du sol et de l’agronomie depuis plus de 10 ans. J'ai acquis cette expérience en travaillant dans différentes régions géographiques du monde sur divers projets avec différents experts. Je suis particulièrement passionné par la collaboration avec des professionnels de l'apprentissage automatique pour lutter contre le changement climatique en stockant davantage de carbone dans le sol et en préservant l'eau précieuse.
+Bonjour, je m'appelle Kunal 👋
+
+J'aide les organisations, les équipes de recherche et les entreprises à communiquer efficacement leurs analyses à travers des visualisations de données captivantes. En tant que spécialiste indépendant de la visualisation de données, je mets à profit mon expertise en recherche et mes compétences en programmation avec ma passion pour le design. Je crée des visualisations dans divers domaines et styles, allant des designs sur mesure aux rapports automatisés. Ma mission est de transformer des données complexes en visuels clairs et percutants qui informent et inspirent.
+
+
+
+
 
 ## 📝Education
 
