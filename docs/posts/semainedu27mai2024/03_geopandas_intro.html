@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Homepage - Introduction aux données spatiales avec Geopandas</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YSR47ZM5Y0"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YSR47ZM5Y0', { 'anonymize_ip': true});
+</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+<meta name="twitter:title" content="Homepage - Introduction aux données spatiales avec Geopandas">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Carte_figurative_de_l'instruction_populaire_de_la_France.jpg/800px-Carte_figurative_de_l'instruction_populaire_de_la_France.jpg">
+<meta name="twitter:creator" content="@kunalkhurana007">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Homepage</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">Kunal Khurana</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../Khurana_Kunal_CV.pdf" rel="" target="">
+ <span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-posts" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Posts</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-posts">    
+        <li>
+    <a class="dropdown-item" href="../../posts/index.html" rel="" target="">
+ <span class="dropdown-text">All posts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../posts/en.html" rel="" target="">
+ <span class="dropdown-text">English</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../posts/fr.html" rel="" target="">
+ <span class="dropdown-text">Français</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Kkhurana007/fr_blog_mine" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/kunalkhurana007" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Introduction aux données spatiales avec Geopandas</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">1. Introduction</a>
+  <ul class="collapse">
+  <li><a href="#quelle-différence-avec-des-données-traditionnelles" id="toc-quelle-différence-avec-des-données-traditionnelles" class="nav-link" data-scroll-target="#quelle-différence-avec-des-données-traditionnelles">1.1 Quelle différence avec des données traditionnelles ?</a></li>
+  <li><a href="#structure-des-données-spatiales" id="toc-structure-des-données-spatiales" class="nav-link" data-scroll-target="#structure-des-données-spatiales">1.2 Structure des données spatiales</a></li>
+  <li><a href="#les-données-spatiales-sont-incontournables" id="toc-les-données-spatiales-sont-incontournables" class="nav-link" data-scroll-target="#les-données-spatiales-sont-incontournables">1.3 Les données spatiales sont incontournables</a></li>
+  <li><a href="#où-trouver-la-donnée-spatiale-française" id="toc-où-trouver-la-donnée-spatiale-française" class="nav-link" data-scroll-target="#où-trouver-la-donnée-spatiale-française">1.4 Où trouver la donnée spatiale française ?</a></li>
+  <li><a href="#données-utilisées-dans-ce-chapitre" id="toc-données-utilisées-dans-ce-chapitre" class="nav-link" data-scroll-target="#données-utilisées-dans-ce-chapitre">1.5 Données utilisées dans ce chapitre</a></li>
+  <li><a href="#installations-préalables" id="toc-installations-préalables" class="nav-link" data-scroll-target="#installations-préalables">1.6 Installations préalables</a></li>
+  </ul></li>
+  <li><a href="#de-pandas-à-geopandas" id="toc-de-pandas-à-geopandas" class="nav-link" data-scroll-target="#de-pandas-à-geopandas">2. De <code>Pandas</code> à <code>Geopandas</code></a>
+  <ul class="collapse">
+  <li><a href="#anatomie-dun-objet-geopandas" id="toc-anatomie-dun-objet-geopandas" class="nav-link" data-scroll-target="#anatomie-dun-objet-geopandas">2.1 Anatomie d’un objet <code>GeoPandas</code></a></li>
+  <li><a href="#objectifs-de-ce-chapitre" id="toc-objectifs-de-ce-chapitre" class="nav-link" data-scroll-target="#objectifs-de-ce-chapitre">2.2 Objectifs de ce chapitre</a></li>
+  </ul></li>
+  <li><a href="#lire-et-enrichir-des-données-spatiales" id="toc-lire-et-enrichir-des-données-spatiales" class="nav-link" data-scroll-target="#lire-et-enrichir-des-données-spatiales">3. Lire et enrichir des données spatiales</a>
+  <ul class="collapse">
+  <li><a href="#le-format-shapefile-.shp-et-le-geopackage-.gpkg" id="toc-le-format-shapefile-.shp-et-le-geopackage-.gpkg" class="nav-link" data-scroll-target="#le-format-shapefile-.shp-et-le-geopackage-.gpkg">3.1 Le format <em>shapefile</em> (<code>.shp</code>) et le <em>geopackage</em> (<code>.gpkg</code>)</a></li>
+  <li><a href="#le-geojson-et-le-topojson" id="toc-le-geojson-et-le-topojson" class="nav-link" data-scroll-target="#le-geojson-et-le-topojson">3.2 Le GeoJSON et le TopoJSON</a></li>
+  <li><a href="#les-autres-formats-de-données" id="toc-les-autres-formats-de-données" class="nav-link" data-scroll-target="#les-autres-formats-de-données">3.3 Les autres formats de données</a></li>
+  <li><a href="#exercice-de-découverte" id="toc-exercice-de-découverte" class="nav-link" data-scroll-target="#exercice-de-découverte">3.4 Exercice de découverte</a></li>
+  </ul></li>
+  <li><a href="#le-système-de-projection-cartographique" id="toc-le-système-de-projection-cartographique" class="nav-link" data-scroll-target="#le-système-de-projection-cartographique">4. Le système de projection cartographique</a>
+  <ul class="collapse">
+  <li><a href="#principe" id="toc-principe" class="nav-link" data-scroll-target="#principe">4.1 Principe</a></li>
+  <li><a href="#le-système-mercator" id="toc-le-système-mercator" class="nav-link" data-scroll-target="#le-système-mercator">4.2 Le système Mercator</a></li>
+  <li><a href="#gestion-avec-geopandas" id="toc-gestion-avec-geopandas" class="nav-link" data-scroll-target="#gestion-avec-geopandas">4.3 Gestion avec <code>GeoPandas</code></a></li>
+  <li><a href="#exercice-pour-comprendre-limportance-du-système-de-projection" id="toc-exercice-pour-comprendre-limportance-du-système-de-projection" class="nav-link" data-scroll-target="#exercice-pour-comprendre-limportance-du-système-de-projection">4.4 Exercice pour comprendre l’importance du système de projection</a></li>
+  </ul></li>
+  <li><a href="#importer-et-explorer-les-jeux-de-données-spatiaux" id="toc-importer-et-explorer-les-jeux-de-données-spatiaux" class="nav-link" data-scroll-target="#importer-et-explorer-les-jeux-de-données-spatiaux">5. Importer et explorer les jeux de données spatiaux</a>
+  <ul class="collapse">
+  <li><a href="#localiser-les-données-sur-une-carte" id="toc-localiser-les-données-sur-une-carte" class="nav-link" data-scroll-target="#localiser-les-données-sur-une-carte">5.1 Localiser les données sur une carte</a></li>
+  <li><a href="#exercice-dapplication" id="toc-exercice-dapplication" class="nav-link" data-scroll-target="#exercice-dapplication">5.2 Exercice d’application</a></li>
+  <li><a href="#opérations-sur-les-géométries" id="toc-opérations-sur-les-géométries" class="nav-link" data-scroll-target="#opérations-sur-les-géométries">5.3 Opérations sur les géométries</a></li>
+  </ul></li>
+  <li><a href="#enrichissements-grâce-à-la-dimension-spatiale-les-jointures-spatiales" id="toc-enrichissements-grâce-à-la-dimension-spatiale-les-jointures-spatiales" class="nav-link" data-scroll-target="#enrichissements-grâce-à-la-dimension-spatiale-les-jointures-spatiales">6. Enrichissements grâce à la dimension spatiale: les jointures spatiales</a>
+  <ul class="collapse">
+  <li><a href="#principe-1" id="toc-principe-1" class="nav-link" data-scroll-target="#principe-1">6.1 Principe</a></li>
+  <li><a href="#exemple-localiser-les-stations-dans-leur-arrondissement" id="toc-exemple-localiser-les-stations-dans-leur-arrondissement" class="nav-link" data-scroll-target="#exemple-localiser-les-stations-dans-leur-arrondissement">6.2 Exemple: localiser les stations dans leur arrondissement</a></li>
+  <li><a href="#exercice-supplémentaire" id="toc-exercice-supplémentaire" class="nav-link" data-scroll-target="#exercice-supplémentaire">6.3 Exercice supplémentaire</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="03_geopandas_intro.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>Lino Galiana<br>
+2024-05-27</p>
+<section id="introduction" class="level1">
+<h1>1. Introduction</h1>
+<section id="quelle-différence-avec-des-données-traditionnelles" class="level2">
+<h2 class="anchored" data-anchor-id="quelle-différence-avec-des-données-traditionnelles">1.1 Quelle différence avec des données traditionnelles ?</h2>
+<p>Les chapitres précédents ont permis de découvrir la manière dont des données structurées peuvent être valorisées grâce à la librairie <code>Pandas</code>. Nous allons maintenant découvrir l’analyse de données plus complexes, à savoir les données spatiales. Ces dernières sont une sophistication des données tabulaires puisqu’en plus de partager les propriétés de celles-ci (données aplaties dans une structure de colonnes et de lignes), elles comportent une dimension géographique supplémentaire. Celle-ci est plus ou moins complexe selon la nature des données: cela peut être des points (coordonnées de localisation en deux dimensions), des lignes (une suite de points), des lignes directionnelles (la même structure précédemment mais avec une direction), des polygones (un ensemble de points)… Cette diversité des objets géographiques vise à permettre des systèmes d’information et de représentation de nombreux objets géographiques.</p>
+<p>Par la suite, nous entendrons par <em>“données spatiales”</em> l’ensemble des données qui portent sur les caractéristiques géographiques des objets (localisation, contours, liens). Les caractéristiques géographiques des objets sont décrites à l’aide d’un <strong>système de coordonnées</strong>. Celles-ci permettent de représenter l’objet géographique dans un espace euclidien à deux dimensions <span class="math inline">\((x,y)\)</span>. Le passage de l’espace réel (la Terre, qui est une sphère en trois dimensions) à l’espace plan se fait grâce à un <strong>système de projection</strong>.</p>
+</section>
+<section id="structure-des-données-spatiales" class="level2">
+<h2 class="anchored" data-anchor-id="structure-des-données-spatiales">1.2 Structure des données spatiales</h2>
+<p>Les données spatiales rassemblent classiquement deux types de données :</p>
+<ol type="1">
+<li>des <strong>données géographiques</strong> (ou géométries) : objets géométriques tels que des points, des vecteurs, des polygones, ou des maillages (<em>raster</em>). Exemple: la forme de chaque commune, les coordonnées d’un bâtiment;</li>
+<li>des <strong>données attributaires</strong> (ou attributs) : des mesures et des caractéristiques associées aux objets géométriques. Exemple: la population de chaque commune, le nombre de fenêtres et le nombre d’étages d’un bâtiment.</li>
+</ol>
+<p><strong>Les données spatiales sont fréquemment traitées à l’aide d’un système d’information géographique (SIG)</strong>, c’est-à-dire un système d’information capable de stocker, d’organiser et de présenter des données alphanumériques spatialement référencées par des coordonnées dans un système de référence (CRS). <code>Python</code> dispose de fonctionnalités lui permettant de réaliser les mêmes tâches qu’un SIG (traitement de données spatiales, représentations cartographiques).</p>
+</section>
+<section id="les-données-spatiales-sont-incontournables" class="level2">
+<h2 class="anchored" data-anchor-id="les-données-spatiales-sont-incontournables">1.3 Les données spatiales sont incontournables</h2>
+<p>D’un usage initialement essentiellement militaire ou administratif, la production cartographique est, depuis au moins le XIXe siècle, très fréquente pour représenter de l’information socioéconomique. La représentation la plus connue dans ce domaine est la carte par aplat de couleur, dite carte choroplèthe[1].</p>
+<p>D’après Chen et al.&nbsp;(2008), la première représentation de ce type a été proposée par Charles Dupin en 1926 pour représenter les niveaux d’instruction sur le territoire français. L’émergence des cartes choroplèthes est en effet indissociable de l’organisation du pouvoir sous forme d’entités pensées politiques supposées unitaires: les cartes du monde représentent souvent des aplats de couleurs à partir des nations, les cartes nationales à partir d’échelons administratifs (régions, départements, communes, mais aussi Etats ou <em>landers</em>).</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Carte_figurative_de_l%27instruction_populaire_de_la_France.jpg/800px-Carte_figurative_de_l%27instruction_populaire_de_la_France.jpg" class="img-fluid" alt="La première carte choroplèthes par Dupin (1826)">.</p>
+<p>Si la production d’information géographique a pu être très liée à un usage militaire puis à la gestion administrative d’un territoire, la numérisation de l’économie ayant démultipliée les acteurs concernés par la collecte et la mise à disposition de données géographique, la manipulation et la représentation de données spatiales n’est plus l’apanage des géographes et géomaticiens. Les <em>data scientists</em> doivent être capables de rapidement explorer la structure d’un jeu de données géographique comme ils le feraient d’un jeu de données tabulaires classiques.</p>
+</section>
+<section id="où-trouver-la-donnée-spatiale-française" class="level2">
+<h2 class="anchored" data-anchor-id="où-trouver-la-donnée-spatiale-française">1.4 Où trouver la donnée spatiale française ?</h2>
+<p>Lors de notre périple de découverte de <code>Pandas</code>, nous avons déjà rencontré quelques sources géolocalisées, notamment produites par l’Insee. Cette institution publie de nombreuses statistiques locales, par exemple les données Filosofi que nous avons rencontrées au chapitre précédent. Au-delà de l’Insee, l’ensemble des institutions du système statistique public (Insee et services statistiques ministériels) publie de nombreuses sources de données agrégées à différentes mailles géographiques: à un niveau infracommunal (par exemple par <a href="https://www.insee.fr/fr/statistiques/6215138?sommaire=6215217">carreaux de 200m</a>), au niveau communal ou à des niveaux supracommunaux (zonages administratifs ou zonages d’études).</p>
+<p>Plus généralement, de nombreuses administrations françaises hors du système statistique public diffusent des données géographiques sur <a href="https://www.data.gouv.fr/fr/">data.gouv</a>. Nous avons par exemple précédemment exploité un jeu de données de l’Ademe dont la dimension géographique était la commune.</p>
+<p>L’acteur central de l’écosystème public de la donnée géographique est l’<a href="https://www.ign.fr/">IGN</a>. Bien connu des amateurs de randonnées pour ses cartes <em>“Top 25”</em> qui peuvent être retrouvées sur le <a href="https://www.geoportail.gouv.fr/carte">geoportail</a>, l’IGN est également en charge de la cartographie des limites légales des entités administratives françaises (base AdminExpress), des forêts (BDForêt), des routes (BDRoute), des bâtiments (BDTopo), etc. Nous avons succinctement évoqué la librairie <a href="https://github.com/InseeFrLab/cartiflette"><code>cartiflette</code></a> lors du chapitre précédent, qui permet de récupérer les fonds de carte administratifs (base AdminExpress) de manière flexible avec <code>Python</code> ; nous irons plus loin dans ce chapitre.</p>
+<p>La puissance publique n’est plus l’unique acteur qui produit et diffuse de la donnée spatiale. La collecte de coordonnées GPS étant devenue presque automatique, de nombreux acteurs collectent, exploitent et même revendent de la donnée spatiale sur leurs utilisateurs. Ces données peuvent être très précises et très riches sur certaines problématiques, par exemple sur les déplacements. Il est néanmoins nécessaire d’avoir à l’esprit lorsqu’on désire extrapoler des statistiques construites sur ces données que celles-ci concernent les utilisateurs du service en question, qui ne sont pas nécessairement représentatifs des comportements de la population dans son ensemble.</p>
+</section>
+<section id="données-utilisées-dans-ce-chapitre" class="level2">
+<h2 class="anchored" data-anchor-id="données-utilisées-dans-ce-chapitre">1.5 Données utilisées dans ce chapitre</h2>
+<p>Dans ce tutoriel, nous allons utiliser les données suivantes :</p>
+<ul>
+<li><a href="https://opendata.paris.fr/explore/dataset/velib-emplacement-des-stations/download/?format=geojson&amp;timezone=Europe/Berlin&amp;lang=fr">Localisations des stations velib</a> ;</li>
+<li><a href="https://geoservices.ign.fr/adminexpress">fonds de carte <code>AdminExpress</code></a> à travers un package <code>Python</code> nommé <a href="https://github.com/InseeFrLab/cartiflette"><code>cartiflette</code></a> facilitant la récupération de cette source.</li>
+</ul>
+</section>
+<section id="installations-préalables" class="level2">
+<h2 class="anchored" data-anchor-id="installations-préalables">1.6 Installations préalables</h2>
+<p>[1] Malgré toutes ses limites, sur lesquelles nous reviendrons, la carte choroplèthe est tout de même instructive. Savoir en produire une rapidement, pour saisir les principaux faits structurants d’un jeu de données, est particulièrement utile.</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># à faire obligatoirement en premier pour utiliser rtree ou pygeos pour les jointures spatiales</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install pandas fiona shapely pyproj rtree</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install contextily</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install geopandas</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install topojson</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Requirement already satisfied: pandas in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (2.2.1)
+Requirement already satisfied: fiona in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (1.9.5)
+Requirement already satisfied: shapely in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (2.0.3)
+Requirement already satisfied: pyproj in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (3.6.1)
+Requirement already satisfied: rtree in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (1.2.0)
+Requirement already satisfied: numpy&lt;2,&gt;=1.23.2 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from pandas) (1.25.2)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from pandas) (2024.1)
+Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from pandas) (2024.1)
+Requirement already satisfied: attrs&gt;=19.2.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona) (23.2.0)
+Requirement already satisfied: certifi in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona) (2024.2.2)
+Requirement already satisfied: click~=8.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona) (8.1.7)
+Requirement already satisfied: click-plugins&gt;=1.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona) (1.1.1)
+Requirement already satisfied: cligj&gt;=0.5 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona) (0.7.2)
+Requirement already satisfied: six in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona) (1.16.0)
+Requirement already satisfied: setuptools in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona) (65.5.0)
+Requirement already satisfied: colorama in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from click~=8.0-&gt;fiona) (0.4.6)
+Requirement already satisfied: contextily in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (1.6.0)
+Requirement already satisfied: geopy in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from contextily) (2.4.1)
+Requirement already satisfied: matplotlib in c:\users\khurana_kunal\appdata\roaming\python\python311\site-packages (from contextily) (3.8.0)
+Requirement already satisfied: mercantile in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from contextily) (1.2.1)
+Requirement already satisfied: pillow in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from contextily) (10.2.0)
+Requirement already satisfied: rasterio in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from contextily) (1.3.10)
+Requirement already satisfied: requests in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from contextily) (2.31.0)
+Requirement already satisfied: joblib in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from contextily) (1.3.2)
+Requirement already satisfied: xyzservices in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from contextily) (2024.4.0)
+Requirement already satisfied: geographiclib&lt;3,&gt;=1.52 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from geopy-&gt;contextily) (2.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in c:\users\khurana_kunal\appdata\roaming\python\python311\site-packages (from matplotlib-&gt;contextily) (1.1.1)
+Requirement already satisfied: cycler&gt;=0.10 in c:\users\khurana_kunal\appdata\roaming\python\python311\site-packages (from matplotlib-&gt;contextily) (0.12.0)
+Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\khurana_kunal\appdata\roaming\python\python311\site-packages (from matplotlib-&gt;contextily) (4.43.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in c:\users\khurana_kunal\appdata\roaming\python\python311\site-packages (from matplotlib-&gt;contextily) (1.4.5)
+Requirement already satisfied: numpy&lt;2,&gt;=1.21 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from matplotlib-&gt;contextily) (1.25.2)
+Requirement already satisfied: packaging&gt;=20.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from matplotlib-&gt;contextily) (23.2)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in c:\users\khurana_kunal\appdata\roaming\python\python311\site-packages (from matplotlib-&gt;contextily) (3.1.1)
+Requirement already satisfied: python-dateutil&gt;=2.7 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from matplotlib-&gt;contextily) (2.9.0.post0)
+Requirement already satisfied: click&gt;=3.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from mercantile-&gt;contextily) (8.1.7)
+Requirement already satisfied: affine in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from rasterio-&gt;contextily) (2.4.0)
+Requirement already satisfied: attrs in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from rasterio-&gt;contextily) (23.2.0)
+Requirement already satisfied: certifi in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from rasterio-&gt;contextily) (2024.2.2)
+Requirement already satisfied: cligj&gt;=0.5 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from rasterio-&gt;contextily) (0.7.2)
+Requirement already satisfied: snuggs&gt;=1.4.1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from rasterio-&gt;contextily) (1.4.7)
+Requirement already satisfied: click-plugins in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from rasterio-&gt;contextily) (1.1.1)
+Requirement already satisfied: setuptools in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from rasterio-&gt;contextily) (65.5.0)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from requests-&gt;contextily) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from requests-&gt;contextily) (3.6)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from requests-&gt;contextily) (2.2.1)
+Requirement already satisfied: colorama in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from click&gt;=3.0-&gt;mercantile-&gt;contextily) (0.4.6)
+Requirement already satisfied: six&gt;=1.5 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib-&gt;contextily) (1.16.0)
+Requirement already satisfied: geopandas in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (0.12.2)
+Requirement already satisfied: pandas&gt;=1.0.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from geopandas) (2.2.1)
+Requirement already satisfied: shapely&gt;=1.7 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from geopandas) (2.0.3)
+Requirement already satisfied: fiona&gt;=1.8 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from geopandas) (1.9.5)
+Requirement already satisfied: pyproj&gt;=2.6.1.post1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from geopandas) (3.6.1)
+Requirement already satisfied: packaging in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from geopandas) (23.2)
+Requirement already satisfied: attrs&gt;=19.2.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&gt;=1.8-&gt;geopandas) (23.2.0)
+Requirement already satisfied: certifi in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&gt;=1.8-&gt;geopandas) (2024.2.2)
+Requirement already satisfied: click~=8.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&gt;=1.8-&gt;geopandas) (8.1.7)
+Requirement already satisfied: click-plugins&gt;=1.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&gt;=1.8-&gt;geopandas) (1.1.1)
+Requirement already satisfied: cligj&gt;=0.5 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&gt;=1.8-&gt;geopandas) (0.7.2)
+Requirement already satisfied: six in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&gt;=1.8-&gt;geopandas) (1.16.0)
+Requirement already satisfied: setuptools in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&gt;=1.8-&gt;geopandas) (65.5.0)
+Requirement already satisfied: numpy&lt;2,&gt;=1.23.2 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from pandas&gt;=1.0.0-&gt;geopandas) (1.25.2)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from pandas&gt;=1.0.0-&gt;geopandas) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from pandas&gt;=1.0.0-&gt;geopandas) (2024.1)
+Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from pandas&gt;=1.0.0-&gt;geopandas) (2024.1)
+Requirement already satisfied: colorama in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from click~=8.0-&gt;fiona&gt;=1.8-&gt;geopandas) (0.4.6)
+Requirement already satisfied: topojson in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (1.9)
+Requirement already satisfied: numpy in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from topojson) (1.25.2)
+Requirement already satisfied: shapely in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from topojson) (2.0.3)
+Requirement already satisfied: packaging in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from topojson) (23.2)</code></pre>
+</div>
+</div>
+<p>Pour être en mesure d’exécuter ce tutoriel, les imports suivants seront utiles.</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> contextily <span class="im">as</span> ctx</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="alert alert-info" role="alert" style="color: rgba(0,0,0,.8); background-color: white; margin-top: 1em; margin-bottom: 1em; margin:1.5625emauto; padding:0 .6rem .8rem!important;overflow:hidden; page-break-inside:avoid; border-radius:.25rem; box-shadow:0 .2rem .5rem rgba(0,0,0,.05),0 0 .05rem rgba(0,0,0,.1); transition:color .25s,background-color .25s,border-color .25s ; border-right: 1px solid #dee2e6 ; border-top: 1px solid #dee2e6 ; border-bottom: 1px solid #dee2e6 ; border-left:.2rem solid #007bff80;">
+<h3 class="alert-heading anchored">
+<i class="fa fa-comment"></i> Note
+</h3>
+<p>Le package <code>cartiflette</code> est expérimental et n’est disponible que sur <a href="https://github.com/InseeFrLab/cartogether"><code>Github</code></a>, pas sur <code>PyPi</code>. Il est amené à évoluer rapidement et cette page sera mise à jour quand de nouvelles fonctionalités (notamment l’utilisation d’<code>API</code>) seront disponibles pour encore simplifier la récupération de contours géographiques.</p>
+</div>
+<p>Pour installer <code>cartiflette</code>, il est nécessaire d’utiliser les commandes suivantes depuis un <code>Jupyter Notebook</code> (si vous utilisez la ligne de commande directement, vous pouvez retirer les <code>!</code> en début de ligne):</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install py7zr geopandas openpyxl tqdm s3fs</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install PyYAML xlrd</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install git<span class="op">+</span>https:<span class="op">//</span>github.com<span class="op">/</span>inseefrlab<span class="op">/</span>cartiflette</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Requirement already satisfied: py7zr in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (0.20.8)
+Requirement already satisfied: geopandas in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (0.12.2)
+Requirement already satisfied: openpyxl in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (3.1.2)
+Requirement already satisfied: tqdm in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (4.66.2)
+Requirement already satisfied: s3fs in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (2023.12.2)
+Requirement already satisfied: texttable in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr) (1.7.0)
+Requirement already satisfied: pycryptodomex&gt;=3.16.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr) (3.20.0)
+Requirement already satisfied: pyzstd&gt;=0.15.9 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr) (0.16.0)
+Requirement already satisfied: pyppmd&lt;1.2.0,&gt;=1.1.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr) (1.1.0)
+Requirement already satisfied: pybcj&lt;1.1.0,&gt;=1.0.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr) (1.0.2)
+Requirement already satisfied: multivolumefile&gt;=0.2.3 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr) (0.2.3)
+Requirement already satisfied: inflate64&lt;1.1.0,&gt;=1.0.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr) (1.0.0)
+Requirement already satisfied: brotli&gt;=1.1.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr) (1.1.0)
+Requirement already satisfied: psutil in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr) (5.9.8)
+Requirement already satisfied: pandas&gt;=1.0.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from geopandas) (2.2.1)
+Requirement already satisfied: shapely&gt;=1.7 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from geopandas) (2.0.3)
+Requirement already satisfied: fiona&gt;=1.8 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from geopandas) (1.9.5)
+Requirement already satisfied: pyproj&gt;=2.6.1.post1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from geopandas) (3.6.1)
+Requirement already satisfied: packaging in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from geopandas) (23.2)
+Requirement already satisfied: et-xmlfile in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from openpyxl) (1.1.0)
+Requirement already satisfied: colorama in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from tqdm) (0.4.6)
+Requirement already satisfied: aiobotocore&lt;3.0.0,&gt;=2.5.4 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from s3fs) (2.13.0)
+Requirement already satisfied: fsspec==2023.12.2 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from s3fs) (2023.12.2)
+Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from s3fs) (3.9.5)
+Requirement already satisfied: botocore&lt;1.34.107,&gt;=1.34.70 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs) (1.34.106)
+Requirement already satisfied: wrapt&lt;2.0.0,&gt;=1.10.10 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs) (1.16.0)
+Requirement already satisfied: aioitertools&lt;1.0.0,&gt;=0.5.1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs) (0.11.0)
+Requirement already satisfied: aiosignal&gt;=1.1.2 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs) (1.3.1)
+Requirement already satisfied: attrs&gt;=17.3.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs) (23.2.0)
+Requirement already satisfied: frozenlist&gt;=1.1.1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs) (1.4.1)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs) (6.0.5)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs) (1.9.4)
+Requirement already satisfied: certifi in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&gt;=1.8-&gt;geopandas) (2024.2.2)
+Requirement already satisfied: click~=8.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&gt;=1.8-&gt;geopandas) (8.1.7)
+Requirement already satisfied: click-plugins&gt;=1.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&gt;=1.8-&gt;geopandas) (1.1.1)
+Requirement already satisfied: cligj&gt;=0.5 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&gt;=1.8-&gt;geopandas) (0.7.2)
+Requirement already satisfied: six in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&gt;=1.8-&gt;geopandas) (1.16.0)
+Requirement already satisfied: setuptools in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&gt;=1.8-&gt;geopandas) (65.5.0)
+Requirement already satisfied: numpy&lt;2,&gt;=1.23.2 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from pandas&gt;=1.0.0-&gt;geopandas) (1.25.2)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from pandas&gt;=1.0.0-&gt;geopandas) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from pandas&gt;=1.0.0-&gt;geopandas) (2024.1)
+Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from pandas&gt;=1.0.0-&gt;geopandas) (2024.1)
+Requirement already satisfied: jmespath&lt;2.0.0,&gt;=0.7.1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from botocore&lt;1.34.107,&gt;=1.34.70-&gt;aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs) (1.0.1)
+Requirement already satisfied: urllib3!=2.2.0,&lt;3,&gt;=1.25.4 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from botocore&lt;1.34.107,&gt;=1.34.70-&gt;aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs) (2.2.1)
+Requirement already satisfied: idna&gt;=2.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from yarl&lt;2.0,&gt;=1.0-&gt;aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs) (3.6)
+Requirement already satisfied: PyYAML in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (6.0.1)
+Requirement already satisfied: xlrd in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (2.0.1)
+Collecting git+https://github.com/inseefrlab/cartiflette
+  Cloning https://github.com/inseefrlab/cartiflette to c:\users\khurana_kunal\appdata\local\temp\pip-req-build-1bt5f927
+  Resolved https://github.com/inseefrlab/cartiflette to commit ecda07091788b8b202dedc54e774486370cab65e
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: PyYAML&lt;7.0,&gt;=6.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (6.0.1)
+Requirement already satisfied: QtPy&lt;3.0.0,&gt;=2.0.1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (2.4.1)
+Requirement already satisfied: appdirs&lt;2.0.0,&gt;=1.4.4 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (1.4.4)
+Requirement already satisfied: charset-normalizer&lt;4.0.0,&gt;=3.2.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (3.3.2)
+Requirement already satisfied: fiona&lt;2.0.0,&gt;=1.9.4.post1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona[s3]&lt;2.0.0,&gt;=1.9.4.post1-&gt;cartiflette==0.0.2) (1.9.5)
+Requirement already satisfied: geopandas&lt;0.13.0,&gt;=0.12.2 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (0.12.2)
+Requirement already satisfied: matplotlib&lt;4.0.0,&gt;=3.7.1 in c:\users\khurana_kunal\appdata\roaming\python\python311\site-packages (from cartiflette==0.0.2) (3.8.0)
+Requirement already satisfied: openpyxl&lt;4.0.0,&gt;=3.1.1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (3.1.2)
+Requirement already satisfied: owslib&lt;0.29.0,&gt;=0.28.1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (0.28.1)
+Requirement already satisfied: pebble&lt;6.0.0,&gt;=5.0.3 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (5.0.7)
+Requirement already satisfied: py7zr&lt;0.21.0,&gt;=0.20.4 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (0.20.8)
+Requirement already satisfied: python-dotenv&lt;2.0.0,&gt;=1.0.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (1.0.1)
+Requirement already satisfied: python-magic-bin&lt;0.5.0,&gt;=0.4.14 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (0.4.14)
+Requirement already satisfied: requests&lt;3.0.0,&gt;=2.28.2 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (2.31.0)
+Requirement already satisfied: requests-cache&lt;2.0.0,&gt;=1.1.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (1.2.0)
+Requirement already satisfied: s3fs&lt;2024.0.0,&gt;=2023.3.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (2023.12.2)
+Requirement already satisfied: topojson&lt;2.0,&gt;=1.5 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (1.9)
+Requirement already satisfied: tqdm&lt;5.0.0,&gt;=4.65.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (4.66.2)
+Requirement already satisfied: unidecode&lt;2.0.0,&gt;=1.3.6 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (1.3.8)
+Requirement already satisfied: xlrd&lt;3.0.0,&gt;=2.0.1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from cartiflette==0.0.2) (2.0.1)
+Requirement already satisfied: attrs&gt;=19.2.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&lt;2.0.0,&gt;=1.9.4.post1-&gt;fiona[s3]&lt;2.0.0,&gt;=1.9.4.post1-&gt;cartiflette==0.0.2) (23.2.0)
+Requirement already satisfied: certifi in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&lt;2.0.0,&gt;=1.9.4.post1-&gt;fiona[s3]&lt;2.0.0,&gt;=1.9.4.post1-&gt;cartiflette==0.0.2) (2024.2.2)
+Requirement already satisfied: click~=8.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&lt;2.0.0,&gt;=1.9.4.post1-&gt;fiona[s3]&lt;2.0.0,&gt;=1.9.4.post1-&gt;cartiflette==0.0.2) (8.1.7)
+Requirement already satisfied: click-plugins&gt;=1.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&lt;2.0.0,&gt;=1.9.4.post1-&gt;fiona[s3]&lt;2.0.0,&gt;=1.9.4.post1-&gt;cartiflette==0.0.2) (1.1.1)
+Requirement already satisfied: cligj&gt;=0.5 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&lt;2.0.0,&gt;=1.9.4.post1-&gt;fiona[s3]&lt;2.0.0,&gt;=1.9.4.post1-&gt;cartiflette==0.0.2) (0.7.2)
+Requirement already satisfied: six in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&lt;2.0.0,&gt;=1.9.4.post1-&gt;fiona[s3]&lt;2.0.0,&gt;=1.9.4.post1-&gt;cartiflette==0.0.2) (1.16.0)
+Requirement already satisfied: setuptools in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona&lt;2.0.0,&gt;=1.9.4.post1-&gt;fiona[s3]&lt;2.0.0,&gt;=1.9.4.post1-&gt;cartiflette==0.0.2) (65.5.0)
+Requirement already satisfied: boto3&gt;=1.3.1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from fiona[s3]&lt;2.0.0,&gt;=1.9.4.post1-&gt;cartiflette==0.0.2) (1.34.106)
+Requirement already satisfied: pandas&gt;=1.0.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from geopandas&lt;0.13.0,&gt;=0.12.2-&gt;cartiflette==0.0.2) (2.2.1)
+Requirement already satisfied: shapely&gt;=1.7 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from geopandas&lt;0.13.0,&gt;=0.12.2-&gt;cartiflette==0.0.2) (2.0.3)
+Requirement already satisfied: pyproj&gt;=2.6.1.post1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from geopandas&lt;0.13.0,&gt;=0.12.2-&gt;cartiflette==0.0.2) (3.6.1)
+Requirement already satisfied: packaging in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from geopandas&lt;0.13.0,&gt;=0.12.2-&gt;cartiflette==0.0.2) (23.2)
+Requirement already satisfied: contourpy&gt;=1.0.1 in c:\users\khurana_kunal\appdata\roaming\python\python311\site-packages (from matplotlib&lt;4.0.0,&gt;=3.7.1-&gt;cartiflette==0.0.2) (1.1.1)
+Requirement already satisfied: cycler&gt;=0.10 in c:\users\khurana_kunal\appdata\roaming\python\python311\site-packages (from matplotlib&lt;4.0.0,&gt;=3.7.1-&gt;cartiflette==0.0.2) (0.12.0)
+Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\khurana_kunal\appdata\roaming\python\python311\site-packages (from matplotlib&lt;4.0.0,&gt;=3.7.1-&gt;cartiflette==0.0.2) (4.43.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in c:\users\khurana_kunal\appdata\roaming\python\python311\site-packages (from matplotlib&lt;4.0.0,&gt;=3.7.1-&gt;cartiflette==0.0.2) (1.4.5)
+Requirement already satisfied: numpy&lt;2,&gt;=1.21 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from matplotlib&lt;4.0.0,&gt;=3.7.1-&gt;cartiflette==0.0.2) (1.25.2)
+Requirement already satisfied: pillow&gt;=6.2.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from matplotlib&lt;4.0.0,&gt;=3.7.1-&gt;cartiflette==0.0.2) (10.2.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in c:\users\khurana_kunal\appdata\roaming\python\python311\site-packages (from matplotlib&lt;4.0.0,&gt;=3.7.1-&gt;cartiflette==0.0.2) (3.1.1)
+Requirement already satisfied: python-dateutil&gt;=2.7 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from matplotlib&lt;4.0.0,&gt;=3.7.1-&gt;cartiflette==0.0.2) (2.9.0.post0)
+Requirement already satisfied: et-xmlfile in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from openpyxl&lt;4.0.0,&gt;=3.1.1-&gt;cartiflette==0.0.2) (1.1.0)
+Requirement already satisfied: lxml in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from owslib&lt;0.29.0,&gt;=0.28.1-&gt;cartiflette==0.0.2) (5.2.2)
+Requirement already satisfied: pytz in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from owslib&lt;0.29.0,&gt;=0.28.1-&gt;cartiflette==0.0.2) (2024.1)
+Requirement already satisfied: texttable in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr&lt;0.21.0,&gt;=0.20.4-&gt;cartiflette==0.0.2) (1.7.0)
+Requirement already satisfied: pycryptodomex&gt;=3.16.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr&lt;0.21.0,&gt;=0.20.4-&gt;cartiflette==0.0.2) (3.20.0)
+Requirement already satisfied: pyzstd&gt;=0.15.9 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr&lt;0.21.0,&gt;=0.20.4-&gt;cartiflette==0.0.2) (0.16.0)
+Requirement already satisfied: pyppmd&lt;1.2.0,&gt;=1.1.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr&lt;0.21.0,&gt;=0.20.4-&gt;cartiflette==0.0.2) (1.1.0)
+Requirement already satisfied: pybcj&lt;1.1.0,&gt;=1.0.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr&lt;0.21.0,&gt;=0.20.4-&gt;cartiflette==0.0.2) (1.0.2)
+Requirement already satisfied: multivolumefile&gt;=0.2.3 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr&lt;0.21.0,&gt;=0.20.4-&gt;cartiflette==0.0.2) (0.2.3)
+Requirement already satisfied: inflate64&lt;1.1.0,&gt;=1.0.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr&lt;0.21.0,&gt;=0.20.4-&gt;cartiflette==0.0.2) (1.0.0)
+Requirement already satisfied: brotli&gt;=1.1.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr&lt;0.21.0,&gt;=0.20.4-&gt;cartiflette==0.0.2) (1.1.0)
+Requirement already satisfied: psutil in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from py7zr&lt;0.21.0,&gt;=0.20.4-&gt;cartiflette==0.0.2) (5.9.8)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from requests&lt;3.0.0,&gt;=2.28.2-&gt;cartiflette==0.0.2) (3.6)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from requests&lt;3.0.0,&gt;=2.28.2-&gt;cartiflette==0.0.2) (2.2.1)
+Requirement already satisfied: cattrs&gt;=22.2 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from requests-cache&lt;2.0.0,&gt;=1.1.0-&gt;cartiflette==0.0.2) (23.2.3)
+Requirement already satisfied: platformdirs&gt;=2.5 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from requests-cache&lt;2.0.0,&gt;=1.1.0-&gt;cartiflette==0.0.2) (4.2.0)
+Requirement already satisfied: url-normalize&gt;=1.4 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from requests-cache&lt;2.0.0,&gt;=1.1.0-&gt;cartiflette==0.0.2) (1.4.3)
+Requirement already satisfied: aiobotocore&lt;3.0.0,&gt;=2.5.4 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from s3fs&lt;2024.0.0,&gt;=2023.3.0-&gt;cartiflette==0.0.2) (2.13.0)
+Requirement already satisfied: fsspec==2023.12.2 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from s3fs&lt;2024.0.0,&gt;=2023.3.0-&gt;cartiflette==0.0.2) (2023.12.2)
+Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from s3fs&lt;2024.0.0,&gt;=2023.3.0-&gt;cartiflette==0.0.2) (3.9.5)
+Requirement already satisfied: colorama in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from tqdm&lt;5.0.0,&gt;=4.65.0-&gt;cartiflette==0.0.2) (0.4.6)
+Requirement already satisfied: botocore&lt;1.34.107,&gt;=1.34.70 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs&lt;2024.0.0,&gt;=2023.3.0-&gt;cartiflette==0.0.2) (1.34.106)
+Requirement already satisfied: wrapt&lt;2.0.0,&gt;=1.10.10 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs&lt;2024.0.0,&gt;=2023.3.0-&gt;cartiflette==0.0.2) (1.16.0)
+Requirement already satisfied: aioitertools&lt;1.0.0,&gt;=0.5.1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from aiobotocore&lt;3.0.0,&gt;=2.5.4-&gt;s3fs&lt;2024.0.0,&gt;=2023.3.0-&gt;cartiflette==0.0.2) (0.11.0)
+Requirement already satisfied: aiosignal&gt;=1.1.2 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs&lt;2024.0.0,&gt;=2023.3.0-&gt;cartiflette==0.0.2) (1.3.1)
+Requirement already satisfied: frozenlist&gt;=1.1.1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs&lt;2024.0.0,&gt;=2023.3.0-&gt;cartiflette==0.0.2) (1.4.1)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs&lt;2024.0.0,&gt;=2023.3.0-&gt;cartiflette==0.0.2) (6.0.5)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;s3fs&lt;2024.0.0,&gt;=2023.3.0-&gt;cartiflette==0.0.2) (1.9.4)
+Requirement already satisfied: jmespath&lt;2.0.0,&gt;=0.7.1 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from boto3&gt;=1.3.1-&gt;fiona[s3]&lt;2.0.0,&gt;=1.9.4.post1-&gt;cartiflette==0.0.2) (1.0.1)
+Requirement already satisfied: s3transfer&lt;0.11.0,&gt;=0.10.0 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from boto3&gt;=1.3.1-&gt;fiona[s3]&lt;2.0.0,&gt;=1.9.4.post1-&gt;cartiflette==0.0.2) (0.10.1)
+Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\khurana_kunal\appdata\local\programs\python\python311\lib\site-packages (from pandas&gt;=1.0.0-&gt;geopandas&lt;0.13.0,&gt;=0.12.2-&gt;cartiflette==0.0.2) (2024.1)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>  Running command git clone --filter=blob:none --quiet https://github.com/inseefrlab/cartiflette 'C:\Users\Khurana_Kunal\AppData\Local\Temp\pip-req-build-1bt5f927'</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="de-pandas-à-geopandas" class="level1">
+<h1>2. De <code>Pandas</code> à <code>Geopandas</code></h1>
+<p>Le <em>package</em> <code>Geopandas</code> est une boîte à outils conçue pour faciliter la manipulation de données spatiales. <strong>La grande force de <code>Geopandas</code> est qu’il permet de manipuler des données spatiales comme s’il s’agissait de données traditionnelles</strong>, car il repose sur le standard ISO 19125 <a href="https://en.wikipedia.org/wiki/Simple_Features"><em>simple feature access</em></a> défini conjointement par l’<em>Open Geospatial Consortium (OGC)</em> et l’<em>International Organization for Standardization (ISO)</em>. <code>Geopandas</code> repose d’une part sur <code>Pandas</code> pour le traitement de la dimension tabulaire des données spatiales et d’autre part sur <a href="https://shapely.readthedocs.io/en/stable/manual.html"><code>Shapely</code></a> et <a href="https://gdal.org/index.html"><code>GDAL</code></a> pour les manipulations géométriques. Néanmoins, comme <code>Pandas</code> permettait de faire du <code>Numpy</code> sans le savoir, lorsqu’on travaille avec <code>Geopandas</code> on repose sur les deux couches basses que sont <code>Shapely</code> et <code>GDAL</code> sans avoir à s’embêter.</p>
+<p>Par rapport à un <em>DataFrame</em> standard, un objet <code>Geopandas</code> comporte une colonne supplémentaire: <code>geometry</code>. Elle stocke les coordonnées des objets géographiques (ou ensemble de coordonnées s’agissant de contours). Un objet <code>Geopandas</code> hérite des propriétés d’un <em>DataFrame</em> <code>Pandas</code> mais propose des méthodes adaptées au traitement des données spatiales. Par conséquent, grâce à <code>GeoPandas</code>, on a des attributs qui reposent sur le principe de données <em>tidy</em> évoquées dans le <a href="content/manipulation/02_pandas_intro.qmd">chapitre précédent</a> alors que la géométrie afférante sera gérée de manière cohérente en parallèle des attributs.</p>
+<p>Ainsi, grâce à <code>Geopandas</code>, on pourra effectuer des manipulations sur les attributs des données comme avec <code>pandas</code> mais on pourra également faire des manipulations sur la dimension spatiale des données. En particulier,</p>
+<ul>
+<li>Calculer des distances et des surfaces ;</li>
+<li>Agréger rapidement des zonages (regrouper les communes en département par exemple) ;</li>
+<li>Trouver dans quelle commune se trouve un bâtiment à partir de ses coordonnées géographiques ;</li>
+<li>Recalculer des coordonnées dans un autre système de projection ;</li>
+<li>Faire une carte, rapidement et simplement.</li>
+</ul>
+<div class="alert alert-warning" role="alert" style="color: rgba(0,0,0,.8); background-color: white; margin-top: 1em; margin-bottom: 1em; margin:1.5625emauto; padding:0 .6rem .8rem!important;overflow:hidden; page-break-inside:avoid; border-radius:.25rem; box-shadow:0 .2rem .5rem rgba(0,0,0,.05),0 0 .05rem rgba(0,0,0,.1); transition:color .25s,background-color .25s,border-color .25s ; border-right: 1px solid #dee2e6 ; border-top: 1px solid #dee2e6 ; border-bottom: 1px solid #dee2e6 ; border-left:.2rem solid #ffc10780;">
+<h3 class="alert-heading anchored">
+<i class="fa fa-lightbulb-o"></i> Hint
+</h3>
+<p>Les manipulations de données sur un objet <code>Geopandas</code> sont nettement plus lentes que sur un <code>DataFrame</code> traditionnel (car <code>Python</code> doit gérer les informations géographiques pendant la manipulation des données). Lorsque vous manipulez des données de grandes dimensions, il peut être préférable d’effectuer les opérations sur les données avant de joindre une géométrie à celles-ci.</p>
+</div>
+<p>Par rapport à un logiciel spécialisé comme <code>QGIS</code>, <code>Python</code> permettra d’automatiser le traitement et la représentation des données. D’ailleurs, <code>QGIS</code> utilise lui-même <code>Python</code>…</p>
+<section id="anatomie-dun-objet-geopandas" class="level2">
+<h2 class="anchored" data-anchor-id="anatomie-dun-objet-geopandas">2.1 Anatomie d’un objet <code>GeoPandas</code></h2>
+<p>En résumé, un objet <code>GeoPandas</code> comporte les éléments suivants :</p>
+<p><img src="https://rgeo.linogaliana.fr/slides/img/sf.png" class="img-fluid"></p>
+<ol type="1">
+<li>Les <strong>attributs</strong>. Ce sont les valeurs associées à chaque niveau géographique. Il s’agit de la dimension tabulaire usuelle, dont le traitement est similaire à celui d’un objet <code>Pandas</code> classique.</li>
+<li>Les <strong>géométries</strong>. Ce sont les valeurs numériques interprétées pour représenter la dimension géographique. Elles permettent de représenter dans un certain référentiel (le système de référence) la dimension géographique.</li>
+<li>Le <strong>système de référence</strong>. Il s’agit du système permettant de transformer les positions sur le globe (3 dimensions avec une boule asymétrique) en un plan en deux dimensions. Il en existe une multitude, identifiables à partir d’un code EPSG (4326, 2154…). Leur manipulation est facilitée par <code>Geopandas</code> qui s’appuie sur <code>Shapely</code>, de la même manière que <code>Pandas</code> s’appuie sur <code>Numpy</code> ou <code>Arrow</code>.</li>
+</ol>
+</section>
+<section id="objectifs-de-ce-chapitre" class="level2">
+<h2 class="anchored" data-anchor-id="objectifs-de-ce-chapitre">2.2 Objectifs de ce chapitre</h2>
+<p>Ce chapitre illustre à partir d’exemples pratiques certains principes centraux de l’analyse de données :</p>
+<ul>
+<li>Manipulations sur les attributs des jeux de données ;</li>
+<li>Manipulations géométriques ;</li>
+<li>Gestion des projections cartographiques ;</li>
+<li>Création rapide de cartes (ce sera approfondi dans un prochain chapitre).</li>
+</ul>
+<div class="alert alert-info" role="alert" style="color: rgba(0,0,0,.8); background-color: white; margin-top: 1em; margin-bottom: 1em; margin:1.5625emauto; padding:0 .6rem .8rem!important;overflow:hidden; page-break-inside:avoid; border-radius:.25rem; box-shadow:0 .2rem .5rem rgba(0,0,0,.05),0 0 .05rem rgba(0,0,0,.1); transition:color .25s,background-color .25s,border-color .25s ; border-right: 1px solid #dee2e6 ; border-top: 1px solid #dee2e6 ; border-bottom: 1px solid #dee2e6 ; border-left:.2rem solid #007bff80;">
+<h3 class="alert-heading anchored">
+<i class="fa fa-comment"></i> Note
+</h3>
+<p>Si vous êtes intéressés par <code>R</code> et le package <code>sf</code>, une version très proche de ce TP est disponible dans <a href="https://rgeo.linogaliana.fr/exercises/geospatial-wrangling.html">ce cours</a>.</p>
+</div>
+</section>
+</section>
+<section id="lire-et-enrichir-des-données-spatiales" class="level1">
+<h1>3. Lire et enrichir des données spatiales</h1>
+<p>Dans le chapitre précédent, nous avons évoqué les formats de données plats comme le <code>CSV</code> ou les nouveaux formats comme <code>Parquet</code>. Ceux-ci sont adaptés à des données tabulaires. Pour des données géographiques, qui stockent de l’information selon plusieurs dimensions (les attributs et la géométrie), il existe des formats spécialisés.</p>
+<section id="le-format-shapefile-.shp-et-le-geopackage-.gpkg" class="level2">
+<h2 class="anchored" data-anchor-id="le-format-shapefile-.shp-et-le-geopackage-.gpkg">3.1 Le format <em>shapefile</em> (<code>.shp</code>) et le <em>geopackage</em> (<code>.gpkg</code>)</h2>
+<p>Le format historique de stockage de données spatiales est le <em><a href="https://fr.wikipedia.org/wiki/Shapefile">shapefile</a></em>. Il s’agit d’un format propriétaire, développé par ESRI, qui est néanmoins devenu une norme <em>de facto</em>. Dans ce format, la donnée est stockée dans plusieurs fichiers:</p>
+<ul>
+<li><code>data.shp</code> : contient les géométries des entités spatiales (points, lignes, polygones…).</li>
+<li><code>data.shx</code> : un index pour accéder rapidement aux géométries stockées dans le fichier <code>.shp</code>.</li>
+<li><code>data.dbf</code> : une table attributaire au format dBase qui contient les informations descriptives des entités spatiales.</li>
+<li><code>data.prj</code> : contient les informations de projection et de système de coordonnées (nous reviendrons sur ce concept ultérieurement).</li>
+</ul>
+<p>Ce format présente plusieurs inconvénients. Tout d’abord il est assez volumineux ; certains formats modernes seront plus optimisés pour réduire la volumétrie sur disque et le temps de chargement des données. Surtout, le problème principal du <em>shapefile</em> est que pour lire les données de manière intègre, il est nécessaire de partager de manière systématique ces quatre fichiers, sous peine d’introduire un risque de corruption ou d’incomplétude de la donnée. En faisant <code>gpd.read_file("data.shp")</code>, <code>GeoPandas</code> fait lui-même le lien entre les observations et leur représentation spatiale qui sont présents dans plusieurs fichiers.</p>
+<p>Le format <code>GeoPackage</code> est un héritier spirituel du <em>shapefile</em> visant à résoudre ces deux limites. Il s’agit d’un format libre recommandé par l’<em>open geospatial consortium</em> (OGC). Les géomaticiens apprécient ce format, il s’agit d’ailleurs du format par défaut de QGIS, le logiciel spécialisé pour les SIG. Néanmoins, même si <code>GeoPandas</code> fonctionne bien avec ce format, celui-ci est moins connu par les <em>data scientists</em> que le <em>shapefile</em> ou que le <em>geojson</em> que nous allons décrire par la suite.</p>
+</section>
+<section id="le-geojson-et-le-topojson" class="level2">
+<h2 class="anchored" data-anchor-id="le-geojson-et-le-topojson">3.2 Le GeoJSON et le TopoJSON</h2>
+<p>Le développement d’un format concurrent l’hégémonie du <em>shapefile</em> est intrinsèquement lié à l’émergence des technologies <em>web</em> dans le secteur de la cartographie. Ces technologies web s’appuient sur Javascript et reposent sur les standards du format JSON.</p>
+<p>Le format <em>GeoJSON</em> stocke dans un seul fichier à la fois les attributs et les géométries. Il est donc assez pratique à l’usage et s’est imposé comme le format préféré des développeurs web. Le fait de stocker l’ensemble de l’information dans un seul fichier peut cependant le rendre assez volumineux si les géométries sont très précises, mais le volume reste moindre que celui du <em>shapefile</em>. <code>GeoPandas</code> est très bien fait pour lire des fichiers au format GeoJSON et les plateformes de partage de données, comme <code>data.gouv</code> privilégient ce format à celui du <em>shapefile</em>.</p>
+<p>Pour alléger le fichier, le format <code>TopoJSON</code> a récémment émergé. Celui-ci est construit selon les mêmes principes que le <code>GeoJSON</code> mais réduit le volume de données géométriques stockées en ne conservant pas tous les points en appliquant une simplification pour ne conserver que les arcs et les directions entre ceux-ci. Ce format étant récent, il n’est pas encore bien intégré à l’écosystème <code>Python</code>.</p>
+</section>
+<section id="les-autres-formats-de-données" class="level2">
+<h2 class="anchored" data-anchor-id="les-autres-formats-de-données">3.3 Les autres formats de données</h2>
+<p>L’écosystème des formats de données géographiques est bien plus éclaté que celui des données structurées. Chaque format présente des avantages qui le rendent intéressant pour un type de données mais des limites qui l’empêchent de devenir un standard pour d’autres types de données.</p>
+<p>Par exemple, les données GPS extraites de diverses applications (par exemple <code>Strava</code>) sont stockées au format GPX. Ce dernier est particulièrement adapté pour des traces géolocalisées avec une altitude. Mais ce n’est pas le format le plus approprié pour stocker des lignes directionnelles, un prérequis indispensable pour les applications d’itinéraires.</p>
+<p>Les formats <em>shapefile</em> et <em>geojson</em> sont suffisamment malléables pour s’adapter aux différents types de données géographiques même s’il ne s’agit pas du format optimal pour tel ou tel type de données. Dans cette classe généraliste de formats, le <code>Geoparquet</code> pourrait être le prochain format à la mode. Comme son nom l’indique, il s’agit d’une extension du format <code>Parquet</code> à des données géographiques. Ce format n’est pas encore mûr mais reste à suivre, la masse d’utilisateurs de l’écosystème <code>Parquet</code> pouvant amener à un changement rapide si une implémentation stable de <code>Geoparquet</code> émerge.</p>
+<p>Cette <a href="https://si.ecrins-parcnational.com/blog/2020-02-geojson-shapefile-geopackage.html">page</a> compare plus en détail les principes formats de données géographiques. L’aide de <a href="https://geopandas.org/io.html"><code>Geopandas</code></a> propose des bouts de code en fonction des différentes situations dans lesquelles on se trouve.</p>
+</section>
+<section id="exercice-de-découverte" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-de-découverte">3.4 Exercice de découverte</h2>
+<p>L’objectif de cet exercice est d’illustrer la similarité des objets <code>GeoPandas</code> avec les objets <code>Pandas</code> que nous avons découverts précédemment.</p>
+<p>Nous allons importer directement les données <code>AdminExpress</code> (limites officielles des communes produites par l’IGN) avec <code>cartiflette</code>:</p>
+<div class="cell" data-outputid="f1710f87-1ee8-4490-d612-271ed287e533" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> cartiflette <span class="im">import</span> carti_download</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="alert alert-success" role="alert" style="color: rgba(0,0,0,.8); background-color: white; margin-top: 1em; margin-bottom: 1em; margin:1.5625emauto; padding:0 .6rem .8rem!important;overflow:hidden; page-break-inside:avoid; border-radius:.25rem; box-shadow:0 .2rem .5rem rgba(0,0,0,.05),0 0 .05rem rgba(0,0,0,.1); transition:color .25s,background-color .25s,border-color .25s ; border-right: 1px solid #dee2e6 ; border-top: 1px solid #dee2e6 ; border-bottom: 1px solid #dee2e6 ; border-left:.2rem solid #3fb618;">
+<h3 class="alert-heading anchored">
+<i class="fa fa-pencil"></i> Exercice 1: découverte des objets géographiques
+</h3>
+<p>En premier lieu, on récupère des données géographiques grâce au <em>package</em> <code>cartiflette</code> et à sa fonction <code>carti_download</code>.</p>
+<ol type="1">
+<li>Utiliser le code ci-dessous pour télécharger les données communales (produit <code>Admin Express</code> de l’IGN) des départements de la petite couronne (75, 92, 93 et 94) de manière simplifiée grâce au <em>package</em> <code>cartiflette</code>:</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>communes_borders <span class="op">=</span> carti_download(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    crs<span class="op">=</span><span class="dv">4326</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span>[<span class="st">"75"</span>, <span class="st">"92"</span>, <span class="st">"93"</span>, <span class="st">"94"</span>],</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    borders<span class="op">=</span><span class="st">"COMMUNE"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    vectorfile_format<span class="op">=</span><span class="st">"geojson"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    filter_by<span class="op">=</span><span class="st">"DEPARTEMENT"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    source<span class="op">=</span><span class="st">"EXPRESS-COG-CARTO-TERRITOIRE"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    year<span class="op">=</span><span class="dv">2022</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li><p>Regarder les premières lignes des données. Identifier la différence avec un <em>dataframe</em> standard.</p></li>
+<li><p>Afficher le système de projection (attribut <code>crs</code>) de <code>communes_borders</code>. Ce dernier contrôle la transformation de l’espace tridimensionnel terrestre en une surface plane. Utiliser <code>to_crs</code> pour transformer les données en Lambert 93, le système officiel (code EPSG 2154).</p></li>
+<li><p>Afficher les communes des Hauts de Seine (département 92) et utiliser la méthode <code>plot</code></p></li>
+<li><p>Ne conserver que Paris et réprésenter les frontières sur une carte : quel est le problème pour une analyse de Paris intramuros?</p></li>
+</ol>
+<p>On remarque rapidement le problème. On ne dispose ainsi pas des limites des arrondissements parisiens, ce qui appauvrit grandement la carte de Paris.</p>
+<ol type="1">
+<li>Cette fois, utiliser l’argument <code>borders="COMMUNE_ARRONDISSEMENT"</code> pour obtenir un fonds de carte consolidé des communes avec les arrondissements dans les grandes villes. Convertir en Lambert 93.</li>
+</ol>
+</div>
+<p>La visualisation proposée à la question permet de voir que notre <em>DataFrame</em> comporte la colonne <em>geometry</em> qui contient les informations nécessaires pour connaître les contours communaux</p>
+<p>A la question 5, on remarque facilement le problème pour Paris: il manque les limites des arrondissements. Cela appauvrit grandement la carte de Paris.</p>
+<p>A l’issue de la question 6, on obtient la carte attendue pour Paris intramuros:</p>
+</section>
+</section>
+<section id="le-système-de-projection-cartographique" class="level1">
+<h1>4. Le système de projection cartographique</h1>
+<section id="principe" class="level2">
+<h2 class="anchored" data-anchor-id="principe">4.1 Principe</h2>
+<p>Les données spatiales sont plus riches que les données traditionnelles car elles incluent, habituellement, des éléments supplémentaires pour placer dans un espace cartésien les objets. Cette dimension supplémentaire peut être simple (un point comporte deux informations supplémentaire: <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span>) ou assez complexe (polygones, lignes avec direction, etc.).</p>
+<p>L’analyse cartographique emprunte dès lors à la géométrie des concepts pour représenter des objets dans l’espace. Les <strong>projections</strong> sont au coeur de la gestion des données spatiales. Ces dernières consistent à transformer une position dans l’espace terrestre à une position sur un plan. Il s’agit donc d’une opération de projection d’un espace tri-dimensionnel dans un espace à deux dimensions. Ce <a href="https://www.earthdatascience.org/courses/earth-analytics/spatial-data-r/geographic-vs-projected-coordinate-reference-systems-UTM/">post</a> propose de riches éléments sur le sujet, notamment l’image suivante qui montre bien le principe d’une projection :</p>
+<figure class="figure">
+<img src="https://www.earthdatascience.org/images/courses/earth-analytics/spatial-data/spatial-projection-transformations-crs.png" alt="Les différents types de projection" class="figure-img">
+<figcaption aria-hidden="true" class="figure-caption">
+Les différents types de projection
+</figcaption>
+</figure>
+<p>Cette opération n’est pas neutre. L’une des conséquences du <a href="https://fr.wikipedia.org/wiki/Theorema_egregium">théorème remarquable de Gauss</a> est que la surface de la Terre ne peut être cartographiée sans distortion. Une projection ne peut simultanément conserver intactes les distances et les angles (i.e.&nbsp;les positions). Il n’existe ainsi pas de projection universellement meilleure, ce qui ouvre la porte à la coexistence de nombreuses projections différentes, pensées pour des tâches différentes. Un mauvais système de représentation fausse l’appréciation visuelle mais peut aussi entraîner des erreurs dans les calculs sur la dimension spatiale.</p>
+<p><strong>Les systèmes de projection font l’objet de standards internationaux et sont souvent désignés par des codes dits codes EPSG</strong>. Ce <a href="https://epsg.io/">site</a> est un bon aide-mémoire. Les plus fréquents, pour les utilisateurs français, sont les suivants (plus d’infos <a href="https://geodesie.ign.fr/contenu/fichiers/documentation/SRCfrance.pdf">ici</a>) :</p>
+<ul>
+<li><code>2154</code> : système de projection Lambert 93. Il s’agit du système de projection officiel. La plupart des données diffusées par l’administration pour la métropole sont disponibles dans ce système de projection.</li>
+<li><code>27572</code> : Lambert II étendu. Il s’agit de l’ancien système de projection officiel. Les données spatiales anciennes peuvent être dans ce format.</li>
+<li><code>4326</code> : WGS 84 ou système de pseudo-Mercator ou encore <em>Web Mercator</em>. Ce n’est en réalité pas un système de projection mais un système de coordonnées (longitude / latitude) qui permet simplement un repérage angulaire sur l’ellipsoïde. Il est utilisé pour les données GPS. Il s’agit du système le plus usuel, notamment quand on travaille avec des fonds de carte <em>web</em>.</li>
+</ul>
+</section>
+<section id="le-système-mercator" class="level2">
+<h2 class="anchored" data-anchor-id="le-système-mercator">4.2 Le système Mercator</h2>
+<p>Comme évoqué plus haut, l’une des projections les plus connues est la projection <em>Web Mercator</em> dite WGS84 (code EPSG 4326). Il s’agit d’une projection conservant intacte les angles, ce qui implique qu’elle altère les distances. Celle-ci a en effet été pensée, à l’origine, pour représenter l’hémisphère Nord. Plus on s’éloigne de celui-ci, plus les distances sont distordues. Cela amène à des distorsions bien connues (le Groenland hypertrophié, l’Afrique de taille réduite, l’Antarctique démesuré…). En revanche, la projection Mercator conserve intacte les positions. C’est cette propriété qui explique son utilisation dans les systèmes GPS et ainsi dans les fonds de carte de navigation du type <em>Google Maps</em>. Il s’agit d’une projection pensée d’abord pour la navigation, non pour la représentation d’informations socioéconomiques sur la terre. Cette projection est indissociable des grandes explorations de la Renaissance, comme le rappelle <a href="https://x.com/JulesGrandin/status/1765668642094514447">ce fil</a> sur Twitter de Jules Grandin.</p>
+<figure class="figure">
+<img src="https://minio.lab.sspcloud.fr/lgaliana/generative-art/pythonds/truesize.png" alt="Exemple de reprojection de pays depuis le site thetruesize.com" class="figure-img">
+<figcaption aria-hidden="true" class="figure-caption">
+<em>Exemple de reprojection de pays depuis le site <a href="https://thetruesize.com/">thetruesize.com</a></em>
+</figcaption>
+</figure>
+<figure id="fig-mercator-funny" class="figure">
+<img src="https://rgeo.linogaliana.fr/exercises/img/mercator.jpg" class="figure-img">
+<figcaption class="figure-caption">
+Figure&nbsp;4.1: “Don’t trust the Mercator projection” sur <code>Reddit</code>
+</figcaption>
+</figure>
+<p>Pour aller plus loin, la carte interactive suivante, construite par Nicolas Lambert, issue de ce <a href="https://observablehq.com/@neocartocnrs/impact-of-projections-on-areas"><em>notebook</em> <code>Observable</code></a>, illustre l’effet déformant de la projection Mercator, et de quelques-unes autres, sur notre perception de la taille des pays.</p>
+<p>Il existe en fait de nombreuses représentations possibles du monde, plus ou moins alambiquées. Les projections sont très nombreuses et certaines peuvent avoir une <a href="https://imgs.xkcd.com/comics/map_projections.png">forme suprenante</a>. Par exemple, la <a href="https://storymaps.arcgis.com/stories/756bcae18d304a1eac140f19f4d5cb3d">projection de Spillhaus</a> propose de centrer la vue sur les océans et non une terre. C’est pour cette raison qu’on parle parfois de monde tel que vu par les poissons à son propos.</p>
+<div class="alert alert-info" role="alert" style="color: rgba(0,0,0,.8); background-color: white; margin-top: 1em; margin-bottom: 1em; margin:1.5625emauto; padding:0 .6rem .8rem!important;overflow:hidden; page-break-inside:avoid; border-radius:.25rem; box-shadow:0 .2rem .5rem rgba(0,0,0,.05),0 0 .05rem rgba(0,0,0,.1); transition:color .25s,background-color .25s,border-color .25s ; border-right: 1px solid #dee2e6 ; border-top: 1px solid #dee2e6 ; border-bottom: 1px solid #dee2e6 ; border-left:.2rem solid #007bff80;">
+<h3 class="alert-heading anchored">
+<i class="fa fa-comment"></i> Astuce pour la France
+</h3>
+<p>Pour la France, dans le système WGS84 (4326) :</p>
+<ul>
+<li>Longitude (<span class="math inline">\(x\)</span>) tourne autour de 0° (de -5.2 à +9.6 pour être plus précis)</li>
+<li>La latitude (<span class="math inline">\(y\)</span>) autour de 45 (entre +41.3 à +51.1)</li>
+</ul>
+<p>Dans le système Lambert 93 (2154) :</p>
+<ul>
+<li>Coordonnées <span class="math inline">\(x\)</span>: entre 100 000 et 1 300 000</li>
+<li>La latitude (<span class="math inline">\(y\)</span>): entre 6 000 000 et 7 200 000</li>
+</ul>
+<p><a href="https://medium.com/@_FrancoisM/introduction-%C3%A0-la-manipulation-de-donn%C3%A9es-cartographiques-23b4e38d8f0f">Plus de détails</a></p>
+</div>
+</section>
+<section id="gestion-avec-geopandas" class="level2">
+<h2 class="anchored" data-anchor-id="gestion-avec-geopandas">4.3 Gestion avec <code>GeoPandas</code></h2>
+<p>Concernant la gestion des projections avec <code>GeoPandas</code>, la <a href="https://geopandas.org/projections.html">documentation officielle</a> est très bien faite. Elle fournit notamment l’avertissement suivant qu’il est bon d’avoir en tête :</p>
+<blockquote class="blockquote">
+<p>Be aware that most of the time you don’t have to set a projection. Data loaded from a reputable source (using the geopandas.read_file() command) should always include projection information. You can see an objects current CRS through the GeoSeries.crs attribute.</p>
+<p>From time to time, however, you may get data that does not include a projection. In this situation, you have to set the CRS so geopandas knows how to interpret the coordinates.</p>
+</blockquote>
+<figure class="figure">
+<img src="https://imgs.xkcd.com/comics/bad_map_projection_south_america.png" alt="Image empruntée à XKCD https://xkcd.com/2256/ qu’on peut également trouver sur https://blog.chrislansdown.com/2020/01/17/a-great-map-projection-joke/" class="figure-img">
+<figcaption aria-hidden="true" class="figure-caption">
+<em>Image empruntée à XKCD <a href="https://xkcd.com/2256/" class="uri">https://xkcd.com/2256/</a> qu’on peut également trouver sur <a href="https://blog.chrislansdown.com/2020/01/17/a-great-map-projection-joke/" class="uri">https://blog.chrislansdown.com/2020/01/17/a-great-map-projection-joke/</a></em>
+</figcaption>
+</figure>
+<p>Les deux principales méthodes pour définir le système de projection utilisé sont :</p>
+<ul>
+<li><strong><code>df.set_crs</code></strong> : cette commande sert à préciser quel est le système de projection utilisé, c’est-à-dire comment les coordonnées <em>(x,y)</em> sont reliées à la surface terrestre. <strong>Cette commande ne doit pas être utilisée pour transformer le système de coordonnées, seulement pour le définir</strong>.</li>
+<li><strong><code>df.to_crs</code></strong> : <strong>cette commande sert à projeter les points d’une géométrie dans une autre, c’est-à-dire à recalculer les coordonnées selon un autre système de projection.</strong></li>
+</ul>
+<p>Dans le cas particulier de production de carte avec un fond <code>OpenStreetMaps</code> ou une carte dynamique <code>leaflet</code>, il est nécessaire de dé-projeter les données (par exemple à partir du Lambert-93) pour atterrir dans le système non-projeté WGS 84 (code EPSG 4326). Ce site <a href="https://epsg.io/">dédié aux projections géographiques</a> peut être utile pour retrouver le système de projection d’un fichier où il n’est pas indiqué.</p>
+<p>Le prochain exercice permettra, avec quelques cas pathologiques, de se convaincre de l’importance de déléguer le plus possible la gestion du système de projection à <code>GeoPandas</code>. La question n’est pas que sur la pertinence de la représentation des objets géographiques sur la carte. En effet, l’ensemble des opérations géométriques (calculs d’aires, de distance, etc.) peut être affecté par les choix faits sur le système de projection.</p>
+</section>
+<section id="exercice-pour-comprendre-limportance-du-système-de-projection" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-pour-comprendre-limportance-du-système-de-projection">4.4 Exercice pour comprendre l’importance du système de projection</h2>
+<p>Voici un code utilisant encore <code>cartiflette</code> pour récupérer les frontières françaises (découpées par région):</p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>france <span class="op">=</span> carti_download(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span>[<span class="st">"France"</span>],</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    crs<span class="op">=</span><span class="dv">4326</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    borders<span class="op">=</span><span class="st">"REGION"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    vectorfile_format<span class="op">=</span><span class="st">"geojson"</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    simplification<span class="op">=</span><span class="dv">50</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    filter_by<span class="op">=</span><span class="st">"FRANCE_ENTIERE"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    source<span class="op">=</span><span class="st">"EXPRESS-COG-CARTO-TERRITOIRE"</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    year<span class="op">=</span><span class="dv">2022</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>france <span class="op">=</span> france.loc[france[<span class="st">"INSEE_REG"</span>] <span class="op">&gt;</span> <span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="alert alert-success" role="alert" style="color: rgba(0,0,0,.8); background-color: white; margin-top: 1em; margin-bottom: 1em; margin:1.5625emauto; padding:0 .6rem .8rem!important;overflow:hidden; page-break-inside:avoid; border-radius:.25rem; box-shadow:0 .2rem .5rem rgba(0,0,0,.05),0 0 .05rem rgba(0,0,0,.1); transition:color .25s,background-color .25s,border-color .25s ; border-right: 1px solid #dee2e6 ; border-top: 1px solid #dee2e6 ; border-bottom: 1px solid #dee2e6 ; border-left:.2rem solid #3fb618;">
+<h3 class="alert-heading anchored">
+<i class="fa fa-pencil"></i> Exercice 2 : Les projections, représentations et approximations
+</h3>
+<ol type="1">
+<li>S’amuser à représenter les limites de la France avec plusieurs projections:</li>
+</ol>
+<ul>
+<li>Mercator WGS84 (EPSG: 4326)</li>
+<li>Projection healpix (<code>+proj=healpix +lon_0=0 +a=1</code>)</li>
+<li>Projection prévue pour Tahiti (EPSG: 3304)</li>
+<li>Projection Albers prévue pour Etats-Unis (EPSG: 5070)</li>
+</ul>
+<ol type="1">
+<li>Calculer la superficie en <span class="math inline">\(km^2\)</span> des régions françaises dans les deux systèmes de projection suivants : World Mercator WGS84 (EPSG: 3395) et Lambert 93 (EPSG: 2154). Calculer la différence en <span class="math inline">\(km^2\)</span> pour chaque région.</li>
+</ol>
+</div>
+<p>Avec la question 1 illustrant quelques cas pathologiques, on comprend que les projections ont un effet déformant qui se voit bien lorsqu’on les représente côte à côte sous forme de cartes :</p>
+
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">
+<div class="cell-output cell-output-display" width="50.0%" data-layout-align="left">
+<figure id="fig-effet-mercator-1" class="figure">
+<img src="attachment:03_geopandas_intro_files/figure-ipynb/fig-effet-mercator-output-1.png" class="figure-img">
+<figcaption class="figure-caption">
+<ol type="a">
+<li>Mercator WGS84 (EPSG: 4326)
+</li></ol></figcaption>
+</figure>
+</div>
+</td>
+<td style="text-align: left;">
+<div class="cell-output cell-output-display" width="50.0%" data-layout-align="left">
+<figure id="fig-effet-mercator-2" class="figure">
+<img src="attachment:03_geopandas_intro_files/figure-ipynb/fig-effet-mercator-output-2.png" class="figure-img">
+<figcaption class="figure-caption">
+<ol start="2" type="a">
+<li>Projection healpix (+proj=healpix +lon_0=0 +a=1)
+</li></ol></figcaption>
+</figure>
+</div>
+</td>
+</tr>
+</tbody>
+
+</table>
+
+
+
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">
+<div class="cell-output cell-output-display" width="50.0%" data-layout-align="left">
+<figure id="fig-effet-mercator-3" class="figure">
+<img src="attachment:03_geopandas_intro_files/figure-ipynb/fig-effet-mercator-output-3.png" class="figure-img">
+<figcaption class="figure-caption">
+<ol start="3" type="a">
+<li>Projection prévue pour Tahiti (EPSG: 3304)
+</li></ol></figcaption>
+</figure>
+</div>
+</td>
+<td style="text-align: left;">
+<div class="cell-output cell-output-display" width="50.0%" data-layout-align="left">
+<figure id="fig-effet-mercator-4" class="figure">
+<img src="attachment:03_geopandas_intro_files/figure-ipynb/fig-effet-mercator-output-4.png" class="figure-img">
+<figcaption class="figure-caption">
+<ol start="4" type="a">
+<li>Projection Albers prévue pour Etats-Unis (EPSG: 5070)
+</li></ol></figcaption>
+</figure>
+</div>
+</td>
+</tr>
+</tbody>
+
+</table>
+
+
+<p>Figure&nbsp;4.2: Comparaison des projections</p>
+<p>Cependant le problème n’est pas que visuel, il est également numérique. Les calculs géométriques amènent à des différences assez notables selon le système de référence utilisé.</p>
+<p>On peut représenter ces approximations sur une carte[1] pour se faire une idée des régions où l’erreur de mesure est la plus importante (objet de la question 2).</p>
+<p>[1] Cette carte n’est pas trop soignée, c’est normal nous verrons comment faire de belles cartes ultérieurement.</p>
+<p>Ce type d’erreur de mesure est normal à l’échelle du territoire français. Les projections héritères du Mercator déforment les distances, surtout lorqu’on se rapproche de l’équateur ou des pôles.</p>
+<p>Il faut donc systématiquement repasser les données dans le système de projection Lambert 93 (le système officiel pour la métropole) avant d’effectuer des calculs géométriques.</p>
+</section>
+</section>
+<section id="importer-et-explorer-les-jeux-de-données-spatiaux" class="level1">
+<h1>5. Importer et explorer les jeux de données spatiaux</h1>
+<p>Souvent, le découpage communal ne sert qu’en fond de cartes, pour donner des repères. En général, il sert donc à contextualiser un autre jeu de données.</p>
+<p>Pour illustrer cette approche, on va partir des données de localisation et de capacités des stations velib, disponibles <a href="https://opendata.paris.fr/explore/dataset/velib-emplacement-des-stations/table/">sur le site d’open data de la ville de Paris</a> et requêtables directement par l’url <a href="https://opendata.paris.fr/explore/dataset/velib-emplacement-des-stations/download/?format=geojson&amp;timezone=Europe/Berlin&amp;lang=fr" class="uri">https://opendata.paris.fr/explore/dataset/velib-emplacement-des-stations/download/?format=geojson&amp;timezone=Europe/Berlin&amp;lang=fr</a>. Ce jeu de données nous permettra d’illustrer quelques enjeux classiques de l’analyse de données spatiales</p>
+<div class="cell" data-outputid="8a61ece7-3ebd-400e-a525-5936c986cf9d" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>velib_data <span class="op">=</span> <span class="st">"https://opendata.paris.fr/explore/dataset/velib-emplacement-des-stations/download/?format=geojson&amp;timezone=Europe/Berlin&amp;lang=fr"</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>stations <span class="op">=</span> gpd.read_file(velib_data)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>stations.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">capacity</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">stationcode</th>
+<th data-quarto-table-cell-role="th">geometry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>22</td>
+<td>Basilique</td>
+<td>32017</td>
+<td>POINT (2.35887 48.93627)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>30</td>
+<td>De Toqueville - Terrasse</td>
+<td>17048</td>
+<td>POINT (2.31400 48.88243)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="localiser-les-données-sur-une-carte" class="level2">
+<h2 class="anchored" data-anchor-id="localiser-les-données-sur-une-carte">5.1 Localiser les données sur une carte</h2>
+<p>La première étape, avant l’exploration approfondie des données, consiste à afficher celles-ci sur une carte contextuelle, afin de s’assurer de l’emprise géographique des données. Dans notre cas, cela nous donnera une intuition sur la localisation des stations et notamment la densité hétérogène de celles-ci dans l’espace urbain parisien.</p>
+</section>
+<section id="exercice-dapplication" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-dapplication">5.2 Exercice d’application</h2>
+<p>Dans le prochain exercice, nous proposons de créer rapidement une carte comprenant trois couches :</p>
+<ul>
+<li>Les localisations de stations sous forme de points ;</li>
+<li>Les bordures des communes et arrondissements pour contextualiser ;</li>
+<li>Les bordures des départements en traits plus larges pour contextualiser également.</li>
+</ul>
+<p>Nous irons plus loin dans le travail cartographique dans le prochain chapitre. Mais être en mesure de positionner rapidement ses données sur une carte est toujours utile dans un travail exploratoire.</p>
+<p>En amont de l’exercice, utiliser la fonction suivante du <em>package</em> <code>cartiflette</code> pour récupérer le fonds de carte des départements de la petite couronne:</p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>idf <span class="op">=</span> carti_download(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span>[<span class="st">"11"</span>],</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    crs<span class="op">=</span><span class="dv">4326</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    borders<span class="op">=</span><span class="st">"DEPARTEMENT"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    vectorfile_format<span class="op">=</span><span class="st">"geojson"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    filter_by<span class="op">=</span><span class="st">"REGION"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    source<span class="op">=</span><span class="st">"EXPRESS-COG-CARTO-TERRITOIRE"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    year<span class="op">=</span><span class="dv">2022</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>petite_couronne_departements <span class="op">=</span> idf.loc[</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    idf[<span class="st">"INSEE_DEP"</span>].isin([<span class="st">"75"</span>, <span class="st">"92"</span>, <span class="st">"93"</span>, <span class="st">"94"</span>])</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>].to_crs(<span class="dv">2154</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="alert alert-success" role="alert" style="color: rgba(0,0,0,.8); background-color: white; margin-top: 1em; margin-bottom: 1em; margin:1.5625emauto; padding:0 .6rem .8rem!important;overflow:hidden; page-break-inside:avoid; border-radius:.25rem; box-shadow:0 .2rem .5rem rgba(0,0,0,.05),0 0 .05rem rgba(0,0,0,.1); transition:color .25s,background-color .25s,border-color .25s ; border-right: 1px solid #dee2e6 ; border-top: 1px solid #dee2e6 ; border-bottom: 1px solid #dee2e6 ; border-left:.2rem solid #3fb618;">
+<h3 class="alert-heading anchored">
+<i class="fa fa-pencil"></i> Exercice 3: importer et explorer les données velib
+</h3>
+<p>On commence par récupérer les données nécessaires à la production de cette carte.</p>
+<ol type="1">
+<li>Vérifier la projection géographique de <code>station</code> (attribut <code>crs</code>). Si celle-ci est différente des données communales, reprojeter ces dernières dans le même système de projection que les stations de vélib</li>
+<li>Ne conserver que les 50 principales stations (variable <code>capacity</code>)</li>
+</ol>
+<p>On peut maintenant construire la carte de manière séquentielle avec la méthode <code>plot</code> en s’aidant de <a href="https://geopandas.org/en/stable/docs/user_guide/mapping.html#maps-with-layers">cette documentation</a></p>
+<ol type="1">
+<li><p>En premier lieu, grâce à <code>boundary.plot</code>, représenter la couche de base des limites des communes et arrondissements:</p>
+<ul>
+<li>Utiliser les options <code>edgecolor = "black"</code> et <code>linewidth = 0.5</code></li>
+<li>Nommer cet objet <code>base</code></li>
+</ul></li>
+<li><p>Ajouter la couche des départements avec les options <code>edgecolor = "blue"</code> et <code>linewidth = 0.7</code></p></li>
+<li><p>Ajouter les positions des stations et ajuster la taille en fonction de la variable <code>capacity</code>. L’esthétique des points obtenus peut être contrôlé grâce aux options <code>color = "red"</code> et <code>alpha = 0.4</code>.</p></li>
+<li><p>Retirer les axes et ajouter un titre avec les options ci-dessous:</p></li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>base.set_axis_off()</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>base.set_title(<span class="st">"Les 50 principales stations de Vélib"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>En suivant le modèle suivant, grâce au <em>package</em> <code>contextily</code>, ajouter un fond de carte contextuel <em>openstreetmap</em></li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> contextily <span class="im">as</span> ctx</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> ...</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>ctx.add_basemap(ax, source<span class="op">=</span>ctx.providers.OpenStreetMap.Mapnik)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>⚠️ <code>contextily</code> attend des données dans le système de représentation <em>Pseudo Mercator</em> (<a href="https://epsg.io/3857">EPSG: 3857</a>), il sera donc nécessaire de reprojeter vos données avant de réaliser la carte.</p>
+</div>
+<p>La couche de base obtenue à l’issue de la question 3.</p>
+<p>Puis en y ajoutant les limites départementales (question 4).</p>
+<p>Puis les stations (question 5).</p>
+<p>Ensuite, si on retire les axes (question 6), on obtient:</p>
+<p>La carte est déjà parlante en soi. Néanmoins, pour des personnes moins familières de la géographie parisienne, elle pourrait être encore plus limpide avec l’ajout d’un fond de carte contextuel <em>openstreetmap</em>. <em>In fine</em>, cela donne la carte suivante:</p>
+</section>
+<section id="opérations-sur-les-géométries" class="level2">
+<h2 class="anchored" data-anchor-id="opérations-sur-les-géométries">5.3 Opérations sur les géométries</h2>
+<p>Outre la représentation graphique simplifiée, l’intérêt principal d’utiliser <code>GeoPandas</code> est l’existence de méthodes efficaces pour manipuler la dimension spatiale. Un certain nombre proviennent du package <a href="https://shapely.readthedocs.io/en/latest/manual.html#general-attributes-and-methods"><code>Shapely</code></a>.</p>
+<p>Nous avons déjà vu la méthode <code>to_crs</code> pour reprojeter les données de manière vectorisée sans avoir à s’inquiéter. Nous avons également évoqué la méthode <code>area</code> pour calculer des surfaces. Il en existe de nombreuses et l’objectif de ce chapitre n’est pas d’être exhaustif sur le sujet mais plutôt de servir d’introduction générale pour amener à approfondir ultérieurement. Parmi les méthodes les plus utiles, on peut citer <code>centroid</code> qui, comme son nom l’indique, recherche le centroïde de chaque polygone et transforme ainsi des données surfaciques en données ponctuelles. Par exemple, pour représenter approximativement les centres des villages de la Haute-Garonne (31), après avoir téléchargé le fonds de carte adapté, on fera</p>
+<p>Par conséquent, avec <code>Geopandas</code>, l’ensemble de la grammaire <code>Pandas</code> peut être mobilisée pour traiter la dimension attributaire des données alors que la dimension géographique pourra être manipulée avec des méthodes adaptées.</p>
+</section>
+</section>
+<section id="enrichissements-grâce-à-la-dimension-spatiale-les-jointures-spatiales" class="level1">
+<h1>6. Enrichissements grâce à la dimension spatiale: les jointures spatiales</h1>
+<section id="principe-1" class="level2">
+<h2 class="anchored" data-anchor-id="principe-1">6.1 Principe</h2>
+<p>La carte précédente illustre déjà la puissance de la représentation cartographique. En quelques lignes de code, avec très peu d’opérations sur nos données, on comprend déjà mieux le phénomène qu’on désire observer. En l’occurrence, on détecte très clairement une structure centre-périphérie dans nos données, ce qui n’est pas surprenant mais qu’il est rassurant de retrouver au premier abord.</p>
+<p>On remarque également que les stations les plus utilisées, à l’extérieur de l’hypercentre parisien, sont généralement situées sur les grands axes ou à proximité des parcs. Là encore, rien de surprenant mais il est rassurant de retrouver ceci dans nos données.</p>
+<p>On peut maintenant explorer de manière plus approfondie la structure de notre jeu de données. Cependant si on observe celui-ci, on remarque qu’on a peu d’informations dans le jeu de données brutes</p>
+<div class="cell" data-outputid="f89b074c-ffcb-4e52-cc30-d826a054bcae">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>stations.head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Dans le chapitre précédent, nous avons présenté la manière dont l’association de jeux de données par une dimension commune permet d’accroître la valeur de celles-ci. En l’occurrence, il s’agissait d’appariements de données sur la base d’informations communes dans les deux jeux de données.</p>
+<p>Nous avons maintenant une information supplémentaire implicite dans nos deux de données: la dimension géographique. On parle de jointure spatiale pour désigner l’association de jeux de données sur la dimension géographique. Il existe de nombreux types différents de jointures spatiales: trouver des points dans un polygone, trouver l’intersection entre plusieurs aires, relier un point à son plus proche voisin dans une autre source, etc.</p>
+</section>
+<section id="exemple-localiser-les-stations-dans-leur-arrondissement" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-localiser-les-stations-dans-leur-arrondissement">6.2 Exemple: localiser les stations dans leur arrondissement</h2>
+<p>Dans cet exercice, on va supposer que :</p>
+<ul>
+<li>les localisations des stations <code>velib</code> sont stockées dans un <em>dataframe</em> nommé <code>stations</code></li>
+<li>les données administratives sont dans un <em>dataframe</em> nommé <code>petite_couronne</code>.</li>
+</ul>
+<div class="alert alert-success" role="alert" style="color: rgba(0,0,0,.8); background-color: white; margin-top: 1em; margin-bottom: 1em; margin:1.5625emauto; padding:0 .6rem .8rem!important;overflow:hidden; page-break-inside:avoid; border-radius:.25rem; box-shadow:0 .2rem .5rem rgba(0,0,0,.05),0 0 .05rem rgba(0,0,0,.1); transition:color .25s,background-color .25s,border-color .25s ; border-right: 1px solid #dee2e6 ; border-top: 1px solid #dee2e6 ; border-bottom: 1px solid #dee2e6 ; border-left:.2rem solid #3fb618;">
+<h3 class="alert-heading anchored">
+<i class="fa fa-pencil"></i> Exercice 4: Associer les stations aux communes et arrondissements auxquels elles appartiennent
+</h3>
+<ol type="1">
+<li>Faire une jointure spatiale pour enrichir les données de stations en y ajoutant des informations de <code>petite_couronne</code>. Appeler cet objet <code>stations_info</code>.</li>
+<li>Compter le nombre de stations et la taille médiane des stations par arrondissements</li>
+<li>Créer les objets <code>stations_19e</code> et <code>arrondissement_19e</code> pour stocker, respectivement, les stations appartenant au 19e et les limites de l’arrondissement.</li>
+<li>Compter le nombre de stations velib et le nombre de places velib par arrondissement ou commune. Représenter sur une carte chacune des informations</li>
+<li>Représenter la carte des stations du 19e arrondissement avec le code suivant :</li>
+</ol>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> petite_couronne.loc[petite_couronne[<span class="st">"INSEE_DEP"</span>] <span class="op">==</span> <span class="st">"75"</span>].boundary.plot(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    edgecolor<span class="op">=</span><span class="st">"k"</span>, linewidth<span class="op">=</span><span class="fl">0.5</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>arrondissement_19e.boundary.plot(ax<span class="op">=</span>base, edgecolor<span class="op">=</span><span class="st">"red"</span>, linewidth<span class="op">=</span><span class="fl">0.9</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>stations_19.plot(ax<span class="op">=</span>base, color<span class="op">=</span><span class="st">"red"</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>base.set_axis_off()</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>base.set_title(<span class="st">"Les stations Vélib du 19e arrondissement"</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>base</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>En reprenant les exemples précédents, ne représenter que le 19e et ajouter un fond de carte <em>openstreetmap</em> pour mieux localiser les stations.</p>
+<ol type="1">
+<li>Représenter les mêmes informations mais en densité (diviser par la surface de l’arrondissement ou commune en km2)</li>
+</ol>
+</div>
+<p>A l’issue de la jointure spatiale, le jeu de données présente la structure suivante</p>
+<p>On peut donc calculer des statistiques par arrondissement, comme on le ferait avec un <code>DataFrame Pandas</code> (question 2):</p>
+<p>Néanmoins des cartes seront sans doute plus parlante. Pour commencer, avec la question 3, on peut représenter les stations du 19e arrondissement, d’abord dans l’ensemble de Paris.</p>
+<p>On peut ensuite zoomer sur cet arrondissement et faire une carte avec un fond plus travaillé:</p>
+<p>Carte obtenue à la question 5 :</p>
+<p>Avec cette carte, basée sur des aplats de couleurs (<em>choropleth map</em>), le lecteur est victime d’une illusion classique. Les arrondissements les plus visibles sur la carte sont les plus grands. D’ailleurs c’est assez logique qu’ils soient également mieux pourvus en velib. Même si l’offre de velib est probablement plus reliée à la densité de population et d’équipements, on peut penser que l’effet taille joue et que celui-ci est certainement le phénomène le plus visible sur notre carte alors qu’il ne s’agit peut-être pas du facteur de premier ordre en réalité.</p>
+<p>Si on représente plutôt la capacité sous forme de densité, pour tenir compte de la taille différente des arrondissements, les conclusions sont inversées et correspondent mieux aux attentes d’un modèle centre-périphérie. Les arrondissements centraux sont mieux pourvus. Si nous faisions une carte avec des ronds proportionnels plutôt qu’une carte chorolèpthe, cela serait encore plus visible ; néanmoins la cartographie n’est pas l’objet de ce chapitre.</p>
+</section>
+<section id="exercice-supplémentaire" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-supplémentaire">6.3 Exercice supplémentaire</h2>
+<p>Les exercices précédents ont permis de se familiariser au traitement de données spatiales. Néanmoins il arrive fréquemment de devoir jongler de manière plus ardue avec la dimension géométrique. Il peut s’agir, par exemple, de changer d’échelle territoriale dans les données ou d’introduire des fusions/dissolutions de géométries.</p>
+<p>Nous allons illustrer cela avec un exercice supplémentaire illustrant, en pratique, comment travailler des données dans les modèles d’économie urbaine où on fait l’hypothèse de déplacements au plus proche point (<a href="https://fr.wikipedia.org/wiki/Loi_de_Hotelling">modèle d’Hotelling</a>).</p>
+<p>Imaginons que chaque utilisateur de velib se déplace exclusivement vers la station la plus proche (à supposer qu’il n’y a jamais pénurie ou surcapacité). Quelle est la carte de la couverture des vélibs ? Pour répondre à ce type de question, on utilise fréquemment la la <a href="https://fr.wikipedia.org/wiki/Diagramme_de_Vorono%C3%AF">tesselation de Voronoï</a>, une opération classique pour transformer des points en polygones.</p>
+<p>L’exercice suivant permet de se familiariser avec la construction de <em>voronoi</em> [1].</p>
+<p>[1] Dans <a href="https://www.insee.fr/en/statistiques/4925202">ce document de travail</a> sur données de téléphonie mobile, on montre néanmoins que cette approche n’est pas sans biais sur des phénomènes où l’hypothèse de proximité spatiale est trop simplificatrice.</p>
+<div class="alert alert-success" role="alert" style="color: rgba(0,0,0,.8); background-color: white; margin-top: 1em; margin-bottom: 1em; margin:1.5625emauto; padding:0 .6rem .8rem!important;overflow:hidden; page-break-inside:avoid; border-radius:.25rem; box-shadow:0 .2rem .5rem rgba(0,0,0,.05),0 0 .05rem rgba(0,0,0,.1); transition:color .25s,background-color .25s,border-color .25s ; border-right: 1px solid #dee2e6 ; border-top: 1px solid #dee2e6 ; border-bottom: 1px solid #dee2e6 ; border-left:.2rem solid #3fb618;">
+<h3 class="alert-heading anchored">
+<i class="fa fa-pencil"></i> Exercice optionnel: La carte de couverture des stations
+</h3>
+<p>Cet exercice est plus complexe parce qu’il implique de revenir à <code>Shapely</code>, une librairie plus bas niveau que <code>GeoPandas</code>.</p>
+<p>Cet exercice est laissé libre. Une source d’inspiration possible est cette discussion sur <a href="https://gis.stackexchange.com/questions/337561/making-polygon-for-every-point-in-set-using-voronoi-diagram">StackExchange</a>.</p>
+<p>L’objectif est de faire deux cartes de couverture: une au niveau de la petite couronne et l’autre seulement au sein de Paris intramuros.</p>
+</div>
+<p>La première carte de couverture, au niveau de l’agglomération dans son ensemble, permet de voir la densité plus importante des stations velib dans le centre parisien:</p>
+<p>Si on zoome sur Paris intramuros, on a également une hétérogénéité dans la couverture. On a moins d’hétérogénéité dans les surfaces de couverture puisque la densité est importante mais on remarque néanmoins des divergences entre certains espaces.</p>
+<p>Chen, Chun-houh, Wolfgang Härdle, Antony Unwin, and Michael Friendly. 2008. “A Brief History of Data Visualization.” <em>Handbook of Data Visualization</em>, 15–56.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/www\.ilovesoils\.com\/**");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="Kkhurana007/fr_blog_mine" data-repo-id="R_kgDOJuKwyw" data-category="General" data-category-id="DIC_kwDOJuKwy84CXJ4P" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Blog made with <a href="https://quarto.org/">Quarto</a> by Kunal.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Kkhurana007">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/kunalkhurana007">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:Khuranasoilpau@gmail.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

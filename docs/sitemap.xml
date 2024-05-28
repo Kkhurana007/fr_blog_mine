@@ -98,7 +98,7 @@
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/en.html</loc>
-    <lastmod>2024-05-24T21:06:30.422Z</lastmod>
+    <lastmod>2024-05-28T19:14:29.630Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/data_analysis/eda-univariate-bivariate-corelation.html</loc>
@@ -114,7 +114,7 @@
   </url>
   <url>
     <loc>https://ilovesoils.com/index.html</loc>
-    <lastmod>2024-05-24T21:04:55.207Z</lastmod>
+    <lastmod>2024-05-28T19:14:18.870Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/about-fr.html</loc>
@@ -122,7 +122,7 @@
   </url>
   <url>
     <loc>https://ilovesoils.com/about.html</loc>
-    <lastmod>2024-05-24T21:04:37.921Z</lastmod>
+    <lastmod>2024-05-27T18:42:03.742Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/Ai_watersaving/index.html</loc>
@@ -146,7 +146,7 @@
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/index.html</loc>
-    <lastmod>2024-05-24T21:07:21.403Z</lastmod>
+    <lastmod>2024-05-28T19:14:34.380Z</lastmod>
   </url>
   <url>
     <loc>https://ilovesoils.com/posts/Machine learning in Agriculture/index.html</loc>
@@ -235,5 +235,9 @@
   <url>
     <loc>https://ilovesoils.com/series-gha.html</loc>
     <lastmod>2024-05-24T21:18:29.199Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ilovesoils.com/posts/semainedu27mai2024/03_geopandas_intro.html</loc>
+    <lastmod>2024-05-28T19:14:08.711Z</lastmod>
   </url>
 </urlset>
