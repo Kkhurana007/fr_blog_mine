@@ -120,7 +120,8 @@
   {
     "listing": "/posts/index.html",
     "items": [
-      "/posts/semainedu27mai2024/03_geopandas_intro.html",
+      "/posts/semainedu3juin2024/try.html",
+      "/posts/semainedu3juin2024/dashboard.html",
       "/posts/semainedu20mai2024/knn-algorithm.html",
       "/posts/semainedu20mai2024/logisticregression.html",
       "/posts/Big_data/Pyspark.html",
